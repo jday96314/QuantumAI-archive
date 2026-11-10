@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "scope": "full armed compact-state transform and inverse, including zero syndromes, all weights and gap inputs; no unpadding, Wronskian or decoder phase",
+  "N": 20,
+  "block": 4,
+  "shots": 512,
+  "zero_pivot_events": 906,
+  "circuits": [
+    {
+      "which": "forward",
+      "Q": 379,
+      "T": 35612
+    },
+    {
+      "which": "inverse",
+      "Q": 379,
+      "T": 35612
+    },
+    {
+      "which": "both",
+      "Q": 379,
+      "T": 71224
+    }
+  ],
+  "seconds": 68.92678308486938
+}

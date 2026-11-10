@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "scope": "full armed transform plus deferred common-factor padding; independent polynomial values, inverse, arbitrary-input composition, flags, scratch and phase; no Wronskian or decoder phase",
+  "N": 22,
+  "block": 4,
+  "direct": true,
+  "thin": false,
+  "suffix": true,
+  "shots": 512,
+  "skipped_degree_gaps": 0,
+  "circuits": [
+    {
+      "which": "forward",
+      "Q": 404,
+      "T": 46228
+    },
+    {
+      "which": "inverse",
+      "Q": 404,
+      "T": 46228
+    },
+    {
+      "which": "both",
+      "Q": 404,
+      "T": 92456
+    }
+  ]
+}

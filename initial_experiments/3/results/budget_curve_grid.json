@@ -1,0 +1,498 @@
+[
+  {
+    "keep": 0,
+    "cap": 96,
+    "Q": 97,
+    "T": 1897,
+    "estimate": 207274.47045833775,
+    "tag": "budgetcurve_k0_q96"
+  },
+  {
+    "keep": 0,
+    "cap": 97,
+    "Q": 97,
+    "T": 1885,
+    "estimate": 206110.47045833775,
+    "tag": "budgetcurve_k0_q97"
+  },
+  {
+    "keep": 0,
+    "cap": 98,
+    "Q": 98,
+    "T": 1873,
+    "estimate": 207059.32066924844,
+    "tag": "budgetcurve_k0_q98"
+  },
+  {
+    "keep": 0,
+    "cap": 99,
+    "Q": 99,
+    "T": 1863,
+    "estimate": 208182.17088015916,
+    "tag": "budgetcurve_k0_q99"
+  },
+  {
+    "keep": 0,
+    "cap": 100,
+    "Q": 100,
+    "T": 1853,
+    "estimate": 209285.02109106985,
+    "tag": "budgetcurve_k0_q100"
+  },
+  {
+    "keep": 0,
+    "cap": 101,
+    "Q": 101,
+    "T": 1845,
+    "estimate": 210569.87130198054,
+    "tag": "budgetcurve_k0_q101"
+  },
+  {
+    "keep": 0,
+    "cap": 102,
+    "Q": 102,
+    "T": 1837,
+    "estimate": 211838.72151289124,
+    "tag": "budgetcurve_k0_q102"
+  },
+  {
+    "keep": 0,
+    "cap": 103,
+    "Q": 103,
+    "T": 1831,
+    "estimate": 213297.57172380196,
+    "tag": "budgetcurve_k0_q103"
+  },
+  {
+    "keep": 0,
+    "cap": 104,
+    "Q": 104,
+    "T": 1825,
+    "estimate": 214744.42193471265,
+    "tag": "budgetcurve_k0_q104"
+  },
+  {
+    "keep": 1,
+    "cap": 96,
+    "Q": 97,
+    "T": 1865,
+    "estimate": 204170.47045833775,
+    "tag": "budgetcurve_k1_q96"
+  },
+  {
+    "keep": 1,
+    "cap": 97,
+    "Q": 97,
+    "T": 1851,
+    "estimate": 202812.47045833775,
+    "tag": "budgetcurve_k1_q97"
+  },
+  {
+    "keep": 1,
+    "cap": 98,
+    "Q": 98,
+    "T": 1839,
+    "estimate": 203727.32066924844,
+    "tag": "budgetcurve_k1_q98"
+  },
+  {
+    "keep": 1,
+    "cap": 99,
+    "Q": 99,
+    "T": 1827,
+    "estimate": 204618.17088015916,
+    "tag": "budgetcurve_k1_q99"
+  },
+  {
+    "keep": 1,
+    "cap": 100,
+    "Q": 100,
+    "T": 1817,
+    "estimate": 205685.02109106985,
+    "tag": "budgetcurve_k1_q100"
+  },
+  {
+    "keep": 1,
+    "cap": 101,
+    "Q": 101,
+    "T": 1807,
+    "estimate": 206731.87130198057,
+    "tag": "budgetcurve_k1_q101"
+  },
+  {
+    "keep": 1,
+    "cap": 102,
+    "Q": 102,
+    "T": 1799,
+    "estimate": 207962.72151289126,
+    "tag": "budgetcurve_k1_q102"
+  },
+  {
+    "keep": 1,
+    "cap": 103,
+    "Q": 103,
+    "T": 1791,
+    "estimate": 209177.57172380196,
+    "tag": "budgetcurve_k1_q103"
+  },
+  {
+    "keep": 1,
+    "cap": 104,
+    "Q": 104,
+    "T": 1785,
+    "estimate": 210584.42193471268,
+    "tag": "budgetcurve_k1_q104"
+  },
+  {
+    "keep": 2,
+    "cap": 96,
+    "Q": 96,
+    "T": 1827,
+    "estimate": 198417.62024742705,
+    "tag": "budgetcurve_k2_q96"
+  },
+  {
+    "keep": 2,
+    "cap": 97,
+    "Q": 97,
+    "T": 1813,
+    "estimate": 199126.47045833775,
+    "tag": "budgetcurve_k2_q97"
+  },
+  {
+    "keep": 2,
+    "cap": 98,
+    "Q": 98,
+    "T": 1799,
+    "estimate": 199807.32066924847,
+    "tag": "budgetcurve_k2_q98"
+  },
+  {
+    "keep": 2,
+    "cap": 99,
+    "Q": 99,
+    "T": 1787,
+    "estimate": 200658.17088015916,
+    "tag": "budgetcurve_k2_q99"
+  },
+  {
+    "keep": 2,
+    "cap": 100,
+    "Q": 100,
+    "T": 1775,
+    "estimate": 201485.02109106988,
+    "tag": "budgetcurve_k2_q100"
+  },
+  {
+    "keep": 2,
+    "cap": 101,
+    "Q": 101,
+    "T": 1765,
+    "estimate": 202489.87130198057,
+    "tag": "budgetcurve_k2_q101"
+  },
+  {
+    "keep": 2,
+    "cap": 102,
+    "Q": 102,
+    "T": 1755,
+    "estimate": 203474.72151289126,
+    "tag": "budgetcurve_k2_q102"
+  },
+  {
+    "keep": 2,
+    "cap": 103,
+    "Q": 103,
+    "T": 1747,
+    "estimate": 204645.57172380196,
+    "tag": "budgetcurve_k2_q103"
+  },
+  {
+    "keep": 2,
+    "cap": 104,
+    "Q": 104,
+    "T": 1739,
+    "estimate": 205800.42193471268,
+    "tag": "budgetcurve_k2_q104"
+  },
+  {
+    "keep": 3,
+    "cap": 96,
+    "Q": 96,
+    "T": 1810,
+    "estimate": 196785.62024742705,
+    "tag": "budgetcurve_k3_q96"
+  },
+  {
+    "keep": 3,
+    "cap": 97,
+    "Q": 97,
+    "T": 1796,
+    "estimate": 197477.47045833778,
+    "tag": "budgetcurve_k3_q97"
+  },
+  {
+    "keep": 3,
+    "cap": 98,
+    "Q": 98,
+    "T": 1782,
+    "estimate": 198141.32066924847,
+    "tag": "budgetcurve_k3_q98"
+  },
+  {
+    "keep": 3,
+    "cap": 99,
+    "Q": 99,
+    "T": 1768,
+    "estimate": 198777.17088015916,
+    "tag": "budgetcurve_k3_q99"
+  },
+  {
+    "keep": 3,
+    "cap": 100,
+    "Q": 100,
+    "T": 1756,
+    "estimate": 199585.02109106988,
+    "tag": "budgetcurve_k3_q100"
+  },
+  {
+    "keep": 3,
+    "cap": 101,
+    "Q": 101,
+    "T": 1744,
+    "estimate": 200368.87130198057,
+    "tag": "budgetcurve_k3_q101"
+  },
+  {
+    "keep": 3,
+    "cap": 102,
+    "Q": 102,
+    "T": 1734,
+    "estimate": 201332.72151289126,
+    "tag": "budgetcurve_k3_q102"
+  },
+  {
+    "keep": 3,
+    "cap": 103,
+    "Q": 103,
+    "T": 1724,
+    "estimate": 202276.57172380196,
+    "tag": "budgetcurve_k3_q103"
+  },
+  {
+    "keep": 3,
+    "cap": 104,
+    "Q": 104,
+    "T": 1716,
+    "estimate": 203408.42193471268,
+    "tag": "budgetcurve_k3_q104"
+  },
+  {
+    "keep": 4,
+    "cap": 96,
+    "Q": 96,
+    "T": 1800,
+    "estimate": 195825.62024742708,
+    "tag": "budgetcurve_k4_q96"
+  },
+  {
+    "keep": 4,
+    "cap": 97,
+    "Q": 97,
+    "T": 1786,
+    "estimate": 196507.47045833778,
+    "tag": "budgetcurve_k4_q97"
+  },
+  {
+    "keep": 4,
+    "cap": 98,
+    "Q": 98,
+    "T": 1772,
+    "estimate": 197161.32066924847,
+    "tag": "budgetcurve_k4_q98"
+  },
+  {
+    "keep": 4,
+    "cap": 99,
+    "Q": 99,
+    "T": 1758,
+    "estimate": 197787.17088015916,
+    "tag": "budgetcurve_k4_q99"
+  },
+  {
+    "keep": 4,
+    "cap": 100,
+    "Q": 100,
+    "T": 1744,
+    "estimate": 198385.02109106988,
+    "tag": "budgetcurve_k4_q100"
+  },
+  {
+    "keep": 4,
+    "cap": 101,
+    "Q": 101,
+    "T": 1732,
+    "estimate": 199156.87130198057,
+    "tag": "budgetcurve_k4_q101"
+  },
+  {
+    "keep": 4,
+    "cap": 102,
+    "Q": 102,
+    "T": 1720,
+    "estimate": 199904.72151289126,
+    "tag": "budgetcurve_k4_q102"
+  },
+  {
+    "keep": 4,
+    "cap": 103,
+    "Q": 103,
+    "T": 1710,
+    "estimate": 200834.57172380196,
+    "tag": "budgetcurve_k4_q103"
+  },
+  {
+    "keep": 4,
+    "cap": 104,
+    "Q": 104,
+    "T": 1700,
+    "estimate": 201744.42193471268,
+    "tag": "budgetcurve_k4_q104"
+  },
+  {
+    "keep": 5,
+    "cap": 96,
+    "Q": 96,
+    "T": 1802,
+    "estimate": 196017.62024742708,
+    "tag": "budgetcurve_k5_q96"
+  },
+  {
+    "keep": 5,
+    "cap": 97,
+    "Q": 97,
+    "T": 1788,
+    "estimate": 196701.47045833778,
+    "tag": "budgetcurve_k5_q97"
+  },
+  {
+    "keep": 5,
+    "cap": 98,
+    "Q": 98,
+    "T": 1774,
+    "estimate": 197357.32066924847,
+    "tag": "budgetcurve_k5_q98"
+  },
+  {
+    "keep": 5,
+    "cap": 99,
+    "Q": 99,
+    "T": 1760,
+    "estimate": 197985.17088015916,
+    "tag": "budgetcurve_k5_q99"
+  },
+  {
+    "keep": 5,
+    "cap": 100,
+    "Q": 100,
+    "T": 1746,
+    "estimate": 198585.02109106988,
+    "tag": "budgetcurve_k5_q100"
+  },
+  {
+    "keep": 5,
+    "cap": 101,
+    "Q": 101,
+    "T": 1732,
+    "estimate": 199156.87130198057,
+    "tag": "budgetcurve_k5_q101"
+  },
+  {
+    "keep": 5,
+    "cap": 102,
+    "Q": 102,
+    "T": 1720,
+    "estimate": 199904.72151289126,
+    "tag": "budgetcurve_k5_q102"
+  },
+  {
+    "keep": 5,
+    "cap": 103,
+    "Q": 103,
+    "T": 1708,
+    "estimate": 200628.57172380196,
+    "tag": "budgetcurve_k5_q103"
+  },
+  {
+    "keep": 5,
+    "cap": 104,
+    "Q": 104,
+    "T": 1698,
+    "estimate": 201536.42193471268,
+    "tag": "budgetcurve_k5_q104"
+  },
+  {
+    "keep": 6,
+    "cap": 97,
+    "Q": 97,
+    "T": 1795,
+    "estimate": 197380.47045833778,
+    "tag": "budgetcurve_k6_q97"
+  },
+  {
+    "keep": 6,
+    "cap": 98,
+    "Q": 98,
+    "T": 1781,
+    "estimate": 198043.32066924847,
+    "tag": "budgetcurve_k6_q98"
+  },
+  {
+    "keep": 6,
+    "cap": 99,
+    "Q": 99,
+    "T": 1767,
+    "estimate": 198678.17088015916,
+    "tag": "budgetcurve_k6_q99"
+  },
+  {
+    "keep": 6,
+    "cap": 100,
+    "Q": 100,
+    "T": 1753,
+    "estimate": 199285.02109106988,
+    "tag": "budgetcurve_k6_q100"
+  },
+  {
+    "keep": 6,
+    "cap": 101,
+    "Q": 101,
+    "T": 1739,
+    "estimate": 199863.87130198057,
+    "tag": "budgetcurve_k6_q101"
+  },
+  {
+    "keep": 6,
+    "cap": 102,
+    "Q": 102,
+    "T": 1725,
+    "estimate": 200414.72151289126,
+    "tag": "budgetcurve_k6_q102"
+  },
+  {
+    "keep": 6,
+    "cap": 103,
+    "Q": 103,
+    "T": 1713,
+    "estimate": 201143.57172380196,
+    "tag": "budgetcurve_k6_q103"
+  },
+  {
+    "keep": 6,
+    "cap": 104,
+    "Q": 104,
+    "T": 1701,
+    "estimate": 201848.42193471268,
+    "tag": "budgetcurve_k6_q104"
+  }
+]

@@ -1,0 +1,247 @@
+{
+  "scope": "serial generic-path arithmetic estimate, excludes inverse cleanup, controls, gap handling and scan",
+  "N": 70,
+  "storage_field_words": 70,
+  "field_products": 9798,
+  "T_field_products": 411516,
+  "rows": [
+    {
+      "k": 1,
+      "off_diagonal": 194,
+      "boundary": 3,
+      "cofactor": 2,
+      "scalar": 2
+    },
+    {
+      "k": 2,
+      "off_diagonal": 280,
+      "boundary": 5,
+      "cofactor": 4,
+      "scalar": 2
+    },
+    {
+      "k": 3,
+      "off_diagonal": 330,
+      "boundary": 7,
+      "cofactor": 6,
+      "scalar": 2
+    },
+    {
+      "k": 4,
+      "off_diagonal": 360,
+      "boundary": 9,
+      "cofactor": 8,
+      "scalar": 2
+    },
+    {
+      "k": 5,
+      "off_diagonal": 376,
+      "boundary": 11,
+      "cofactor": 10,
+      "scalar": 2
+    },
+    {
+      "k": 6,
+      "off_diagonal": 392,
+      "boundary": 13,
+      "cofactor": 12,
+      "scalar": 2
+    },
+    {
+      "k": 7,
+      "off_diagonal": 396,
+      "boundary": 15,
+      "cofactor": 14,
+      "scalar": 2
+    },
+    {
+      "k": 8,
+      "off_diagonal": 392,
+      "boundary": 17,
+      "cofactor": 16,
+      "scalar": 2
+    },
+    {
+      "k": 9,
+      "off_diagonal": 388,
+      "boundary": 19,
+      "cofactor": 18,
+      "scalar": 2
+    },
+    {
+      "k": 10,
+      "off_diagonal": 384,
+      "boundary": 21,
+      "cofactor": 20,
+      "scalar": 2
+    },
+    {
+      "k": 11,
+      "off_diagonal": 378,
+      "boundary": 23,
+      "cofactor": 22,
+      "scalar": 2
+    },
+    {
+      "k": 12,
+      "off_diagonal": 364,
+      "boundary": 25,
+      "cofactor": 24,
+      "scalar": 2
+    },
+    {
+      "k": 13,
+      "off_diagonal": 348,
+      "boundary": 27,
+      "cofactor": 26,
+      "scalar": 2
+    },
+    {
+      "k": 14,
+      "off_diagonal": 332,
+      "boundary": 29,
+      "cofactor": 28,
+      "scalar": 2
+    },
+    {
+      "k": 15,
+      "off_diagonal": 316,
+      "boundary": 31,
+      "cofactor": 30,
+      "scalar": 2
+    },
+    {
+      "k": 16,
+      "off_diagonal": 300,
+      "boundary": 33,
+      "cofactor": 32,
+      "scalar": 2
+    },
+    {
+      "k": 17,
+      "off_diagonal": 282,
+      "boundary": 35,
+      "cofactor": 34,
+      "scalar": 2
+    },
+    {
+      "k": 18,
+      "off_diagonal": 258,
+      "boundary": 37,
+      "cofactor": 36,
+      "scalar": 2
+    },
+    {
+      "k": 19,
+      "off_diagonal": 238,
+      "boundary": 39,
+      "cofactor": 38,
+      "scalar": 2
+    },
+    {
+      "k": 20,
+      "off_diagonal": 218,
+      "boundary": 41,
+      "cofactor": 40,
+      "scalar": 2
+    },
+    {
+      "k": 21,
+      "off_diagonal": 198,
+      "boundary": 43,
+      "cofactor": 42,
+      "scalar": 2
+    },
+    {
+      "k": 22,
+      "off_diagonal": 178,
+      "boundary": 45,
+      "cofactor": 44,
+      "scalar": 2
+    },
+    {
+      "k": 23,
+      "off_diagonal": 158,
+      "boundary": 44,
+      "cofactor": 46,
+      "scalar": 2
+    },
+    {
+      "k": 24,
+      "off_diagonal": 138,
+      "boundary": 40,
+      "cofactor": 48,
+      "scalar": 2
+    },
+    {
+      "k": 25,
+      "off_diagonal": 118,
+      "boundary": 36,
+      "cofactor": 50,
+      "scalar": 2
+    },
+    {
+      "k": 26,
+      "off_diagonal": 98,
+      "boundary": 32,
+      "cofactor": 52,
+      "scalar": 2
+    },
+    {
+      "k": 27,
+      "off_diagonal": 82,
+      "boundary": 28,
+      "cofactor": 54,
+      "scalar": 2
+    },
+    {
+      "k": 28,
+      "off_diagonal": 66,
+      "boundary": 24,
+      "cofactor": 56,
+      "scalar": 2
+    },
+    {
+      "k": 29,
+      "off_diagonal": 50,
+      "boundary": 20,
+      "cofactor": 58,
+      "scalar": 2
+    },
+    {
+      "k": 30,
+      "off_diagonal": 34,
+      "boundary": 16,
+      "cofactor": 60,
+      "scalar": 2
+    },
+    {
+      "k": 31,
+      "off_diagonal": 22,
+      "boundary": 12,
+      "cofactor": 62,
+      "scalar": 2
+    },
+    {
+      "k": 32,
+      "off_diagonal": 10,
+      "boundary": 8,
+      "cofactor": 64,
+      "scalar": 2
+    },
+    {
+      "k": 33,
+      "off_diagonal": 2,
+      "boundary": 4,
+      "cofactor": 66,
+      "scalar": 2
+    },
+    {
+      "k": 34,
+      "off_diagonal": 0,
+      "boundary": 0,
+      "cofactor": 68,
+      "scalar": 2
+    }
+  ]
+}

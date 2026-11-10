@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "instances": 30,
+  "n": 8,
+  "encoding_worst_error": 7.105427357601002e-15,
+  "annealing_worst_gap": 7.105427357601002e-15
+}

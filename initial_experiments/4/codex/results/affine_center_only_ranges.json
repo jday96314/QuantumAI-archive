@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "all legal x; selected affine residual does not overflow its 23-bit register",
+  "A_numerators": [
+    961,
+    1217
+  ],
+  "A_denominator": 1024,
+  "inputs": 3133452,
+  "minimum": 147391,
+  "maximum": 8388606,
+  "limit": 8388608
+}

@@ -1,0 +1,17 @@
+{
+  "scope": "resource-only initial four-degree prefix; no full decoder score",
+  "N": 70,
+  "rows": [
+    {
+      "baseline": true,
+      "Q": 943,
+      "T": 20360
+    },
+    {
+      "baseline": false,
+      "Q": 970,
+      "T": 28114
+    }
+  ],
+  "seconds": 7.316478967666626
+}

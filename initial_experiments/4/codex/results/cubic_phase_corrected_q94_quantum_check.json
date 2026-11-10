@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "scope": "cubic scratch/input/phase against independent integer model, no native acceptance",
+  "candidate": "candidates/cubic_phase_corrected_q94.kmb",
+  "shots": 131072,
+  "Q": 94,
+  "T": 2458,
+  "source_errors": 0,
+  "scratch_errors": 0,
+  "phase_errors": 0,
+  "examples": []
+}

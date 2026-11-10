@@ -1,0 +1,10 @@
+{
+  "shots": 1000,
+  "scope": "classical stream model, degree-trimmed template",
+  "stops": {
+    "done": 944,
+    "secondpark": 2,
+    "None": 54
+  },
+  "failures": []
+}

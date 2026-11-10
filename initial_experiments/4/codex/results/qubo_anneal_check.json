@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "instances": 50,
+  "n": 12,
+  "missed_optima": 0,
+  "worst_gap": 5.329070518200751e-15
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PROFILED",
+  "scope": "resource-only common monomial to squarefree cofactor padding at N70; affine transvection helper independently tested, this full adapter is not native-verified",
+  "rows": [
+    {
+      "controlled_transvections": false,
+      "Q": 878,
+      "T": 28069,
+      "ops": 28285,
+      "seconds": 0.04732799530029297
+    },
+    {
+      "controlled_transvections": true,
+      "Q": 878,
+      "T": 7140,
+      "ops": 789320,
+      "seconds": 1.4914758205413818
+    }
+  ]
+}

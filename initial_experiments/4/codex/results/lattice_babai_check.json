@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "scope": "correlated quadratic barrier: every unit coordinate step is uphill; lattice proposal reaches exhaustive optimum",
+  "proposal": [
+    -10,
+    10
+  ],
+  "objective": -1.0000000000000036,
+  "exhaustive": [
+    -1.0000000000000036,
+    [
+      -10,
+      10
+    ]
+  ]
+}

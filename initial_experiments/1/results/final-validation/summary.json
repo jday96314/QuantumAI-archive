@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "salt": "quantumai_independent_validation_20261023_0058",
+  "baseline_costs": {
+    "invsqrt": 2076774.233715282,
+    "dqi": 24439463583672.93,
+    "dfthcsos": 3355599588.3155375
+  },
+  "costs": {
+    "invsqrt": 329225.28636057145,
+    "dqi": 15548775312944.799,
+    "dfthcsos": 2903278577.4260106
+  },
+  "improvement_ratios": {
+    "invsqrt": 6.3080641729346825,
+    "dqi": 1.5717934751636922,
+    "dfthcsos": 1.1557966274426705
+  },
+  "overall_score": 2.254538567973452,
+  "note": "Local normalization against the recorded empty-salt host baselines; official split salts and reference costs are private."
+}

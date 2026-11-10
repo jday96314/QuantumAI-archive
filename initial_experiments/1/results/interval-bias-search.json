@@ -1,0 +1,402 @@
+[
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      21,
+      14
+    ],
+    "qubits": 143,
+    "toffolis": 2732,
+    "estimated_score": 426426,
+    "table": "initial_experiments/candidates/poly-interval-f7-w28-21-14.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f7-w28-21-14.kmb"
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      22,
+      16
+    ],
+    "qubits": 146,
+    "toffolis": 2744,
+    "estimated_score": 437124,
+    "table": "initial_experiments/candidates/poly-interval-f6-w28-22-16.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f6-w28-22-16.kmb"
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      20,
+      13
+    ],
+    "qubits": 147,
+    "toffolis": 2730,
+    "estimated_score": 438060,
+    "table": "initial_experiments/candidates/poly-interval-f7-w29-20-13.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f7-w29-20-13.kmb"
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      22,
+      15
+    ],
+    "qubits": 145,
+    "toffolis": 2784,
+    "estimated_score": 439930,
+    "table": "initial_experiments/candidates/poly-interval-f7-w28-22-15.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f7-w28-22-15.kmb"
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      21,
+      14
+    ],
+    "qubits": 146,
+    "toffolis": 2798,
+    "estimated_score": 445008,
+    "table": "initial_experiments/candidates/poly-interval-f7-w29-21-14.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f7-w29-21-14.kmb"
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      23,
+      17
+    ],
+    "qubits": 148,
+    "toffolis": 2800,
+    "estimated_score": 451400,
+    "table": "initial_experiments/candidates/poly-interval-f6-w28-23-17.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f6-w28-23-17.kmb"
+  },
+  {
+    "frac": 6,
+    "widths": [
+      29,
+      22,
+      16
+    ],
+    "qubits": 149,
+    "toffolis": 2814,
+    "estimated_score": 456536,
+    "table": "initial_experiments/candidates/poly-interval-f6-w29-22-16.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f6-w29-22-16.kmb"
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      22,
+      15
+    ],
+    "qubits": 148,
+    "toffolis": 2850,
+    "estimated_score": 458800,
+    "table": "initial_experiments/candidates/poly-interval-f7-w29-22-15.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f7-w29-22-15.kmb"
+  },
+  {
+    "frac": 6,
+    "widths": [
+      29,
+      23,
+      17
+    ],
+    "qubits": 151,
+    "toffolis": 2870,
+    "estimated_score": 471120,
+    "table": "initial_experiments/candidates/poly-interval-f6-w29-23-17.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f6-w29-23-17.kmb"
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      23,
+      16
+    ],
+    "qubits": 150,
+    "toffolis": 2902,
+    "estimated_score": 472800,
+    "table": "initial_experiments/candidates/poly-interval-f7-w29-23-16.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f7-w29-23-16.kmb"
+  },
+  {
+    "frac": 6,
+    "widths": [
+      29,
+      24,
+      18
+    ],
+    "qubits": 153,
+    "toffolis": 2926,
+    "estimated_score": 485928,
+    "table": "initial_experiments/candidates/poly-interval-f6-w29-24-18.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f6-w29-24-18.kmb"
+  },
+  {
+    "frac": 5,
+    "widths": [
+      28,
+      22,
+      17,
+      12
+    ],
+    "qubits": 159,
+    "toffolis": 3297,
+    "estimated_score": 563973,
+    "table": "initial_experiments/candidates/poly-interval-f5-w28-22-17-12.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f5-w28-22-17-12.kmb"
+  },
+  {
+    "frac": 5,
+    "widths": [
+      28,
+      23,
+      18,
+      13
+    ],
+    "qubits": 162,
+    "toffolis": 3437,
+    "estimated_score": 597294,
+    "table": "initial_experiments/candidates/poly-interval-f5-w28-23-18-13.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f5-w28-23-18-13.kmb"
+  },
+  {
+    "frac": 5,
+    "widths": [
+      29,
+      22,
+      17,
+      12
+    ],
+    "qubits": 165,
+    "toffolis": 3397,
+    "estimated_score": 601755,
+    "table": "initial_experiments/candidates/poly-interval-f5-w29-22-17-12.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f5-w29-22-17-12.kmb"
+  },
+  {
+    "frac": 5,
+    "widths": [
+      29,
+      23,
+      18,
+      13
+    ],
+    "qubits": 165,
+    "toffolis": 3511,
+    "estimated_score": 620565,
+    "table": "initial_experiments/candidates/poly-interval-f5-w29-23-18-13.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f5-w29-23-18-13.kmb"
+  },
+  {
+    "frac": 5,
+    "widths": [
+      28,
+      24,
+      19,
+      14
+    ],
+    "qubits": 165,
+    "toffolis": 3583,
+    "estimated_score": 632445,
+    "table": "initial_experiments/candidates/poly-interval-f5-w28-24-19-14.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f5-w28-24-19-14.kmb"
+  },
+  {
+    "frac": 5,
+    "widths": [
+      29,
+      24,
+      19,
+      14
+    ],
+    "qubits": 168,
+    "toffolis": 3657,
+    "estimated_score": 656376,
+    "table": "initial_experiments/candidates/poly-interval-f5-w29-24-19-14.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f5-w29-24-19-14.kmb"
+  },
+  {
+    "frac": 4,
+    "widths": [
+      29,
+      23,
+      19,
+      15
+    ],
+    "qubits": 168,
+    "toffolis": 3785,
+    "estimated_score": 677880,
+    "table": "initial_experiments/candidates/poly-interval-f4-w29-23-19-15.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f4-w29-23-19-15.kmb"
+  },
+  {
+    "frac": 4,
+    "widths": [
+      28,
+      24,
+      20,
+      16
+    ],
+    "qubits": 168,
+    "toffolis": 3871,
+    "estimated_score": 692328,
+    "table": "initial_experiments/candidates/poly-interval-f4-w28-24-20-16.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f4-w28-24-20-16.kmb"
+  },
+  {
+    "frac": 5,
+    "widths": [
+      29,
+      25,
+      20,
+      15
+    ],
+    "qubits": 171,
+    "toffolis": 3809,
+    "estimated_score": 694089,
+    "table": "initial_experiments/candidates/poly-interval-f5-w29-25-20-15.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f5-w29-25-20-15.kmb"
+  },
+  {
+    "frac": 4,
+    "widths": [
+      29,
+      24,
+      20,
+      16
+    ],
+    "qubits": 171,
+    "toffolis": 3949,
+    "estimated_score": 718029,
+    "table": "initial_experiments/candidates/poly-interval-f4-w29-24-20-16.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f4-w29-24-20-16.kmb"
+  },
+  {
+    "frac": 4,
+    "widths": [
+      28,
+      25,
+      21,
+      17
+    ],
+    "qubits": 171,
+    "toffolis": 4037,
+    "estimated_score": 733077,
+    "table": "initial_experiments/candidates/poly-interval-f4-w28-25-21-17.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f4-w28-25-21-17.kmb"
+  },
+  {
+    "frac": 4,
+    "widths": [
+      29,
+      25,
+      21,
+      17
+    ],
+    "qubits": 174,
+    "toffolis": 4115,
+    "estimated_score": 759510,
+    "table": "initial_experiments/candidates/poly-interval-f4-w29-25-21-17.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f4-w29-25-21-17.kmb"
+  },
+  {
+    "frac": 4,
+    "widths": [
+      29,
+      26,
+      22,
+      18
+    ],
+    "qubits": 177,
+    "toffolis": 4243,
+    "estimated_score": 795261,
+    "table": "initial_experiments/candidates/poly-interval-f4-w29-26-22-18.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f4-w29-26-22-18.kmb"
+  },
+  {
+    "frac": 3,
+    "widths": [
+      28,
+      25,
+      22,
+      19,
+      16
+    ],
+    "qubits": 190,
+    "toffolis": 5124,
+    "estimated_score": 1021060,
+    "table": "initial_experiments/candidates/poly-interval-f3-w28-25-22-19-16.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f3-w28-25-22-19-16.kmb"
+  },
+  {
+    "frac": 3,
+    "widths": [
+      29,
+      25,
+      22,
+      19,
+      16
+    ],
+    "qubits": 196,
+    "toffolis": 5240,
+    "estimated_score": 1076040,
+    "table": "initial_experiments/candidates/poly-interval-f3-w29-25-22-19-16.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f3-w29-25-22-19-16.kmb"
+  },
+  {
+    "frac": 3,
+    "widths": [
+      28,
+      26,
+      23,
+      20,
+      17
+    ],
+    "qubits": 194,
+    "toffolis": 5360,
+    "estimated_score": 1088340,
+    "table": "initial_experiments/candidates/poly-interval-f3-w28-26-23-20-17.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f3-w28-26-23-20-17.kmb"
+  },
+  {
+    "frac": 3,
+    "widths": [
+      29,
+      26,
+      23,
+      20,
+      17
+    ],
+    "qubits": 197,
+    "toffolis": 5442,
+    "estimated_score": 1121324,
+    "table": "initial_experiments/candidates/poly-interval-f3-w29-26-23-20-17.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f3-w29-26-23-20-17.kmb"
+  },
+  {
+    "frac": 3,
+    "widths": [
+      29,
+      27,
+      24,
+      21,
+      18
+    ],
+    "qubits": 201,
+    "toffolis": 5684,
+    "estimated_score": 1192734,
+    "table": "initial_experiments/candidates/poly-interval-f3-w29-27-24-21-18.npy",
+    "circuit": "initial_experiments/candidates/poly-interval-f3-w29-27-24-21-18.kmb"
+  }
+]

@@ -1,0 +1,4 @@
+row_id,benchmark,Usage,seed_salt,baseline_cost
+invsqrt,invsqrt,Public,chem-audit-complete-archive-validation-2026-10-24-fixed-v1,2076774.233715
+dqi,dqi,Public,chem-audit-complete-archive-validation-2026-10-24-fixed-v1,24439463583672.93
+dfthcsos,dfthcsos,Public,chem-audit-complete-archive-validation-2026-10-24-fixed-v1,3355599588.315537

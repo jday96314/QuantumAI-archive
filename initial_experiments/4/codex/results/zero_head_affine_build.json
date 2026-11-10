@@ -1,0 +1,7 @@
+{
+  "status": "BUILT",
+  "scope": "fixed-top affine restoration and measured clean-headroom shifts; requires full native verification",
+  "Q": 90,
+  "T": 1793,
+  "output": "candidates/zero_head_affine_rebuilt.kmb"
+}

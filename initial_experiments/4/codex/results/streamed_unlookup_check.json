@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "scope": "all addresses, random tables, source restoration, zero output and phase",
+  "rows": [
+    {
+      "n": 2,
+      "width": 8,
+      "workspace": 0,
+      "Q": 10,
+      "T": 0,
+      "shots": 4
+    },
+    {
+      "n": 3,
+      "width": 8,
+      "workspace": 1,
+      "Q": 11,
+      "T": 1,
+      "shots": 8
+    },
+    {
+      "n": 4,
+      "width": 8,
+      "workspace": 2,
+      "Q": 12,
+      "T": 2,
+      "shots": 16
+    },
+    {
+      "n": 5,
+      "width": 8,
+      "workspace": 3,
+      "Q": 13,
+      "T": 5,
+      "shots": 32
+    },
+    {
+      "n": 6,
+      "width": 8,
+      "workspace": 6,
+      "Q": 14,
+      "T": 8,
+      "shots": 64
+    },
+    {
+      "n": 7,
+      "width": 8,
+      "workspace": 7,
+      "Q": 15,
+      "T": 15,
+      "shots": 128
+    },
+    {
+      "n": 8,
+      "width": 14,
+      "workspace": 14,
+      "Q": 22,
+      "T": 22,
+      "shots": 256
+    },
+    {
+      "n": 9,
+      "width": 15,
+      "workspace": 15,
+      "Q": 24,
+      "T": 37,
+      "shots": 512
+    },
+    {
+      "n": 10,
+      "width": 30,
+      "workspace": 30,
+      "Q": 40,
+      "T": 52,
+      "shots": 1024
+    },
+    {
+      "n": 11,
+      "width": 31,
+      "workspace": 31,
+      "Q": 42,
+      "T": 83,
+      "shots": 2048
+    }
+  ]
+}

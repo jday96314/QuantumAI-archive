@@ -1,0 +1,46 @@
+[
+  {
+    "N": 70,
+    "block": 2,
+    "padding": false,
+    "deferred": true,
+    "direct": true,
+    "thin": false,
+    "suffix": true,
+    "Q": 956,
+    "T": 476900
+  },
+  {
+    "N": 70,
+    "block": 4,
+    "padding": false,
+    "deferred": true,
+    "direct": true,
+    "thin": false,
+    "suffix": true,
+    "Q": 1004,
+    "T": 413318
+  },
+  {
+    "N": 70,
+    "block": 6,
+    "padding": false,
+    "deferred": true,
+    "direct": true,
+    "thin": false,
+    "suffix": true,
+    "Q": 1052,
+    "T": 421316
+  },
+  {
+    "N": 70,
+    "block": 8,
+    "padding": false,
+    "deferred": true,
+    "direct": true,
+    "thin": false,
+    "suffix": true,
+    "Q": 1100,
+    "T": 446480
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "status": "BUILT",
+  "scope": "combined constant restoration; requires full native verification",
+  "Q": 90,
+  "T": 1812,
+  "output": "candidates/constant3_affine.kmb"
+}

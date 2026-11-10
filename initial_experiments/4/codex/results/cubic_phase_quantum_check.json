@@ -1,0 +1,52 @@
+{
+  "status": "FAIL",
+  "scope": "cubic scratch/input/phase against independent integer model, no native acceptance",
+  "shots": 8192,
+  "Q": 94,
+  "T": 2426,
+  "source_errors": 0,
+  "scratch_errors": 0,
+  "phase_errors": 78,
+  "examples": [
+    {
+      "x": 1,
+      "expected": 0,
+      "actual": 17293822569102704640
+    },
+    {
+      "x": 4,
+      "expected": 9223372036854775808,
+      "actual": 8646911284551352320
+    },
+    {
+      "x": 16,
+      "expected": 4611686018427387904,
+      "actual": 4323455642275676160
+    },
+    {
+      "x": 64,
+      "expected": 2305843009213693952,
+      "actual": 2161727821137838080
+    },
+    {
+      "x": 256,
+      "expected": 1152921504606846976,
+      "actual": 1080863910568919040
+    },
+    {
+      "x": 1024,
+      "expected": 576460752303423488,
+      "actual": 540431955284459520
+    },
+    {
+      "x": 1654615,
+      "expected": 14340729505579008,
+      "actual": 15466629412421632
+    },
+    {
+      "x": 104396,
+      "expected": 57092332398313472,
+      "actual": 61595932025683968
+    }
+  ]
+}

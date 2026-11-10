@@ -1,0 +1,28 @@
+[
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      19,
+      8
+    ],
+    "qubits": 123,
+    "toffolis": 2426,
+    "max_relative_error": 5.387263080081084e-08,
+    "circuit": "initial_experiments/candidates/poly-integer-tiny-28-19-8.kmb",
+    "table": "initial_experiments/candidates/poly-integer-tiny-28-19-8.npy"
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      19,
+      9
+    ],
+    "qubits": 124,
+    "toffolis": 2438,
+    "max_relative_error": 4.750757409688333e-08,
+    "circuit": "initial_experiments/candidates/poly-integer-tiny-28-19-9.kmb",
+    "table": "initial_experiments/candidates/poly-integer-tiny-28-19-9.npy"
+  }
+]

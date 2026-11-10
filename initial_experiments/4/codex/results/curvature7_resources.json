@@ -1,0 +1,429 @@
+{
+  "widths": [
+    27,
+    18,
+    7
+  ],
+  "bounds": {
+    "minimum": 147391,
+    "maximum": 8388604,
+    "correction": 0,
+    "max_relative_error": 5.8913083744727146e-08
+  },
+  "rows": [
+    {
+      "Q": 88,
+      "T": 1886,
+      "estimate": 187088,
+      "limit": 88,
+      "keep": 3,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 89,
+      "T": 1865,
+      "estimate": 187345,
+      "limit": 89,
+      "keep": 4,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 88,
+      "T": 1889,
+      "estimate": 187352,
+      "limit": 88,
+      "keep": 2,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 86,
+      "T": 1940,
+      "estimate": 187480,
+      "limit": 86,
+      "keep": 2,
+      "delay": 3,
+      "product": 17
+    },
+    {
+      "Q": 88,
+      "T": 1892,
+      "estimate": 187616,
+      "limit": 88,
+      "keep": 3,
+      "delay": 2,
+      "product": 16
+    },
+    {
+      "Q": 89,
+      "T": 1871,
+      "estimate": 187879,
+      "limit": 89,
+      "keep": 4,
+      "delay": 2,
+      "product": 16
+    },
+    {
+      "Q": 88,
+      "T": 1895,
+      "estimate": 187880,
+      "limit": 88,
+      "keep": 2,
+      "delay": 2,
+      "product": 16
+    },
+    {
+      "Q": 89,
+      "T": 1872,
+      "estimate": 187968,
+      "limit": 89,
+      "keep": 3,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 88,
+      "T": 1898,
+      "estimate": 188144,
+      "limit": 88,
+      "keep": 4,
+      "delay": 3,
+      "product": 17
+    },
+    {
+      "Q": 90,
+      "T": 1851,
+      "estimate": 188190,
+      "limit": 90,
+      "keep": 4,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 89,
+      "T": 1875,
+      "estimate": 188235,
+      "limit": 89,
+      "keep": 2,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 89,
+      "T": 1878,
+      "estimate": 188502,
+      "limit": 89,
+      "keep": 3,
+      "delay": 2,
+      "product": 16
+    },
+    {
+      "Q": 90,
+      "T": 1857,
+      "estimate": 188730,
+      "limit": 90,
+      "keep": 4,
+      "delay": 2,
+      "product": 16
+    },
+    {
+      "Q": 88,
+      "T": 1905,
+      "estimate": 188760,
+      "limit": 88,
+      "keep": 3,
+      "delay": 3,
+      "product": 17
+    },
+    {
+      "Q": 89,
+      "T": 1881,
+      "estimate": 188769,
+      "limit": 89,
+      "keep": 2,
+      "delay": 2,
+      "product": 16
+    },
+    {
+      "Q": 90,
+      "T": 1858,
+      "estimate": 188820,
+      "limit": 90,
+      "keep": 3,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 88,
+      "T": 1908,
+      "estimate": 189024,
+      "limit": 88,
+      "keep": 2,
+      "delay": 3,
+      "product": 17
+    },
+    {
+      "Q": 89,
+      "T": 1884,
+      "estimate": 189036,
+      "limit": 89,
+      "keep": 4,
+      "delay": 3,
+      "product": 17
+    },
+    {
+      "Q": 90,
+      "T": 1861,
+      "estimate": 189090,
+      "limit": 90,
+      "keep": 2,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 88,
+      "T": 1911,
+      "estimate": 189288,
+      "limit": 88,
+      "keep": 3,
+      "delay": 3,
+      "product": 16
+    },
+    {
+      "Q": 90,
+      "T": 1864,
+      "estimate": 189360,
+      "limit": 90,
+      "keep": 3,
+      "delay": 2,
+      "product": 16
+    },
+    {
+      "Q": 88,
+      "T": 1914,
+      "estimate": 189552,
+      "limit": 88,
+      "keep": 2,
+      "delay": 3,
+      "product": 16
+    },
+    {
+      "Q": 89,
+      "T": 1890,
+      "estimate": 189570,
+      "limit": 89,
+      "keep": 4,
+      "delay": 3,
+      "product": 16
+    },
+    {
+      "Q": 90,
+      "T": 1867,
+      "estimate": 189630,
+      "limit": 90,
+      "keep": 2,
+      "delay": 2,
+      "product": 16
+    },
+    {
+      "Q": 89,
+      "T": 1891,
+      "estimate": 189659,
+      "limit": 89,
+      "keep": 3,
+      "delay": 3,
+      "product": 17
+    },
+    {
+      "Q": 92,
+      "T": 1823,
+      "estimate": 189796,
+      "limit": 92,
+      "keep": 4,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 90,
+      "T": 1870,
+      "estimate": 189900,
+      "limit": 90,
+      "keep": 4,
+      "delay": 3,
+      "product": 17
+    },
+    {
+      "Q": 89,
+      "T": 1894,
+      "estimate": 189926,
+      "limit": 89,
+      "keep": 2,
+      "delay": 3,
+      "product": 17
+    },
+    {
+      "Q": 89,
+      "T": 1897,
+      "estimate": 190193,
+      "limit": 89,
+      "keep": 3,
+      "delay": 3,
+      "product": 16
+    },
+    {
+      "Q": 92,
+      "T": 1829,
+      "estimate": 190348,
+      "limit": 92,
+      "keep": 4,
+      "delay": 2,
+      "product": 16
+    },
+    {
+      "Q": 90,
+      "T": 1876,
+      "estimate": 190440,
+      "limit": 90,
+      "keep": 4,
+      "delay": 3,
+      "product": 16
+    },
+    {
+      "Q": 92,
+      "T": 1830,
+      "estimate": 190440,
+      "limit": 92,
+      "keep": 3,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 89,
+      "T": 1900,
+      "estimate": 190460,
+      "limit": 89,
+      "keep": 2,
+      "delay": 3,
+      "product": 16
+    },
+    {
+      "Q": 90,
+      "T": 1877,
+      "estimate": 190530,
+      "limit": 90,
+      "keep": 3,
+      "delay": 3,
+      "product": 17
+    },
+    {
+      "Q": 92,
+      "T": 1833,
+      "estimate": 190716,
+      "limit": 92,
+      "keep": 2,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 90,
+      "T": 1880,
+      "estimate": 190800,
+      "limit": 90,
+      "keep": 2,
+      "delay": 3,
+      "product": 17
+    },
+    {
+      "Q": 92,
+      "T": 1836,
+      "estimate": 190992,
+      "limit": 92,
+      "keep": 3,
+      "delay": 2,
+      "product": 16
+    },
+    {
+      "Q": 90,
+      "T": 1883,
+      "estimate": 191070,
+      "limit": 90,
+      "keep": 3,
+      "delay": 3,
+      "product": 16
+    },
+    {
+      "Q": 92,
+      "T": 1839,
+      "estimate": 191268,
+      "limit": 92,
+      "keep": 2,
+      "delay": 2,
+      "product": 16
+    },
+    {
+      "Q": 90,
+      "T": 1886,
+      "estimate": 191340,
+      "limit": 90,
+      "keep": 2,
+      "delay": 3,
+      "product": 16
+    },
+    {
+      "Q": 92,
+      "T": 1842,
+      "estimate": 191544,
+      "limit": 92,
+      "keep": 4,
+      "delay": 3,
+      "product": 17
+    },
+    {
+      "Q": 92,
+      "T": 1848,
+      "estimate": 192096,
+      "limit": 92,
+      "keep": 4,
+      "delay": 3,
+      "product": 16
+    },
+    {
+      "Q": 92,
+      "T": 1849,
+      "estimate": 192188,
+      "limit": 92,
+      "keep": 3,
+      "delay": 3,
+      "product": 17
+    },
+    {
+      "Q": 92,
+      "T": 1852,
+      "estimate": 192464,
+      "limit": 92,
+      "keep": 2,
+      "delay": 3,
+      "product": 17
+    },
+    {
+      "Q": 92,
+      "T": 1855,
+      "estimate": 192740,
+      "limit": 92,
+      "keep": 3,
+      "delay": 3,
+      "product": 16
+    },
+    {
+      "Q": 92,
+      "T": 1858,
+      "estimate": 193016,
+      "limit": 92,
+      "keep": 2,
+      "delay": 3,
+      "product": 16
+    }
+  ]
+}

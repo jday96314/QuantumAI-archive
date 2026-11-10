@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "scope": "generic compact Euclid quotient block, independent serial reference, inverse, composition, scratch and phase; excludes gaps/stopping/decoder phase",
+  "N": 20,
+  "k": 3,
+  "block": 2,
+  "shots": 512,
+  "skipped_degree_gaps": 0,
+  "circuits": [
+    {
+      "which": "forward",
+      "Q": 321,
+      "T": 7692,
+      "extra_qubits": 81
+    },
+    {
+      "which": "inverse",
+      "Q": 321,
+      "T": 7692,
+      "extra_qubits": 81
+    },
+    {
+      "which": "both",
+      "Q": 321,
+      "T": 15384,
+      "extra_qubits": 81
+    }
+  ],
+  "seconds": 47.475292682647705
+}

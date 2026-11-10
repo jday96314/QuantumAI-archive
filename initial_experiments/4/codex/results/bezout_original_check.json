@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "generic coprime polynomials, no Euclidean degree gaps",
+  "shots": 512,
+  "rejected_degenerate_pairs": 3,
+  "Q": 694,
+  "public_qubits": 636,
+  "extra_qubits": 58,
+  "T": 49624,
+  "failures": [],
+  "scratch_errors": [],
+  "phase_errors": []
+}

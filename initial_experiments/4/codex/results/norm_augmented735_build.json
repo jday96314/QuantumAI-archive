@@ -1,0 +1,106 @@
+{
+  "status": "PASS",
+  "scope": "zero-weight extension preserves initial model; research only",
+  "source": "candidates/jacobi_l1/submission.npz",
+  "output": "parameters/norm_augmented735.npz",
+  "basis": 735,
+  "candidate_count": 700,
+  "atoms": [
+    {
+      "index": 584,
+      "score": 6781158.461601385,
+      "outside_squared_norm": 0.24468775701797052,
+      "largest_dual_violation": 55.85100415059303
+    },
+    {
+      "index": 130,
+      "score": 6764648.602906855,
+      "outside_squared_norm": 0.22416211747178005,
+      "largest_dual_violation": 57.81600939892723
+    },
+    {
+      "index": 694,
+      "score": 4319435.449199933,
+      "outside_squared_norm": 0.31637329803794856,
+      "largest_dual_violation": 72.51719353538864
+    },
+    {
+      "index": 25,
+      "score": 3997410.22119667,
+      "outside_squared_norm": 0.33269416637647176,
+      "largest_dual_violation": 77.63592725641124
+    },
+    {
+      "index": 590,
+      "score": 2297228.835053725,
+      "outside_squared_norm": 0.3917049923050282,
+      "largest_dual_violation": 58.393369249529805
+    },
+    {
+      "index": 175,
+      "score": 1921690.2926299418,
+      "outside_squared_norm": 0.3798051247179419,
+      "largest_dual_violation": 55.84315742343675
+    },
+    {
+      "index": 552,
+      "score": 1740180.0780431873,
+      "outside_squared_norm": 0.257954325962118,
+      "largest_dual_violation": 65.83643468786518
+    },
+    {
+      "index": 525,
+      "score": 1512617.6473891074,
+      "outside_squared_norm": 0.33296256976117355,
+      "largest_dual_violation": 65.3208310008933
+    },
+    {
+      "index": 593,
+      "score": 1172207.709101698,
+      "outside_squared_norm": 0.3946047972370179,
+      "largest_dual_violation": 68.30440123345917
+    },
+    {
+      "index": 49,
+      "score": 1123312.8887577937,
+      "outside_squared_norm": 0.3349705094758937,
+      "largest_dual_violation": 67.58304896448097
+    },
+    {
+      "index": 168,
+      "score": 971424.454659575,
+      "outside_squared_norm": 0.5866655222824424,
+      "largest_dual_violation": 60.01532896535947
+    },
+    {
+      "index": 424,
+      "score": 882279.6191581384,
+      "outside_squared_norm": 0.578625182815012,
+      "largest_dual_violation": 63.704087389333296
+    },
+    {
+      "index": 412,
+      "score": 809137.5558950771,
+      "outside_squared_norm": 0.5614015604654243,
+      "largest_dual_violation": 61.1740158583236
+    },
+    {
+      "index": 340,
+      "score": 802973.8161051571,
+      "outside_squared_norm": 0.5901891573608751,
+      "largest_dual_violation": 63.685724917818156
+    },
+    {
+      "index": 379,
+      "score": 762765.156675084,
+      "outside_squared_norm": 0.5633952249650594,
+      "largest_dual_violation": 55.876974460854306
+    },
+    {
+      "index": 511,
+      "score": 688425.4445018475,
+      "outside_squared_norm": 0.6161961377401486,
+      "largest_dual_violation": 57.117515108782875
+    }
+  ]
+}

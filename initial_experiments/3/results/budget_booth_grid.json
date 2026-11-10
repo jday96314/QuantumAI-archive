@@ -1,0 +1,107 @@
+[
+  {
+    "cap": 100,
+    "Q": 100,
+    "T": 1720,
+    "estimate": 195985.02109106988,
+    "tag": "budgetbooth_q100"
+  },
+  {
+    "cap": 101,
+    "Q": 101,
+    "T": 1706,
+    "estimate": 196530.87130198057,
+    "tag": "budgetbooth_q101"
+  },
+  {
+    "cap": 102,
+    "Q": 102,
+    "T": 1692,
+    "estimate": 197048.72151289126,
+    "tag": "budgetbooth_q102"
+  },
+  {
+    "cap": 103,
+    "Q": 103,
+    "T": 1678,
+    "estimate": 197538.57172380196,
+    "tag": "budgetbooth_q103"
+  },
+  {
+    "cap": 104,
+    "Q": 104,
+    "T": 1664,
+    "estimate": 198000.42193471268,
+    "tag": "budgetbooth_q104"
+  },
+  {
+    "cap": 105,
+    "Q": 105,
+    "T": 1650,
+    "estimate": 198434.27214562337,
+    "tag": "budgetbooth_q105"
+  },
+  {
+    "cap": 106,
+    "Q": 106,
+    "T": 1636,
+    "estimate": 198840.12235653406,
+    "tag": "budgetbooth_q106"
+  },
+  {
+    "cap": 107,
+    "Q": 107,
+    "T": 1626,
+    "estimate": 199645.97256744475,
+    "tag": "budgetbooth_q107"
+  },
+  {
+    "cap": 108,
+    "Q": 108,
+    "T": 1618,
+    "estimate": 200647.82277835545,
+    "tag": "budgetbooth_q108"
+  },
+  {
+    "cap": 109,
+    "Q": 109,
+    "T": 1610,
+    "estimate": 201633.67298926617,
+    "tag": "budgetbooth_q109"
+  },
+  {
+    "cap": 110,
+    "Q": 110,
+    "T": 1604,
+    "estimate": 202823.52320017686,
+    "tag": "budgetbooth_q110"
+  },
+  {
+    "cap": 111,
+    "Q": 111,
+    "T": 1598,
+    "estimate": 204001.37341108755,
+    "tag": "budgetbooth_q111"
+  },
+  {
+    "cap": 112,
+    "Q": 112,
+    "T": 1594,
+    "estimate": 205391.22362199824,
+    "tag": "budgetbooth_q112"
+  },
+  {
+    "cap": 113,
+    "Q": 113,
+    "T": 1590,
+    "estimate": 206773.07383290897,
+    "tag": "budgetbooth_q113"
+  },
+  {
+    "cap": 114,
+    "Q": 114,
+    "T": 1586,
+    "estimate": 208146.92404381966,
+    "tag": "budgetbooth_q114"
+  }
+]

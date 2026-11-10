@@ -1,0 +1,8 @@
+{
+  "python": "3.13.15",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "platform": "Linux-6.8.0-60-generic-x86_64-with-glibc2.35",
+  "interpreter": "/tmp/quantumai-venv.wOrZGC/bin/python",
+  "kickmix": "from_host/kickmix/kickmix.so"
+}

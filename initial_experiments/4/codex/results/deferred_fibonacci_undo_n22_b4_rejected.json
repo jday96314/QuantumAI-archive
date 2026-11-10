@@ -1,0 +1,12 @@
+{
+  "status": "REJECTED",
+  "scope": "classical deferred fake-step undo, common-factor padding, squarefree locator, exact H division and root magnitudes; generic paths only",
+  "N": 22,
+  "block": 4,
+  "trials_per_weight": 100,
+  "cases": 499,
+  "roots": 3589,
+  "skipped_degree_gaps": 601,
+  "seconds": 0.4246072769165039,
+  "reason": "Fibonacci dummy-step undo only supported completions aligned with block boundaries; 601 of 1100 cases were skipped, so this is not a generic completion handler."
+}

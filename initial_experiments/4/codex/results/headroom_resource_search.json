@@ -1,0 +1,1040 @@
+[
+  {
+    "carry": 1,
+    "limit": 90,
+    "split": [
+      18,
+      9
+    ],
+    "product": 8,
+    "Q": 90,
+    "T": 2660,
+    "estimate": 260986.5189
+  },
+  {
+    "carry": 1,
+    "limit": 92,
+    "split": [
+      18,
+      9
+    ],
+    "product": 8,
+    "Q": 92,
+    "T": 2590,
+    "estimate": 260346.21932
+  },
+  {
+    "carry": 1,
+    "limit": 92,
+    "split": [
+      18,
+      9
+    ],
+    "product": 12,
+    "Q": 92,
+    "T": 2038,
+    "estimate": 209562.21932
+  },
+  {
+    "carry": 1,
+    "limit": 94,
+    "split": [
+      18,
+      9
+    ],
+    "product": 8,
+    "Q": 94,
+    "T": 2522,
+    "estimate": 259613.91974
+  },
+  {
+    "carry": 1,
+    "limit": 94,
+    "split": [
+      18,
+      9
+    ],
+    "product": 12,
+    "Q": 94,
+    "T": 1970,
+    "estimate": 207725.91974
+  },
+  {
+    "carry": 1,
+    "limit": 94,
+    "split": [
+      18,
+      9
+    ],
+    "product": 16,
+    "Q": 94,
+    "T": 1818,
+    "estimate": 193437.91974
+  },
+  {
+    "carry": 1,
+    "limit": 94,
+    "split": [
+      18,
+      9
+    ],
+    "product": 17,
+    "Q": 94,
+    "T": 1812,
+    "estimate": 192873.91974
+  },
+  {
+    "carry": 1,
+    "limit": 96,
+    "split": [
+      18,
+      9
+    ],
+    "product": 8,
+    "Q": 96,
+    "T": 2492,
+    "estimate": 262257.62016
+  },
+  {
+    "carry": 1,
+    "limit": 96,
+    "split": [
+      18,
+      9
+    ],
+    "product": 12,
+    "Q": 96,
+    "T": 1940,
+    "estimate": 209265.62016
+  },
+  {
+    "carry": 1,
+    "limit": 96,
+    "split": [
+      18,
+      9
+    ],
+    "product": 16,
+    "Q": 96,
+    "T": 1788,
+    "estimate": 194673.62016
+  },
+  {
+    "carry": 1,
+    "limit": 96,
+    "split": [
+      18,
+      9
+    ],
+    "product": 17,
+    "Q": 96,
+    "T": 1782,
+    "estimate": 194097.62016
+  },
+  {
+    "carry": 1,
+    "limit": 96,
+    "split": [
+      18,
+      9
+    ],
+    "product": null,
+    "Q": 96,
+    "T": 1782,
+    "estimate": 194097.62016
+  },
+  {
+    "carry": 1,
+    "limit": 98,
+    "split": [
+      18,
+      9
+    ],
+    "product": 8,
+    "Q": 98,
+    "T": 2464,
+    "estimate": 264977.32058
+  },
+  {
+    "carry": 1,
+    "limit": 98,
+    "split": [
+      18,
+      9
+    ],
+    "product": 12,
+    "Q": 98,
+    "T": 1912,
+    "estimate": 210881.32058
+  },
+  {
+    "carry": 1,
+    "limit": 98,
+    "split": [
+      18,
+      9
+    ],
+    "product": 16,
+    "Q": 98,
+    "T": 1760,
+    "estimate": 195985.32058
+  },
+  {
+    "carry": 1,
+    "limit": 98,
+    "split": [
+      18,
+      9
+    ],
+    "product": 17,
+    "Q": 98,
+    "T": 1754,
+    "estimate": 195397.32058
+  },
+  {
+    "carry": 1,
+    "limit": 98,
+    "split": [
+      18,
+      9
+    ],
+    "product": null,
+    "Q": 98,
+    "T": 1754,
+    "estimate": 195397.32058
+  },
+  {
+    "carry": 2,
+    "limit": 90,
+    "split": [
+      14,
+      6
+    ],
+    "product": 8,
+    "Q": 90,
+    "T": 2260,
+    "estimate": 224986.5189
+  },
+  {
+    "carry": 2,
+    "limit": 92,
+    "split": [
+      14,
+      6
+    ],
+    "product": 8,
+    "Q": 92,
+    "T": 2190,
+    "estimate": 223546.21932
+  },
+  {
+    "carry": 2,
+    "limit": 92,
+    "split": [
+      15,
+      7
+    ],
+    "product": 8,
+    "Q": 92,
+    "T": 2356,
+    "estimate": 238818.21932
+  },
+  {
+    "carry": 2,
+    "limit": 92,
+    "split": [
+      16,
+      7
+    ],
+    "product": 8,
+    "Q": 92,
+    "T": 2506,
+    "estimate": 252618.21932
+  },
+  {
+    "carry": 2,
+    "limit": 92,
+    "split": [
+      16,
+      8
+    ],
+    "product": 8,
+    "Q": 92,
+    "T": 2522,
+    "estimate": 254090.21932
+  },
+  {
+    "carry": 2,
+    "limit": 92,
+    "split": [
+      17,
+      8
+    ],
+    "product": 8,
+    "Q": 92,
+    "T": 2672,
+    "estimate": 267890.21932000003
+  },
+  {
+    "carry": 2,
+    "limit": 92,
+    "split": [
+      18,
+      9
+    ],
+    "product": 8,
+    "Q": 92,
+    "T": 2838,
+    "estimate": 283162.21932000003
+  },
+  {
+    "carry": 2,
+    "limit": 94,
+    "split": [
+      14,
+      6
+    ],
+    "product": 8,
+    "Q": 94,
+    "T": 2138,
+    "estimate": 223517.91974
+  },
+  {
+    "carry": 2,
+    "limit": 94,
+    "split": [
+      14,
+      6
+    ],
+    "product": 12,
+    "Q": 94,
+    "T": 1790,
+    "estimate": 190805.91974
+  },
+  {
+    "carry": 2,
+    "limit": 94,
+    "split": [
+      15,
+      7
+    ],
+    "product": 8,
+    "Q": 94,
+    "T": 2288,
+    "estimate": 237617.91974
+  },
+  {
+    "carry": 2,
+    "limit": 94,
+    "split": [
+      15,
+      7
+    ],
+    "product": 12,
+    "Q": 94,
+    "T": 1872,
+    "estimate": 198513.91974
+  },
+  {
+    "carry": 2,
+    "limit": 94,
+    "split": [
+      16,
+      7
+    ],
+    "product": 8,
+    "Q": 94,
+    "T": 2438,
+    "estimate": 251717.91974
+  },
+  {
+    "carry": 2,
+    "limit": 94,
+    "split": [
+      16,
+      7
+    ],
+    "product": 12,
+    "Q": 94,
+    "T": 1954,
+    "estimate": 206221.91974
+  },
+  {
+    "carry": 2,
+    "limit": 94,
+    "split": [
+      16,
+      8
+    ],
+    "product": 8,
+    "Q": 94,
+    "T": 2452,
+    "estimate": 253033.91974
+  },
+  {
+    "carry": 2,
+    "limit": 94,
+    "split": [
+      16,
+      8
+    ],
+    "product": 12,
+    "Q": 94,
+    "T": 1968,
+    "estimate": 207537.91974
+  },
+  {
+    "carry": 2,
+    "limit": 94,
+    "split": [
+      17,
+      8
+    ],
+    "product": 8,
+    "Q": 94,
+    "T": 2602,
+    "estimate": 267133.91974
+  },
+  {
+    "carry": 2,
+    "limit": 94,
+    "split": [
+      17,
+      8
+    ],
+    "product": 12,
+    "Q": 94,
+    "T": 2050,
+    "estimate": 215245.91974
+  },
+  {
+    "carry": 2,
+    "limit": 94,
+    "split": [
+      18,
+      9
+    ],
+    "product": 8,
+    "Q": 94,
+    "T": 2766,
+    "estimate": 282549.91974
+  },
+  {
+    "carry": 2,
+    "limit": 94,
+    "split": [
+      18,
+      9
+    ],
+    "product": 12,
+    "Q": 94,
+    "T": 2146,
+    "estimate": 224269.91974
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      14,
+      6
+    ],
+    "product": 8,
+    "Q": 96,
+    "T": 2108,
+    "estimate": 225393.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      14,
+      6
+    ],
+    "product": 12,
+    "Q": 96,
+    "T": 1760,
+    "estimate": 191985.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      14,
+      6
+    ],
+    "product": 16,
+    "Q": 96,
+    "T": 1716,
+    "estimate": 187761.62016,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/headroom_c2_q96_s14_6_p16.kmb",
+    "sha256": "a4a699b9f47f4416bc1ed07f41e72b7796d1e0cf907977fa366ff66238b9c5af",
+    "tag": "headroom_c2_q96_s14_6_p16"
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      15,
+      7
+    ],
+    "product": 8,
+    "Q": 96,
+    "T": 2252,
+    "estimate": 239217.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      15,
+      7
+    ],
+    "product": 12,
+    "Q": 96,
+    "T": 1836,
+    "estimate": 199281.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      15,
+      7
+    ],
+    "product": 16,
+    "Q": 96,
+    "T": 1756,
+    "estimate": 191601.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      15,
+      7
+    ],
+    "product": 17,
+    "Q": 96,
+    "T": 1758,
+    "estimate": 191793.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      15,
+      7
+    ],
+    "product": null,
+    "Q": 96,
+    "T": 1758,
+    "estimate": 191793.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      16,
+      7
+    ],
+    "product": 8,
+    "Q": 96,
+    "T": 2388,
+    "estimate": 252273.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      16,
+      7
+    ],
+    "product": 12,
+    "Q": 96,
+    "T": 1904,
+    "estimate": 205809.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      16,
+      7
+    ],
+    "product": 16,
+    "Q": 96,
+    "T": 1788,
+    "estimate": 194673.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      16,
+      7
+    ],
+    "product": 17,
+    "Q": 96,
+    "T": 1786,
+    "estimate": 194481.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      16,
+      8
+    ],
+    "product": 8,
+    "Q": 96,
+    "T": 2398,
+    "estimate": 253233.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      16,
+      8
+    ],
+    "product": 12,
+    "Q": 96,
+    "T": 1914,
+    "estimate": 206769.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      16,
+      8
+    ],
+    "product": 16,
+    "Q": 96,
+    "T": 1798,
+    "estimate": 195633.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      16,
+      8
+    ],
+    "product": 17,
+    "Q": 96,
+    "T": 1796,
+    "estimate": 195441.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      17,
+      8
+    ],
+    "product": 8,
+    "Q": 96,
+    "T": 2534,
+    "estimate": 266289.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      17,
+      8
+    ],
+    "product": 12,
+    "Q": 96,
+    "T": 1982,
+    "estimate": 213297.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      17,
+      8
+    ],
+    "product": 16,
+    "Q": 96,
+    "T": 1830,
+    "estimate": 198705.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      17,
+      8
+    ],
+    "product": 17,
+    "Q": 96,
+    "T": 1824,
+    "estimate": 198129.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      18,
+      9
+    ],
+    "product": 8,
+    "Q": 96,
+    "T": 2698,
+    "estimate": 282033.62016
+  },
+  {
+    "carry": 2,
+    "limit": 96,
+    "split": [
+      18,
+      9
+    ],
+    "product": 12,
+    "Q": 96,
+    "T": 2078,
+    "estimate": 222513.62016
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      14,
+      6
+    ],
+    "product": 8,
+    "Q": 98,
+    "T": 2080,
+    "estimate": 227345.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      14,
+      6
+    ],
+    "product": 12,
+    "Q": 98,
+    "T": 1732,
+    "estimate": 193241.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      14,
+      6
+    ],
+    "product": 16,
+    "Q": 98,
+    "T": 1688,
+    "estimate": 188929.32058,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/headroom_c2_q98_s14_6_p16.kmb",
+    "sha256": "a5041875b4e0685b7432b0f466852c4a728c690f9a0558dcfdc408686438ecdf",
+    "tag": "headroom_c2_q98_s14_6_p16"
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      15,
+      7
+    ],
+    "product": 8,
+    "Q": 98,
+    "T": 2224,
+    "estimate": 241457.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      15,
+      7
+    ],
+    "product": 12,
+    "Q": 98,
+    "T": 1808,
+    "estimate": 200689.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      15,
+      7
+    ],
+    "product": 16,
+    "Q": 98,
+    "T": 1728,
+    "estimate": 192849.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      15,
+      7
+    ],
+    "product": 17,
+    "Q": 98,
+    "T": 1730,
+    "estimate": 193045.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      15,
+      7
+    ],
+    "product": null,
+    "Q": 98,
+    "T": 1730,
+    "estimate": 193045.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      16,
+      7
+    ],
+    "product": 8,
+    "Q": 98,
+    "T": 2360,
+    "estimate": 254785.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      16,
+      7
+    ],
+    "product": 12,
+    "Q": 98,
+    "T": 1876,
+    "estimate": 207353.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      16,
+      7
+    ],
+    "product": 16,
+    "Q": 98,
+    "T": 1760,
+    "estimate": 195985.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      16,
+      7
+    ],
+    "product": 17,
+    "Q": 98,
+    "T": 1758,
+    "estimate": 195789.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      16,
+      7
+    ],
+    "product": null,
+    "Q": 98,
+    "T": 1760,
+    "estimate": 195985.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      16,
+      8
+    ],
+    "product": 8,
+    "Q": 98,
+    "T": 2368,
+    "estimate": 255569.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      16,
+      8
+    ],
+    "product": 12,
+    "Q": 98,
+    "T": 1884,
+    "estimate": 208137.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      16,
+      8
+    ],
+    "product": 16,
+    "Q": 98,
+    "T": 1768,
+    "estimate": 196769.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      16,
+      8
+    ],
+    "product": 17,
+    "Q": 98,
+    "T": 1766,
+    "estimate": 196573.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      16,
+      8
+    ],
+    "product": null,
+    "Q": 98,
+    "T": 1768,
+    "estimate": 196769.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      17,
+      8
+    ],
+    "product": 8,
+    "Q": 98,
+    "T": 2504,
+    "estimate": 268897.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      17,
+      8
+    ],
+    "product": 12,
+    "Q": 98,
+    "T": 1952,
+    "estimate": 214801.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      17,
+      8
+    ],
+    "product": 16,
+    "Q": 98,
+    "T": 1800,
+    "estimate": 199905.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      17,
+      8
+    ],
+    "product": 17,
+    "Q": 98,
+    "T": 1794,
+    "estimate": 199317.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      17,
+      8
+    ],
+    "product": null,
+    "Q": 98,
+    "T": 1794,
+    "estimate": 199317.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      18,
+      9
+    ],
+    "product": 8,
+    "Q": 98,
+    "T": 2648,
+    "estimate": 283009.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      18,
+      9
+    ],
+    "product": 12,
+    "Q": 98,
+    "T": 2028,
+    "estimate": 222249.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      18,
+      9
+    ],
+    "product": 16,
+    "Q": 98,
+    "T": 1840,
+    "estimate": 203825.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      18,
+      9
+    ],
+    "product": 17,
+    "Q": 98,
+    "T": 1830,
+    "estimate": 202845.32058
+  },
+  {
+    "carry": 2,
+    "limit": 98,
+    "split": [
+      18,
+      9
+    ],
+    "product": null,
+    "Q": 98,
+    "T": 1828,
+    "estimate": 202649.32058
+  }
+]

@@ -1,0 +1,88 @@
+# Local environments, caches, and agent session state.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.agent-home/
+.pytest_cache/
+*.prof
+
+# Host-provided inputs and verifier installations.
+/from_host/
+
+# Generated experiment trees: ignore directories to avoid traversing GBs of data.
+/initial_experiments/**/candidates/
+/initial_experiments/**/cand/
+/initial_experiments/**/parameters/
+/initial_experiments/**/runs/
+/initial_experiments/**/submission/
+/initial_experiments/**/baseline/
+/initial_experiments/**/previous_baseline/
+/initial_experiments/**/revisions/
+/initial_experiments/**/milestones/
+/initial_experiments/**/vendor/
+/initial_experiments/**/cache/
+/initial_experiments/**/tmp/
+/initial_experiments/**/dependencies/
+/initial_experiments/**/plot_deps/
+/initial_experiments/**/.plotdeps/
+/initial_experiments/**/checkpoints/
+/initial_experiments/**/best/
+/initial_experiments/**/verified_*/
+
+# Round-five generated results and local executables; keep source and docs.
+/initial_experiments/5/**/results/
+# Keep the collected agent reports available to stage.
+!/initial_experiments/5/brainstorming/results/
+/initial_experiments/5/dqi-hybrid/components/
+/initial_experiments/5/dqi-repair/census
+/initial_experiments/5/dqi-repair/translate_prefix
+
+# Round-six generated evidence trees; source and reports live outside results/.
+/initial_experiments/6/**/results/
+
+# Round-six locally compiled executables; retain their .cpp/.py sources.
+/initial_experiments/6/agent14/fit_cubic_horner
+/initial_experiments/6/agent14/fit_embedded_address
+/initial_experiments/6/agent14/fit_embedded_curve
+/initial_experiments/6/agent14/fit_narrow
+/initial_experiments/6/agent14/gold_flip
+/initial_experiments/6/agent14/norm_quadratic_search
+/initial_experiments/6/agent14/schur_canonical_census
+/initial_experiments/6/agent14/schur_census
+/initial_experiments/6/agent14/schur_compose
+/initial_experiments/6/agent14/schur_gap_census
+/initial_experiments/6/agent14/translate_prefix
+/initial_experiments/6/agent20/generalized_quotient_jacobi_model
+/initial_experiments/6/agent20/jacobi_census
+/initial_experiments/6/agent20/mixed_prefix_model
+/initial_experiments/6/agent20/prefix_counter_model
+/initial_experiments/6/agent20/quadratic_multiplier_search
+/initial_experiments/6/agent20/tensor_flip
+
+# Compiled circuits, numerical checkpoints, archives, and build products elsewhere.
+*.kmb
+*.kmx
+*.npz
+*.npy
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.pkl
+*.pickle
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.o
+*.a
+*.so
+*.d
+*.log
+*.err
+
+# Preserve the existing JSON default, but retain round-four measurement evidence.
+*.json
+!/initial_experiments/4/**/*.json
+/docs/profiling/**/worker-*.json

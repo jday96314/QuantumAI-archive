@@ -1,0 +1,137 @@
+{
+  "widths": [
+    28,
+    18,
+    6
+  ],
+  "rows": [
+    {
+      "limit": 90,
+      "keep": 3,
+      "product": 17,
+      "Q": 90,
+      "T": 1977,
+      "estimate": 199530
+    },
+    {
+      "limit": 90,
+      "keep": 3,
+      "product": null,
+      "Q": 90,
+      "T": 1977,
+      "estimate": 199530
+    },
+    {
+      "limit": 88,
+      "keep": 1,
+      "product": 17,
+      "Q": 88,
+      "T": 2033,
+      "estimate": 200024
+    },
+    {
+      "limit": 88,
+      "keep": 1,
+      "product": null,
+      "Q": 88,
+      "T": 2033,
+      "estimate": 200024
+    },
+    {
+      "limit": 90,
+      "keep": 2,
+      "product": 17,
+      "Q": 90,
+      "T": 1984,
+      "estimate": 200160
+    },
+    {
+      "limit": 90,
+      "keep": 2,
+      "product": null,
+      "Q": 90,
+      "T": 1984,
+      "estimate": 200160
+    },
+    {
+      "limit": 92,
+      "keep": 4,
+      "product": 17,
+      "Q": 92,
+      "T": 1948,
+      "estimate": 201296
+    },
+    {
+      "limit": 92,
+      "keep": 4,
+      "product": null,
+      "Q": 92,
+      "T": 1948,
+      "estimate": 201296
+    },
+    {
+      "limit": 92,
+      "keep": 3,
+      "product": 17,
+      "Q": 92,
+      "T": 1949,
+      "estimate": 201388
+    },
+    {
+      "limit": 92,
+      "keep": 3,
+      "product": null,
+      "Q": 92,
+      "T": 1949,
+      "estimate": 201388
+    },
+    {
+      "limit": 92,
+      "keep": 2,
+      "product": 17,
+      "Q": 92,
+      "T": 1956,
+      "estimate": 202032
+    },
+    {
+      "limit": 92,
+      "keep": 2,
+      "product": null,
+      "Q": 92,
+      "T": 1956,
+      "estimate": 202032
+    },
+    {
+      "limit": 90,
+      "keep": 1,
+      "product": 17,
+      "Q": 90,
+      "T": 2005,
+      "estimate": 202050
+    },
+    {
+      "limit": 90,
+      "keep": 1,
+      "product": null,
+      "Q": 90,
+      "T": 2005,
+      "estimate": 202050
+    },
+    {
+      "limit": 92,
+      "keep": 1,
+      "product": 17,
+      "Q": 92,
+      "T": 1977,
+      "estimate": 203964
+    },
+    {
+      "limit": 92,
+      "keep": 1,
+      "product": null,
+      "Q": 92,
+      "T": 1977,
+      "estimate": 203964
+    }
+  ]
+}

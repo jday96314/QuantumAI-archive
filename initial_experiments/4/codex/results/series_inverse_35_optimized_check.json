@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scope": "normalized reciprocal modulo z^n, constant coefficient one",
+  "n": 35,
+  "shots": 512,
+  "Q": 423,
+  "T": 11166,
+  "failures": [],
+  "scratch_errors": [],
+  "phase_errors": []
+}

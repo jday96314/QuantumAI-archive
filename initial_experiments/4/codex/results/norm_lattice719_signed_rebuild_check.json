@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "circuits": 11,
+  "arrays": [
+    "H1_I",
+    "H2_I",
+    "Hsym_lower",
+    "U",
+    "W",
+    "angle_words",
+    "tree_edges"
+  ],
+  "scope": "independent deterministic sign-gauge export rebuild"
+}

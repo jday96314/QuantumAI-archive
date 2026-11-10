@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "circuits": {
+    "angle_k_0.kmb": "027f3a7300d86179a49da8ac326a41a78400c3db476d70ace2d89fdc497382cf",
+    "angle_k_1.kmb": "bc061e7b10ba1cdbca678a84d6dc8abbbcb0130e0571d0a142c7009eb8007426",
+    "angle_k_10.kmb": "021005e1ffc836fb5bacfb30a9d66423b4d5e28c03cfe5a2f96e21a96e2daebf",
+    "angle_k_2.kmb": "9873b4448edda629fd5ad6e5a9d10e43694a6cf39d9f7f35f2017dded6a8eb07",
+    "angle_k_3.kmb": "5bfef8007e18ac5183576047f195a034b3229533484cef3597367e4d96aff7a6",
+    "angle_k_4.kmb": "9f7e97e9dc4c3f75173512ecbfac9bc0f02c0a47b396eaf63e86c65c5fa1cab3",
+    "angle_k_5.kmb": "8f70bd646a435e93d2810bf32b4c5b2b9dee94a9ac6e90524d745d06acbaa70b",
+    "angle_k_6.kmb": "3f83b8910b4feae0a1c8bf313a040f89ebebf2b751ec2caf9e10fb10197305e5",
+    "angle_k_7.kmb": "6266300628313135f1f7211a799db8af1be788670839136ceec8d9dd31e4a09b",
+    "angle_k_8.kmb": "2a4df1d87ff05bc455541f26220bc8efa5d7b101a1326e42484b2faa021f92cf",
+    "angle_k_9.kmb": "d76675c1b16f8ed1fbb1d1525b273cc783f52be73ed3ae5f789777b9b029f6cc"
+  },
+  "arrays": [
+    "U",
+    "W",
+    "H2_I",
+    "H1_I",
+    "Hsym_lower",
+    "tree_edges",
+    "angle_words"
+  ]
+}

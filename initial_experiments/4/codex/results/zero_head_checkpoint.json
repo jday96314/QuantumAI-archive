@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "overall_score": 9.367722153134604,
+  "target_reached": false,
+  "archive_sha256": "9168da25a9ac35f661885edad3e208db215bf67fa6525cca0ccc5d8831318b68",
+  "full_native_inverse_shots": 200540928,
+  "selected_inverse_sha256": "27b14e544481db8eae7bf7f7e61bef93660ada06585cb5e398d3a18af9b50af1",
+  "both_archive_audits": "PASS",
+  "independent_inverse_rebuild": "IDENTICAL",
+  "source_manifest": "PASS",
+  "previous_archive_preserved": true,
+  "research_checkpoint": "results/gold_row_checkpoint.json",
+  "new_padding_profile": "results/direct_repad_transvection_profile.json",
+  "next_action": "Quantum-check transvection squarefree padding, then investigate total Sylvester semantics and H division; do not reuse old generic-only resource claims as full decoder evidence."
+}

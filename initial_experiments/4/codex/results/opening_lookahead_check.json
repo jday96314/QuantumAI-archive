@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "scope": "initial six-moment transform plus remainder-tail update, independent series-product model, forward/inverse/fresh arbitrary-input compositions, scratch and phase; no complete decoder",
+  "N": 22,
+  "shots": 1024,
+  "circuits": [
+    {
+      "which": "forward",
+      "status": "PASS",
+      "Q": 390,
+      "T": 6078,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "inverse",
+      "status": "PASS",
+      "Q": 390,
+      "T": 6078,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "both",
+      "status": "PASS",
+      "Q": 390,
+      "T": 12156,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "inverse_both",
+      "status": "PASS",
+      "Q": 390,
+      "T": 12156,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    }
+  ],
+  "seconds": 7.367908000946045
+}

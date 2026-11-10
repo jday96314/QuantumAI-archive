@@ -1,0 +1,5132 @@
+[
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      14,
+      4
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 102,
+    "T": 1587,
+    "estimate": 186864,
+    "error": 3.4375234692074486e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      14,
+      5
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 103,
+    "T": 1595,
+    "estimate": 189520,
+    "error": 3.185950356865419e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      13,
+      2
+    ],
+    "split": [
+      17,
+      3,
+      null
+    ],
+    "Q": 97,
+    "T": 1715,
+    "estimate": 190120,
+    "error": 3.1869877770152044e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      14,
+      6
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 104,
+    "T": 1599,
+    "estimate": 191776,
+    "error": 2.475872644680521e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      13,
+      3
+    ],
+    "split": [
+      17,
+      3,
+      null
+    ],
+    "Q": 98,
+    "T": 1723,
+    "estimate": 192864,
+    "error": 2.8737460056049713e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      14,
+      7
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 105,
+    "T": 1599,
+    "estimate": 193620,
+    "error": 2.475872644680521e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      15,
+      4
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 104,
+    "T": 1629,
+    "estimate": 194896,
+    "error": 2.429301775297432e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      13,
+      4
+    ],
+    "split": [
+      17,
+      3,
+      null
+    ],
+    "Q": 99,
+    "T": 1727,
+    "estimate": 195228,
+    "error": 1.9769649828305091e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      14,
+      8
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 106,
+    "T": 1599,
+    "estimate": 195464,
+    "error": 3.185950356865419e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      14,
+      2
+    ],
+    "split": [
+      17,
+      4,
+      null
+    ],
+    "Q": 99,
+    "T": 1745,
+    "estimate": 197010,
+    "error": 1.6003221181559724e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      13,
+      5
+    ],
+    "split": [
+      17,
+      3,
+      null
+    ],
+    "Q": 100,
+    "T": 1727,
+    "estimate": 197200,
+    "error": 1.9769649828305091e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      14,
+      9
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 107,
+    "T": 1599,
+    "estimate": 197308,
+    "error": 3.3663497711611257e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      15,
+      5
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 105,
+    "T": 1641,
+    "estimate": 198030,
+    "error": 2.429301775297432e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      14,
+      10
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 108,
+    "T": 1599,
+    "estimate": 199152,
+    "error": 3.3663497711611257e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      13,
+      6
+    ],
+    "split": [
+      17,
+      3,
+      null
+    ],
+    "Q": 101,
+    "T": 1727,
+    "estimate": 199172,
+    "error": 2.8793298656459854e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      15,
+      6
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 107,
+    "T": 1626,
+    "estimate": 200197,
+    "error": 6.457503656243091e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      14,
+      3
+    ],
+    "split": [
+      17,
+      4,
+      null
+    ],
+    "Q": 100,
+    "T": 1757,
+    "estimate": 200200,
+    "error": 1.6003221181559724e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      15,
+      6
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 106,
+    "T": 1649,
+    "estimate": 200764,
+    "error": 1.6607579578220566e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      14,
+      11
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 109,
+    "T": 1599,
+    "estimate": 200996,
+    "error": 5.967004530482711e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      13,
+      7
+    ],
+    "split": [
+      17,
+      3,
+      null
+    ],
+    "Q": 102,
+    "T": 1727,
+    "estimate": 201144,
+    "error": 3.1869877770152044e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      14,
+      12
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 110,
+    "T": 1599,
+    "estimate": 202840,
+    "error": 5.967004530482711e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      16,
+      4
+    ],
+    "split": [
+      18,
+      7,
+      null
+    ],
+    "Q": 106,
+    "T": 1669,
+    "estimate": 202884,
+    "error": 2.0070366857360966e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      15,
+      7
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 108,
+    "T": 1634,
+    "estimate": 202932,
+    "error": 6.457503656243091e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      14,
+      4
+    ],
+    "split": [
+      17,
+      4,
+      null
+    ],
+    "Q": 101,
+    "T": 1765,
+    "estimate": 203010,
+    "error": 1.5813687270771482e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      15,
+      7
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 107,
+    "T": 1653,
+    "estimate": 203086,
+    "error": 1.4938873649228412e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      13,
+      8
+    ],
+    "split": [
+      17,
+      3,
+      null
+    ],
+    "Q": 103,
+    "T": 1727,
+    "estimate": 203116,
+    "error": 3.1869877770152044e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      15,
+      2
+    ],
+    "split": [
+      17,
+      5,
+      null
+    ],
+    "Q": 101,
+    "T": 1773,
+    "estimate": 203818,
+    "error": 9.04986245942041e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      14,
+      13
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 111,
+    "T": 1599,
+    "estimate": 204684,
+    "error": 5.967004530482711e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      15,
+      8
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 108,
+    "T": 1653,
+    "estimate": 204984,
+    "error": 1.656412697004228e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      13,
+      9
+    ],
+    "split": [
+      17,
+      3,
+      null
+    ],
+    "Q": 104,
+    "T": 1727,
+    "estimate": 205088,
+    "error": 3.1869877770152044e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      15,
+      8
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 109,
+    "T": 1638,
+    "estimate": 205247,
+    "error": 6.403066965532389e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      14,
+      5
+    ],
+    "split": [
+      17,
+      4,
+      null
+    ],
+    "Q": 102,
+    "T": 1769,
+    "estimate": 205428,
+    "error": 1.268709988178074e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      16,
+      5
+    ],
+    "split": [
+      18,
+      7,
+      null
+    ],
+    "Q": 107,
+    "T": 1685,
+    "estimate": 206510,
+    "error": 2.0070366857360966e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      15,
+      5
+    ],
+    "split": [
+      19,
+      6,
+      null
+    ],
+    "Q": 107,
+    "T": 1685,
+    "estimate": 206510,
+    "error": 2.2258015741627446e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      15,
+      9
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 109,
+    "T": 1653,
+    "estimate": 206882,
+    "error": 1.656412697004228e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      13,
+      10
+    ],
+    "split": [
+      17,
+      3,
+      null
+    ],
+    "Q": 105,
+    "T": 1727,
+    "estimate": 207060,
+    "error": 3.1869877770152044e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      15,
+      9
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 110,
+    "T": 1638,
+    "estimate": 207130,
+    "error": 7.159612777085655e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      14,
+      6
+    ],
+    "split": [
+      17,
+      4,
+      null
+    ],
+    "Q": 103,
+    "T": 1769,
+    "estimate": 207442,
+    "error": 1.268709988178074e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      15,
+      3
+    ],
+    "split": [
+      17,
+      5,
+      null
+    ],
+    "Q": 102,
+    "T": 1789,
+    "estimate": 207468,
+    "error": 9.04986245942041e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      14,
+      3
+    ],
+    "split": [
+      18,
+      4,
+      null
+    ],
+    "Q": 102,
+    "T": 1797,
+    "estimate": 208284,
+    "error": 1.5517025242495208e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      15,
+      10
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 110,
+    "T": 1653,
+    "estimate": 208780,
+    "error": 1.6938964408907964e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      15,
+      10
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 111,
+    "T": 1638,
+    "estimate": 209013,
+    "error": 7.159612777085655e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      13,
+      11
+    ],
+    "split": [
+      17,
+      3,
+      null
+    ],
+    "Q": 106,
+    "T": 1727,
+    "estimate": 209032,
+    "error": 3.1869877770152044e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      15,
+      6
+    ],
+    "split": [
+      19,
+      6,
+      null
+    ],
+    "Q": 108,
+    "T": 1693,
+    "estimate": 209304,
+    "error": 1.598042784767273e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      14,
+      7
+    ],
+    "split": [
+      17,
+      4,
+      null
+    ],
+    "Q": 104,
+    "T": 1769,
+    "estimate": 209456,
+    "error": 1.268709988178074e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      16,
+      6
+    ],
+    "split": [
+      18,
+      7,
+      null
+    ],
+    "Q": 108,
+    "T": 1697,
+    "estimate": 209736,
+    "error": 1.1857771275991524e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      16,
+      6
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 109,
+    "T": 1680,
+    "estimate": 209825,
+    "error": 4.949005254495376e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      2
+    ],
+    "split": [
+      17,
+      6,
+      null
+    ],
+    "Q": 103,
+    "T": 1799,
+    "estimate": 210532,
+    "error": 8.563480413670277e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      15,
+      11
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 111,
+    "T": 1653,
+    "estimate": 210678,
+    "error": 4.06594620638856e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      15,
+      4
+    ],
+    "split": [
+      17,
+      5,
+      null
+    ],
+    "Q": 103,
+    "T": 1801,
+    "estimate": 210738,
+    "error": 9.04986245942041e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      17,
+      4
+    ],
+    "split": [
+      18,
+      8,
+      null
+    ],
+    "Q": 108,
+    "T": 1707,
+    "estimate": 210816,
+    "error": 1.795904143175875e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      15,
+      11
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 112,
+    "T": 1638,
+    "estimate": 210896,
+    "error": 7.652043794159624e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      14,
+      4
+    ],
+    "split": [
+      18,
+      4,
+      null
+    ],
+    "Q": 103,
+    "T": 1805,
+    "estimate": 211150,
+    "error": 1.474970893200478e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      14,
+      8
+    ],
+    "split": [
+      17,
+      4,
+      null
+    ],
+    "Q": 105,
+    "T": 1769,
+    "estimate": 211470,
+    "error": 1.6003221181559724e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      15,
+      7
+    ],
+    "split": [
+      19,
+      6,
+      null
+    ],
+    "Q": 109,
+    "T": 1697,
+    "estimate": 211678,
+    "error": 1.446670425675478e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      16,
+      7
+    ],
+    "split": [
+      18,
+      7,
+      null
+    ],
+    "Q": 109,
+    "T": 1705,
+    "estimate": 212550,
+    "error": 1.0132174366184188e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      15,
+      12
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 112,
+    "T": 1653,
+    "estimate": 212576,
+    "error": 4.06594620638856e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      15,
+      12
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 113,
+    "T": 1638,
+    "estimate": 212779,
+    "error": 7.652043794159624e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      16,
+      7
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 110,
+    "T": 1692,
+    "estimate": 213070,
+    "error": 4.2705907055129444e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      14,
+      9
+    ],
+    "split": [
+      17,
+      4,
+      null
+    ],
+    "Q": 106,
+    "T": 1769,
+    "estimate": 213484,
+    "error": 1.6003221181559724e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      15,
+      5
+    ],
+    "split": [
+      17,
+      5,
+      null
+    ],
+    "Q": 104,
+    "T": 1809,
+    "estimate": 213616,
+    "error": 8.457199585087949e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      14,
+      5
+    ],
+    "split": [
+      18,
+      4,
+      null
+    ],
+    "Q": 104,
+    "T": 1809,
+    "estimate": 213616,
+    "error": 1.22481392250684e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      15,
+      8
+    ],
+    "split": [
+      19,
+      6,
+      null
+    ],
+    "Q": 110,
+    "T": 1697,
+    "estimate": 213620,
+    "error": 1.598042784767273e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      15,
+      13
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 113,
+    "T": 1653,
+    "estimate": 214474,
+    "error": 4.06594620638856e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      3
+    ],
+    "split": [
+      17,
+      6,
+      null
+    ],
+    "Q": 104,
+    "T": 1819,
+    "estimate": 214656,
+    "error": 8.563480413670277e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      15,
+      13
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 114,
+    "T": 1638,
+    "estimate": 214662,
+    "error": 7.652043794159624e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "split": [
+      18,
+      7,
+      null
+    ],
+    "Q": 110,
+    "T": 1709,
+    "estimate": 214940,
+    "error": 8.969816978066092e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      17,
+      5
+    ],
+    "split": [
+      18,
+      8,
+      null
+    ],
+    "Q": 109,
+    "T": 1727,
+    "estimate": 214948,
+    "error": 1.795904143175875e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      14,
+      10
+    ],
+    "split": [
+      17,
+      4,
+      null
+    ],
+    "Q": 107,
+    "T": 1769,
+    "estimate": 215498,
+    "error": 1.6003221181559724e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      15,
+      9
+    ],
+    "split": [
+      19,
+      6,
+      null
+    ],
+    "Q": 111,
+    "T": 1697,
+    "estimate": 215562,
+    "error": 1.598042784767273e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      16,
+      5
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 109,
+    "T": 1733,
+    "estimate": 215602,
+    "error": 1.804333089605592e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      14,
+      6
+    ],
+    "split": [
+      18,
+      4,
+      null
+    ],
+    "Q": 105,
+    "T": 1809,
+    "estimate": 215670,
+    "error": 1.22481392250684e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 111,
+    "T": 1700,
+    "estimate": 215895,
+    "error": 4.2490125817806756e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      15,
+      6
+    ],
+    "split": [
+      17,
+      5,
+      null
+    ],
+    "Q": 105,
+    "T": 1813,
+    "estimate": 216090,
+    "error": 8.457199585087949e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      15,
+      3
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 104,
+    "T": 1833,
+    "estimate": 216112,
+    "error": 8.112578497865286e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      15,
+      14
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 115,
+    "T": 1638,
+    "estimate": 216545,
+    "error": 7.652043794159624e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "split": [
+      18,
+      7,
+      null
+    ],
+    "Q": 111,
+    "T": 1709,
+    "estimate": 216894,
+    "error": 1.0132174366184188e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      17,
+      2
+    ],
+    "split": [
+      17,
+      7,
+      null
+    ],
+    "Q": 105,
+    "T": 1823,
+    "estimate": 217140,
+    "error": 8.033454368394644e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      15,
+      10
+    ],
+    "split": [
+      19,
+      6,
+      null
+    ],
+    "Q": 112,
+    "T": 1697,
+    "estimate": 217504,
+    "error": 1.6475923103609347e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      14,
+      11
+    ],
+    "split": [
+      17,
+      4,
+      null
+    ],
+    "Q": 108,
+    "T": 1769,
+    "estimate": 217512,
+    "error": 1.6003221181559724e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      14,
+      7
+    ],
+    "split": [
+      18,
+      4,
+      null
+    ],
+    "Q": 106,
+    "T": 1809,
+    "estimate": 217724,
+    "error": 1.22481392250684e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      15,
+      7
+    ],
+    "split": [
+      17,
+      5,
+      null
+    ],
+    "Q": 106,
+    "T": 1813,
+    "estimate": 218148,
+    "error": 8.457199585087949e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 112,
+    "T": 1704,
+    "estimate": 218288,
+    "error": 3.9495882520057535e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      4
+    ],
+    "split": [
+      17,
+      6,
+      null
+    ],
+    "Q": 105,
+    "T": 1835,
+    "estimate": 218400,
+    "error": 8.563480413670277e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      15,
+      15
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 116,
+    "T": 1638,
+    "estimate": 218428,
+    "error": 7.652043794159624e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      17,
+      6
+    ],
+    "split": [
+      18,
+      8,
+      null
+    ],
+    "Q": 110,
+    "T": 1743,
+    "estimate": 218680,
+    "error": 1.2516719227750883e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      4
+    ],
+    "split": [
+      18,
+      9,
+      null
+    ],
+    "Q": 110,
+    "T": 1743,
+    "estimate": 218680,
+    "error": 1.706099828080454e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      16,
+      10
+    ],
+    "split": [
+      18,
+      7,
+      null
+    ],
+    "Q": 112,
+    "T": 1709,
+    "estimate": 218848,
+    "error": 1.0132174366184188e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      16,
+      6
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 110,
+    "T": 1745,
+    "estimate": 218900,
+    "error": 1.0863136790106864e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      15,
+      11
+    ],
+    "split": [
+      19,
+      6,
+      null
+    ],
+    "Q": 113,
+    "T": 1697,
+    "estimate": 219446,
+    "error": 3.975636353459322e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      17,
+      6
+    ],
+    "split": [
+      19,
+      9,
+      null
+    ],
+    "Q": 111,
+    "T": 1732,
+    "estimate": 219447,
+    "error": 4.2705907055129444e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      15,
+      4
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 105,
+    "T": 1845,
+    "estimate": 219450,
+    "error": 8.112578497865286e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      14,
+      8
+    ],
+    "split": [
+      18,
+      4,
+      null
+    ],
+    "Q": 107,
+    "T": 1809,
+    "estimate": 219778,
+    "error": 1.5517025242495208e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      15,
+      8
+    ],
+    "split": [
+      17,
+      5,
+      null
+    ],
+    "Q": 107,
+    "T": 1813,
+    "estimate": 220206,
+    "error": 8.563480413670277e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      16,
+      10
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 113,
+    "T": 1704,
+    "estimate": 220237,
+    "error": 3.9779108640392025e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      16,
+      11
+    ],
+    "split": [
+      18,
+      7,
+      null
+    ],
+    "Q": 113,
+    "T": 1709,
+    "estimate": 220802,
+    "error": 2.3101017387894274e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      15,
+      12
+    ],
+    "split": [
+      19,
+      6,
+      null
+    ],
+    "Q": 114,
+    "T": 1697,
+    "estimate": 221388,
+    "error": 3.975636353459322e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      5
+    ],
+    "split": [
+      17,
+      6,
+      null
+    ],
+    "Q": 106,
+    "T": 1847,
+    "estimate": 221752,
+    "error": 8.260237405188775e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      17,
+      3
+    ],
+    "split": [
+      17,
+      7,
+      null
+    ],
+    "Q": 106,
+    "T": 1847,
+    "estimate": 221752,
+    "error": 8.033454368394644e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      16,
+      7
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 111,
+    "T": 1753,
+    "estimate": 221778,
+    "error": 9.635584818923348e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      14,
+      9
+    ],
+    "split": [
+      18,
+      4,
+      null
+    ],
+    "Q": 108,
+    "T": 1809,
+    "estimate": 221832,
+    "error": 1.5517025242495208e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "split": [
+      18,
+      8,
+      null
+    ],
+    "Q": 111,
+    "T": 1755,
+    "estimate": 222000,
+    "error": 8.413015462060969e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      16,
+      11
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 114,
+    "T": 1704,
+    "estimate": 222186,
+    "error": 4.4091443929250573e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      15,
+      9
+    ],
+    "split": [
+      17,
+      5,
+      null
+    ],
+    "Q": 108,
+    "T": 1813,
+    "estimate": 222264,
+    "error": 8.563480413670277e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      16,
+      7
+    ],
+    "split": [
+      20,
+      8,
+      null
+    ],
+    "Q": 112,
+    "T": 1740,
+    "estimate": 222320,
+    "error": 4.2170902958549306e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      15,
+      5
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 106,
+    "T": 1853,
+    "estimate": 222388,
+    "error": 7.512503186202224e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      16,
+      12
+    ],
+    "split": [
+      18,
+      7,
+      null
+    ],
+    "Q": 114,
+    "T": 1709,
+    "estimate": 222756,
+    "error": 2.3101017387894274e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "split": [
+      19,
+      9,
+      null
+    ],
+    "Q": 112,
+    "T": 1748,
+    "estimate": 223216,
+    "error": 2.344575990020914e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      15,
+      13
+    ],
+    "split": [
+      19,
+      6,
+      null
+    ],
+    "Q": 115,
+    "T": 1697,
+    "estimate": 223330,
+    "error": 3.975636353459322e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      5
+    ],
+    "split": [
+      18,
+      9,
+      null
+    ],
+    "Q": 111,
+    "T": 1767,
+    "estimate": 223332,
+    "error": 1.706099828080454e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      18,
+      2
+    ],
+    "split": [
+      17,
+      8,
+      null
+    ],
+    "Q": 107,
+    "T": 1845,
+    "estimate": 223630,
+    "error": 7.608666363623229e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      16,
+      3
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 106,
+    "T": 1867,
+    "estimate": 223872,
+    "error": 7.03544511537757e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      14,
+      10
+    ],
+    "split": [
+      18,
+      4,
+      null
+    ],
+    "Q": 109,
+    "T": 1809,
+    "estimate": 223886,
+    "error": 1.5517025242495208e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      16,
+      12
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 115,
+    "T": 1704,
+    "estimate": 224135,
+    "error": 4.4668993104401977e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      12,
+      2
+    ],
+    "split": [
+      16,
+      1,
+      null
+    ],
+    "Q": 94,
+    "T": 2140,
+    "estimate": 224190,
+    "error": 1.7486585135451094e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      16,
+      8
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 112,
+    "T": 1757,
+    "estimate": 224224,
+    "error": 7.868383256059985e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      15,
+      10
+    ],
+    "split": [
+      17,
+      5,
+      null
+    ],
+    "Q": 109,
+    "T": 1813,
+    "estimate": 224322,
+    "error": 9.04986245942041e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      17,
+      5
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 111,
+    "T": 1779,
+    "estimate": 224664,
+    "error": 1.6375547340352625e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      6
+    ],
+    "split": [
+      17,
+      6,
+      null
+    ],
+    "Q": 107,
+    "T": 1855,
+    "estimate": 224700,
+    "error": 6.437290700489484e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      16,
+      13
+    ],
+    "split": [
+      18,
+      7,
+      null
+    ],
+    "Q": 115,
+    "T": 1709,
+    "estimate": 224710,
+    "error": 2.3101017387894274e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "split": [
+      18,
+      8,
+      null
+    ],
+    "Q": 112,
+    "T": 1763,
+    "estimate": 224896,
+    "error": 7.914603439296286e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      15,
+      6
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 107,
+    "T": 1857,
+    "estimate": 224914,
+    "error": 7.512503186202224e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      16,
+      8
+    ],
+    "split": [
+      20,
+      8,
+      null
+    ],
+    "Q": 113,
+    "T": 1748,
+    "estimate": 225209,
+    "error": 4.1954868601479234e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      15,
+      14
+    ],
+    "split": [
+      19,
+      6,
+      null
+    ],
+    "Q": 116,
+    "T": 1697,
+    "estimate": 225272,
+    "error": 3.975636353459322e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      14,
+      11
+    ],
+    "split": [
+      18,
+      4,
+      null
+    ],
+    "Q": 110,
+    "T": 1809,
+    "estimate": 225940,
+    "error": 1.5517025242495208e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      17,
+      4
+    ],
+    "split": [
+      17,
+      7,
+      null
+    ],
+    "Q": 107,
+    "T": 1867,
+    "estimate": 225984,
+    "error": 8.033454368394644e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      16,
+      13
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 116,
+    "T": 1704,
+    "estimate": 226084,
+    "error": 4.4668993104401977e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      16,
+      9
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 113,
+    "T": 1757,
+    "estimate": 226226,
+    "error": 9.635584818923348e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      15,
+      11
+    ],
+    "split": [
+      17,
+      5,
+      null
+    ],
+    "Q": 110,
+    "T": 1813,
+    "estimate": 226380,
+    "error": 9.04986245942041e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      19,
+      4
+    ],
+    "split": [
+      18,
+      10,
+      null
+    ],
+    "Q": 112,
+    "T": 1777,
+    "estimate": 226464,
+    "error": 1.706099828080454e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "split": [
+      19,
+      9,
+      null
+    ],
+    "Q": 113,
+    "T": 1760,
+    "estimate": 226565,
+    "error": 2.344575990020914e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      12,
+      3
+    ],
+    "split": [
+      16,
+      1,
+      null
+    ],
+    "Q": 95,
+    "T": 2140,
+    "estimate": 226575,
+    "error": 1.9848500443231387e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      15,
+      7
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 108,
+    "T": 1857,
+    "estimate": 227016,
+    "error": 7.512503186202224e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      7
+    ],
+    "split": [
+      17,
+      6,
+      null
+    ],
+    "Q": 108,
+    "T": 1859,
+    "estimate": 227232,
+    "error": 6.299784771623962e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      17,
+      9
+    ],
+    "split": [
+      18,
+      8,
+      null
+    ],
+    "Q": 113,
+    "T": 1767,
+    "estimate": 227356,
+    "error": 7.914603439296286e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      6
+    ],
+    "split": [
+      18,
+      9,
+      null
+    ],
+    "Q": 112,
+    "T": 1787,
+    "estimate": 227584,
+    "error": 1.1808345590225144e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      16,
+      9
+    ],
+    "split": [
+      20,
+      8,
+      null
+    ],
+    "Q": 114,
+    "T": 1752,
+    "estimate": 227658,
+    "error": 3.7693107857172947e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      16,
+      4
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 107,
+    "T": 1883,
+    "estimate": 227696,
+    "error": 7.03544511537757e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      16,
+      6
+    ],
+    "split": [
+      20,
+      7,
+      null
+    ],
+    "Q": 112,
+    "T": 1789,
+    "estimate": 227808,
+    "error": 1.0631180891174097e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      19,
+      2
+    ],
+    "split": [
+      17,
+      9,
+      null
+    ],
+    "Q": 108,
+    "T": 1865,
+    "estimate": 227880,
+    "error": 7.608666363623229e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      29,
+      15,
+      4
+    ],
+    "split": [
+      19,
+      5,
+      null
+    ],
+    "Q": 107,
+    "T": 1885,
+    "estimate": 227910,
+    "error": 7.729722528715399e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      14,
+      12
+    ],
+    "split": [
+      18,
+      4,
+      null
+    ],
+    "Q": 111,
+    "T": 1809,
+    "estimate": 227994,
+    "error": 1.5517025242495208e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      16,
+      14
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 117,
+    "T": 1704,
+    "estimate": 228033,
+    "error": 4.4668993104401977e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      16,
+      10
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 114,
+    "T": 1757,
+    "estimate": 228228,
+    "error": 9.635584818923348e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      17,
+      6
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 112,
+    "T": 1795,
+    "estimate": 228480,
+    "error": 1.0927362270596319e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      18,
+      3
+    ],
+    "split": [
+      17,
+      8,
+      null
+    ],
+    "Q": 108,
+    "T": 1873,
+    "estimate": 228744,
+    "error": 7.608666363623229e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      12,
+      4
+    ],
+    "split": [
+      16,
+      1,
+      null
+    ],
+    "Q": 96,
+    "T": 2140,
+    "estimate": 228960,
+    "error": 1.9848500443231387e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      18,
+      6
+    ],
+    "split": [
+      19,
+      10,
+      null
+    ],
+    "Q": 113,
+    "T": 1782,
+    "estimate": 229051,
+    "error": 3.7851201528660283e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      15,
+      8
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 109,
+    "T": 1857,
+    "estimate": 229118,
+    "error": 7.512503186202224e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "split": [
+      17,
+      6,
+      null
+    ],
+    "Q": 109,
+    "T": 1859,
+    "estimate": 229336,
+    "error": 6.299784771623962e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      17,
+      10
+    ],
+    "split": [
+      18,
+      8,
+      null
+    ],
+    "Q": 114,
+    "T": 1767,
+    "estimate": 229368,
+    "error": 7.914603439296286e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      17,
+      9
+    ],
+    "split": [
+      19,
+      9,
+      null
+    ],
+    "Q": 114,
+    "T": 1768,
+    "estimate": 229482,
+    "error": 2.344575990020914e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      16,
+      10
+    ],
+    "split": [
+      20,
+      8,
+      null
+    ],
+    "Q": 115,
+    "T": 1752,
+    "estimate": 229655,
+    "error": 3.9240066729284706e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      17,
+      5
+    ],
+    "split": [
+      17,
+      7,
+      null
+    ],
+    "Q": 108,
+    "T": 1883,
+    "estimate": 229824,
+    "error": 7.242997734913104e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      16,
+      15
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 118,
+    "T": 1704,
+    "estimate": 229982,
+    "error": 4.4668993104401977e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      16,
+      11
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 115,
+    "T": 1757,
+    "estimate": 230230,
+    "error": 2.1762658131141421e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      16,
+      7
+    ],
+    "split": [
+      20,
+      7,
+      null
+    ],
+    "Q": 113,
+    "T": 1797,
+    "estimate": 230746,
+    "error": 9.527124777974905e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      29,
+      15,
+      5
+    ],
+    "split": [
+      19,
+      5,
+      null
+    ],
+    "Q": 108,
+    "T": 1893,
+    "estimate": 230904,
+    "error": 7.134536272879188e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      16,
+      5
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 108,
+    "T": 1895,
+    "estimate": 231120,
+    "error": 6.716097966652512e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      15,
+      9
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 110,
+    "T": 1857,
+    "estimate": 231220,
+    "error": 7.512503186202224e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      12,
+      5
+    ],
+    "split": [
+      16,
+      1,
+      null
+    ],
+    "Q": 97,
+    "T": 2140,
+    "estimate": 231345,
+    "error": 1.9848500443231387e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      17,
+      11
+    ],
+    "split": [
+      18,
+      8,
+      null
+    ],
+    "Q": 115,
+    "T": 1767,
+    "estimate": 231380,
+    "error": 1.4569372575046202e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      7
+    ],
+    "split": [
+      18,
+      9,
+      null
+    ],
+    "Q": 113,
+    "T": 1803,
+    "estimate": 231424,
+    "error": 8.005207696726302e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "split": [
+      17,
+      6,
+      null
+    ],
+    "Q": 110,
+    "T": 1859,
+    "estimate": 231440,
+    "error": 6.437290700489484e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      13,
+      2
+    ],
+    "split": [
+      16,
+      2,
+      null
+    ],
+    "Q": 96,
+    "T": 2166,
+    "estimate": 231456,
+    "error": 1.3446080782131276e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      17,
+      3
+    ],
+    "split": [
+      18,
+      7,
+      null
+    ],
+    "Q": 108,
+    "T": 1899,
+    "estimate": 231552,
+    "error": 6.026641319323289e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      19,
+      5
+    ],
+    "split": [
+      18,
+      10,
+      null
+    ],
+    "Q": 113,
+    "T": 1805,
+    "estimate": 231650,
+    "error": 1.706099828080454e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      16,
+      11
+    ],
+    "split": [
+      20,
+      8,
+      null
+    ],
+    "Q": 116,
+    "T": 1752,
+    "estimate": 231652,
+    "error": 4.23567224849819e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      17,
+      7
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 113,
+    "T": 1807,
+    "estimate": 231876,
+    "error": 6.486878867395518e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      17,
+      10
+    ],
+    "split": [
+      19,
+      9,
+      null
+    ],
+    "Q": 115,
+    "T": 1772,
+    "estimate": 231955,
+    "error": 2.344575990020914e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      20,
+      4
+    ],
+    "split": [
+      18,
+      11,
+      null
+    ],
+    "Q": 113,
+    "T": 1809,
+    "estimate": 232102,
+    "error": 1.706099828080454e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      16,
+      12
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 116,
+    "T": 1757,
+    "estimate": 232232,
+    "error": 2.1762658131141421e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      17,
+      7
+    ],
+    "split": [
+      20,
+      9,
+      null
+    ],
+    "Q": 114,
+    "T": 1800,
+    "estimate": 233130,
+    "error": 2.1840747643775416e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      16,
+      8
+    ],
+    "split": [
+      20,
+      7,
+      null
+    ],
+    "Q": 114,
+    "T": 1801,
+    "estimate": 233244,
+    "error": 7.480095387535357e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      17,
+      6
+    ],
+    "split": [
+      17,
+      7,
+      null
+    ],
+    "Q": 109,
+    "T": 1895,
+    "estimate": 233260,
+    "error": 7.363520748704389e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      15,
+      10
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 111,
+    "T": 1857,
+    "estimate": 233322,
+    "error": 8.112578497865286e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      18,
+      7
+    ],
+    "split": [
+      19,
+      10,
+      null
+    ],
+    "Q": 114,
+    "T": 1802,
+    "estimate": 233358,
+    "error": 1.7995132162162975e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      17,
+      12
+    ],
+    "split": [
+      18,
+      8,
+      null
+    ],
+    "Q": 116,
+    "T": 1767,
+    "estimate": 233392,
+    "error": 1.4569372575046202e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      18,
+      4
+    ],
+    "split": [
+      17,
+      8,
+      null
+    ],
+    "Q": 109,
+    "T": 1897,
+    "estimate": 233478,
+    "error": 7.608666363623229e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      19,
+      3
+    ],
+    "split": [
+      17,
+      9,
+      null
+    ],
+    "Q": 109,
+    "T": 1897,
+    "estimate": 233478,
+    "error": 7.608666363623229e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      29,
+      15,
+      6
+    ],
+    "split": [
+      19,
+      5,
+      null
+    ],
+    "Q": 109,
+    "T": 1897,
+    "estimate": 233478,
+    "error": 7.049638184319917e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      10
+    ],
+    "split": [
+      17,
+      6,
+      null
+    ],
+    "Q": 111,
+    "T": 1859,
+    "estimate": 233544,
+    "error": 6.937638552528824e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      16,
+      12
+    ],
+    "split": [
+      20,
+      8,
+      null
+    ],
+    "Q": 117,
+    "T": 1752,
+    "estimate": 233649,
+    "error": 4.2705907055129444e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      18,
+      5
+    ],
+    "split": [
+      19,
+      9,
+      null
+    ],
+    "Q": 113,
+    "T": 1823,
+    "estimate": 233684,
+    "error": 1.6380317435782388e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      12,
+      6
+    ],
+    "split": [
+      16,
+      1,
+      null
+    ],
+    "Q": 98,
+    "T": 2140,
+    "estimate": 233730,
+    "error": 1.9848500443231387e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      17,
+      11
+    ],
+    "split": [
+      19,
+      9,
+      null
+    ],
+    "Q": 116,
+    "T": 1772,
+    "estimate": 233972,
+    "error": 2.738250554079613e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      16,
+      6
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 109,
+    "T": 1903,
+    "estimate": 234132,
+    "error": 8.0707349026099e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      16,
+      13
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 117,
+    "T": 1757,
+    "estimate": 234234,
+    "error": 2.1762658131141421e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      13,
+      3
+    ],
+    "split": [
+      16,
+      2,
+      null
+    ],
+    "Q": 97,
+    "T": 2170,
+    "estimate": 234255,
+    "error": 9.775100096032219e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      8
+    ],
+    "split": [
+      18,
+      9,
+      null
+    ],
+    "Q": 114,
+    "T": 1815,
+    "estimate": 234840,
+    "error": 6.539736796540296e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      17,
+      8
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 114,
+    "T": 1815,
+    "estimate": 234840,
+    "error": 6.068583568996644e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      16,
+      9
+    ],
+    "split": [
+      20,
+      7,
+      null
+    ],
+    "Q": 115,
+    "T": 1801,
+    "estimate": 235290,
+    "error": 1.0690767471288609e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      17,
+      13
+    ],
+    "split": [
+      18,
+      8,
+      null
+    ],
+    "Q": 117,
+    "T": 1767,
+    "estimate": 235404,
+    "error": 1.4569372575046202e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      15,
+      11
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 112,
+    "T": 1857,
+    "estimate": 235424,
+    "error": 8.112578497865286e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      29,
+      15,
+      7
+    ],
+    "split": [
+      19,
+      5,
+      null
+    ],
+    "Q": 110,
+    "T": 1897,
+    "estimate": 235620,
+    "error": 7.049638184319917e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      16,
+      13
+    ],
+    "split": [
+      20,
+      8,
+      null
+    ],
+    "Q": 118,
+    "T": 1752,
+    "estimate": 235646,
+    "error": 4.2705907055129444e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      11
+    ],
+    "split": [
+      17,
+      6,
+      null
+    ],
+    "Q": 112,
+    "T": 1859,
+    "estimate": 235648,
+    "error": 6.937638552528824e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      17,
+      4
+    ],
+    "split": [
+      18,
+      7,
+      null
+    ],
+    "Q": 109,
+    "T": 1919,
+    "estimate": 235876,
+    "error": 6.026641319323289e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      17,
+      12
+    ],
+    "split": [
+      19,
+      9,
+      null
+    ],
+    "Q": 117,
+    "T": 1772,
+    "estimate": 235989,
+    "error": 2.7725792606236865e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      12,
+      7
+    ],
+    "split": [
+      16,
+      1,
+      null
+    ],
+    "Q": 99,
+    "T": 2140,
+    "estimate": 236115,
+    "error": 1.9848500443231387e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      16,
+      14
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 118,
+    "T": 1757,
+    "estimate": 236236,
+    "error": 2.1762658131141421e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "split": [
+      17,
+      7,
+      null
+    ],
+    "Q": 110,
+    "T": 1903,
+    "estimate": 236280,
+    "error": 7.363520748704389e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      19,
+      6
+    ],
+    "split": [
+      18,
+      10,
+      null
+    ],
+    "Q": 114,
+    "T": 1829,
+    "estimate": 236436,
+    "error": 1.1769704433284289e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      17,
+      8
+    ],
+    "split": [
+      20,
+      9,
+      null
+    ],
+    "Q": 115,
+    "T": 1812,
+    "estimate": 236555,
+    "error": 2.1840747643775416e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      13,
+      4
+    ],
+    "split": [
+      16,
+      2,
+      null
+    ],
+    "Q": 98,
+    "T": 2170,
+    "estimate": 236670,
+    "error": 9.775100096032219e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      16,
+      7
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 110,
+    "T": 1907,
+    "estimate": 236720,
+    "error": 8.0707349026099e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      29,
+      16,
+      4
+    ],
+    "split": [
+      19,
+      6,
+      null
+    ],
+    "Q": 109,
+    "T": 1927,
+    "estimate": 236748,
+    "error": 6.244420536205553e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      18,
+      8
+    ],
+    "split": [
+      19,
+      10,
+      null
+    ],
+    "Q": 115,
+    "T": 1818,
+    "estimate": 237245,
+    "error": 1.7995132162162975e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      16,
+      10
+    ],
+    "split": [
+      20,
+      7,
+      null
+    ],
+    "Q": 116,
+    "T": 1801,
+    "estimate": 237336,
+    "error": 9.527124777974905e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      17,
+      9
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 115,
+    "T": 1819,
+    "estimate": 237360,
+    "error": 9.518506272065963e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      15,
+      12
+    ],
+    "split": [
+      18,
+      5,
+      null
+    ],
+    "Q": 113,
+    "T": 1857,
+    "estimate": 237526,
+    "error": 8.112578497865286e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      16,
+      14
+    ],
+    "split": [
+      20,
+      8,
+      null
+    ],
+    "Q": 119,
+    "T": 1752,
+    "estimate": 237643,
+    "error": 4.2705907055129444e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      29,
+      15,
+      8
+    ],
+    "split": [
+      19,
+      5,
+      null
+    ],
+    "Q": 111,
+    "T": 1897,
+    "estimate": 237762,
+    "error": 7.049638184319917e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      20,
+      5
+    ],
+    "split": [
+      18,
+      11,
+      null
+    ],
+    "Q": 114,
+    "T": 1841,
+    "estimate": 237804,
+    "error": 1.706099828080454e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      9
+    ],
+    "split": [
+      18,
+      9,
+      null
+    ],
+    "Q": 115,
+    "T": 1823,
+    "estimate": 237820,
+    "error": 7.673829238719065e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      18,
+      5
+    ],
+    "split": [
+      17,
+      8,
+      null
+    ],
+    "Q": 110,
+    "T": 1917,
+    "estimate": 237820,
+    "error": 7.242997734913104e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      17,
+      13
+    ],
+    "split": [
+      19,
+      9,
+      null
+    ],
+    "Q": 118,
+    "T": 1772,
+    "estimate": 238006,
+    "error": 2.7725792606236865e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      18,
+      6
+    ],
+    "split": [
+      19,
+      9,
+      null
+    ],
+    "Q": 114,
+    "T": 1843,
+    "estimate": 238032,
+    "error": 1.0069186395789131e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      17,
+      6
+    ],
+    "split": [
+      20,
+      8,
+      null
+    ],
+    "Q": 114,
+    "T": 1843,
+    "estimate": 238032,
+    "error": 1.0397576610809978e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      12,
+      8
+    ],
+    "split": [
+      16,
+      1,
+      null
+    ],
+    "Q": 100,
+    "T": 2140,
+    "estimate": 238500,
+    "error": 2.241311928274925e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      19,
+      6
+    ],
+    "split": [
+      19,
+      11,
+      null
+    ],
+    "Q": 115,
+    "T": 1830,
+    "estimate": 238625,
+    "error": 3.5062041581213066e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      14,
+      2
+    ],
+    "split": [
+      16,
+      3,
+      null
+    ],
+    "Q": 98,
+    "T": 2190,
+    "estimate": 238630,
+    "error": 7.647379884900829e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      19,
+      4
+    ],
+    "split": [
+      17,
+      9,
+      null
+    ],
+    "Q": 110,
+    "T": 1925,
+    "estimate": 238700,
+    "error": 7.608666363623229e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "split": [
+      17,
+      7,
+      null
+    ],
+    "Q": 111,
+    "T": 1907,
+    "estimate": 238872,
+    "error": 7.363520748704389e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      16,
+      8
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 111,
+    "T": 1907,
+    "estimate": 238872,
+    "error": 8.0707349026099e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      13,
+      5
+    ],
+    "split": [
+      16,
+      2,
+      null
+    ],
+    "Q": 99,
+    "T": 2170,
+    "estimate": 239085,
+    "error": 1.3446080782131276e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      18,
+      3
+    ],
+    "split": [
+      18,
+      8,
+      null
+    ],
+    "Q": 110,
+    "T": 1929,
+    "estimate": 239140,
+    "error": 7.632333098861466e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      16,
+      11
+    ],
+    "split": [
+      20,
+      7,
+      null
+    ],
+    "Q": 117,
+    "T": 1801,
+    "estimate": 239382,
+    "error": 2.1351255230506183e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      17,
+      10
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 116,
+    "T": 1819,
+    "estimate": 239424,
+    "error": 6.068583568996644e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      17,
+      9
+    ],
+    "split": [
+      20,
+      9,
+      null
+    ],
+    "Q": 116,
+    "T": 1820,
+    "estimate": 239540,
+    "error": 2.1840747643775416e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      16,
+      15
+    ],
+    "split": [
+      20,
+      8,
+      null
+    ],
+    "Q": 120,
+    "T": 1752,
+    "estimate": 239640,
+    "error": 4.2705907055129444e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      17,
+      5
+    ],
+    "split": [
+      18,
+      7,
+      null
+    ],
+    "Q": 110,
+    "T": 1935,
+    "estimate": 239800,
+    "error": 6.026641319323289e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      28,
+      13,
+      2
+    ],
+    "split": [
+      17,
+      2,
+      null
+    ],
+    "Q": 98,
+    "T": 2202,
+    "estimate": 239806,
+    "error": 1.2919116709753098e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      29,
+      15,
+      9
+    ],
+    "split": [
+      19,
+      5,
+      null
+    ],
+    "Q": 112,
+    "T": 1897,
+    "estimate": 239904,
+    "error": 7.049638184319917e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      17,
+      14
+    ],
+    "split": [
+      19,
+      9,
+      null
+    ],
+    "Q": 119,
+    "T": 1772,
+    "estimate": 240023,
+    "error": 2.7920186584928786e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      29,
+      16,
+      5
+    ],
+    "split": [
+      19,
+      6,
+      null
+    ],
+    "Q": 110,
+    "T": 1939,
+    "estimate": 240240,
+    "error": 8.05658051383773e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      10
+    ],
+    "split": [
+      18,
+      9,
+      null
+    ],
+    "Q": 116,
+    "T": 1827,
+    "estimate": 240352,
+    "error": 6.133158203525113e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      18,
+      9
+    ],
+    "split": [
+      19,
+      10,
+      null
+    ],
+    "Q": 116,
+    "T": 1830,
+    "estimate": 240700,
+    "error": 1.7139348362782414e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      19,
+      7
+    ],
+    "split": [
+      18,
+      10,
+      null
+    ],
+    "Q": 115,
+    "T": 1849,
+    "estimate": 240810,
+    "error": 7.549897684810958e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      12,
+      9
+    ],
+    "split": [
+      16,
+      1,
+      null
+    ],
+    "Q": 101,
+    "T": 2140,
+    "estimate": 240885,
+    "error": 2.241311928274925e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      17,
+      9
+    ],
+    "split": [
+      17,
+      7,
+      null
+    ],
+    "Q": 112,
+    "T": 1907,
+    "estimate": 241024,
+    "error": 7.341149532713587e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      16,
+      9
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 112,
+    "T": 1907,
+    "estimate": 241024,
+    "error": 9.485215113347323e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      16,
+      12
+    ],
+    "split": [
+      20,
+      7,
+      null
+    ],
+    "Q": 118,
+    "T": 1801,
+    "estimate": 241428,
+    "error": 2.1351255230506183e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      17,
+      11
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 117,
+    "T": 1819,
+    "estimate": 241488,
+    "error": 1.2517998393413166e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      13,
+      6
+    ],
+    "split": [
+      16,
+      2,
+      null
+    ],
+    "Q": 100,
+    "T": 2170,
+    "estimate": 241500,
+    "error": 1.3446080782131276e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      17,
+      7
+    ],
+    "split": [
+      20,
+      8,
+      null
+    ],
+    "Q": 115,
+    "T": 1855,
+    "estimate": 241500,
+    "error": 9.872942008382068e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      16,
+      16
+    ],
+    "split": [
+      20,
+      8,
+      null
+    ],
+    "Q": 121,
+    "T": 1752,
+    "estimate": 241637,
+    "error": 4.2705907055129444e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      18,
+      6
+    ],
+    "split": [
+      17,
+      8,
+      null
+    ],
+    "Q": 111,
+    "T": 1933,
+    "estimate": 241758,
+    "error": 5.967723903932409e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      14,
+      3
+    ],
+    "split": [
+      16,
+      3,
+      null
+    ],
+    "Q": 99,
+    "T": 2198,
+    "estimate": 241857,
+    "error": 7.647379884900829e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      18,
+      7
+    ],
+    "split": [
+      19,
+      9,
+      null
+    ],
+    "Q": 115,
+    "T": 1859,
+    "estimate": 241960,
+    "error": 7.514596134239326e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      17,
+      15
+    ],
+    "split": [
+      19,
+      9,
+      null
+    ],
+    "Q": 120,
+    "T": 1772,
+    "estimate": 242040,
+    "error": 2.7920186584928786e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      29,
+      15,
+      10
+    ],
+    "split": [
+      19,
+      5,
+      null
+    ],
+    "Q": 113,
+    "T": 1897,
+    "estimate": 242046,
+    "error": 7.729722528715399e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      17,
+      10
+    ],
+    "split": [
+      20,
+      9,
+      null
+    ],
+    "Q": 117,
+    "T": 1824,
+    "estimate": 242073,
+    "error": 2.1840747643775416e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      11
+    ],
+    "split": [
+      18,
+      9,
+      null
+    ],
+    "Q": 117,
+    "T": 1827,
+    "estimate": 242424,
+    "error": 9.237094555913927e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      28,
+      13,
+      3
+    ],
+    "split": [
+      17,
+      2,
+      null
+    ],
+    "Q": 99,
+    "T": 2206,
+    "estimate": 242649,
+    "error": 8.93352172237627e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      19,
+      5
+    ],
+    "split": [
+      19,
+      10,
+      null
+    ],
+    "Q": 115,
+    "T": 1865,
+    "estimate": 242650,
+    "error": 1.5935988462167927e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      20,
+      6
+    ],
+    "split": [
+      18,
+      11,
+      null
+    ],
+    "Q": 115,
+    "T": 1869,
+    "estimate": 243110,
+    "error": 1.1664673249534019e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      17,
+      10
+    ],
+    "split": [
+      17,
+      7,
+      null
+    ],
+    "Q": 113,
+    "T": 1907,
+    "estimate": 243176,
+    "error": 7.549030001108292e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      16,
+      10
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 113,
+    "T": 1907,
+    "estimate": 243176,
+    "error": 9.50924341491799e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      17,
+      6
+    ],
+    "split": [
+      18,
+      7,
+      null
+    ],
+    "Q": 111,
+    "T": 1947,
+    "estimate": 243312,
+    "error": 6.315992762129241e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      29,
+      16,
+      6
+    ],
+    "split": [
+      19,
+      6,
+      null
+    ],
+    "Q": 111,
+    "T": 1947,
+    "estimate": 243312,
+    "error": 7.010137059726418e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      16,
+      13
+    ],
+    "split": [
+      20,
+      7,
+      null
+    ],
+    "Q": 119,
+    "T": 1801,
+    "estimate": 243474,
+    "error": 2.1351255230506183e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      19,
+      7
+    ],
+    "split": [
+      19,
+      11,
+      null
+    ],
+    "Q": 116,
+    "T": 1854,
+    "estimate": 243484,
+    "error": 1.6462824070639925e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      19,
+      5
+    ],
+    "split": [
+      17,
+      9,
+      null
+    ],
+    "Q": 111,
+    "T": 1949,
+    "estimate": 243534,
+    "error": 7.242997734913104e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      17,
+      12
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 118,
+    "T": 1819,
+    "estimate": 243552,
+    "error": 1.2517998393413166e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      27,
+      18,
+      10
+    ],
+    "split": [
+      19,
+      10,
+      null
+    ],
+    "Q": 117,
+    "T": 1838,
+    "estimate": 243711,
+    "error": 1.657287254097639e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      13,
+      7
+    ],
+    "split": [
+      16,
+      2,
+      null
+    ],
+    "Q": 101,
+    "T": 2170,
+    "estimate": 243915,
+    "error": 1.3446080782131276e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      18,
+      7
+    ],
+    "split": [
+      20,
+      10,
+      null
+    ],
+    "Q": 116,
+    "T": 1858,
+    "estimate": 243948,
+    "error": 1.6121713897199186e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      18,
+      4
+    ],
+    "split": [
+      18,
+      8,
+      null
+    ],
+    "Q": 111,
+    "T": 1953,
+    "estimate": 243978,
+    "error": 7.632333098861466e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      17,
+      11
+    ],
+    "split": [
+      20,
+      9,
+      null
+    ],
+    "Q": 118,
+    "T": 1824,
+    "estimate": 244142,
+    "error": 2.5930983871269575e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      29,
+      15,
+      11
+    ],
+    "split": [
+      19,
+      5,
+      null
+    ],
+    "Q": 114,
+    "T": 1897,
+    "estimate": 244188,
+    "error": 7.729722528715399e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      12
+    ],
+    "split": [
+      18,
+      9,
+      null
+    ],
+    "Q": 118,
+    "T": 1827,
+    "estimate": 244496,
+    "error": 9.237094555913927e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      17,
+      8
+    ],
+    "split": [
+      20,
+      8,
+      null
+    ],
+    "Q": 116,
+    "T": 1863,
+    "estimate": 244528,
+    "error": 9.699518255246176e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      14,
+      4
+    ],
+    "split": [
+      16,
+      3,
+      null
+    ],
+    "Q": 100,
+    "T": 2202,
+    "estimate": 244700,
+    "error": 6.909088456907853e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      27,
+      19,
+      8
+    ],
+    "split": [
+      18,
+      10,
+      null
+    ],
+    "Q": 116,
+    "T": 1865,
+    "estimate": 244760,
+    "error": 6.95250870208497e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      28,
+      13,
+      4
+    ],
+    "split": [
+      17,
+      2,
+      null
+    ],
+    "Q": 100,
+    "T": 2206,
+    "estimate": 245100,
+    "error": 8.93352172237627e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      18,
+      7
+    ],
+    "split": [
+      17,
+      8,
+      null
+    ],
+    "Q": 112,
+    "T": 1945,
+    "estimate": 245280,
+    "error": 6.37263246616726e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      28,
+      16,
+      11
+    ],
+    "split": [
+      18,
+      6,
+      null
+    ],
+    "Q": 114,
+    "T": 1907,
+    "estimate": 245328,
+    "error": 1.027781495466229e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      27,
+      17,
+      11
+    ],
+    "split": [
+      17,
+      7,
+      null
+    ],
+    "Q": 114,
+    "T": 1907,
+    "estimate": 245328,
+    "error": 8.380069171920468e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      18,
+      8
+    ],
+    "split": [
+      19,
+      9,
+      null
+    ],
+    "Q": 116,
+    "T": 1871,
+    "estimate": 245456,
+    "error": 6.599814117436154e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      29,
+      16,
+      14
+    ],
+    "split": [
+      20,
+      7,
+      null
+    ],
+    "Q": 120,
+    "T": 1801,
+    "estimate": 245520,
+    "error": 2.1351255230506183e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      29,
+      17,
+      4
+    ],
+    "split": [
+      19,
+      7,
+      null
+    ],
+    "Q": 111,
+    "T": 1967,
+    "estimate": 245532,
+    "error": 7.085773279236207e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      17,
+      13
+    ],
+    "split": [
+      19,
+      8,
+      null
+    ],
+    "Q": 119,
+    "T": 1819,
+    "estimate": 245616,
+    "error": 1.2517998393413166e-07,
+    "full_pass": false
+  },
+  {
+    "frac": 9,
+    "widths": [
+      27,
+      15,
+      2
+    ],
+    "split": [
+      16,
+      4,
+      null
+    ],
+    "Q": 100,
+    "T": 2212,
+    "estimate": 245700,
+    "error": 6.07714861766695e-08,
+    "full_pass": false
+  },
+  {
+    "frac": 8,
+    "widths": [
+      29,
+      16,
+      7
+    ],
+    "split": [
+      19,
+      6,
+      null
+    ],
+    "Q": 112,
+    "T": 1951,
+    "estimate": 245952,
+    "error": 7.010137059726418e-08,
+    "full_pass": false
+  }
+]

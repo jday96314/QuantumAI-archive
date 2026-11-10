@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "overall_score": 9.00962290835304,
+  "sha256": "6ebc780a1c8027f26080e47818ea5db63dde58ce9ffbf90f46c4e7411b904800",
+  "archive_members": 9,
+  "preserved_milestones": [
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "chemistry_result": "initial_experiments/3/results/mixing_mu1e7_verify.json",
+  "unchanged_inverse_and_dqi_match_milestone9": true
+}

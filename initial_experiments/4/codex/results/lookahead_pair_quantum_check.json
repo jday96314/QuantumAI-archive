@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "scope": "in-place first-Pade solve on nonzero second minor, total reversible extension on singular minors and both zero kept moments, forward/inverse/composition/scratch/phase; no complete decoder claim",
+  "shots": 16384,
+  "skipped_singular_second_minor": 0,
+  "circuits": [
+    {
+      "which": "forward",
+      "status": "PASS",
+      "Q": 102,
+      "T": 654,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "inverse",
+      "status": "PASS",
+      "Q": 102,
+      "T": 654,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "both",
+      "status": "PASS",
+      "Q": 102,
+      "T": 1308,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    }
+  ],
+  "seconds": 1.356811285018921
+}

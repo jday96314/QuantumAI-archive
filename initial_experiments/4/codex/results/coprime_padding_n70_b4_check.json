@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "classical padded block Euclid, completion flags, fixed degree monic cofactors, Wronskian unpadding, locator and inverse-square magnitude; generic paths only",
+  "N": 70,
+  "block": 4,
+  "trials_per_weight": 20,
+  "cases": 699,
+  "error_roots": 12592,
+  "skipped_degree_gaps": 1,
+  "artificial_root_collision_cases": 28,
+  "omega": 3362,
+  "seconds": 2.1755735874176025
+}

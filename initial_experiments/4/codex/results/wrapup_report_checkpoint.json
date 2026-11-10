@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "scope": "Report and preserved artifact consistency checks; no new native experiments or full audit reruns",
+  "created_utc": "2026-10-24T13:33:50.809257+00:00",
+  "experiments_stopped_at_user_request": true,
+  "overall_score": 9.367722153134604,
+  "target_score": 14.0,
+  "target_reached": false,
+  "baseline_score": 9.00962290835304,
+  "score_gain_percent": 3.9746307744973786,
+  "archive_sha256": "9168da25a9ac35f661885edad3e208db215bf67fa6525cca0ccc5d8831318b68",
+  "report": "EXPERIMENT_REPORT.md",
+  "report_sha256": "7f196206d784e6e4da3650f698617c3c0a1cb4a7f3d119035a7449f8649614c4",
+  "report_links_checked": 32,
+  "bound_evidence": {
+    "results/archive_audit.json": {
+      "status": "PASS",
+      "sha256": "ad1f2f71cf27c91139dfc4bb17a940154f1f34d6a48266d2d8ed6055243be6d7"
+    },
+    "results/archive_independent_audit.json": {
+      "status": "PASS",
+      "sha256": "591aa9e6ca17b4452e3f0b3480fc7de9f2a2616d42a9028551f0ccd6a193ac5b"
+    },
+    "results/zero_head_affine_verify.json": {
+      "status": "PASS",
+      "verified_shots": 200540928,
+      "sha256": "3faa188e25cf316d62501c8acd55375ce4da8c64323147d957fe62c6971508f7"
+    },
+    "results/cubic_trace_product_n70_m4095_verify.json": {
+      "status": "PASS",
+      "verified_shots": 102400,
+      "sha256": "ed580a13c2efcafa55a2f7112ccf5b0bb8bda25cf418de2c9703487f8acc5256"
+    },
+    "results/norm_cycle2_signed_verify.json": {
+      "status": "PASS",
+      "verified_shots": 50880,
+      "sha256": "af31f02883e79235ea1a0b0b0b4142d343fbfec22c710433807a2f95c962cd75"
+    }
+  },
+  "last_component_result": "results/transvection_repad_n70_check.json",
+  "last_component_integrated_in_submission": false,
+  "cost_product_reduction_factor_needed_for_14": 3.3379674996304862,
+  "remaining_research": "Documented for a future user-authorized resumption; not running"
+}

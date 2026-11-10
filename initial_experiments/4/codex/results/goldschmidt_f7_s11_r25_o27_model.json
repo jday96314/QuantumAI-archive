@@ -1,0 +1,19 @@
+{
+  "status": "MODEL_PASS",
+  "scope": "all-x integer approximation only; no circuit",
+  "parameters": {
+    "frac": 7,
+    "seedbits": 11,
+    "resbits": 25,
+    "outbits": 27
+  },
+  "worst_relative_error": 4.7566264038678696e-08,
+  "worst_x": 524302,
+  "residual_min": -147441,
+  "residual_max": 146032,
+  "table_bits": [
+    11,
+    22,
+    16
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "host_metric": "from_host/metric.py",
+  "files": {
+    "dfthcsos/angle_k_0.kmb": {
+      "bytes": 2493614,
+      "sha256": "0ac749ffcda637b14321776929640737a95d0186d2b435f0fe64015da4d7a609",
+      "qubits": 128
+    },
+    "dfthcsos/angle_k_1.kmb": {
+      "bytes": 2515178,
+      "sha256": "44d0c9647e5d28f46fb5d26d9f719fcb7722358c88ef46635df7df9fabe0a5a6",
+      "qubits": 128
+    },
+    "dfthcsos/angle_k_2.kmb": {
+      "bytes": 2506988,
+      "sha256": "1f98291901a834c3a3a64682c0c6b2da6fd87c24ce56cc2d5b8cf33b84d489ce",
+      "qubits": 128
+    },
+    "dfthcsos/angle_k_3.kmb": {
+      "bytes": 2790938,
+      "sha256": "75a03b46071e9af91b8970286983716303af4f2511140023ec8b8ba8dd279580",
+      "qubits": 128
+    },
+    "dfthcsos/angle_k_4.kmb": {
+      "bytes": 3013976,
+      "sha256": "340a8182bd6e104c60155adf4700673bd8df67f014b49430928237753857b264",
+      "qubits": 128
+    },
+    "dfthcsos/angle_k_5.kmb": {
+      "bytes": 3009242,
+      "sha256": "a4e173c28e682bbece2040409c09a89aeedf4e8a08221b1c7a5cd0fb77a21bb6",
+      "qubits": 128
+    },
+    "dfthcsos/angle_k_6.kmb": {
+      "bytes": 3004697,
+      "sha256": "d9360ba01ee41ba632ee7d22acbeab6e0da1dc0503ecce86ef6318f679b4cc3d",
+      "qubits": 128
+    },
+    "dfthcsos/angle_k_7.kmb": {
+      "bytes": 3019097,
+      "sha256": "6f344bb0fa0a9244f68d354720ee294f8a143314b0604802dbda964803461d97",
+      "qubits": 128
+    },
+    "dfthcsos/angle_k_8.kmb": {
+      "bytes": 3004535,
+      "sha256": "31f243716725f6b4f229f11080c47cc41b9261d64fc99939111afc47f2521f2f",
+      "qubits": 128
+    },
+    "dqi.kmb": {
+      "bytes": 824307224,
+      "sha256": "5b701295a6ae4825bb81ea3825685fbf67b81b36f4192973938c48ca389bead1",
+      "qubits": 1861
+    },
+    "invsqrt.kmb": {
+      "bytes": 398696,
+      "sha256": "1ac255659bac27b8de5fd0c5c2d8c7cb4690001281d2c782b9daa01b2f589e51",
+      "qubits": 123
+    },
+    "dfthcsos/submission.npz": {
+      "bytes": 4505716,
+      "sha256": "c13a5a24794cf20b737d7c7088fbeb6f35896a08b40ed26e19f97e6e001f99cf",
+      "shapes": {
+        "U": [
+          65,
+          60,
+          76
+        ],
+        "W": [
+          65,
+          60,
+          29
+        ],
+        "H2_I": [
+          65,
+          29
+        ],
+        "H1_I": [],
+        "Hsym_lower": [
+          2926
+        ],
+        "tree_edges": [
+          75,
+          2
+        ]
+      }
+    }
+  }
+}

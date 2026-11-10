@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "generic degree-17 polynomials, E[0]=1, no Euclidean degree gaps",
+  "shots": 512,
+  "rejected_degenerate_pairs": 2,
+  "Q": 898,
+  "public_qubits": 852,
+  "extra_qubits": 46,
+  "T": 62098,
+  "failures": [],
+  "scratch_errors": [],
+  "phase_errors": []
+}

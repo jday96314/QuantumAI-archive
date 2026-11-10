@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "scope": "compact Euclid quotient block, independent reference, inverse, composition, scratch and phase; zero arming is reversible but does not decode gap/stopping paths",
+  "N": 20,
+  "k": 3,
+  "block": 2,
+  "armed": true,
+  "shots": 512,
+  "skipped_degree_gaps": 0,
+  "circuits": [
+    {
+      "which": "forward",
+      "Q": 323,
+      "T": 7714,
+      "extra_qubits": 83
+    },
+    {
+      "which": "inverse",
+      "Q": 323,
+      "T": 7714,
+      "extra_qubits": 83
+    },
+    {
+      "which": "both",
+      "Q": 323,
+      "T": 15428,
+      "extra_qubits": 83
+    }
+  ],
+  "seconds": 30.353749990463257
+}

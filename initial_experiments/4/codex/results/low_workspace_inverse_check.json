@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "scope": "all4096 field values including zero, random incoming XOR targets, source/scratch restoration and phase",
+  "shots": 4096,
+  "Q": 45,
+  "T": 102
+}

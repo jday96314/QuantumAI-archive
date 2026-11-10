@@ -1,0 +1,48 @@
+{
+  "status": "SCREENED_NONWINNING",
+  "scope": "same low-inverse and linear-padding serial comparator; full-series quotient blocks tested at k19..34",
+  "tested_shapes": 78,
+  "improved_shapes": 0,
+  "best_deltas": [
+    {
+      "k": 34,
+      "width": 1,
+      "Q": 902,
+      "T": 4253,
+      "selected_serial_T": 4163,
+      "delta_T": 90
+    },
+    {
+      "k": 33,
+      "width": 2,
+      "Q": 902,
+      "T": 8800,
+      "selected_serial_T": 8470,
+      "delta_T": 330
+    },
+    {
+      "k": 32,
+      "width": 3,
+      "Q": 902,
+      "T": 13827,
+      "selected_serial_T": 13173,
+      "delta_T": 654
+    },
+    {
+      "k": 31,
+      "width": 4,
+      "Q": 902,
+      "T": 19208,
+      "selected_serial_T": 18440,
+      "delta_T": 768
+    },
+    {
+      "k": 33,
+      "width": 1,
+      "Q": 902,
+      "T": 5171,
+      "selected_serial_T": 4307,
+      "delta_T": 864
+    }
+  ]
+}

@@ -1,0 +1,2160 @@
+[
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 4,
+    "product": 16,
+    "Q": 92,
+    "T": 1932,
+    "estimate": 205770,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_7_q92_k4_d4_p16.kmb",
+    "tag": "fine8_w27_17_7_q92_k4_d4_p16",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        7
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 92,
+      "curve_keep_bits": 4,
+      "defer_curve_phase": true,
+      "product_limit": 16,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 4
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 4,
+    "product": null,
+    "Q": 92,
+    "T": 1932,
+    "estimate": 205770,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_7_q92_k4_d4_pNone.kmb",
+    "tag": "fine8_w27_17_7_q92_k4_d4_pNone",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        7
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 92,
+      "curve_keep_bits": 4,
+      "defer_curve_phase": true,
+      "product_limit": null,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 4
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 4,
+    "delay": 4,
+    "product": 16,
+    "Q": 90,
+    "T": 1960,
+    "estimate": 208430,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_7_q90_k4_d4_p16.kmb",
+    "tag": "fine8_w27_17_7_q90_k4_d4_p16",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        7
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 90,
+      "curve_keep_bits": 4,
+      "defer_curve_phase": true,
+      "product_limit": 16,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 4
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 4,
+    "delay": 4,
+    "product": null,
+    "Q": 90,
+    "T": 1960,
+    "estimate": 208430,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_7_q90_k4_d4_pNone.kmb",
+    "tag": "fine8_w27_17_7_q90_k4_d4_pNone",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        7
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 90,
+      "curve_keep_bits": 4,
+      "defer_curve_phase": true,
+      "product_limit": null,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 4
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 4,
+    "product": 16,
+    "Q": 92,
+    "T": 1968,
+    "estimate": 209190,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_7_q92_k2_d4_p16.kmb",
+    "tag": "fine8_w27_17_7_q92_k2_d4_p16",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        7
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 92,
+      "curve_keep_bits": 2,
+      "defer_curve_phase": true,
+      "product_limit": 16,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 4
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 4,
+    "product": null,
+    "Q": 92,
+    "T": 1968,
+    "estimate": 209190,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_7_q92_k2_d4_pNone.kmb",
+    "tag": "fine8_w27_17_7_q92_k2_d4_pNone",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        7
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 92,
+      "curve_keep_bits": 2,
+      "defer_curve_phase": true,
+      "product_limit": null,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 4
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 4,
+    "product": 16,
+    "Q": 92,
+    "T": 1960,
+    "estimate": 210624,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_8_q92_k4_d4_p16.kmb",
+    "tag": "fine8_w27_17_8_q92_k4_d4_p16",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        8
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 92,
+      "curve_keep_bits": 4,
+      "defer_curve_phase": true,
+      "product_limit": 16,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 4
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 4,
+    "product": null,
+    "Q": 92,
+    "T": 1960,
+    "estimate": 210624,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_8_q92_k4_d4_pNone.kmb",
+    "tag": "fine8_w27_17_8_q92_k4_d4_pNone",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        8
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 92,
+      "curve_keep_bits": 4,
+      "defer_curve_phase": true,
+      "product_limit": null,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 4
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 4,
+    "product": 16,
+    "Q": 90,
+    "T": 1996,
+    "estimate": 211850,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_7_q90_k2_d4_p16.kmb",
+    "tag": "fine8_w27_17_7_q90_k2_d4_p16",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        7
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 90,
+      "curve_keep_bits": 2,
+      "defer_curve_phase": true,
+      "product_limit": 16,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 4
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 4,
+    "product": null,
+    "Q": 90,
+    "T": 1996,
+    "estimate": 211850,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_7_q90_k2_d4_pNone.kmb",
+    "tag": "fine8_w27_17_7_q90_k2_d4_pNone",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        7
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 90,
+      "curve_keep_bits": 2,
+      "defer_curve_phase": true,
+      "product_limit": null,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 4
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 6,
+    "product": 16,
+    "Q": 92,
+    "T": 2011,
+    "estimate": 213275,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_7_q92_k4_d6_p16.kmb",
+    "tag": "fine8_w27_17_7_q92_k4_d6_p16",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        7
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 92,
+      "curve_keep_bits": 4,
+      "defer_curve_phase": true,
+      "product_limit": 16,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 6
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 6,
+    "product": null,
+    "Q": 92,
+    "T": 2011,
+    "estimate": 213275,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_7_q92_k4_d6_pNone.kmb",
+    "tag": "fine8_w27_17_7_q92_k4_d6_pNone",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        7
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 92,
+      "curve_keep_bits": 4,
+      "defer_curve_phase": true,
+      "product_limit": null,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 6
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 4,
+    "delay": 4,
+    "product": 16,
+    "Q": 90,
+    "T": 1988,
+    "estimate": 213312,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_8_q90_k4_d4_p16.kmb",
+    "tag": "fine8_w27_17_8_q90_k4_d4_p16",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        8
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 90,
+      "curve_keep_bits": 4,
+      "defer_curve_phase": true,
+      "product_limit": 16,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 4
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 4,
+    "delay": 4,
+    "product": null,
+    "Q": 90,
+    "T": 1988,
+    "estimate": 213312,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_8_q90_k4_d4_pNone.kmb",
+    "tag": "fine8_w27_17_8_q90_k4_d4_pNone",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        8
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 90,
+      "curve_keep_bits": 4,
+      "defer_curve_phase": true,
+      "product_limit": null,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 4
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 4,
+    "product": 12,
+    "Q": 92,
+    "T": 2012,
+    "estimate": 213370,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_7_q92_k4_d4_p12.kmb",
+    "tag": "fine8_w27_17_7_q92_k4_d4_p12",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        7
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 92,
+      "curve_keep_bits": 4,
+      "defer_curve_phase": true,
+      "product_limit": 12,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 4
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 2,
+    "delay": 4,
+    "product": 16,
+    "Q": 88,
+    "T": 2024,
+    "estimate": 214510,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/fine8_w27_17_7_q88_k2_d4_p16.kmb",
+    "tag": "fine8_w27_17_7_q88_k2_d4_p16",
+    "parameters": {
+      "frac": 8,
+      "widths": [
+        27,
+        17,
+        7
+      ],
+      "lookup_frac": 8,
+      "accum_bits": [
+        17,
+        8,
+        null
+      ],
+      "carry_bits": 1,
+      "rounded": true,
+      "booth": true,
+      "reuse_normalized_top": true,
+      "output_extra_bits": 10,
+      "defer_workspace": true,
+      "qubit_limit": 88,
+      "curve_keep_bits": 2,
+      "defer_curve_phase": true,
+      "product_limit": 16,
+      "borrow_integration": true,
+      "monomial_delete": true,
+      "delay_high_bits": 4
+    }
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 2,
+    "delay": 4,
+    "product": null,
+    "Q": 95,
+    "T": 2024,
+    "estimate": 214510
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 4,
+    "delay": 6,
+    "product": 16,
+    "Q": 95,
+    "T": 2039,
+    "estimate": 215935
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 4,
+    "delay": 6,
+    "product": null,
+    "Q": 95,
+    "T": 2039,
+    "estimate": 215935
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 4,
+    "product": 12,
+    "Q": 95,
+    "T": 2048,
+    "estimate": 216790
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 6,
+    "product": 16,
+    "Q": 95,
+    "T": 2051,
+    "estimate": 217075
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 6,
+    "product": null,
+    "Q": 95,
+    "T": 2051,
+    "estimate": 217075
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 6,
+    "product": 16,
+    "Q": 96,
+    "T": 2039,
+    "estimate": 218208
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 6,
+    "product": null,
+    "Q": 96,
+    "T": 2039,
+    "estimate": 218208
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 4,
+    "product": 12,
+    "Q": 96,
+    "T": 2040,
+    "estimate": 218304
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 4,
+    "product": 16,
+    "Q": 96,
+    "T": 2042,
+    "estimate": 218496
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 4,
+    "product": null,
+    "Q": 96,
+    "T": 2042,
+    "estimate": 218496
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 4,
+    "delay": 6,
+    "product": 16,
+    "Q": 95,
+    "T": 2067,
+    "estimate": 218595
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 4,
+    "delay": 6,
+    "product": null,
+    "Q": 95,
+    "T": 2067,
+    "estimate": 218595
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 6,
+    "product": 16,
+    "Q": 95,
+    "T": 2075,
+    "estimate": 219355
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 6,
+    "product": null,
+    "Q": 95,
+    "T": 2075,
+    "estimate": 219355
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 4,
+    "product": 12,
+    "Q": 95,
+    "T": 2076,
+    "estimate": 219450
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 4,
+    "product": 16,
+    "Q": 95,
+    "T": 2084,
+    "estimate": 220210
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 4,
+    "product": null,
+    "Q": 95,
+    "T": 2084,
+    "estimate": 220210
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 6,
+    "product": 12,
+    "Q": 95,
+    "T": 2091,
+    "estimate": 220875
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 4,
+    "delay": 6,
+    "product": 16,
+    "Q": 96,
+    "T": 2067,
+    "estimate": 220896
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 4,
+    "delay": 6,
+    "product": null,
+    "Q": 96,
+    "T": 2067,
+    "estimate": 220896
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 4,
+    "product": 16,
+    "Q": 96,
+    "T": 2070,
+    "estimate": 221184
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 4,
+    "product": null,
+    "Q": 96,
+    "T": 2070,
+    "estimate": 221184
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 2,
+    "delay": 6,
+    "product": 16,
+    "Q": 95,
+    "T": 2103,
+    "estimate": 222015
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 2,
+    "delay": 6,
+    "product": null,
+    "Q": 95,
+    "T": 2103,
+    "estimate": 222015
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 4,
+    "product": 16,
+    "Q": 95,
+    "T": 2108,
+    "estimate": 222490
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 4,
+    "product": null,
+    "Q": 95,
+    "T": 2108,
+    "estimate": 222490
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 6,
+    "product": 12,
+    "Q": 95,
+    "T": 2131,
+    "estimate": 224675
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 0,
+    "delay": 4,
+    "product": 16,
+    "Q": 95,
+    "T": 2136,
+    "estimate": 225150
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 0,
+    "delay": 4,
+    "product": null,
+    "Q": 95,
+    "T": 2136,
+    "estimate": 225150
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 6,
+    "product": 12,
+    "Q": 96,
+    "T": 2119,
+    "estimate": 225888
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 4,
+    "product": 12,
+    "Q": 96,
+    "T": 2122,
+    "estimate": 226176
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 6,
+    "product": 16,
+    "Q": 96,
+    "T": 2125,
+    "estimate": 226464
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 6,
+    "product": null,
+    "Q": 96,
+    "T": 2125,
+    "estimate": 226464
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 6,
+    "product": 12,
+    "Q": 95,
+    "T": 2155,
+    "estimate": 226955
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 4,
+    "product": 12,
+    "Q": 95,
+    "T": 2164,
+    "estimate": 227810
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 6,
+    "product": 16,
+    "Q": 95,
+    "T": 2171,
+    "estimate": 228475
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 6,
+    "product": null,
+    "Q": 95,
+    "T": 2171,
+    "estimate": 228475
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 6,
+    "product": 16,
+    "Q": 96,
+    "T": 2149,
+    "estimate": 228768
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 6,
+    "product": null,
+    "Q": 96,
+    "T": 2149,
+    "estimate": 228768
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 4,
+    "product": 12,
+    "Q": 96,
+    "T": 2150,
+    "estimate": 228864
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 8,
+    "product": 16,
+    "Q": 95,
+    "T": 2176,
+    "estimate": 228950
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 8,
+    "product": null,
+    "Q": 95,
+    "T": 2176,
+    "estimate": 228950
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 4,
+    "product": 12,
+    "Q": 95,
+    "T": 2188,
+    "estimate": 230090
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 6,
+    "product": 16,
+    "Q": 95,
+    "T": 2191,
+    "estimate": 230375
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 6,
+    "product": null,
+    "Q": 95,
+    "T": 2191,
+    "estimate": 230375
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 4,
+    "delay": 8,
+    "product": 16,
+    "Q": 95,
+    "T": 2200,
+    "estimate": 231230
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 4,
+    "delay": 8,
+    "product": null,
+    "Q": 95,
+    "T": 2200,
+    "estimate": 231230
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 0,
+    "delay": 6,
+    "product": 16,
+    "Q": 95,
+    "T": 2215,
+    "estimate": 232655
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 0,
+    "delay": 6,
+    "product": null,
+    "Q": 95,
+    "T": 2215,
+    "estimate": 232655
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 0,
+    "delay": 4,
+    "product": 12,
+    "Q": 95,
+    "T": 2216,
+    "estimate": 232750
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 8,
+    "product": 16,
+    "Q": 95,
+    "T": 2220,
+    "estimate": 233130
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 8,
+    "product": null,
+    "Q": 95,
+    "T": 2220,
+    "estimate": 233130
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 4,
+    "delay": 8,
+    "product": 16,
+    "Q": 95,
+    "T": 2228,
+    "estimate": 233890
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 4,
+    "delay": 8,
+    "product": null,
+    "Q": 95,
+    "T": 2228,
+    "estimate": 233890
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 8,
+    "product": 16,
+    "Q": 96,
+    "T": 2204,
+    "estimate": 234048
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 8,
+    "product": null,
+    "Q": 96,
+    "T": 2204,
+    "estimate": 234048
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 6,
+    "product": 12,
+    "Q": 96,
+    "T": 2205,
+    "estimate": 234144
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 4,
+    "product": 16,
+    "Q": 96,
+    "T": 2209,
+    "estimate": 234528
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 4,
+    "product": null,
+    "Q": 96,
+    "T": 2209,
+    "estimate": 234528
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 8,
+    "product": 16,
+    "Q": 95,
+    "T": 2240,
+    "estimate": 235030
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 8,
+    "product": null,
+    "Q": 95,
+    "T": 2240,
+    "estimate": 235030
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 6,
+    "product": 12,
+    "Q": 95,
+    "T": 2249,
+    "estimate": 235885
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 4,
+    "delay": 8,
+    "product": 16,
+    "Q": 96,
+    "T": 2228,
+    "estimate": 236352
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 4,
+    "delay": 8,
+    "product": null,
+    "Q": 96,
+    "T": 2228,
+    "estimate": 236352
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 6,
+    "product": 12,
+    "Q": 96,
+    "T": 2229,
+    "estimate": 236448
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 8,
+    "product": 12,
+    "Q": 95,
+    "T": 2256,
+    "estimate": 236550
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 4,
+    "product": 16,
+    "Q": 96,
+    "T": 2233,
+    "estimate": 236832
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 4,
+    "product": null,
+    "Q": 96,
+    "T": 2233,
+    "estimate": 236832
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 2,
+    "delay": 8,
+    "product": 16,
+    "Q": 95,
+    "T": 2264,
+    "estimate": 237310
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 2,
+    "delay": 8,
+    "product": null,
+    "Q": 95,
+    "T": 2264,
+    "estimate": 237310
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 6,
+    "product": 12,
+    "Q": 95,
+    "T": 2271,
+    "estimate": 237975
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 0,
+    "delay": 6,
+    "product": 12,
+    "Q": 95,
+    "T": 2295,
+    "estimate": 240255
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 8,
+    "product": 12,
+    "Q": 95,
+    "T": 2298,
+    "estimate": 240540
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 4,
+    "delay": 8,
+    "product": 12,
+    "Q": 96,
+    "T": 2284,
+    "estimate": 241728
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 4,
+    "product": 12,
+    "Q": 96,
+    "T": 2289,
+    "estimate": 242208
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 8,
+    "product": 12,
+    "Q": 95,
+    "T": 2320,
+    "estimate": 242630
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 8,
+    "product": 16,
+    "Q": 96,
+    "T": 2294,
+    "estimate": 242688
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 8,
+    "product": null,
+    "Q": 96,
+    "T": 2294,
+    "estimate": 242688
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 6,
+    "product": 16,
+    "Q": 96,
+    "T": 2296,
+    "estimate": 242880
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 6,
+    "product": null,
+    "Q": 96,
+    "T": 2296,
+    "estimate": 242880
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 4,
+    "product": 12,
+    "Q": 96,
+    "T": 2313,
+    "estimate": 244512
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 8,
+    "product": 16,
+    "Q": 96,
+    "T": 2314,
+    "estimate": 244608
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 8,
+    "product": null,
+    "Q": 96,
+    "T": 2314,
+    "estimate": 244608
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 6,
+    "product": 16,
+    "Q": 96,
+    "T": 2316,
+    "estimate": 244800
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 6,
+    "product": null,
+    "Q": 96,
+    "T": 2316,
+    "estimate": 244800
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 8,
+    "product": 16,
+    "Q": 95,
+    "T": 2344,
+    "estimate": 244910
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 8,
+    "product": null,
+    "Q": 95,
+    "T": 2344,
+    "estimate": 244910
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 8,
+    "product": 16,
+    "Q": 95,
+    "T": 2360,
+    "estimate": 246430
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 8,
+    "product": null,
+    "Q": 95,
+    "T": 2360,
+    "estimate": 246430
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 0,
+    "delay": 8,
+    "product": 16,
+    "Q": 95,
+    "T": 2380,
+    "estimate": 248330
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 0,
+    "delay": 8,
+    "product": null,
+    "Q": 95,
+    "T": 2380,
+    "estimate": 248330
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 2,
+    "delay": 8,
+    "product": 12,
+    "Q": 96,
+    "T": 2372,
+    "estimate": 250176
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 6,
+    "product": 12,
+    "Q": 96,
+    "T": 2374,
+    "estimate": 250368
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 2,
+    "delay": 8,
+    "product": 12,
+    "Q": 96,
+    "T": 2394,
+    "estimate": 252288
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 6,
+    "product": 12,
+    "Q": 96,
+    "T": 2396,
+    "estimate": 252480
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 8,
+    "product": 12,
+    "Q": 95,
+    "T": 2426,
+    "estimate": 252700
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 8,
+    "product": 12,
+    "Q": 95,
+    "T": 2438,
+    "estimate": 253840
+  },
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "limit": 88,
+    "keep": 0,
+    "delay": 8,
+    "product": 12,
+    "Q": 95,
+    "T": 2460,
+    "estimate": 255930
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 8,
+    "product": 16,
+    "Q": 96,
+    "T": 2469,
+    "estimate": 259488
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 8,
+    "product": null,
+    "Q": 96,
+    "T": 2469,
+    "estimate": 259488
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 8,
+    "product": 16,
+    "Q": 96,
+    "T": 2485,
+    "estimate": 261024
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 8,
+    "product": null,
+    "Q": 96,
+    "T": 2485,
+    "estimate": 261024
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 92,
+    "keep": 0,
+    "delay": 8,
+    "product": 12,
+    "Q": 96,
+    "T": 2551,
+    "estimate": 267360
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "limit": 90,
+    "keep": 0,
+    "delay": 8,
+    "product": 12,
+    "Q": 96,
+    "T": 2563,
+    "estimate": 268512
+  }
+]

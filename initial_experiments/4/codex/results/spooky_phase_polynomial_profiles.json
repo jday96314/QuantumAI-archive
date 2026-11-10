@@ -1,0 +1,75 @@
+[
+  {
+    "status": "CAPACITY",
+    "budget": 16,
+    "reason": "all 16 live nodes pinned"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 24,
+    "reason": "all 24 live nodes pinned"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 32,
+    "reason": "all 32 live nodes pinned"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 40,
+    "reason": "all 40 live nodes pinned"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 48,
+    "reason": "all 48 live nodes pinned"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 64,
+    "reason": "all 64 live nodes pinned"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 80,
+    "reason": "all 80 live nodes pinned"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 96,
+    "reason": "all 96 live nodes pinned"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 128,
+    "reason": "all 128 live nodes pinned"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 192,
+    "reason": "all 192 live nodes pinned"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 256,
+    "reason": "computation limit 20000"
+  },
+  {
+    "status": "PLANNED",
+    "budget": 512,
+    "Q_model": 589,
+    "computes": 2323,
+    "peak": 512,
+    "ghost_events": 1540,
+    "actions": 5930
+  },
+  {
+    "status": "PLANNED",
+    "budget": 800,
+    "Q_model": 860,
+    "computes": 783,
+    "peak": 783,
+    "ghost_events": 0,
+    "actions": 2850
+  }
+]

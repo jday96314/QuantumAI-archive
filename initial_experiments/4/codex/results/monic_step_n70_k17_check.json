@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "scope": "generic nonzero-pivot monic compressed Euclid step, independent classical output, inverse, composition, scratch and phase",
+  "N": 70,
+  "k": 17,
+  "shots": 512,
+  "circuits": [
+    {
+      "which": "forward",
+      "Q": 885,
+      "T": 15030,
+      "extra_qubits": 45
+    },
+    {
+      "which": "inverse",
+      "Q": 885,
+      "T": 15030,
+      "extra_qubits": 45
+    },
+    {
+      "which": "both",
+      "Q": 885,
+      "T": 30060,
+      "extra_qubits": 45
+    }
+  ],
+  "seconds": 84.32900261878967
+}

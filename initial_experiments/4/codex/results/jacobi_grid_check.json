@@ -1,0 +1,6 @@
+{
+  "status": "PASS",
+  "cases": 60,
+  "angles_per_brute_grid": 32769,
+  "max_gram_error": 1.7763568394002505e-15
+}

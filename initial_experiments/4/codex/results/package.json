@@ -1,0 +1,22 @@
+{
+  "overall_score": 9.163146753540788,
+  "target_score": 14.0,
+  "target_reached": false,
+  "task_scores": {
+    "invsqrt": 189959.94488496913,
+    "dqi": 1612737419463.0198,
+    "dfthcsos": 722589197.6207536
+  },
+  "improvements": {
+    "invsqrt": 10.932695495213991,
+    "dqi": 15.15402525465698,
+    "dfthcsos": 4.643855179906387
+  },
+  "sources": {
+    "invsqrt": "results/sign_anf_verify.json",
+    "dqi": "baseline/dqi_verify.json",
+    "dfthcsos": "results/selectswap7_anf_verify.json"
+  },
+  "archive": "submission.zip",
+  "sha256": "68bb0f6b13c1f0a4e191fec67f67776a73518950e322d321a81c26faea2e07c6"
+}

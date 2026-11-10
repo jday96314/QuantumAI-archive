@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "scope": "same core options, same native4096-shot N14/m63 seed; only phase kernel differs",
+  "seed": 77291,
+  "old": {
+    "value_errors": 0,
+    "phase_errors": 4,
+    "toffoli_count": 45010.0,
+    "max_toffoli_count": 45010,
+    "num_qubits": 274
+  },
+  "new": {
+    "value_errors": 0,
+    "phase_errors": 4,
+    "toffoli_count": 44756.32421875,
+    "max_toffoli_count": 44758,
+    "num_qubits": 274
+  }
+}

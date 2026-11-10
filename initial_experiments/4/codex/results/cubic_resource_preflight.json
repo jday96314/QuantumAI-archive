@@ -1,0 +1,29 @@
+[
+  {
+    "widths": [
+      27,
+      18,
+      10,
+      3
+    ],
+    "error": "adder cannot fit 100 qubits; already live 95"
+  },
+  {
+    "widths": [
+      28,
+      20,
+      12,
+      5
+    ],
+    "error": "adder cannot fit 100 qubits; already live 102"
+  },
+  {
+    "widths": [
+      29,
+      21,
+      13,
+      6
+    ],
+    "error": "adder cannot fit 100 qubits; already live 106"
+  }
+]

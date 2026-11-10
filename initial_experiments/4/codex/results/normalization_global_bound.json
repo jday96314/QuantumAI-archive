@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scope": "analytic lower bound on lambda_eff for any native factorization with fixed shifts and passing positive gap floor",
+  "c": -559.1324731485038,
+  "minus_c": 559.1324731485038,
+  "gap_floor": 3.914898,
+  "lambda_eff_lower_bound": 46.78617959252637,
+  "selected_lambda_eff": 48.59417497035283,
+  "max_possible_normalization_improvement": 1.0386437916832019,
+  "derivation": "u=2*Lambda-gap=-c+2*sum positive_eigenvalues(h1prime)+sum_c[0.5*(t_c^2+l1_c^2)+W_c*t_c+l1_c*abs(W_c+t_c)]; bracket>=0.5*(l1_c^2-t_c^2)>=0, hence u>=-c and lambda_eff^2=gap*u>gap_floor*(-c)"
+}

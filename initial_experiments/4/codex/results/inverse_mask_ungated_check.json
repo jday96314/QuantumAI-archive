@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "scope": "ungated inverse parity: all field elements, all 12 mask basis vectors, zero and random masks",
+  "shots": 57344,
+  "Q": 34,
+  "T": 36
+}

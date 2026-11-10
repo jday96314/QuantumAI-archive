@@ -1,0 +1,226 @@
+[
+  {
+    "limit": 90,
+    "keep": 4,
+    "delay": 2,
+    "Q": 90,
+    "T": 1953,
+    "estimate": 197370
+  },
+  {
+    "limit": 92,
+    "keep": 4,
+    "delay": 0,
+    "Q": 92,
+    "T": 1911,
+    "estimate": 197892
+  },
+  {
+    "limit": 88,
+    "keep": 4,
+    "delay": 4,
+    "Q": 88,
+    "T": 2014,
+    "estimate": 198352
+  },
+  {
+    "limit": 88,
+    "keep": 2,
+    "delay": 2,
+    "Q": 88,
+    "T": 2016,
+    "estimate": 198528
+  },
+  {
+    "limit": 87,
+    "keep": 2,
+    "delay": 2,
+    "Q": 87,
+    "T": 2042,
+    "estimate": 198534
+  },
+  {
+    "limit": 92,
+    "keep": 4,
+    "delay": 2,
+    "Q": 92,
+    "T": 1921,
+    "estimate": 198812
+  },
+  {
+    "limit": 90,
+    "keep": 2,
+    "delay": 0,
+    "Q": 90,
+    "T": 1974,
+    "estimate": 199260
+  },
+  {
+    "limit": 90,
+    "keep": 2,
+    "delay": 2,
+    "Q": 90,
+    "T": 1976,
+    "estimate": 199440
+  },
+  {
+    "limit": 90,
+    "keep": 4,
+    "delay": 4,
+    "Q": 90,
+    "T": 1976,
+    "estimate": 199440
+  },
+  {
+    "limit": 87,
+    "keep": 2,
+    "delay": 4,
+    "Q": 87,
+    "T": 2053,
+    "estimate": 199491
+  },
+  {
+    "limit": 88,
+    "keep": 2,
+    "delay": 4,
+    "Q": 88,
+    "T": 2031,
+    "estimate": 199848
+  },
+  {
+    "limit": 92,
+    "keep": 2,
+    "delay": 0,
+    "Q": 92,
+    "T": 1934,
+    "estimate": 200008
+  },
+  {
+    "limit": 92,
+    "keep": 2,
+    "delay": 2,
+    "Q": 92,
+    "T": 1944,
+    "estimate": 200928
+  },
+  {
+    "limit": 92,
+    "keep": 4,
+    "delay": 4,
+    "Q": 92,
+    "T": 1944,
+    "estimate": 200928
+  },
+  {
+    "limit": 90,
+    "keep": 2,
+    "delay": 4,
+    "Q": 90,
+    "T": 1999,
+    "estimate": 201510
+  },
+  {
+    "limit": 92,
+    "keep": 2,
+    "delay": 4,
+    "Q": 92,
+    "T": 1969,
+    "estimate": 203228
+  },
+  {
+    "limit": 87,
+    "keep": 0,
+    "delay": 2,
+    "Q": 87,
+    "T": 2104,
+    "estimate": 203928
+  },
+  {
+    "limit": 87,
+    "keep": 0,
+    "delay": 0,
+    "Q": 87,
+    "T": 2108,
+    "estimate": 204276
+  },
+  {
+    "limit": 88,
+    "keep": 0,
+    "delay": 2,
+    "Q": 88,
+    "T": 2082,
+    "estimate": 204336
+  },
+  {
+    "limit": 88,
+    "keep": 0,
+    "delay": 0,
+    "Q": 88,
+    "T": 2084,
+    "estimate": 204512
+  },
+  {
+    "limit": 87,
+    "keep": 0,
+    "delay": 4,
+    "Q": 87,
+    "T": 2115,
+    "estimate": 204885
+  },
+  {
+    "limit": 90,
+    "keep": 0,
+    "delay": 0,
+    "Q": 90,
+    "T": 2040,
+    "estimate": 205200
+  },
+  {
+    "limit": 90,
+    "keep": 0,
+    "delay": 2,
+    "Q": 90,
+    "T": 2042,
+    "estimate": 205380
+  },
+  {
+    "limit": 88,
+    "keep": 0,
+    "delay": 4,
+    "Q": 88,
+    "T": 2097,
+    "estimate": 205656
+  },
+  {
+    "limit": 92,
+    "keep": 0,
+    "delay": 0,
+    "Q": 92,
+    "T": 2000,
+    "estimate": 206080
+  },
+  {
+    "limit": 92,
+    "keep": 0,
+    "delay": 2,
+    "Q": 92,
+    "T": 2012,
+    "estimate": 207184
+  },
+  {
+    "limit": 90,
+    "keep": 0,
+    "delay": 4,
+    "Q": 90,
+    "T": 2067,
+    "estimate": 207630
+  },
+  {
+    "limit": 92,
+    "keep": 0,
+    "delay": 4,
+    "Q": 92,
+    "T": 2041,
+    "estimate": 209852
+  }
+]

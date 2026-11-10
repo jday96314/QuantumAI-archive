@@ -1,0 +1,642 @@
+[
+  {
+    "delay": 1,
+    "limit": 93,
+    "product": 12,
+    "Q": 93,
+    "T": 1944,
+    "estimate": 203098.06953
+  },
+  {
+    "delay": 1,
+    "limit": 93,
+    "product": 16,
+    "Q": 93,
+    "T": 1792,
+    "estimate": 188962.06953
+  },
+  {
+    "delay": 1,
+    "limit": 93,
+    "product": 17,
+    "Q": 93,
+    "T": 1786,
+    "estimate": 188404.06953
+  },
+  {
+    "delay": 1,
+    "limit": 94,
+    "product": 12,
+    "Q": 94,
+    "T": 1928,
+    "estimate": 203777.91974
+  },
+  {
+    "delay": 1,
+    "limit": 94,
+    "product": 16,
+    "Q": 94,
+    "T": 1776,
+    "estimate": 189489.91974
+  },
+  {
+    "delay": 1,
+    "limit": 94,
+    "product": 17,
+    "Q": 94,
+    "T": 1770,
+    "estimate": 188925.91974
+  },
+  {
+    "delay": 1,
+    "limit": 94,
+    "product": null,
+    "Q": 94,
+    "T": 1770,
+    "estimate": 188925.91974
+  },
+  {
+    "delay": 2,
+    "limit": 92,
+    "product": 16,
+    "Q": 92,
+    "T": 1803,
+    "estimate": 187942.21932
+  },
+  {
+    "delay": 2,
+    "limit": 92,
+    "product": 17,
+    "Q": 92,
+    "T": 1797,
+    "estimate": 187390.21932
+  },
+  {
+    "delay": 2,
+    "limit": 93,
+    "product": 12,
+    "Q": 93,
+    "T": 1939,
+    "estimate": 202633.06953
+  },
+  {
+    "delay": 2,
+    "limit": 93,
+    "product": 16,
+    "Q": 93,
+    "T": 1787,
+    "estimate": 188497.06953
+  },
+  {
+    "delay": 2,
+    "limit": 93,
+    "product": 17,
+    "Q": 93,
+    "T": 1781,
+    "estimate": 187939.06953
+  },
+  {
+    "delay": 2,
+    "limit": 93,
+    "product": null,
+    "Q": 93,
+    "T": 1781,
+    "estimate": 187939.06953
+  },
+  {
+    "delay": 2,
+    "limit": 94,
+    "product": 12,
+    "Q": 94,
+    "T": 1925,
+    "estimate": 203495.91974
+  },
+  {
+    "delay": 2,
+    "limit": 94,
+    "product": 16,
+    "Q": 94,
+    "T": 1773,
+    "estimate": 189207.91974
+  },
+  {
+    "delay": 2,
+    "limit": 94,
+    "product": 17,
+    "Q": 94,
+    "T": 1767,
+    "estimate": 188643.91974
+  },
+  {
+    "delay": 2,
+    "limit": 94,
+    "product": null,
+    "Q": 94,
+    "T": 1767,
+    "estimate": 188643.91974
+  },
+  {
+    "delay": 3,
+    "limit": 91,
+    "product": 16,
+    "Q": 91,
+    "T": 1821,
+    "estimate": 187537.36911
+  },
+  {
+    "delay": 3,
+    "limit": 91,
+    "product": 17,
+    "Q": 91,
+    "T": 1815,
+    "estimate": 186991.36911
+  },
+  {
+    "delay": 3,
+    "limit": 92,
+    "product": 16,
+    "Q": 92,
+    "T": 1805,
+    "estimate": 188126.21932
+  },
+  {
+    "delay": 3,
+    "limit": 92,
+    "product": 17,
+    "Q": 92,
+    "T": 1799,
+    "estimate": 187574.21932
+  },
+  {
+    "delay": 3,
+    "limit": 92,
+    "product": null,
+    "Q": 92,
+    "T": 1799,
+    "estimate": 187574.21932
+  },
+  {
+    "delay": 3,
+    "limit": 93,
+    "product": 12,
+    "Q": 93,
+    "T": 1943,
+    "estimate": 203005.06953
+  },
+  {
+    "delay": 3,
+    "limit": 93,
+    "product": 16,
+    "Q": 93,
+    "T": 1791,
+    "estimate": 188869.06953
+  },
+  {
+    "delay": 3,
+    "limit": 93,
+    "product": 17,
+    "Q": 93,
+    "T": 1785,
+    "estimate": 188311.06953
+  },
+  {
+    "delay": 3,
+    "limit": 93,
+    "product": null,
+    "Q": 93,
+    "T": 1785,
+    "estimate": 188311.06953
+  },
+  {
+    "delay": 3,
+    "limit": 94,
+    "product": 12,
+    "Q": 94,
+    "T": 1929,
+    "estimate": 203871.91974
+  },
+  {
+    "delay": 3,
+    "limit": 94,
+    "product": 16,
+    "Q": 94,
+    "T": 1777,
+    "estimate": 189583.91974
+  },
+  {
+    "delay": 3,
+    "limit": 94,
+    "product": 17,
+    "Q": 94,
+    "T": 1771,
+    "estimate": 189019.91974
+  },
+  {
+    "delay": 3,
+    "limit": 94,
+    "product": null,
+    "Q": 94,
+    "T": 1771,
+    "estimate": 189019.91974
+  },
+  {
+    "delay": 4,
+    "limit": 90,
+    "product": 16,
+    "Q": 90,
+    "T": 1841,
+    "estimate": 187276.5189
+  },
+  {
+    "delay": 4,
+    "limit": 90,
+    "product": 17,
+    "Q": 90,
+    "T": 1835,
+    "estimate": 186736.5189
+  },
+  {
+    "delay": 4,
+    "limit": 91,
+    "product": 16,
+    "Q": 91,
+    "T": 1825,
+    "estimate": 187901.36911
+  },
+  {
+    "delay": 4,
+    "limit": 91,
+    "product": 17,
+    "Q": 91,
+    "T": 1819,
+    "estimate": 187355.36911
+  },
+  {
+    "delay": 4,
+    "limit": 91,
+    "product": null,
+    "Q": 91,
+    "T": 1819,
+    "estimate": 187355.36911
+  },
+  {
+    "delay": 4,
+    "limit": 92,
+    "product": 16,
+    "Q": 92,
+    "T": 1811,
+    "estimate": 188678.21932
+  },
+  {
+    "delay": 4,
+    "limit": 92,
+    "product": 17,
+    "Q": 92,
+    "T": 1805,
+    "estimate": 188126.21932
+  },
+  {
+    "delay": 4,
+    "limit": 92,
+    "product": null,
+    "Q": 92,
+    "T": 1805,
+    "estimate": 188126.21932
+  },
+  {
+    "delay": 4,
+    "limit": 93,
+    "product": 12,
+    "Q": 93,
+    "T": 1949,
+    "estimate": 203563.06953
+  },
+  {
+    "delay": 4,
+    "limit": 93,
+    "product": 16,
+    "Q": 93,
+    "T": 1797,
+    "estimate": 189427.06953
+  },
+  {
+    "delay": 4,
+    "limit": 93,
+    "product": 17,
+    "Q": 93,
+    "T": 1791,
+    "estimate": 188869.06953
+  },
+  {
+    "delay": 4,
+    "limit": 93,
+    "product": null,
+    "Q": 93,
+    "T": 1791,
+    "estimate": 188869.06953
+  },
+  {
+    "delay": 4,
+    "limit": 94,
+    "product": 12,
+    "Q": 94,
+    "T": 1935,
+    "estimate": 204435.91974
+  },
+  {
+    "delay": 4,
+    "limit": 94,
+    "product": 16,
+    "Q": 94,
+    "T": 1783,
+    "estimate": 190147.91974
+  },
+  {
+    "delay": 4,
+    "limit": 94,
+    "product": 17,
+    "Q": 94,
+    "T": 1777,
+    "estimate": 189583.91974
+  },
+  {
+    "delay": 4,
+    "limit": 94,
+    "product": null,
+    "Q": 94,
+    "T": 1777,
+    "estimate": 189583.91974
+  },
+  {
+    "delay": 5,
+    "limit": 90,
+    "product": 16,
+    "Q": 90,
+    "T": 1862,
+    "estimate": 189166.5189
+  },
+  {
+    "delay": 5,
+    "limit": 90,
+    "product": 17,
+    "Q": 90,
+    "T": 1856,
+    "estimate": 188626.5189
+  },
+  {
+    "delay": 5,
+    "limit": 90,
+    "product": null,
+    "Q": 90,
+    "T": 1856,
+    "estimate": 188626.5189
+  },
+  {
+    "delay": 5,
+    "limit": 91,
+    "product": 16,
+    "Q": 91,
+    "T": 1848,
+    "estimate": 189994.36911
+  },
+  {
+    "delay": 5,
+    "limit": 91,
+    "product": 17,
+    "Q": 91,
+    "T": 1842,
+    "estimate": 189448.36911
+  },
+  {
+    "delay": 5,
+    "limit": 91,
+    "product": null,
+    "Q": 91,
+    "T": 1842,
+    "estimate": 189448.36911
+  },
+  {
+    "delay": 5,
+    "limit": 92,
+    "product": 16,
+    "Q": 92,
+    "T": 1834,
+    "estimate": 190794.21932
+  },
+  {
+    "delay": 5,
+    "limit": 92,
+    "product": 17,
+    "Q": 92,
+    "T": 1828,
+    "estimate": 190242.21932
+  },
+  {
+    "delay": 5,
+    "limit": 92,
+    "product": null,
+    "Q": 92,
+    "T": 1828,
+    "estimate": 190242.21932
+  },
+  {
+    "delay": 5,
+    "limit": 93,
+    "product": 12,
+    "Q": 93,
+    "T": 1972,
+    "estimate": 205702.06953
+  },
+  {
+    "delay": 5,
+    "limit": 93,
+    "product": 16,
+    "Q": 93,
+    "T": 1820,
+    "estimate": 191566.06953
+  },
+  {
+    "delay": 5,
+    "limit": 93,
+    "product": 17,
+    "Q": 93,
+    "T": 1814,
+    "estimate": 191008.06953
+  },
+  {
+    "delay": 5,
+    "limit": 93,
+    "product": null,
+    "Q": 93,
+    "T": 1814,
+    "estimate": 191008.06953
+  },
+  {
+    "delay": 5,
+    "limit": 94,
+    "product": 12,
+    "Q": 94,
+    "T": 1958,
+    "estimate": 206597.91974
+  },
+  {
+    "delay": 5,
+    "limit": 94,
+    "product": 16,
+    "Q": 94,
+    "T": 1806,
+    "estimate": 192309.91974
+  },
+  {
+    "delay": 5,
+    "limit": 94,
+    "product": 17,
+    "Q": 94,
+    "T": 1800,
+    "estimate": 191745.91974
+  },
+  {
+    "delay": 5,
+    "limit": 94,
+    "product": null,
+    "Q": 94,
+    "T": 1800,
+    "estimate": 191745.91974
+  },
+  {
+    "delay": 6,
+    "limit": 90,
+    "product": 16,
+    "Q": 90,
+    "T": 1886,
+    "estimate": 191326.5189
+  },
+  {
+    "delay": 6,
+    "limit": 90,
+    "product": 17,
+    "Q": 90,
+    "T": 1880,
+    "estimate": 190786.5189
+  },
+  {
+    "delay": 6,
+    "limit": 90,
+    "product": null,
+    "Q": 90,
+    "T": 1880,
+    "estimate": 190786.5189
+  },
+  {
+    "delay": 6,
+    "limit": 91,
+    "product": 16,
+    "Q": 91,
+    "T": 1872,
+    "estimate": 192178.36911
+  },
+  {
+    "delay": 6,
+    "limit": 91,
+    "product": 17,
+    "Q": 91,
+    "T": 1866,
+    "estimate": 191632.36911
+  },
+  {
+    "delay": 6,
+    "limit": 91,
+    "product": null,
+    "Q": 91,
+    "T": 1866,
+    "estimate": 191632.36911
+  },
+  {
+    "delay": 6,
+    "limit": 92,
+    "product": 16,
+    "Q": 92,
+    "T": 1858,
+    "estimate": 193002.21932
+  },
+  {
+    "delay": 6,
+    "limit": 92,
+    "product": 17,
+    "Q": 92,
+    "T": 1852,
+    "estimate": 192450.21932
+  },
+  {
+    "delay": 6,
+    "limit": 92,
+    "product": null,
+    "Q": 92,
+    "T": 1852,
+    "estimate": 192450.21932
+  },
+  {
+    "delay": 6,
+    "limit": 93,
+    "product": 12,
+    "Q": 93,
+    "T": 1996,
+    "estimate": 207934.06953
+  },
+  {
+    "delay": 6,
+    "limit": 93,
+    "product": 16,
+    "Q": 93,
+    "T": 1844,
+    "estimate": 193798.06953
+  },
+  {
+    "delay": 6,
+    "limit": 93,
+    "product": 17,
+    "Q": 93,
+    "T": 1838,
+    "estimate": 193240.06953
+  },
+  {
+    "delay": 6,
+    "limit": 93,
+    "product": null,
+    "Q": 93,
+    "T": 1838,
+    "estimate": 193240.06953
+  },
+  {
+    "delay": 6,
+    "limit": 94,
+    "product": 12,
+    "Q": 94,
+    "T": 1982,
+    "estimate": 208853.91974
+  },
+  {
+    "delay": 6,
+    "limit": 94,
+    "product": 16,
+    "Q": 94,
+    "T": 1830,
+    "estimate": 194565.91974
+  },
+  {
+    "delay": 6,
+    "limit": 94,
+    "product": 17,
+    "Q": 94,
+    "T": 1824,
+    "estimate": 194001.91974
+  },
+  {
+    "delay": 6,
+    "limit": 94,
+    "product": null,
+    "Q": 94,
+    "T": 1824,
+    "estimate": 194001.91974
+  }
+]

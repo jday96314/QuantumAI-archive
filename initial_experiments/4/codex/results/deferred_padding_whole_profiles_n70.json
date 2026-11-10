@@ -1,0 +1,38 @@
+{
+  "scope": "full forward compact transform with monomial core completion and deferred common-factor squarefree padding; excludes H map, H division, phase scan and repetition",
+  "rows": [
+    {
+      "N": 70,
+      "block": 2,
+      "padding": false,
+      "deferred": true,
+      "Q": 956,
+      "T": 511291
+    },
+    {
+      "N": 70,
+      "block": 4,
+      "padding": false,
+      "deferred": true,
+      "Q": 1004,
+      "T": 451699
+    },
+    {
+      "N": 70,
+      "block": 6,
+      "padding": false,
+      "deferred": true,
+      "Q": 1052,
+      "T": 462973
+    },
+    {
+      "N": 70,
+      "block": 8,
+      "padding": false,
+      "deferred": true,
+      "Q": 1100,
+      "T": 489187
+    }
+  ],
+  "seconds": 25.52340841293335
+}

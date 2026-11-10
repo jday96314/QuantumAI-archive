@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "scope": "full-series block independent monomial reference, forward/inverse, fresh arbitrary-input composition, flags/scratch/phase; not full decoding",
+  "N": 22,
+  "k": 7,
+  "block": 2,
+  "shots": 512,
+  "skipped_nongeneric_value_cases": 0,
+  "circuits": [
+    {
+      "which": "forward",
+      "status": "PASS",
+      "Q": 293,
+      "T": 7024,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "inverse",
+      "status": "PASS",
+      "Q": 293,
+      "T": 7024,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "both",
+      "status": "PASS",
+      "Q": 293,
+      "T": 14048,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    }
+  ],
+  "seconds": 4.466398477554321
+}

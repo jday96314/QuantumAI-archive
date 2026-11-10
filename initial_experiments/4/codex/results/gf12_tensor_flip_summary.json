@@ -1,0 +1,11 @@
+{
+  "status": "SEARCH_FINISHED_NO_IMPROVEMENT",
+  "scope": "exact bilinear field multiplication cover checked on all144 basis pairs; bounded flip/plus search",
+  "initial_rank": 42,
+  "best_rank": 42,
+  "chains": 32,
+  "iterations_per_chain": 1000000,
+  "seed": 819372,
+  "rank_expansion_cap": 2,
+  "best_file_sha256": "c7cf27ec7db657ec1c11b70c2e9c6849be33a5969b3dbe9c365f0e264ff32728"
+}

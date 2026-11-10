@@ -1,0 +1,114 @@
+[
+  {
+    "status": "BUILT",
+    "cap": 92,
+    "product": 12,
+    "Q": 92,
+    "T": 2706,
+    "path": "candidates/cubic_phase_q92_p12.kmb"
+  },
+  {
+    "status": "BUILT",
+    "cap": 92,
+    "product": 16,
+    "Q": 92,
+    "T": 2490,
+    "path": "candidates/cubic_phase_q92_p16.kmb"
+  },
+  {
+    "status": "BUILT",
+    "cap": 94,
+    "product": 12,
+    "Q": 94,
+    "T": 2656,
+    "path": "candidates/cubic_phase_q94_p12.kmb"
+  },
+  {
+    "status": "BUILT",
+    "cap": 94,
+    "product": 16,
+    "Q": 94,
+    "T": 2440,
+    "path": "candidates/cubic_phase_q94_p16.kmb"
+  },
+  {
+    "status": "BUILT",
+    "cap": 94,
+    "product": null,
+    "Q": 94,
+    "T": 2426,
+    "path": "candidates/cubic_phase_q94_pNone.kmb"
+  },
+  {
+    "status": "BUILT",
+    "cap": 96,
+    "product": 12,
+    "Q": 96,
+    "T": 2610,
+    "path": "candidates/cubic_phase_q96_p12.kmb"
+  },
+  {
+    "status": "BUILT",
+    "cap": 96,
+    "product": 16,
+    "Q": 96,
+    "T": 2394,
+    "path": "candidates/cubic_phase_q96_p16.kmb"
+  },
+  {
+    "status": "BUILT",
+    "cap": 96,
+    "product": null,
+    "Q": 96,
+    "T": 2380,
+    "path": "candidates/cubic_phase_q96_pNone.kmb"
+  },
+  {
+    "status": "BUILT",
+    "cap": 98,
+    "product": 12,
+    "Q": 98,
+    "T": 2568,
+    "path": "candidates/cubic_phase_q98_p12.kmb"
+  },
+  {
+    "status": "BUILT",
+    "cap": 98,
+    "product": 16,
+    "Q": 98,
+    "T": 2352,
+    "path": "candidates/cubic_phase_q98_p16.kmb"
+  },
+  {
+    "status": "BUILT",
+    "cap": 98,
+    "product": null,
+    "Q": 98,
+    "T": 2338,
+    "path": "candidates/cubic_phase_q98_pNone.kmb"
+  },
+  {
+    "status": "BUILT",
+    "cap": 100,
+    "product": 12,
+    "Q": 100,
+    "T": 2538,
+    "path": "candidates/cubic_phase_q100_p12.kmb"
+  },
+  {
+    "status": "BUILT",
+    "cap": 100,
+    "product": 16,
+    "Q": 100,
+    "T": 2322,
+    "path": "candidates/cubic_phase_q100_p16.kmb"
+  },
+  {
+    "status": "BUILT",
+    "cap": 100,
+    "product": null,
+    "Q": 100,
+    "T": 2308,
+    "path": "candidates/cubic_phase_q100_pNone.kmb"
+  }
+]

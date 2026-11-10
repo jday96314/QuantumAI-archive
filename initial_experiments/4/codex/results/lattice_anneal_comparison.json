@@ -1,0 +1,175 @@
+{
+  "scope": "classical physical fits; not full verifier results",
+  "saved": {
+    "control700": {
+      "B": 700,
+      "error_2": 0.020328942017867717
+    },
+    "anneal700": {
+      "B": 700,
+      "error_2": 0.020302388226004782
+    },
+    "ternary700": {
+      "B": 700,
+      "error_2": 0.02029424578055653
+    },
+    "wide700": {
+      "B": 700,
+      "error_2": 0.020253110148352654
+    }
+  },
+  "matched_points": {
+    "control700": [
+      {
+        "step": 0,
+        "error_2": 0.020397223613680366,
+        "best": 0.020397223613680366,
+        "accepted": 64,
+        "changed": true,
+        "lambda_gram_bound": 154.15181759032168,
+        "seconds": 1.1079444885253906
+      },
+      {
+        "step": 50,
+        "error_2": 0.02035827457191692,
+        "best": 0.02035827457191692,
+        "accepted": 3264,
+        "changed": true,
+        "lambda_gram_bound": 154.32906950456285,
+        "seconds": 45.1974196434021
+      },
+      {
+        "step": 100,
+        "error_2": 0.020336581104071817,
+        "best": 0.020336581104071817,
+        "accepted": 6464,
+        "changed": true,
+        "lambda_gram_bound": 154.36304741076611,
+        "seconds": 89.71888995170593
+      },
+      {
+        "step": 115,
+        "error_2": 0.020330619203417034,
+        "best": 0.020330619203417034,
+        "accepted": 7424,
+        "changed": true,
+        "lambda_gram_bound": 154.37376507066193,
+        "seconds": 101.99318289756775
+      }
+    ],
+    "anneal700": [
+      {
+        "step": 0,
+        "error_2": 0.020397223613680366,
+        "best": 0.020397223613680366,
+        "accepted": 64,
+        "changed": true,
+        "lambda_gram_bound": 154.15181759032168,
+        "seconds": 1.1679112911224365
+      },
+      {
+        "step": 50,
+        "error_2": 0.020361781392139375,
+        "best": 0.020361781392139375,
+        "accepted": 3264,
+        "changed": true,
+        "lambda_gram_bound": 154.3047256331578,
+        "seconds": 45.97013711929321
+      },
+      {
+        "step": 100,
+        "error_2": 0.020337105048219874,
+        "best": 0.020337105048219874,
+        "accepted": 6464,
+        "changed": true,
+        "lambda_gram_bound": 154.35339510329987,
+        "seconds": 86.73174357414246
+      },
+      {
+        "step": 115,
+        "error_2": 0.02033166565068749,
+        "best": 0.02033166565068749,
+        "accepted": 7424,
+        "changed": true,
+        "lambda_gram_bound": 154.35578337399528,
+        "seconds": 98.74999523162842
+      }
+    ],
+    "ternary700": [
+      {
+        "step": 0,
+        "error_2": 0.020397223613680366,
+        "best": 0.020397223613680366,
+        "accepted": 128,
+        "changed": true,
+        "lambda_gram_bound": 154.15181759032168,
+        "seconds": 2.148369550704956
+      },
+      {
+        "step": 50,
+        "error_2": 0.020337773382085422,
+        "best": 0.020337773382085422,
+        "accepted": 6528,
+        "changed": true,
+        "lambda_gram_bound": 154.36271761811085,
+        "seconds": 59.87261629104614
+      },
+      {
+        "step": 100,
+        "error_2": 0.020304190595570433,
+        "best": 0.020304190595570433,
+        "accepted": 12924,
+        "changed": true,
+        "lambda_gram_bound": 154.40041654161178,
+        "seconds": 110.69403052330017
+      },
+      {
+        "step": 115,
+        "error_2": 0.02029634097572122,
+        "best": 0.02029634097572122,
+        "accepted": 14842,
+        "changed": true,
+        "lambda_gram_bound": 154.41209664865232,
+        "seconds": 124.48337984085083
+      }
+    ],
+    "wide700": [
+      {
+        "step": 0,
+        "error_2": 0.020397223613680366,
+        "best": 0.020397223613680366,
+        "accepted": 338,
+        "changed": true,
+        "lambda_gram_bound": 154.15181759032168,
+        "seconds": 4.767346382141113
+      },
+      {
+        "step": 50,
+        "error_2": 0.020302512448882617,
+        "best": 0.020302512448882617,
+        "accepted": 16998,
+        "changed": true,
+        "lambda_gram_bound": 154.40649159361095,
+        "seconds": 81.49456524848938
+      },
+      {
+        "step": 100,
+        "error_2": 0.020266413134359288,
+        "best": 0.020266413134359288,
+        "accepted": 30146,
+        "changed": true,
+        "lambda_gram_bound": 154.42000891292696,
+        "seconds": 146.82185888290405
+      },
+      {
+        "step": 115,
+        "error_2": 0.020259768159163402,
+        "best": 0.020259768159163402,
+        "accepted": 33141,
+        "changed": true,
+        "lambda_gram_bound": 154.42289174683953,
+        "seconds": 173.51558232307434
+      }
+    ]
+  }
+}

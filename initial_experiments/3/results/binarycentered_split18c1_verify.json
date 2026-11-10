@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "score": 254274.83299335834,
+  "toffoli_equivalent": 2290.7642612014265,
+  "toffoli_count": 2037.9996685165434,
+  "max_toffoli_count": 2049,
+  "t_count": 1.0,
+  "rotation_count": 35.0,
+  "rotation_eps": 2.1670923037399776e-13,
+  "num_qubits": 111,
+  "reaction_depth": 237,
+  "num_ops": 46467,
+  "verified_shots": 200540928,
+  "worst_error_over_tolerance": 0.9305363381528171,
+  "worst_x": 2940928,
+  "circuit_sha256": "26285342668c43643dcd4d2e00622ae62ab85d180ff239cbe24700b665c230e4"
+}

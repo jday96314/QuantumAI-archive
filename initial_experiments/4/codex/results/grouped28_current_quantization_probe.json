@@ -1,0 +1,47 @@
+{
+  "scope": "unrefitted direct angle quantization; no native acceptance",
+  "input": "candidates/grouped28_b64_c32_float.npz",
+  "records": [
+    {
+      "bits": 7,
+      "error_2": 0.3911820954712814,
+      "output": "parameters/grouped28_current_q7_seed.npz",
+      "R": 28,
+      "B": 64,
+      "C": 32
+    },
+    {
+      "bits": 8,
+      "error_2": 0.21040400656464212,
+      "output": "parameters/grouped28_current_q8_seed.npz",
+      "R": 28,
+      "B": 64,
+      "C": 32
+    },
+    {
+      "bits": 9,
+      "error_2": 0.10488634012962936,
+      "output": "parameters/grouped28_current_q9_seed.npz",
+      "R": 28,
+      "B": 64,
+      "C": 32
+    },
+    {
+      "bits": 10,
+      "error_2": 0.053437562570132456,
+      "output": "parameters/grouped28_current_q10_seed.npz",
+      "R": 28,
+      "B": 64,
+      "C": 32
+    },
+    {
+      "bits": 12,
+      "error_2": 0.022076286641833223,
+      "output": "parameters/grouped28_current_q12_seed.npz",
+      "R": 28,
+      "B": 64,
+      "C": 32
+    }
+  ],
+  "seconds": 1.7922186851501465
+}

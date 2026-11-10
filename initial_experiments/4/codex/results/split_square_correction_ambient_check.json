@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "scope": "split monomial square and signed carry integration, arbitrary incoming counter, inverse and fresh compositions, scratch and phase; no full inverse-square-root acceptance",
+  "parameters": {
+    "bits": 20,
+    "split": 9,
+    "shift": 11,
+    "shots": 16384,
+    "ambient": 37,
+    "limit": 90
+  },
+  "correction_range": [
+    0,
+    1536
+  ],
+  "circuits": [
+    {
+      "which": "forward",
+      "status": "PASS",
+      "Q": 71,
+      "T": 425,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "inverse",
+      "status": "PASS",
+      "Q": 71,
+      "T": 425,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "both",
+      "status": "PASS",
+      "Q": 71,
+      "T": 850,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "inverse_both",
+      "status": "PASS",
+      "Q": 71,
+      "T": 850,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    }
+  ]
+}

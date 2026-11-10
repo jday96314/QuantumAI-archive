@@ -1,0 +1,54 @@
+[
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      19,
+      11
+    ],
+    "qubits": 126,
+    "toffolis": 2450,
+    "max_relative_error": 5.030113880977183e-08,
+    "circuit": "initial_experiments/candidates/poly-integer-28-19-11.kmb",
+    "table": "initial_experiments/candidates/poly-integer-28-19-11.npy"
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      19,
+      12
+    ],
+    "qubits": 127,
+    "toffolis": 2450,
+    "max_relative_error": 5.030113880977183e-08,
+    "circuit": "initial_experiments/candidates/poly-integer-28-19-12.kmb",
+    "table": "initial_experiments/candidates/poly-integer-28-19-12.npy"
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      20,
+      11
+    ],
+    "qubits": 128,
+    "toffolis": 2528,
+    "max_relative_error": 3.63339804909657e-08,
+    "circuit": "initial_experiments/candidates/poly-integer-28-20-11.kmb",
+    "table": "initial_experiments/candidates/poly-integer-28-20-11.npy"
+  },
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      20,
+      12
+    ],
+    "qubits": 129,
+    "toffolis": 2532,
+    "max_relative_error": 3.63339804909657e-08,
+    "circuit": "initial_experiments/candidates/poly-integer-28-20-12.kmb",
+    "table": "initial_experiments/candidates/poly-integer-28-20-12.npy"
+  }
+]

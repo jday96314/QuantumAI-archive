@@ -1,0 +1,12 @@
+{
+  "limit": 94,
+  "keep": 4,
+  "product": 16,
+  "splits": [
+    17,
+    8
+  ],
+  "Q": 94,
+  "T": 1753,
+  "predicted_cost": 187327.91974
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "status": "PASS",
+    "budget": 2,
+    "Q": 15,
+    "T": 1434,
+    "computes": 1434,
+    "workspace_peak": 7,
+    "ghost_events": 1394,
+    "linear_measurements": 910,
+    "actions": 7273
+  },
+  {
+    "status": "PASS",
+    "budget": 4,
+    "Q": 17,
+    "T": 1074,
+    "computes": 1074,
+    "workspace_peak": 9,
+    "ghost_events": 1034,
+    "linear_measurements": 835,
+    "actions": 6215
+  },
+  {
+    "status": "PASS",
+    "budget": 8,
+    "Q": 21,
+    "T": 468,
+    "computes": 468,
+    "workspace_peak": 13,
+    "ghost_events": 428,
+    "linear_measurements": 568,
+    "actions": 3761
+  },
+  {
+    "status": "PASS",
+    "budget": 16,
+    "Q": 28,
+    "T": 125,
+    "computes": 125,
+    "workspace_peak": 20,
+    "ghost_events": 85,
+    "linear_measurements": 243,
+    "actions": 1528
+  },
+  {
+    "status": "PASS",
+    "budget": 32,
+    "Q": 43,
+    "T": 49,
+    "computes": 49,
+    "workspace_peak": 35,
+    "ghost_events": 9,
+    "linear_measurements": 136,
+    "actions": 835
+  }
+]

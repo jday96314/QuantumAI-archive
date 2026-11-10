@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "archive": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/agy/submission.zip",
+  "archive_size_bytes": 60902361,
+  "archive_sha256": "6ebc780a1c8027f26080e47818ea5db63dde58ce9ffbf90f46c4e7411b904800",
+  "overall_score": 9.009622908353446,
+  "improvements": {
+    "invsqrt": 10.889585966238,
+    "dqi": 15.15402525465698,
+    "dfthcsos": 4.431803216683785
+  },
+  "costs": {
+    "invsqrt": 190711.9554548813,
+    "dqi": 1612737419463.0198,
+    "dfthcsos": 757163489.4986277
+  },
+  "baselines": {
+    "invsqrt": 2076774.233715282,
+    "dqi": 24439463583672.93,
+    "dfthcsos": 3355599588.3155375
+  },
+  "wall_seconds": {
+    "invsqrt": 114.76738414168358,
+    "dqi": 36.142707608640194,
+    "dfthcsos": 13.058946648612618
+  },
+  "component_details": {
+    "invsqrt": {
+      "qubits": 94,
+      "toffoli_count": 1778.0003790348471,
+      "toffoli_equivalent": 2028.8505899455458,
+      "rotation_count": 34.0,
+      "rotation_eps": 1.0015592812694554e-13,
+      "verified_shots": 200540928,
+      "worst_error_over_tolerance": 0.9796714395489131
+    },
+    "dqi": {
+      "qubits": 1429,
+      "toffoli_count": 645755.0,
+      "repetition_factor": 1.2230139975925918,
+      "effective_error_rate": 0.0011344950381555927,
+      "verified_shots": 102400
+    },
+    "dfthcsos": {
+      "qubits": 526,
+      "toffoli_count": 29440.0,
+      "lambda_eff": 48.89518731780483,
+      "verified_shots": 50880,
+      "metrics": {
+        "error_1": 0.011996803724989588,
+        "error_2": 0.019995289617327893,
+        "Lambda": 307.2774832964154,
+        "E_SOS": -22144.188488239986,
+        "E_gap": 3.9151382399868453,
+        "lambda_eff": 48.89518731780483,
+        "gap_in_domain": true
+      }
+    }
+  }
+}

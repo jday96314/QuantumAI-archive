@@ -1,0 +1,731 @@
+[
+  {
+    "name": "original",
+    "vector_max_error_up_to_sign": 0.0,
+    "sign_extension_exceptions": 12941,
+    "batches": {
+      "7": [
+        {
+          "k": 0,
+          "active_bits": 49,
+          "difference_rank": 49,
+          "Q_floor": 115
+        },
+        {
+          "k": 1,
+          "active_bits": 55,
+          "difference_rank": 53,
+          "Q_floor": 119
+        },
+        {
+          "k": 2,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 122
+        },
+        {
+          "k": 3,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 122
+        },
+        {
+          "k": 4,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 122
+        },
+        {
+          "k": 5,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 122
+        },
+        {
+          "k": 6,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 122
+        },
+        {
+          "k": 7,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 122
+        },
+        {
+          "k": 8,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 122
+        },
+        {
+          "k": 9,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 122
+        },
+        {
+          "k": 10,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 122
+        }
+      ],
+      "8": [
+        {
+          "k": 0,
+          "active_bits": 57,
+          "difference_rank": 56,
+          "Q_floor": 130
+        },
+        {
+          "k": 1,
+          "active_bits": 63,
+          "difference_rank": 62,
+          "Q_floor": 136
+        },
+        {
+          "k": 2,
+          "active_bits": 64,
+          "difference_rank": 64,
+          "Q_floor": 138
+        },
+        {
+          "k": 3,
+          "active_bits": 63,
+          "difference_rank": 63,
+          "Q_floor": 137
+        },
+        {
+          "k": 4,
+          "active_bits": 64,
+          "difference_rank": 64,
+          "Q_floor": 138
+        },
+        {
+          "k": 5,
+          "active_bits": 64,
+          "difference_rank": 64,
+          "Q_floor": 138
+        },
+        {
+          "k": 6,
+          "active_bits": 64,
+          "difference_rank": 64,
+          "Q_floor": 138
+        },
+        {
+          "k": 7,
+          "active_bits": 64,
+          "difference_rank": 64,
+          "Q_floor": 138
+        },
+        {
+          "k": 8,
+          "active_bits": 64,
+          "difference_rank": 64,
+          "Q_floor": 138
+        },
+        {
+          "k": 9,
+          "active_bits": 64,
+          "difference_rank": 64,
+          "Q_floor": 138
+        }
+      ],
+      "9": [
+        {
+          "k": 0,
+          "active_bits": 64,
+          "difference_rank": 62,
+          "Q_floor": 144
+        },
+        {
+          "k": 1,
+          "active_bits": 72,
+          "difference_rank": 70,
+          "Q_floor": 152
+        },
+        {
+          "k": 2,
+          "active_bits": 72,
+          "difference_rank": 72,
+          "Q_floor": 154
+        },
+        {
+          "k": 3,
+          "active_bits": 72,
+          "difference_rank": 72,
+          "Q_floor": 154
+        },
+        {
+          "k": 4,
+          "active_bits": 72,
+          "difference_rank": 72,
+          "Q_floor": 154
+        },
+        {
+          "k": 5,
+          "active_bits": 72,
+          "difference_rank": 72,
+          "Q_floor": 154
+        },
+        {
+          "k": 6,
+          "active_bits": 72,
+          "difference_rank": 72,
+          "Q_floor": 154
+        },
+        {
+          "k": 7,
+          "active_bits": 72,
+          "difference_rank": 72,
+          "Q_floor": 154
+        },
+        {
+          "k": 8,
+          "active_bits": 72,
+          "difference_rank": 72,
+          "Q_floor": 154
+        }
+      ],
+      "10": [
+        {
+          "k": 0,
+          "active_bits": 72,
+          "difference_rank": 69,
+          "Q_floor": 159
+        },
+        {
+          "k": 1,
+          "active_bits": 79,
+          "difference_rank": 76,
+          "Q_floor": 166
+        },
+        {
+          "k": 2,
+          "active_bits": 80,
+          "difference_rank": 80,
+          "Q_floor": 170
+        },
+        {
+          "k": 3,
+          "active_bits": 80,
+          "difference_rank": 80,
+          "Q_floor": 170
+        },
+        {
+          "k": 4,
+          "active_bits": 80,
+          "difference_rank": 80,
+          "Q_floor": 170
+        },
+        {
+          "k": 5,
+          "active_bits": 80,
+          "difference_rank": 80,
+          "Q_floor": 170
+        },
+        {
+          "k": 6,
+          "active_bits": 80,
+          "difference_rank": 80,
+          "Q_floor": 170
+        },
+        {
+          "k": 7,
+          "active_bits": 80,
+          "difference_rank": 80,
+          "Q_floor": 170
+        }
+      ]
+    }
+  },
+  {
+    "name": "positive",
+    "vector_max_error_up_to_sign": 3.5959249478580635e-16,
+    "sign_extension_exceptions": 12872,
+    "batches": {
+      "7": [
+        {
+          "k": 0,
+          "active_bits": 45,
+          "difference_rank": 45,
+          "Q_floor": 111
+        },
+        {
+          "k": 1,
+          "active_bits": 47,
+          "difference_rank": 47,
+          "Q_floor": 113
+        },
+        {
+          "k": 2,
+          "active_bits": 49,
+          "difference_rank": 49,
+          "Q_floor": 115
+        },
+        {
+          "k": 3,
+          "active_bits": 49,
+          "difference_rank": 49,
+          "Q_floor": 115
+        },
+        {
+          "k": 4,
+          "active_bits": 53,
+          "difference_rank": 53,
+          "Q_floor": 119
+        },
+        {
+          "k": 5,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 122
+        },
+        {
+          "k": 6,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 122
+        },
+        {
+          "k": 7,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 122
+        },
+        {
+          "k": 8,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 122
+        },
+        {
+          "k": 9,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 122
+        },
+        {
+          "k": 10,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 122
+        }
+      ],
+      "8": [
+        {
+          "k": 0,
+          "active_bits": 52,
+          "difference_rank": 52,
+          "Q_floor": 126
+        },
+        {
+          "k": 1,
+          "active_bits": 54,
+          "difference_rank": 54,
+          "Q_floor": 128
+        },
+        {
+          "k": 2,
+          "active_bits": 56,
+          "difference_rank": 56,
+          "Q_floor": 130
+        },
+        {
+          "k": 3,
+          "active_bits": 57,
+          "difference_rank": 57,
+          "Q_floor": 131
+        },
+        {
+          "k": 4,
+          "active_bits": 64,
+          "difference_rank": 64,
+          "Q_floor": 138
+        },
+        {
+          "k": 5,
+          "active_bits": 64,
+          "difference_rank": 64,
+          "Q_floor": 138
+        },
+        {
+          "k": 6,
+          "active_bits": 64,
+          "difference_rank": 64,
+          "Q_floor": 138
+        },
+        {
+          "k": 7,
+          "active_bits": 64,
+          "difference_rank": 64,
+          "Q_floor": 138
+        },
+        {
+          "k": 8,
+          "active_bits": 64,
+          "difference_rank": 64,
+          "Q_floor": 138
+        },
+        {
+          "k": 9,
+          "active_bits": 64,
+          "difference_rank": 64,
+          "Q_floor": 138
+        }
+      ],
+      "9": [
+        {
+          "k": 0,
+          "active_bits": 58,
+          "difference_rank": 58,
+          "Q_floor": 140
+        },
+        {
+          "k": 1,
+          "active_bits": 62,
+          "difference_rank": 62,
+          "Q_floor": 144
+        },
+        {
+          "k": 2,
+          "active_bits": 63,
+          "difference_rank": 63,
+          "Q_floor": 145
+        },
+        {
+          "k": 3,
+          "active_bits": 68,
+          "difference_rank": 68,
+          "Q_floor": 150
+        },
+        {
+          "k": 4,
+          "active_bits": 72,
+          "difference_rank": 72,
+          "Q_floor": 154
+        },
+        {
+          "k": 5,
+          "active_bits": 72,
+          "difference_rank": 72,
+          "Q_floor": 154
+        },
+        {
+          "k": 6,
+          "active_bits": 72,
+          "difference_rank": 72,
+          "Q_floor": 154
+        },
+        {
+          "k": 7,
+          "active_bits": 72,
+          "difference_rank": 72,
+          "Q_floor": 154
+        },
+        {
+          "k": 8,
+          "active_bits": 72,
+          "difference_rank": 72,
+          "Q_floor": 154
+        }
+      ],
+      "10": [
+        {
+          "k": 0,
+          "active_bits": 65,
+          "difference_rank": 65,
+          "Q_floor": 155
+        },
+        {
+          "k": 1,
+          "active_bits": 68,
+          "difference_rank": 68,
+          "Q_floor": 158
+        },
+        {
+          "k": 2,
+          "active_bits": 70,
+          "difference_rank": 70,
+          "Q_floor": 160
+        },
+        {
+          "k": 3,
+          "active_bits": 79,
+          "difference_rank": 79,
+          "Q_floor": 169
+        },
+        {
+          "k": 4,
+          "active_bits": 80,
+          "difference_rank": 80,
+          "Q_floor": 170
+        },
+        {
+          "k": 5,
+          "active_bits": 80,
+          "difference_rank": 80,
+          "Q_floor": 170
+        },
+        {
+          "k": 6,
+          "active_bits": 80,
+          "difference_rank": 80,
+          "Q_floor": 170
+        },
+        {
+          "k": 7,
+          "active_bits": 80,
+          "difference_rank": 80,
+          "Q_floor": 170
+        }
+      ]
+    }
+  },
+  {
+    "name": "signed",
+    "vector_max_error_up_to_sign": 7.216449660063518e-16,
+    "sign_extension_exceptions": 0,
+    "batches": {
+      "7": [
+        {
+          "k": 0,
+          "active_bits": 56,
+          "difference_rank": 49,
+          "Q_floor": 115
+        },
+        {
+          "k": 1,
+          "active_bits": 56,
+          "difference_rank": 49,
+          "Q_floor": 115
+        },
+        {
+          "k": 2,
+          "active_bits": 56,
+          "difference_rank": 49,
+          "Q_floor": 115
+        },
+        {
+          "k": 3,
+          "active_bits": 56,
+          "difference_rank": 49,
+          "Q_floor": 115
+        },
+        {
+          "k": 4,
+          "active_bits": 56,
+          "difference_rank": 49,
+          "Q_floor": 115
+        },
+        {
+          "k": 5,
+          "active_bits": 56,
+          "difference_rank": 49,
+          "Q_floor": 115
+        },
+        {
+          "k": 6,
+          "active_bits": 56,
+          "difference_rank": 49,
+          "Q_floor": 115
+        },
+        {
+          "k": 7,
+          "active_bits": 56,
+          "difference_rank": 49,
+          "Q_floor": 115
+        },
+        {
+          "k": 8,
+          "active_bits": 56,
+          "difference_rank": 49,
+          "Q_floor": 115
+        },
+        {
+          "k": 9,
+          "active_bits": 56,
+          "difference_rank": 49,
+          "Q_floor": 115
+        },
+        {
+          "k": 10,
+          "active_bits": 56,
+          "difference_rank": 49,
+          "Q_floor": 115
+        }
+      ],
+      "8": [
+        {
+          "k": 0,
+          "active_bits": 64,
+          "difference_rank": 56,
+          "Q_floor": 130
+        },
+        {
+          "k": 1,
+          "active_bits": 64,
+          "difference_rank": 56,
+          "Q_floor": 130
+        },
+        {
+          "k": 2,
+          "active_bits": 64,
+          "difference_rank": 56,
+          "Q_floor": 130
+        },
+        {
+          "k": 3,
+          "active_bits": 64,
+          "difference_rank": 56,
+          "Q_floor": 130
+        },
+        {
+          "k": 4,
+          "active_bits": 64,
+          "difference_rank": 56,
+          "Q_floor": 130
+        },
+        {
+          "k": 5,
+          "active_bits": 64,
+          "difference_rank": 56,
+          "Q_floor": 130
+        },
+        {
+          "k": 6,
+          "active_bits": 64,
+          "difference_rank": 56,
+          "Q_floor": 130
+        },
+        {
+          "k": 7,
+          "active_bits": 64,
+          "difference_rank": 56,
+          "Q_floor": 130
+        },
+        {
+          "k": 8,
+          "active_bits": 64,
+          "difference_rank": 56,
+          "Q_floor": 130
+        },
+        {
+          "k": 9,
+          "active_bits": 64,
+          "difference_rank": 56,
+          "Q_floor": 130
+        }
+      ],
+      "9": [
+        {
+          "k": 0,
+          "active_bits": 72,
+          "difference_rank": 63,
+          "Q_floor": 145
+        },
+        {
+          "k": 1,
+          "active_bits": 72,
+          "difference_rank": 63,
+          "Q_floor": 145
+        },
+        {
+          "k": 2,
+          "active_bits": 72,
+          "difference_rank": 63,
+          "Q_floor": 145
+        },
+        {
+          "k": 3,
+          "active_bits": 72,
+          "difference_rank": 63,
+          "Q_floor": 145
+        },
+        {
+          "k": 4,
+          "active_bits": 72,
+          "difference_rank": 63,
+          "Q_floor": 145
+        },
+        {
+          "k": 5,
+          "active_bits": 72,
+          "difference_rank": 63,
+          "Q_floor": 145
+        },
+        {
+          "k": 6,
+          "active_bits": 72,
+          "difference_rank": 63,
+          "Q_floor": 145
+        },
+        {
+          "k": 7,
+          "active_bits": 72,
+          "difference_rank": 63,
+          "Q_floor": 145
+        },
+        {
+          "k": 8,
+          "active_bits": 72,
+          "difference_rank": 63,
+          "Q_floor": 145
+        }
+      ],
+      "10": [
+        {
+          "k": 0,
+          "active_bits": 80,
+          "difference_rank": 70,
+          "Q_floor": 160
+        },
+        {
+          "k": 1,
+          "active_bits": 80,
+          "difference_rank": 70,
+          "Q_floor": 160
+        },
+        {
+          "k": 2,
+          "active_bits": 80,
+          "difference_rank": 70,
+          "Q_floor": 160
+        },
+        {
+          "k": 3,
+          "active_bits": 80,
+          "difference_rank": 70,
+          "Q_floor": 160
+        },
+        {
+          "k": 4,
+          "active_bits": 80,
+          "difference_rank": 70,
+          "Q_floor": 160
+        },
+        {
+          "k": 5,
+          "active_bits": 80,
+          "difference_rank": 70,
+          "Q_floor": 160
+        },
+        {
+          "k": 6,
+          "active_bits": 80,
+          "difference_rank": 70,
+          "Q_floor": 160
+        },
+        {
+          "k": 7,
+          "active_bits": 80,
+          "difference_rank": 70,
+          "Q_floor": 160
+        }
+      ]
+    }
+  }
+]

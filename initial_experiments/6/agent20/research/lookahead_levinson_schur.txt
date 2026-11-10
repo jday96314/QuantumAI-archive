@@ -1,0 +1,3223 @@
+Numer. Math. 70: 181–227 (1995)
+                                                                              Numerische
+                                                                              Mathematik
+                                                                               c Springer-Verlag 1995
+
+                                                                              Electronic Edition
+
+Look-ahead Levinson and Schur algorithms for
+non-Hermitian Toeplitz systems
+Martin H. Gutknecht1 , Marlis Hochbruck2
+1 Interdisciplinary Project Center for Supercomputing, ETH Zurich, ETH-Zentrum, CH-8092 Zurich,
+
+Switzerland. E-mail: na.gutknecht@na-net.ornl.gov
+2 Mathematisches Institut, Universität Tübingen, Auf der Morgenstelle 10, D-72076 Tübingen, Germany.
+
+E-mail: marlis@na.mathematik.uni-tuebingen.de
+
+Received July 26, 1993
+
+
+
+Dedicated to Professor J. Stoer on the occasion of his 60th birthday
+
+Summary. We present generalizations of the nonsymmetric Levinson and Schur al-
+gorithms for non-Hermitian Toeplitz matrices with some singular or ill-conditioned
+leading principal submatrices. The underlying recurrences allow us to go from any
+pair of successive well-conditioned leading principal submatrices to any such pair of
+larger order. If the look-ahead step size between these pairs is bounded, our gen-
+eralized Levinson and Schur recurrences require O(N 2 ) operations, and the Schur
+recurrences can be combined with recursive doubling so that an O(N log2 N ) algo-
+rithm results. The overhead (in operations and storage) of look-ahead steps is very
+small. There are various options for applying these algorithms to solving linear sys-
+tems with Toeplitz matrix.
+
+Mathematics Subject Classification (1991): 65F05; 30E05, 41A21, 42A70, 60G25
+
+
+1. Introduction
+
+Systems of linear equations with Toeplitz coefficient matrices T := TN +1 ∈ CN +1,N +1
+arise in many important applications. It is well-known that the Toeplitz structure of T
+can be exploited in their solution. There are mainly two types of recursive algorithms
+of complexity O(N 2 ): Levinson-type algorithms compute — at least implicitly — an
+LDU decomposition of the inverse of T; Schur-type algorithms, such as the Bareiss
+algorithm, compute an LDU decomposition of T itself. An important difference be-
+tween these two types is that Levinson’s algorithm requires the computation of two
+inner products of size n + 1 in step n, while Schur’s algorithm works without inner
+products. Therefore, for parallel architectures, Schur type algorithms are better suited.
+    In addition to many variants of the classical Levinson [27] and Schur [31] al-
+gorithms, a number of superfast algorithms, which are of complexity O(N log2 N ),
+have been proposed (Bitmead and Anderson [5], Morf [29], Musicus [30], de Hoog
+[11], Ammar and Gragg [2, 1, 3]). These algorithms are also variations of the Schur
+algorithm. However, they do not necessarily yield the complete LDU decomposition
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 181 of Numer. Math. 70: 181–227 (1995)
+182                                                               M.H. Gutknecht and M. Hochbruck
+
+
+of T, but instead they only aim at the last row of L and the last column of U .
+Then an inversion formula (like the Gohberg-Semencul formula [16]) is applied for
+representing T−1 .
+    However, a major drawback of all these algorithms is that they require all the
+leading principal submatrices of T to be nonsingular. If only one of them is singular,
+the algorithms break down. In finite precision arithmetic, such exact breakdowns are
+rare, but nearly singular or ill-conditioned submatrices can occur frequently. In this
+case, the algorithms become unstable and may produce results that are far away from
+the exact solution.
+    There are also fast and superfast algorithms for Hankel systems, but if they are ap-
+plied to a reflected Toeplitz matrix, which is Hankel, then the nonsingularity condition
+for the leading principal Hankel submatrices corresponds to a nonsingularity condition
+for certain submatrices along the antidiagonal of the Toeplitz matrix. For a Toeplitz
+matrix that approximates a typical Toeplitz operator, these “antidiagonal” submatrices
+tend to be very ill conditioned, however. Hence, Hankel solvers are not suitable for
+solving typical Toeplitz systems. Therefore, they are left out in our discussion.
+    In the past ten years, the interest in the solution of indefinite or nonsymmetric
+Toeplitz systems has grown substantially. A number of fast algorithms that can deal
+with exactly singular principal submatrices were developed; see [9, 14, 19] for ref-
+erences. The more important, but more difficult task of avoiding near-breakdowns,
+which is a must for any kind of numerical stability, was only approached more re-
+cently. Since row or column pivoting would destroy the Toeplitz structure, some kind
+of block pivoting must be applied, which one may also call a look-ahead strategy.
+(For a Hankel system, the look-ahead Lanczos algorithm [18, 20] is in fact readily
+translated into a fast look-ahead Hankel solver [15].) It turns out that there is still
+much freedom in choosing the details of such block pivoting schemes. Sweet [32]
+was the first to sketch an algorithm that generalizes the Bareiss version [4] of the
+Schur algorithm and performs some local pivoting, followed by steps to recover the
+Toeplitz structure. However, its details, worked out in [33], are very complicated.
+Chan and Hansen [9, 23, 10] developed an inverse block LDU decomposition that
+generalizes the Levinson algorithm and preserves the Toeplitz structure. Recently,
+Freund and Zha [14] came up with another such algorithm, which also determines an
+inverse block LDU decomposition, but has a much smaller overhead. Their approach
+is based on an interpretation of the Levinson algorithm in terms of formally biorthog-
+onal polynomials. Both the Chan-Hansen and the Freund-Zha algorithm can handle
+exact and near-breakdowns.
+    At the same time, Gutknecht [19] presented new general row and sawtooth re-
+currences for the Padé table. Making use of the well known connection between the
+computation of Padé approximants and the solution of Toeplitz systems, he proposed
+another six new fast and superfast solvers that can handle exact and near-breakdowns.
+However, none of them is exactly a generalization of either the Schur or the Levinson
+algorithm in the sense that it reduces to one of these classical algorithms in the ab-
+sence of look-ahead steps. The underlying idea for the methods in [19] is analogous
+to the one of Cabay and Meleshko’s weakly stable diagonal Padé recurrences and the
+corresponding look-ahead Hankel solver [8, 28].
+    Here we now present analogous true generalizations of the Levinson and Schur
+algorithms, but give pure linear-algebra derivations without using tools and results
+from Padé approximation. As in the Chan-Hansen and the Freund-Zha algorithm,
+the LDU decompositions that are implicitly produced by the classical algorithms
+now become block LDU decompositions. However, our algorithms for finding these
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 182 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                    183
+
+
+decompositions differ from the other two mentioned. The main difference is that we
+need not compute the full inverse block LDU decomposition, but only the first row of
+each block of the L-factor and the first column of each block of the U-factor. This has
+the effect that look-ahead steps require no additional storage, except for a matrix of
+order 2k − 2 and a few vectors of size k − 1. Therefore, when we choose to represent
+T−1 according to the Gohberg-Semencul formula, the total storage required is just
+2N + O(kmax 2
+               ), where kmax denotes the length of the longest look-ahead step. This
+compares very favorably with the competing algorithms. The computational overhead
+depends on what exactly is computed and on the look-ahead strategy applied. For
+our algorithms we give a choice of three such strategies differing in cost and quality
+of the condition estimate. If the cheapest is used, and if we just want to apply the
+Gohberg-Semencul formula, the computational overhead of our look-ahead Levinson
+algorithm is very small, roughly half of the one in the Freund-Zha algorithm. In any
+case, all these algorithms are of complexity O(N 2 ) if we assume that none of the
+blocks becomes arbitrarily large as N → ∞.
+    Our approach also leads to a superfast, O(N log2 N ) Schur-type look-ahead solver
+for general Toeplitz systems that reduces to a variation of the algorithm of de Hoog
+[11] if no look-ahead steps are necessary. At the end it makes use of the Gohberg-
+Semencul inversion formula as well. If applied to Hermitian indefinite systems, all
+the methods proposed here are easily modified such that they capitalize upon the
+symmetry.
+    On the other hand, the algorithms introduced in this paper have the disadvantage
+that look-ahead steps are terminated only when two successive leading principal sub-
+matrices are well conditioned. Hence, the look-ahead step size is in general larger
+than in the competing algorithms. In fact, a look-ahead step of length k in our algo-
+rithms corresponds typically to a normal step plus a look-ahead step of length k − 1
+of Chan and Hansen [9, 23, 10] or Freund and Zha [14], or of Gutknecht’s sawtooth
+algorithms [19]. Much worse, successive look-ahead steps of the other algorithms
+transform into just one long look-ahead step here. However, in this situation, one
+could switch temporarily to the analogue sawtooth algorithm based on regular pairs;
+see [21] for a detailed discussion of a realization of this idea.
+    We present several numerical examples for the new fast and superfast algorithms.
+They indicate that the proposed algorithms have good numerical properties. Since the
+computation of the residual and the application of the inversion formula require only
+O(N log N ) arithmetic operations when FFT techniques are used, iterative refinement
+for improving the accuracy can be applied very effectively. In all our examples, one
+step of iterative refinement was sufficient to reduce the relative error to small multiples
+of the machine precision.
+    The paper is organized as follows: We start with a review of the nonsymmetric
+Levinson and Schur algorithms in Sects. 2–3. In Sects. 4-5 we introduce and discuss
+column-regular pairs and derive the recurrences that are the basis of our look-ahead
+Levinson and Schur algorithms, which we summarize in Sect. 7 after the discussion of
+several look-ahead strategies in Sect. 6. The superfast version of the look-ahead Schur
+algorithm is sketched in Sect. 8. In Sect. 9 we reinterprete our look-ahead Schur al-
+gorithm as matrix transformation generalizing the Bareiss algorithm. Along with this
+goes an interpretation of our look-ahead Levinson algorithm as a matrix transfor-
+mation. In Sect. 10 we list several options for applying our algorithms to solving
+linear systems with Toeplitz matrix. The computational costs, and, in particular, the
+look-ahead overhead, are specified in Sect. 11 and compared with the costs of the
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 183 of Numer. Math. 70: 181–227 (1995)
+184                                                                      M.H. Gutknecht and M. Hochbruck
+
+
+algorithms of Chan and Hansen [9, 23, 10] and Freund and Zha [14]. Finally, Sect. 12
+contains numerical examples for the various algorithms we suggest here.
+
+
+2. The nonsymmetric Levinson algorithm
+
+Consider a finite or infinite nested sequence {Tn }N      n=1 (N ≤ ∞) of real or complex
+                                                            +1
+
+Toeplitz matrices
+                                                                 
+                                    µ0      µ−1 . . . µ−n+1
+                                  µ1        µ0      . . . µ−n+2 
+(2.1)                  Tn :=     ..         ..               .. .
+                                                                  
+                                     .         .     ...        .
+                                   µn−1 µn−2 . . .            µ0
+In this preliminary section, where we review the Levinson algorithm, we assume that,
+for all n, Tn is nonsingular. Then the two systems
+                                                                  
+                            ρ̂0,n      ρn−1,n              µ−n µ1
+                              ..        ..              .      ..  ,
+(2.2)               Tn         .         .       = −  ..        . 
+                                ρ̂n−1,n       ρ0,n                µ−1      µn
+which are called Yule-Walker equations, have unique solutions. If we set ρ̂n,n := 1
+and ρn,n := 1 and let
+                                 n
+                                 X                               n
+                                                                 X
+(2.3)                ε̂n,n :=          µk ρ̂n−k,n ,    εn,n :=         µ−k ρn−k,n ,
+                                 k=0                             k=0
+
+then these solutions are seen to solve also the bordered linear systems
+                                                              
+                             ρ̂0,n    ρn,n            0    εn,n
+                               ..             ..              
+                                .   ρn−1,n      .         0 
+                                                              
+(2.4)              Tn+1                ..   =             ..  .
+                         ρ̂n−1,n        .          0       . 
+                            ρ̂n,n     ρ0,n          ε̂n,n    0
+    For n ≤ N , instead of solving (2.2) we can find its solutions from (2.4) by
+replacing ε̂n,n and εn,n by 1 first, and then renormalizing the so obtained solutions
+if necessary. In fact, the quantities ε̂n,n and εn,n from (2.3) must be nonzero, since,
+otherwise, (2.4) would imply that ρ̂0,n = . . . = ρ̂n,n = 0 and ρ0,n = . . . = ρn,n = 0,
+respectively, because Tn+1 is nonsingular.
+    Following Bultheel [7], we let additionally
+                                 n
+                                 X                                n
+                                                                  X
+(2.5)                 π̂0,n :=         µ−k−1 ρ̂k,n ,    π0,n :=          µk+1 ρk,n ,
+                                 k=0                               k=0
+
+and conclude further that
+                                                                            
+                                       0       ρn,n      π̂0,n            εn,n
+                            ρ̂0,n            ρn−1,n   0                 0 
+                                                      .                  .. 
+(2.6)                 Tn+2 
+                           
+                                ..
+                                 .
+                                                 ..
+                                                  .
+                                                     = .
+                                                       .
+                                                                               
+                                                                             . .
+                            ρ̂                ρ       0                 0 
+                                  n−1,n          0,n
+                                  ρ̂n,n          0               ε̂n,n    π0,n
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 184 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                       185
+
+
+Our aim is to construct a solution of (2.4) for n incremented by one:
+                                                                  
+                       ρ̂0,n+1 ρn+1,n+1               0     εn+1,n+1
+                          ..                       ..             
+                           .     ρn,n+1             .       0     
+             Tn+2 
+                                    ..
+                                          =
+                                                             ..
+                                                                     .
+                                                                     
+                   ρ̂n,n+1           .             0         .    
+                     ρ̂n+1,n+1 ρ0,n+1             ε̂n+1,n+1    0
+
+The comparison with (2.6) suggests to combine the two vectors on the left-hand side
+of (2.6) linearly in order to cancel either the first or the last component on the right-
+hand side. To eliminate the first component the multipliers are 1 and −π̂0,n /εn,n ,
+for the last component they are −π0,n /ε̂n,n and 1. In the following, these Schur
+parameters or reflection coefficients [7]
+                                              π̂0,n                     π0,n
+(2.7)                           γ̂0(n) := −         ,      γ0(n) := −         .
+                                              εn,n                      ε̂n,n
+will play an important role. We conclude that the recurrences
+                                                    
+                 ρ̂0,n+1 ρn+1,n+1           0    ρn,n
+                     ..      ..                 ..                                      
+                      .       .     ρ̂0,n        .      1                        γ0(n)
+(2.8)                             =                 
+                    ..        ..    .                γ̂ (n)                       1
+                     .         .    .     .   ρ0,n      0
+               ρ̂n+1,n+1 ρ0,n+1           ρ̂n,n    0
+
+and
+                                 ε̂n+1,n+1       =      ε̂n,n + γ̂0(n) π0,n ,
+(2.9)
+                                 εn+1,n+1        =      εn,n + γ0(n) π̂0,n
+hold true. They remain valid if π̂0,n = 0 or π0,n = 0. Since ε̂0,0 = ε0,0 = µ0 , it follows
+by induction that ε̂n,n = εn,n for all n = 0, 1, . . .. Hence,
+                                                                  
+(2.10)                 ε̂n+1,n+1 = εn+1,n+1 = εn,n 1 − γ̂0(n) γ0(n) .
+
+If εn+1,n+1 6= 0 we can proceed to the next step. Otherwise, Tn+1 is singular. We
+summarize these well known results as
+Algorithm 1. (Nonsymmetric Levinson algorithm without look-ahead)
+ 1. Set ρ̂0,0 = ρ0,0 = 1, ε̂0,0 = ε0,0 = µ0 .
+For n = 0, 1, 2, . . . , N :
+ 2. compute π̂0,n and π0,n from (2.5), as well as γ̂0(n) and γ0(n) from (2.7);
+ 3. compute ρ̂0,n+1 , . . . , ρ̂n+1,n+1 and ρ0,n+1 , . . . , ρn+1,n+1 from (2.8);
+ 4. compute ε̂n+1,n+1 = εn+1,n+1 from (2.10);
+    if εn+1,n+1 = 0, stop: Tn+1 is singular.
+
+    The total amount of work involved is 2N 2 + O(N ) additions and multiplications
+each and 2N divisions. Storage (including the original data, which must be kept) is at
+least 4N + O(1), but normally one stores all the ρ̂s and ρs, which requires N 2 + O(N ).
+    If we define
+(2.11)            q̂n := [ρ̂0,n · · · ρ̂n,n ]T       and       qn := [ρn,n · · · ρ0,n ]T ,
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 185 of Numer. Math. 70: 181–227 (1995)
+186                                                                       M.H. Gutknecht and M. Hochbruck
+
+
+then, (2.4) is equivalent to
+
+(2.12)                     Tn+1 [ q̂n         qn ] = [ en ε̂n,n     e0 εn,n ].
+
+Let Jn be the antidiagonal unit matrix or reflection matrix of order n. In view of the
+persymmetry of Toeplitz matrices we have
+
+(2.13)                                         Jn Tn Jn = TTn .
+
+Hence, the second equation in (2.12) can be written as
+
+(2.14)                                   (Jn+1 qn )T Tn+1 = εn,n eTn .
+
+Compiling this and the first equation in (2.12) for n = 1, . . . , N , we obtain for
+T := TN +1 the matrix decompositions
+
+(2.15)                                  TR̂ = Ê and RT T = ET ,
+
+where
+                                                                                         
+                        ρ̂0,0    ···       ρ̂0,N                 ε̂0,0
+                                             ..  ,                                       
+              R̂ :=             ..
+                                    .          .        Ê :=  ...           ..
+                                                                                 .          ,
+                                         ρ̂N,N               ε̂N,0          ···   ε̂N,N 
+(2.16)
+                        ρ0,0     ···       ρ0,N                  ε0,0
+                                ..            ..  ,          ..             ..           
+              R :=                 .           .       E :=  .                .          .
+                                          ρN,N                     εN,0        ···   εN,N
+
+Hence, R̂ and R are unit upper triangular, while Ê and E are lower triangular.
+   By (2.15),
+(2.17)                                  D := RT TR̂ = RT Ê = ET R̂.
+Since RT Ê is lower triangular and ET R̂ is upper triangular, D is a diagonal matrix.
+Moreover, R̂ and R have unit diagonal, and therefore,
+
+(2.18)                                   D = diag (Ê) = diag (E)
+
+and
+                                                                     −1
+(2.19)                            Ê = R−T D and ET = DR̂                  .
+Hence,
+(2.20)                          T = ÊD−1 ET and T−1 = R̂D−1 RT
+are an LDU factorization of T and a UDL factorization of T−1 , respectively. The
+decomposition (2.17) is called inverse LDU decomposition of T. Note that ε̂n,n = εn,n
+is the (n + 1)st pivot element. It can also be understood as the Schur complement
+Tn+1 /Tn of Tn+1 with respect to Tn , as one can verify easily from (2.2), (2.4), and
+ρ̂n,n = ρn,n = 1.
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 186 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                    187
+
+
+3. The nonsymmetric Schur algorithm
+
+To derive the Schur algorithm, we do not only need the triangular matrices defined
+in (2.16), but also the matrices P and P̂ defined as follows:
+                                                      
+                                    T∧               P̂
+(3.1)                                       R̂ =               ,
+                                    T                Ê
+                                                            
+(3.2)                           RT [T< T] = PT ET .
+                                                                         
+                                                                       T∧
+Here, T∧ and T< are semi-infinite Toeplitz matrices such that               and [T< T]
+                                                                       T
+again have Toeplitz structure.
+    Since will only need a finite lower triangular part of the semi-infinite matrices P̂
+and P, we define the (2N − n + 2) × n matrix
+                                                                 )
+                    µ−N +n−1 µ−N +n−2 · · ·             µ−N
+                        ..          ..                   ..        N −n+1
+                         .           .                    .      
+                                                                
+                       µ0         µ−1        · · · µ−n+1  
+                                                                 
+(3.3)     T̃n := 
+                 
+                          ..
+                           .
+                                      ..
+                                       .
+                                                           ..
+                                                            .
+                                                                 .
+                                                                  n
+                                                                 
+                  µn−1           µ n−2       . . .      µ    0   )
+                                                                
+                          ..          ..                   ..   
+                            .           .                    .       N −n+1
+                       µN         µN −1       . . . µN −n+1
+
+Note, that the row dimension of T̃n decreases as n increases. In particular, T̃N +1 = T.
+The matrix between the horizontal lines is just Tn . With (3.3), we can extend (2.4)
+to                                                                  
+                                                                 
+                                       π̂N −n−1,n       εN,n        
+                                            ..           ..          N −n
+                                          .            .      
+                                                                  
+                 ρ̂0,n   ρn,n            π̂0,n        εn+1,n  
+                   ..                    0          εn,n
+                                                                  
+                                                                  
+                    .  ρ                                      
+(3.4) T̃n+1 
+                          n−1,n =
+                                         0 n−1         0n−1          n+1
+                            ..                                   
+              ρ̂n−1,n       .          ε̂n,n           0       
+                                      ε̂               π0,n      
+                 ρ̂n,n    ρ0,n            n+1,n                  
+                                             ..           ..     
+                                                                
+                                               .            .          N −n
+                                          ε̂N,n      πN −n−1,n      
+                                                                    
+
+and (2.6) to
+                                                                              )
+                                                                        
+                                      π̂N −n−1,n              εN −1,n
+                                                                          N −n−1
+                    0       ρn,n             ..                  ..      
+                                             .                   .       
+             ρ̂0,n                 
+                           ρn−1,n                                       
+                                       π̂                   εn,n       
+                                            0,n
+                                                                         
+(3.5) T̃n+2 
+            
+                 ..
+                  .
+                              ..
+                               .
+                                  =
+                                         0n                   0n       .  n+2
+                                                                          
+             ρ̂            ρ0,n        ε̂n,n                π0,n       
+                  n−1,n                      ..                 ..       )
+                  ρ̂n,n      0                .                  .      
+                                                                             N −n−1
+                                        ε̂N −1,n            πN −n−1,n
+
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 187 of Numer. Math. 70: 181–227 (1995)
+188                                                               M.H. Gutknecht and M. Hochbruck
+
+
+Note that the rows between the horizontal lines in (3.4) and (3.5) correspond to the
+rows of the Toeplitz matrices Tn+1 and Tn+2 , respectively.
+    If we postmultiply (3.5) by the 2 × 2 matrix from (2.8), we get the following
+recurrences for the elements in the matrices P̂ and E
+                                                         
+               0        εn+1,n+1           π̂0,n      εn,n
+           π̂0,n+1     εn+2,n+1         π̂1,n     εn+1,n   1      γ0(n)
+                                                                             
+(3.6)                                                                     ,
+                ..         ..    =         ..         ..   γ̂ (n)     1
+                 .          .                 .          .        0
+         π̂N −n−2,n+1 εN,n+1            π̂N −n−1,n εN −1,n
+
+while for Ê and P we get
+                                                                    
+        ε̂n+1,n+1            0              ε̂n,n            π0,n
+                                                                                               
+       ε̂n+2,n+1         π0,n+1        ε̂n+1,n            π1,n               1      γ0(n)
+(3.7) 
+           ..               ..       =
+                                             ..             ..       
+                                                                                                   .
+             .                .                 .              .               γ̂0(n)    1
+           ε̂N,n+1    πN −n−2,n+1              ε̂N −1,n   πN −n−1,n
+
+This concludes the derivation of the nonsymmetric Schur algorithm for computing
+the LDU decomposition of T:
+Algorithm 2. (Nonsymmetric Schur algorithm without look-ahead)
+ 1. For j = 0, 1, . . . , N : set ε̂j,0 = µj , and εj,0 = µ−j ;
+    for j = 0, 1, . . . , N − 1: set π̂j,0 = µ−j−1 , πj,0 = µj+1 .
+For n = 0, 1, 2, . . . , N :
+ 2. compute γ̂0(n) and γ0(n) from (2.7);
+    compute the (n + 1)th column of E and of the lower triangular part of P̂ from (3.6)
+    and the (n + 1)th column of Ê and of the lower triangular part of P from (3.7);
+    if εn+1,n+1 = 0, stop: Tn+1 is singular.
+
+   The total amount of work involved, the minimum storage (one column of Ê, P̂,
+E, P each), as well as the storage for the full decomposition are the same as for the
+Levinson algorithm.
+
+
+4. Column-regular pairs
+
+As mentioned before, the classical algorithms break down whenever the coefficients
+ε̂n,n = εn,n vanish for some n. In this case, LDU decompositions (without pivoting)
+of T and T−1 no longer exist. However, block LDU decompositions still exist, and it
+is natural to try to find fast algorithms in this way [9, 23, 14]. Then, in (2.20), D is
+block diagonal and Ê and E are block lower triangular, but we can still choose R̂ and
+R as upper triangular. While standard block Gauss elimination with unit submatrices
+as diagonal blocks of R̂ and R would destroy the Toeplitz structure, suitable choice
+of these diagonal blocks preserves the structure. When we refer to blocks of R̂ and
+R we always mean the (symmetric) block structure imposed by D and the product
+R̂D−1 RT in (2.20).
+     We will see that because of the underlying Toeplitz structure we can choose to
+compute only the first columns of all blocks in R̂ and R, or in Ê, E, P̂, and P. Such
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 188 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                    189
+
+
+columns of R̂ and R will be called a column-regular pair. At the end, the Gohberg-
+Semencul [16] formula allows us to compute the inverse of T = TN +1 from the last
+columns of the matrices R̂ and R, provided that these columns are a column-regular
+pair. We will see that this means that TN is also nonsingular. However, if TN is
+singular or ill conditioned, we can extend TN +1 to TN +2 such that TN +2 is well
+conditioned and then apply another Gohberg-Semencul formula (see [16] or (4.3)
+below). Therefore, the assumption that TN be nonsingular or well conditioned is not
+really restrictive. But we will also show how the other columns of the matrices R̂, R,
+Ê, E, P̂, and P can be found. This then makes the full block LDU decompositions of T
+and T−1 available. However, the fact that, also for n < N , column-regularity requires
+that Tn and Tn+1 be nonsingular is a disadvantage of this look-ahead algorithm,
+since the resulting inverse block LDU decomposition may have larger blocks than
+necessary. We will see that each block of D is itself a 2 × 2 block diagonal matrix
+with a block of order 1 in the upper left corner. But the second block may still have
+some isolated nonsingular (even well-conditioned) principal submatrices, in which
+case the competing algorithms of Chan and Hansen [9, 23, 10], Freund and Zha [14],
+and Gutknecht [19] perform several shorter look-ahead steps instead of a single long
+one.
+    We start with the definition of column-regular pairs, which are closely related to
+column-regular Padé approximants, as defined in [19].
+Definition. The nonnegative index n is column-regular if the two Yule-Walker equa-
+tions (2.2) have a unique pair of solutions, and these solutions satisfy ε̂n,n 6= 0 and
+εn,n 6= 0, respectively. If the index n is column-regular, the pair q̂n , qn ∈ Cn+1
+defined in (2.11) with ρ̂n,n := 1, ρn,n := 1 is called a column-regular pair.
+    A number of equivalent conditions for column regularity are given in the following
+lemma. Probably, each of these equivalences has appeared somewhere in the Toeplitz
+matrix literature. In particular, most of them can be found or easily deduced from the
+treatment in Chapter 1 of Heinig and Rost [24]. Note the subtle difference between
+conditions (i) and (v). While one direction of this equivalence is trivial, the other one
+is the hardest part of the proof of the lemma. The lemma can also be reformulated in
+terms of quantities from Padé approximation; in that context the equivalences follow
+easily from the well-known block structure theorem [17], see [22] and [19].
+Lemma 4.1. The following statements are equivalent:
+(i)     the two Yule-Walker equations (2.2) have a unique pair of solutions, and these
+        solutions satisfy ε̂n,n 6= 0 and εn,n 6= 0, respectively; i.e., n is column-regular;
+(ii)    Tn and Tn+1 are nonsingular;
+(iii)   every pair of nontrivial solutions of (2.3)–(2.4) satisfies ρ̂n,n 6= 0 and εn,n 6= 0;
+(iv)    every pair of nontrivial solutions of (2.3)–(2.4) satisfies ρn,n 6= 0 and ε̂n,n 6= 0;
+(v)     the two Yule-Walker equations (2.2) have a pair of solutions which satisfy ε̂n,n 6=
+        0 and εn,n 6= 0, respectively;
+(vi)    the systems (2.4) are solvable for ε̂n,n = 1, εn,n = 1, and the solutions satisfy
+        ρ̂n,n 6= 0 and ρn,n 6= 0, respectively;
+(vii)   the polynomials
+                                     n
+                                     X                                   n
+                                                                         X
+        (4.1)           q̂n (ζ) :=         ρ̂j,n ζ j   and   qn (ζ) :=         ρn−j,n ζ j
+                                     j=0                                 j=0
+
+        are relatively prime, and µ0 6= 0 if n = 0 or ρ0,n = . . . = ρn−1,n = 0;
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 189 of Numer. Math. 70: 181–227 (1995)
+ 190                                                               M.H. Gutknecht and M. Hochbruck
+
+
+ (viii) the Gohberg-Semencul formulas are valid:
+
+                                                                                            
+                  ρn,n                         O       ρ̂n,n ρ̂n−1,n · · ·             ρ̂0,n
+            
+              ρ
+        1  n−1,n            ρ n,n                             ..      ..                ..   
+T−1                                                               .       .               .   
+ n+1 =               ..      .         .                                                     
+       εn,n 
+                      .        ..        ..                           ρ̂             ρ̂n−1,n
+                                                                         n,n
+                    ρ0,n      · · · ρn−1,n ρn,n           O                             ρ̂n,n
+                                                                    
+                0                        O      0 ρ0,n · · · ρn−1,n 
+                                                                        
+            ρ̂0,n        0                      ..      ..       .. 
+ (4.2) −       ..      ..        ..        
+                                             
+                                                      .       .      . 
+                                                                        ,
+                  .         .         .                     0    ρ0,n  
+                                                                        
+             ρ̂n−1,n · · · ρ̂0,n 0              O                   0
+
+                                                                                
+                           
+                                  ρn,n             O       ρ̂n,n · · · ρ̂1,n
+                       1       ..                                             .. 
+            T−1
+             n      =          .            ..
+                                                .                   ..
+                                                                         .        . 
+                      εn,n 
+                           
+                                   ρ1,n · · · ρn,n            O               ρ̂n,n
+                                                                                 
+                             ρ̂0,n                O      ρ0,n · · · ρn−1,n           
+                               ..      ..                     ..          ..     
+ (4.3)                −         .         .                      .         .        .
+                                                                                      
+                                                                                      
+                           ρ̂n−1,n · · · ρ̂0,n            O                ρ0,n
+
+ (When n = 0, the matrix Tn and the systems (2.2) are empty and should be considered
+ as nonsingular.)
+ Proof. (i)⇔(ii): to prove the equivalence of (i) and (ii), note that the uniqueness in
+ (i) is equivalent to Tn being nonsingular. If εn,n = 0 or ε̂n,n = 0, the corresponding
+ system in (2.4) is homogeneous and has a nontrivial solution (since ρ̂n,n = ρn,n =
+ 1); hence, Tn+1 is singular. Conversely, if Tn+1 is singular, its last row is a linear
+ combination of the first n when Tn is nonsingular; hence, the solution q̂n from (2.2),
+ which solves the first n (homogeneous) equations in (2.4), solves the last equation
+ only when ε̂n,n = 0. Any other solution of the first system in (2.4) is obtained by
+ scaling. For qn and εn,n an analogous argument applies.
+      (ii)⇔(iii), (ii)⇔(iv): clearly, the nonsingularity of Tn+1 is necessary for (iii) and
+ (iv): if Tn+1 is singular, the homogeneous system Tn+1 qn = 0 obtained from (2.4)
+ when εn,n = 0 has a nontrivial solution. Moreover, when Tn+1 is nonsingular, then
+ by Cramer’s rule ρ̂n,n = ε̂n,n detTn /detTn+1 and ρn,n = εn,n detTn /detTn+1 ; hence,
+ detTn 6= 0 is also necessary for (iii) and (iv). Conversely, if Tn and Tn+1 are non-
+ singular, then ε̂n,n 6= 0 and εn,n 6= 0 for every nontrivial pair of solutions; moreover,
+ ρ̂n,n 6= 0 and ρn,n 6= 0 by Cramer’s rule. Hence, (ii) is equivalent to (iii) and (iv). It
+ follows that, if (iii) or (iv) hold, then both are true, and Cramer’s rule yields
+ (4.4)                                εn,n ρ̂n,n = ε̂n,n ρn,n .
+     (iii)⇔(iv): follows from the two equivalences just proved, but also directly from
+ (4.4). Here is another simple proof of this identity: let q̂n , qn be any pair of solutions
+ of (2.3)–(2.4). Then, using the first equations in (2.12), we obtain
+                      (Jn+1 qn )T Tn+1 q̂n = (Jn+1 qn )T en ε̂n,n = ρn,n ε̂n,n ,
+ and, from (2.14),
+
+
+ Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+ page 190 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                    191
+
+
+                              (Jn+1 qn )T Tn+1 q̂n = εn,n eTn q̂n = εn,n ρ̂n,n .
+
+Therefore, any pair of solutions of (2.3)–(2.4) satisfies (4.4).
+    (i)⇒(v): is trivial.
+    (v)⇔(vi): as long as we do not prescribe ε̂n,n or εn,n , (2.3)–(2.4) are of course
+solvable. Therefore, (vi) follows from (v) by renormalizing the solutions. The converse
+is obvious.
+    (vi)⇒(ii): this part of the proof is taken from Theorems 1.2 and 1.3 in [24].
+    (ii)⇔(vii): the equivalence of (ii) and (vii) follows readily from the Lemmas 2.4
+and 2.5 in [19]; see also [22].
+    (vi)⇔(viii): for a derivation of the Gohberg-Semencul formulas see, e.g., Heinig
+and Rost [24, Theorems 1.2 and 1.3]. Clearly, they require that Tn+1 is nonsingular
+and that εn,n 6= 0 and ρ̂n,n 6= 0, which, as we have seen above, implies that Tn is
+nonsingular.
+
+    Note that (4.4) implies that
+(4.5)                                           εn,n = ε̂n,n
+for (normalized) column-regular pairs.
+    While column-regular pairs can be used to set up algorithms that are reliable in
+exact arithmetic, the finite accuracy of the floating-point arithmetic requires to avoid
+not only singular systems but any ill-conditioned intermediate results; therefore, one
+has to further restrict column-regular pairs in this situation.
+
+Definition. The (normalized) column-regular pair q̂n , qn ∈ Cn+1 The (normalized)
+column-regular pair q̂n , qn ∈ Cn+1 is well-column-regular if ||q̂n ||, ||qn || < Tol(n)
+and (|ε̂n,n | =) |εn,n | > tol(n). The index n is then also called well-column-regular.
+Here, tol(n) > 0 and Tol(n) > 1 denote given tolerances that are monotone increasing
+functions of n.
+   Well-column-regularity means that Tn and Tn+1 are well conditioned. As usual,
+                                                                   −1
+we let σmin (Tn ) denote the smallest singular value of Tn . Then σmin (Tn ) = ||T−1
+                                                                                  n ||,
+and the following quantitative connections hold:
+
+Lemma 4.2. If n is well-column-regular, then
+
+                                                          [Tol(n)]2
+                               max ||T−1       −1
+                                      n ||, ||Tn+1 || < 2n           .
+                                                             tol(n)
+
+Conversely, if ||T|| < τ , ||T−1      0         −1        00
+                              n || < τ , and ||Tn+1 || < τ , then
+
+                                                              p
+                                  max {||q̂n ||, ||qn ||} <    1 + (τ τ 0 )2
+
+and
+
+                   |ε̂n,n |      =    |εn,n | ≥ σmin (Tn+1 ) max {||q̂n ||, ||qn ||}
+                                       1                             1
+(4.6)                           >       00
+                                           max {||q̂n ||, ||qn ||} ≥ 00 .
+                                      τ                             τ
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 191 of Numer. Math. 70: 181–227 (1995)
+192                                                               M.H. Gutknecht and M. Hochbruck
+
+
+Proof. From the Gohberg-Semencul formula (4.2), we conclude
+
+                                             2n                   2n[Tol(n)]2
+                 kT−1        −1
+                   n+1 k ≤ kTn+1 kF ≤            kq̂n k · kqn k ≤             .
+                                            εn,n                    tol(n)
+
+By using (4.3) instead of (4.2), the same technique can be applied to kT−1
+                                                                        n k.
+   For the second part of the Lemma we can use (2.2):
+         k[ρn−1,n · · · ρ0,n ]k ≤ kT−1                         −1             0
+                                    n k · k[µ1 · · · µn ]k ≤ kTn k · kTk < τ τ .
+                                             p
+Hence, with ρn,n = 1, we obtain kqn k ≤ 1 + (τ τ 0 )2 . The same argument holds for
+q̂n .
+      From (2.12), we have qn = T−1   n+1 e0 εn,n . Taking norms on both sides of this
+equation, and using ρn,n = 1 again, we conclude that
+
+(4.7)                             1 ≤ kqn k ≤ |εn,n | kT−1
+                                                        n+1 k.
+
+The analogue argument for q̂n completes the proof.
+    From Lemma 4.1 it follows that in the limit tol(n) → 0, Tol(n) → ∞ “well-
+column-regular” becomes “column-regular”. Of course, column-regular pairs or even
+well-column-regular pairs need not exist for every n ≥ 0, but there always exists a
+maximal subset
+(4.8)           {0 ≤ n1 < n2 < . . . < nJ ≤ N + 1} ⊆ {0, 1, . . . , N + 1}
+such that q̂nj and qnj are a well-column-regular pair for j = 1, 2, . . . , J. In the
+following we assume that N − 1 or N is a well-column-regular index, so that, in any
+case, TN is well conditioned and T−1
+                                  N c can be computed stably with one of the two
+Gohberg-Semencul formulas.
+
+
+5. Look-ahead Levinson and Schur algorithms: derivation
+
+Our first new look-ahead algorithm, which is an extension of the Levinson algorithm,
+is based on the following idea. We assume that q̂n and qn are a well-column-regular
+pair, and we try to compute a well-column-regular pair q̂n+k , qn+k of order n + k
+such that these new vectors are linear combinations of shifted copies of q̂n and qn .
+Specifically, we set
+                                                               
+                            0    ···    0     ρn,n          0      (n)           
+                                          ..   ..              
+                        ρ̂0,n . . .        .    .
+                                                     ..
+                                                         .          α̂0    β0(n)
+                                                                .          .. 
+                        ..      ..              ..               ..         . 
+                        .          .   0         .              
+                                                           ρn,n   (n)           
+                                                                            (n) 
+                                                                    α̂k−1 βk−1 
+                        ..                                  .   
+    [ q̂n+k qn+k ] :=  .             ρ̂0,n ρ0,n             ..   (n)      (n)  .
+                                                                 β̂k−1 αk−1    
+                                        .           .        .                 
+                        ρ̂n,n           ..    0       . .    .  
+                                                              .   ..  .      .. 
+                                                                               .
+                                                                                 
+                                ..       ..      .. ..         
+                                   .      .       .     . ρ0,n     β̂ (n)
+                                                                        0   α (n)
+                                                                              0
+                            0         ρ̂n,n    0     ···    0
+(5.1)
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 192 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                                193
+
+
+Note that this means that even in the look-ahead case we need to store only the two
+vectors q̂n+k and qn+k . Due to the normalization ρ̂n+k,n+k = ρn+k,n+k = ρ̂n,n = ρn,n =
+1 we have
+
+(5.2)                                       α̂k−1
+                                              (n)
+                                                  = αk−1
+                                                     (n)
+                                                         = 1.
+
+We have to show how the coefficients α̂j(n) , αj(n) (j = 0, . . . , k − 2) and β̂j(n) , βj(n)
+(j = 0, . . . , k − 1) can be chosen such that q̂n+k and qn+k satisfy
+
+(5.3)             Tn+k+1 [ q̂n+k      qn+k ] = [ en+k ε̂n+k,n+k              e0 εn+k,n+k ],
+
+
+(5.4)                             ||q̂n+k ||, ||qn+k || < Tol(n + k),
+
+(5.5)                         (|ε̂n+k,n+k | =) |εn+k,n+k | > tol(n + k).
+
+   The next step consists in inserting (5.1) into (5.3). In order to rewrite the resulting
+equation in compact form, let us define extended versions of q̂n and qn from (2.11):
+
+(5.6) q̂n,e := [ρ̂0,n · · · ρ̂n,n 0 · · · 0]T ,       qn,e := [ρn,n · · · ρ0,n 0 · · · 0]T ∈ Cn+k+1 .
+
+Moreover, the shift matrix (of adaptable size) is denoted by
+                                                                        
+                                         0
+                                        1        0                      
+                                                                        
+                                  S := 
+                                       
+                                                  1       0              .
+                                                                         
+                                                        ..
+                                                            .
+                                                                ..
+                                                                 .       
+                                                                1    0
+
+The (n + k + 1) × 2k matrix on the right-hand side of (5.1) can then be written as
+                                                                                                 
+(5.7)           S q̂n,e   S 2 q̂n,e   ···    S k q̂n,e      qn,e     Sqn,e     ···   S k−1 qn,e       .
+
+If k = n + 1, its determinant is called the resultant of the two polynomials ζ q̂(ζ) and
+q(ζ) defined in (4.1). It is well known that the resultant is nonzero if and only if
+the two polynomials are relatively prime; see, e. g., [34, pp. 103–108]. Therefore,
+statement (vii) of Lemma 4.1 yields the following result:
+
+Lemma 5.1. For k = n + 1, the matrix (5.7) is nonsingular if and only if the pair q̂n ,
+qn is column-regular or n = 0 or ρ0,n = . . . = ρn−1,n = 0. In particular, if the index
+n is column-regular and k ≤ n + 1, then the matrix (5.7) has full column-rank.
+
+   Alternatively, this result can be proved by using results about the kernel structure
+of Toeplitz matrices; for details see Chapter 5 of Heinig and Rost [24]. A simple
+proof is obtained from Theorem 5.1 there. The result also follows immediately from
+Theorem 5.5 and Corollary 2.5 in [24].
+   Equation (3.5) implies that
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 193 of Numer. Math. 70: 181–227 (1995)
+194                                                                    M.H. Gutknecht and M. Hochbruck
+
+                                                                                            
+      T̃n+k+1 S q̂n,e S 2 q̂n,e · · · S k q̂n,e qn,e         Sqn,e         ···    S k−1 qn,e
+                                                                                      
+            π̂N −n−k,n · · · π̂N −n−1,n      εN −k,n         ···          εN −1,n         
+                   ..               ..          ..                          ..        
+                    .                .           .                           .       
+                                                                                       N −n−k
+               π̂1,n    ···     π̂k,n        εn+1,n         ···          εn+k,n  
+                                                                                     
+               π̂0,n    ···   π̂k−1,n         εn,n          ···         εn+k−1,n  
+                                                                                      
+                        ..            ..                    ..                ..       
+                           .           .                       .               .       
+                                                                                       
+                0n               π̂0,n         0n                         εn,n         
+                                                                                      
+       =               . ..                                 ..                      .
+                                                                   .                    n+k+1
+                                                                                      
+               ε̂                 0n          π0,n                         0n          
+                                                                                       
+                   n,n
+                                                                                         
+                    .   .                        ..          ..                        
+                    ..    ..                      .           .                        
+          ε̂                                                                         
+          n+k−1,n · · ·          ε̂n,n       πk−1,n         ···           π0,n        
+          ε̂            ···    ε̂n+1,n        πk,n          ···           π1,n        
+               n+k,n                                                                  
+                     ..              ..           ..                         ..      
+                      .               .            .                          .        N −n−k
+                                                                                          
+             ε̂N −1,n    ···     ε̂N −k,n     πN −n−1,n      ···        πN −n−k,n
+(5.8)
+We denote the (n + k + 1) × 2k matrix consisting of the two middle Toeplitz blocks on
+the right-hand side by S◦k,n . If k ≤ n + 1, there are n − k + 1 zero rows in the middle
+of S◦k,n . (The symbol ◦ is supposed to remind the reader of these excess zeros.) If
+k > n + 1, the upper triangular and the lower triangular subblocks overlap. In any
+case, the entries π̂0,n and ε̂n,n on the left as well as εn,n and π0,n on the right are
+separated by n zero diagonals. When we extract the n + k + 1 equations that belong
+to S◦k,n , we have to replace T̃n+k+1 by Tn+k+1 on the left-hand side:
+                                                                                  
+        Tn+k+1 S q̂n,e S 2 q̂n,e · · · S k q̂n,e qn,e Sqn,e · · · S k−1 qn,e
+             = S◦k,n .
+(5.9)
+    In addition to S◦k,n we consider the 2k × 2k matrix
+                                                                                    
+                          π̂0,n  · · · π̂k−1,n  εn,n    ···                 εn+k−1,n
+                                 ..        ..          ..                      ..   
+                                    .       .             .                     .   
+                                                                                    
+           S
+                           O            π̂      O                            εn,n 
+                                                                                     .
+                                           0,n
+(5.10)       k,n := 
+                     ε̂n,n                O    π0,n                           O     
+                           ..                    ..                                 
+                                ..
+                                     .
+                                                        ..
+                                                           .                         
+                             .                     .
+                       ε̂n+k−1,n · · ·   ε̂n,n πk−1,n · · ·                      π0,n
+(Here, the symbol  indicates that the matrix is square.) If k ≤ n + 1, it consists of
+the nonzero rows of S◦k,n . In general, the two matrices are related by
+                                                      
+                                                          S
+                         ◦           Ik       O(n+1)×k
+(5.11)                 Sk,n =
+                                  O(n+1)×k       Ik        k,n ,
+
+
+where Ik is the k × k unit matrix and Om×k is the m × k zero matrix. Since q̂n and
+qn are well-column-regular, the two off-diagonal blocks of S
+                                                            k,n are nonsingular, and,
+in view of (5.9), their columns are bounded by
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 194 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                            195
+
+
+(5.12)                                 ||Tn+k+1 || max {||q̂n ||, ||qn ||} .
+
+
+Hence, their condition cannot be very bad. Later, we will use these off-diagonal blocks
+as coefficient matrices of linear systems for determining “inner” vectors q̂n+k , qn+k
+that do not form a column-regular pair.
+    Introducing the notation
+
+                                                                       
+                                                     α̂0(n)       β0(n)
+                                                   .               .. 
+                                                   ..               . 
+                                                α̂(n)          (n) 
+                                                                        
+                                         â b                    βk−1 
+(5.13)                                         :=  k−1            (n)  ,
+                                         b̂ a      β̂k−1
+                                                      (n)
+                                                                  αk−1  
+                                                                       
+                                                   ..               .. 
+                                                   .                 . 
+                                                     β̂0(n)       α0(n)
+
+
+
+
+multiplying (5.1) from the left by T̃n+k+1 , and using (5.2), (5.8), we see that (5.3)
+holds if and only if, for α̂k−1
+                            (n)
+                                = αk−1
+                                   (n)
+                                       = 1,
+
+                                  
+                                                              e0 εn+k,n+k ] ∈ C(n+k+1)×2 ,
+                          â b
+(5.14)        S◦k,n                     = [ en+k ε̂n+k,n+k
+                          b̂ a
+
+
+Additionally, (5.4) and (5.5) will be required to hold, but we will return to them later.
+In view of (5.11) and
+
+                                                                                             
+         0      εn+k,n+k                                                     0       εn+k,n+k
+ 0n+k−1                         Ik                       O(n+1)×k
+                 0n+k−1  =                                               02(k−1)      02(k−1)  ,
+                              O(n+1)×k                       Ik
+  ε̂n+k,n+k        0                                                       ε̂n+k,n+k       0
+(5.15)
+
+
+every solution of
+
+                                      
+               S                                                e0 εn+k,n+k ] ∈ C2k×2 ,
+                              â   b
+(5.16)          k,n                        = [ e2k−1 ε̂n+k,n+k
+                              b̂   a
+
+
+is also a solution of (5.14). In fact, the systems (5.14) and (5.16) are equivalent if
+k ≤ n + 1; but, in general, this is not true when k > n + 1.
+    From (3.4), (5.8), and (5.16) we also obtain general Schur recurrences:
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 195 of Numer. Math. 70: 181–227 (1995)
+196                                                               M.H. Gutknecht and M. Hochbruck
+
+                                           
+   π̂N −n−k−1,n+k             εN,n+k
+            ..                 ..          
+             .                  .          
+                                           
+        π̂0,n+k            εn+k+1,n+k      
+                                           
+           0                εn+k,n+k       
+                                           =
+      ε̂n+k,n+k                0           
+                                           
+  ε̂n+k+1,n+k                π0,n+k        
+                                           
+             ..                 ..         
+              .                  .         
+       ε̂N,n+k           πN −n−k−1,n+k                                     
+   π̂N −n−k,n       ···    π̂N −n−1,n   εN −k,n         ···     εN −1,n        (n)                 
+         ..                    ..         ..                      ..           α̂           β0(n)
+                                                                            0
+          .                     .          .                       .         ..              .. 
+ 
+      π̂ 1,n       ···       π̂k,n        εn+1,n       ···     εn+k,n       .
+                                                                              (n)              . 
+                                                                             α̂k−1          (n) 
+      π̂0,n        ···     π̂k−1,n         εn,n        ···    εn+k−1,n       (n)           βk−1 
+  ε̂n+k−1,n                                                                  β̂             (n)  .
+                   ···       ε̂n,n        πk−1,n       ···      π0,n         k−1           αk−1  
+  ε̂n+k,n                                                                   .                    
+                   ···     ε̂n+1,n         πk,n        ···      π1,n         ..               .. 
+          ..                    ..           ..                   ..                            . 
+           .                     .            .                    .           β̂0(n)       α0(n)
+       ε̂N −1,n     ···     ε̂N −k,n     πN −n−1,n      ···   πN −n−k,n
+
+   (5.17)
+
+Between the double lines we have deleted the 2(k − 1) homogeneous equations from
+(5.16). These recurrences allow us to compute the (n + k)th column of P̂, Ê, P, and
+E without evaluating inner products.
+    Relation (5.9) leads now easily to the following result:
+
+Lemma 5.2. Assume n is a column-regular index and q̂n , qn is the corresponding
+column-regular pair. Assume further that k ≤ n + 1 and that n + k is also a column-
+regular index. Then the matrices S◦k−1,n and S◦k,n have full column rank, and the
+matrices S           
+          k−1,n and Sk,n are nonsingular.
+
+Proof. By Lemma 5.1, since n is a column-regular index, the matrix (5.7) has full
+column rank as long as k ≤ n+1. Moreover, since n+k is also a column-regular index,
+the matrices Tn+k and Tn+k+1 are nonsingular; see Lemma 4.1 (iii). Consequently,
+by (5.9), S◦k−1,n and S◦k,n have also full column rank, and this rank does not change
+when we delete zero rows.
+
+When k > n + 1, the matrix S◦k,n cannot have full column-rank, since it has less rows
+than columns. However, the last statement of the lemma still holds.
+
+Lemma 5.3. Assume n is a column-regular index and q̂n , qn is the corresponding
+column-regular pair. Then the matrices S          
+                                        k−1,n and Sk,n are nonsingular if n + k is a
+column-regular index.
+
+Proof. Assume n + k to be a column-regular index and S      k,n ∈ C
+                                                                       2k,2k
+                                                                             to be singu-
+lar. Then there exists a nontrivial solution [β0 · · · βk−1 αk−1 · · · α0 ]T of (5.16) for
+εn+k,n+k = 0. If αk−1 6= 0 or βk−1 6= 0, then (5.1) provides us with a nontrivial solu-
+tion of Tn+k+1 q = 0. But this implies that Tn+k+1 is singular which is a contradiction
+to the column-regularity of n + k, cf. Lemma 4.1 (ii).
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 196 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                    197
+
+
+    If αk−1 = βk−1 = 0 for every nontrivial solution of (5.16), then the kth and
+the (k + 1)st equation of (5.16) lead to α0 = β0 = 0 (recall that εn,n = ε̂n,n 6= 0
+since n is a column-regular index). Thus, in this case, the nontrivial solution is of
+the form [0 β1 · · · βk−2 0 0 αk−2 · · · α1 0]T . Now we proceed in the same way: if
+αk−2 6= 0 or βk−2 6= 0, then (5.1) again provides a nontrivial solution of Tn+k+1 q = 0.
+If αk−2 = βk−2 = 0 for any nontrivial solution of (5.16), then the (k − 1)st and the
+(k + 2)nd equation of (5.16) lead to α1 = β1 = 0, and so on.
+    Therefore, either Tn+k+1 is singular, which contradicts the column regularity of
+n + k, or αj = βj = 0 for j = 0, . . . , k − 1, which contradicts the assumption of Sk,n
+being singular. Hence, column-regularity of n + k implies that S    k,n is nonsingular.
+    Obviously, the same proof applies if k is replaced by k − 1, which shows that
+the singularity of Sk−1,n implies the singularity of Tn+k . In view of Lemma 4.1, this
+completes the proof.
+    Let us return to the two systems (5.16). Since we do not know εn+k,n+k
+(= ε̂n+k,n+k ) beforehand, we remove the last and the first equation, respectively,
+and determine normalized solutions of the homogeneous linear systems. Then we
+compute
+                                  k−1 
+                                  X                                   
+(5.18a)               ε̂n+k,n+k =       ε̂n+j,n α̂k−1−j
+                                                  (n)
+                                                        + πj,n β̂j(n)
+                                         j=0
+or
+                                         k−1 
+                                         X                                      
+(5.18b)                  εn+k,n+k =               π̂j,n βj(n) + εn+j,n αk−1−j
+                                                                        (n)
+
+                                         j=0
+and check if (5.4) and (5.5) are satisfied. This is analogous to replacing (2.4) by the
+Yule-Walker equations (2.2). Taking a closer look at the linear systems (5.16), we
+easily verify that, for any k, the normalization (5.2) and the kth and the (k + 1)th
+equation lead to
+                                 π̂0,n                                  π0,n
+(5.19)              β̂0(n) = −         = γ̂0(n)     and     β0(n) = −         = γ0(n) .
+                                 εn,n                                   ε̂n,n
+    We conclude in particular that, if q̂n , qn are a well-column-regular pair and k = 1,
+the two systems (5.16) always have normalized solutions, namely those that were used
+in Sects. 2–3. When k > 1, by capitalizing upon the normalization (5.2) and (5.19),
+we can move the columns for α̂k−1(n)
+                                     , β̂0(n) , β0(n) , and αk−1
+                                                               (n)
+                                                                     to the right-hand side of the
+systems (5.16). Thus, to compute α̂j and β̂j , we can eliminate rows and columns
+                                      (n)             (n)
+
+k and 2k of (5.16) and to compute βj(n) and αj(n) , we can eliminate rows and columns
+1 and k + 1. Due to the block Toeplitz structure of S       k,n , in both cases we end up with
+the same coefficient matrix, which is just Sk−1,n :  
+                       (n) 
+                         α̂0                                                   
+                                            π̂k−1,n                     εn+k−1,n
+                       . 
+                       ..                     ..                        ..   
+                                               .                         .   
+                       α̂(n)                                                 
+(5.20)                k−2 
+               Sk−1,n  (n)  = − 
+                                        π̂1,n                 (n)  εn+1,n
+                                                           − β̂0 
+                                                                                  
+                                                                                  
+                       β̂k−1                 0                         0     
+                                                                             
+                       ..                      ..                      ..    
+                       .                         .                         .
+                         β̂1(n)                 0                           0
+
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 197 of Numer. Math. 70: 181–227 (1995)
+198                                                               M.H. Gutknecht and M. Hochbruck
+
+
+and                          
+                        β1(n)                                
+                                      0                   0
+                       . 
+                       ..          ..                  ..  
+                                    .                   .  
+                       β (n)                               
+(5.21)                k−1      
+               Sk−1,n  (n)  = − 
+                                      0        (n) 
+                                            − β0 
+                                                          0     
+                                                                .
+                       αk−2      π1,n            ε̂n+1,n 
+                                                           
+                       ..           ..                ..   
+                       .              .                   .
+                        α0(n)       πk−1,n            ε̂n+k−1,n
+
+    In summary, we see that we can detect and construct a column-regular pair q̂n+k ,
+qn+k in this way if and only if (5.20) and (5.21) have a solution and (ε̂n+k,n+k =)
+εn+k,n+k 6= 0. Alternatively, one could solve (5.16) for ε̂n+k,n+k := εn+k,n+k := 1,
+check if (α̂k−1
+            (n)
+                 =) αk−1
+                     (n)
+                          6= 0, and, if this holds, renormalize the solution. We still
+have to show that every column-regular pair can be found in this way. Moreover, in
+order that such a pair is well-column-regular we will need that (5.4) and (5.5) hold.
+We will come back to these stability conditions in Sect. 6. First, we want to clarify
+the relationship between the nonsingularity of the matrices S           
+                                                               k,n and Sk−1,n and the
+existence and uniqueness of normalized solutions of (5.16) and (5.18)–(5.19). We
+introduce column-regular index pairs (k; n) associated to S  k,n , and prove a partial
+analogue of Lemma 4.1.
+Definition. The pair of nonnegative indices (k; n) is column-regular if the index n
+is column-regular and if the two systems (5.20) and (5.21) have a unique pair of
+solutions, and these solutions satisfy ε̂n+k,n+k 6= 0 and εn+k,n+k 6= 0, respectively.
+Lemma 5.4. For ε̂n,n 6= 0 and εn,n 6= 0, the following statements are equivalent:
+(i)   the two systems (5.20) and (5.21) have a unique pair of solutions, and these
+      solutions satisfy ε̂n+k,n+k 6= 0 and εn+k,n+k 6= 0, respectively;
+(ii) S             
+        k−1,n and Sk,n are nonsingular;
+(iii) every pair of nontrivial solutions of (5.16) and (5.17)–(5.18) satisfies α̂k−1
+                                                                                 (n)
+                                                                                      6= 0
+      and εn+k,n+k 6= 0;
+(iv) every pair of nontrivial solutions of (5.16) and (5.17)–(5.18) satisfies αk−1
+                                                                                 (n)
+                                                                                     6= 0
+      and ε̂n+k,n+k 6= 0;
+
+Proof. (ii)⇔(iii), (ii)⇔(iv): obviously, the nonsingularity of S   k,n is necessary for
+                    
+(iii) and (iv): if Sk,n is singular, the homogeneous systems (5.16) obtained when
+εn+k,n+k = ε̂n+k,n+k = 0 have nontrivial solutions. On the other hand, if S      k,n is
+nonsingular, ε̂n+k,n+k 6= 0 and εn+k,n+k 6= 0 for any nontrivial solution; moreover, we
+can apply Cramer’s rule to verify that
+
+                                  det S
+                                       k−1,n                                    det S
+                                                                                     k−1,n
+(5.22) α̂k−1
+         (n)
+             = ε̂n+k,n+k εn,n                    and αk−1
+                                                      (n)
+                                                          = εn+k,n+k ε̂n,n                    .
+                                   det S
+                                        k,n                                       det S
+                                                                                       k,n
+
+Hence, α̂k−1
+         (n)
+              6= 0 and αk−1
+                         (n)
+                              6= 0 if and only if S
+                                                   k−1,n is nonsingular. Therefore, (ii) is
+equivalent to (iii) and (iv). Moreover, (5.22) yields the relation
+
+(5.23)                      εn+k,n+k ε̂n,n α̂k−1
+                                             (n)
+                                                 = αk−1
+                                                    (n)
+                                                        εn,n ε̂n+k,n+k ,
+which is analogous to (4.4).
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 198 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                    199
+
+
+    (i)⇔(ii): to prove the equivalence of (i) and (ii), note that the uniqueness in (i) is
+equivalent to S                               
+                 k−1,n being nonsingular. If Sk,n is also nonsingular, (5.22) implies that
+ε̂n+k,n+k 6= 0 or εn+k,n+k 6= 0 (since α̂k−1 = αk−1
+                                         (n)     (n)
+                                                     = 1). Conversely, because ε̂n+k,n+k ,
+                    
+εn+k,n+k , and det Sk,n depend continuously on the additional elements π̂k−1,n , πk−1,n ,
+ε̂n+k−1,n , and εn+k−1,n of S                                             
+                              k,n , we can conclude from (5.22) that det Sk,n = 0 implies
+ε̂n+k,n+k = 0 and εn+k,n+k = 0.
+    (iii)⇔(iv): follows from what is already proved, in particular from (5.23).
+    From the Lemmas 4.1, 5.2, 5.3 and 5.4, we finally obtain
+Theorem 5.5. Let the index n be column-regular. Then, the index n + k is column-
+regular if and only if the pair of indices (k; n) is column-regular.
+Proof. If n and n + k are column-regular, then, by Lemma 5.3, S                  
+                                                                        k,n and Sk−1,n
+are nonsingular, and thus, by Lemma 5.4, (k; n) is column-regular. Conversely, if
+n and (k; n) are column-regular, then, by Lemma 5.4, there exist normalized (and
+unique) solutions of (5.16) and (5.17)–(5.18) with ε̂n+k,n+k 6= 0, εn+k,n+k 6= 0. Our
+construction based on (5.1) delivers then a pair q̂n+k , qn+k of solutions of the Yule-
+Walker equations with these values of ε̂n+k,n+k and εn+k,n+k , and by Lemma 4.1 we
+can conclude that n + k is column-regular.
+   The same arguments lead additionally to an equivalence that is analogous to one in
+Lemma 4.1, but was left out in Lemma 5.4. Note the minor change in the assumptions.
+Lemma 5.6. Assume n is a column-regular index. Then the following statements are
+equivalent:
+(i) n + k is column-regular;
+(ii) the two systems (5.20) and (5.21) have a unique pair of solutions, and these
+      solutions satisfy ε̂n+k,n+k 6= 0 and εn+k,n+k 6= 0, respectively;
+(iii) the two systems (5.20) and (5.21) have a pair of solutions satisfying ε̂n+k,n+k 6= 0
+      and εn+k,n+k 6= 0, respectively;
+
+Proof. (i)⇒(ii): If n and n + k are column-regular, then, by Lemma 5.3, S    k,n and
+S
+ k−1,n   are nonsingular, and by Lemma  5.4 the  condition (ii) holds.
+    (ii)⇒(iii): trivial.
+    (iii)⇒(iv): from the solutions of (5.20) and (5.21) we can construct a pair of
+solutions of the Yule-Walker equations with the same values of ε̂n+k,n+k and εn+k,n+k .
+Therefore, by Lemma 4.1, n + k is column-regular.
+    If tol(n) ≡ 0 and Tol(n) ≡ ∞, the construction described in this section always
+performs steps of minimal look-ahead step size to the next column-regular index.
+In particular, if T is strongly regular, we always have k = 1, i.e., the construction
+works without look-ahead. Then the two systems (5.20) and (5.21) are vacuous; the
+coefficients are already fully determined by (5.2) and (5.19), in accordance with
+(2.8). The recurrences thus reduce to those in the classical algorithms of Levinson
+and Schur. If T is not strongly regular, or if it is, but tol(n) > 0 or Tol(n) < ∞,
+look-ahead steps of size k > 1 may occur. Then we no longer get the complete block
+LDU decomposition of T or T−1 , but only those columns of the unit upper triangular
+matrices R̂ and R or the lower triangular matrices Ê and E that belong to the well-
+column-regular pairs. If we want to find the missing columns, we need to add inner
+vectors q̂n+k , qn+k for n = nj < n + k < nj+1 such that, instead of (5.3),
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 199 of Numer. Math. 70: 181–227 (1995)
+200                                                                            M.H. Gutknecht and M. Hochbruck
+
+                                                                                     
+                                                                 0n+1        εn+k,n+k
+                                                                                ..   
+                                                   ε̂n+1,n+k                     .   
+(5.24)                    Tn+k+1 [q̂n+k |qn+k ] = 
+                                                        ..
+                                                                                      .
+                                                                                      
+                                                         .                  εn+1,n+k 
+                                                    ε̂n+k,n+k                  0n+1
+
+Then, in (5.16), â and b̂ only need to fulfill the first k equations, and a and b have
+to satisfy the last k equations. Note that (5.19) remains valid for inner vectors, too;
+in other words, the first pair of inner vectors (for which k = 1) is obtained from the
+Schur parameters as when no look-ahead is done.
+    Since only k conditions have to be satisfied besides the normalization (5.2), it
+turns out that we can set
+
+(5.25)                                α̂j(n) = αj(n) = 0,      j = 0, . . . , k − 2.
+
+To distinguish the coefficients in the recurrences for the inner vectors from those for
+the computation of a new well-column-regular pair, we rename them according to
+
+(5.26)                        γ̂j(n) := β̂j(n) ,   γj(n) := βj(n) ,    j = 0, . . . , k − 1.
+
+Taking (5.19) into account, we just have to solve the (k − 1) × (k − 1) nonsingular
+triangular Toeplitz systems
+                                           (n)                                 
+             εn,n      ···       εn+k−2,n    γ̂k−1       π̂k−1,n             εn+k−1,n
+                      ..            ..    .            ..        (n)      ..   
+                         .           .     ..  = −      .    − γ̂0         .   
+              O                      εn,n             γ̂1(n)                π̂1,n               εn+1,n
+(5.27)
+
+and
+                                                                                
+               ε̂n,n                      O      γ1(n)      π1,n               ε̂n+1,n
+                 ..           ..              ..        ..       (n)       ..   
+                  .             .            .  = −      .    − γ0          .   .
+             ε̂n+k−2,n         ···     ε̂n,n    γk−1
+                                                  (n)      πk−1,n            ε̂n+k−1,n
+(5.28)
+
+   Note that these systems are nested with respect to k; if k − 1 is replaced by k,
+only γ̂k−1
+       (n)
+           and γk−1
+                (n)
+                    need to be computed additionally:
+                                                                                     
+                                                                k−2
+                                                                X
+                                                1                                (n) 
+                       γ̂k−1
+                         (n)
+                                     :=     −         π̂k−1,n +     εn+k−1−j,n γ̂j      ,
+                                              εn,n
+                                                                j=0
+(5.29)                                                                               
+                                                                k−2
+                                                                X
+                                                1 
+                       γk−1
+                        (n)
+                                     :=     −         πk−1,n +      ε̂n+k−1−j,n γj(n) .
+                                              ε̂n,n
+                                                                      j=0
+
+
+This has the consequence that the components of the inner vectors q̂n+k and qn+k are
+obtained according to the following simple recurrences:
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 200 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                               201
+
+                            (n)
+                            γ̂k−1 ρn−j,n                       (j = 0),
+         ρ̂j,n+k   :=        ρ̂          + γ̂k−1
+                                             (n)
+                                                 ρn−j,n         (j = 1, . . . , n),
+                            j−1,n+k−1
+                             ρ̂
+                            (n)
+                               j−1,n+k−1                        (j = n + 1, . . . , n + k − 1),
+(5.30)
+                            γk−1 ρ̂n−j,n                       (j = 0),
+         ρj,n+k    :=        ρ           + γk−1
+                                             (n)
+                                                 ρ̂n−j,n        (j = 1, . . . , n),
+                            j−1,n+k−1
+                             ρj−1,n+k−1                         (j = n + 1, . . . , n + k − 1) .
+
+Recall that ρ̂n+k,n+k = ρn+k,n+k = 1, and note that the diagonal blocks of R̂ and R
+have Toeplitz structure. These diagonal blocks correspond to the case n+1 ≤ j ≤ n+k
+in (5.30).
+    We will show later, in Sect. 7 and Sect. 10 how the block diagonal matrix D in
+the decomposition (2.20) can be computed efficiently in our look-ahead Levinson and
+Schur algorithms, respectively. In Sect. 7 we will also show how to generate ε̂n+j,n
+and εn+j,n (j = 1, . . . , k) recursively, without evaluating inner products.
+    The formulas of this section are valid for n = 0 if and only if the pair q̂0 = q0 = [1]
+is column-regular, i.e. n1 = 0, which holds if and only if (ε̂0,0 = ε0,0 =) µ0 6= 0. In
+floating-point arithmetic one needs that the pair is well-column-regular, which requires
+that |µ0 | > tol(0). Note that q̂0 = q0 = [1] implies that
+
+                   ε̂i,0    =   µi (i ≥ 0),              π̂i−1,0    =    µ−i (i ≥ 1),
+(5.31)
+                   εi,0     =   µ−i (i ≥ 0),             πi−1,0     =    µi (i ≥ 1).
+
+In particular, [ε̂0,0 ] = [ε0,0 ] = [µ0 ] = T1 . If n = 0 is not a well-column-regular index,
+we have to determine n1 by solving the Yule-Walker equations (2.2) for n = 1, 2, . . .
+until we find a well-column-regular pair. Alternatively, one could use another method
+to determine the first pair Tn , Tn+1 of successive well-conditioned leading principal
+submatrices of T. The inner vectors in this initial block can be chosen as the unit
+vectors
+(5.32)                q̂k := ek ∈ Rk , qk := e0 ∈ Rk , 0 ≤ k < n1 ,
+which satisfy (5.24) for n = n0 := −1.
+
+
+6. Stability
+
+In an LDU decomposition, and likewise in an inverse LDU decomposition, stability
+is normally achieved by pivoting, which makes pivots large and keeps the growth
+of the off-diagonal elements under control. In a block LDU decomposition without
+pivoting, and also in an inverse block LDU decomposition, one avoids small pivots
+by choosing block pivots that are far from singular. If, for each reduced system, the
+smallest singular value of the block pivot is larger than a fixed fraction 1/γ of the
+norm of every off-diagonal block in the same block column, then the norm of any
+block in the jth reduced system is at most (1+γ)j times the norm of the original block
+in the same position, i.e., one has a growth factor of at most 1 + γ for each elimination
+step.1 But since γ can be much larger than 1, the growth can be considerably larger
+than when column-pivoting is applied. It is therefore important to keep the growth of
+the off-diagonal elements somehow under control.
+  1 We are indebted to Leslie V. Foster for quickly providing us with a proof of this fact at the Householder
+
+XII Symposium
+
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 201 of Numer. Math. 70: 181–227 (1995)
+202                                                                    M.H. Gutknecht and M. Hochbruck
+
+
+     In our situation, unlike in ordinary Gauss elimination, the inversion formulas
+for Toeplitz matrices make it possible to estimate the norm of the inverses of the
+principal submatrices Tnj . From the Gohberg-Semencul formulas we conclude that
+the Frobenius norm of the inverses of Tnj and Tnj +1 cannot be large if the norms
+||q̂nj || and ||qnj || of the regular pairs do not become large and |εnj ,nj | is bounded
+away from zero. This was, of course, the basis of our definition of well-column-regular
+pairs. This definition specifies a first look-ahead strategy.
+     However, using only this definition for the determination of the look-ahead step
+size requires that, for every n, the tentative regular pair and the norm of its two
+vectors be computed. If the pair fails to be well-column-regular, this computation is
+wasted. Also in the look-ahead Schur algorithm we may not want to compute these
+pairs and their norm (at least not for all j). Fortunately, we can estimate the norm.
+This leads to the requirement to bound the recurrence coefficients α̂i(n) , β̂i(n) , αi(n) ,
+βi(n) .
+Definition. The column-regular index pair (n; k) is well-column-regular if the cor-
+                            T
+responding vectors [ âT b̂ ]T and [ aT bT ]T , which are defined by (5.13) and
+obtained from (5.2) and (5.19)–(5.21), satisfy
+                                          
+                              â          a
+(6.1)                              ,           < Tol(n; k),
+                              b̂          b
+(6.2)                       (|ε̂n+k,n+k | =) |εn+k,n+k | > tol(n + k).
+The index pair (n; k) is then also called well-column-regular.
+    The new tolerance function Tol(n; k) > 1 in (6.1) should be compatible with
+Tol(n) in the sense that (6.1) implies that q̂n+k and q̂n+k , defined by (5.1), satisfy
+(5.4). The following lemma shows how to fulfill this condition.
+Lemma 6.1. Assume the functions Tol(n) (> 1) and Tol(n; k) (> 1) are chosen such
+that
+                                 Tol(n + k)
+(6.3)               Tol(n; k) ≤ √              (n < n + k ≤ N ),
+                                  n + 1 Tol(n)
+which requires that
+                                 √
+(6.4)               Tol(n + k) > n + 1Tol(n) (n < n + k ≤ N ).
+Then, if n and (n; k) are well-column-regular, n + k also is well-column-regular. In-
+equality (6.4) is fulfilled if, e.g., Tol(n) := nn/2 .
+Proof. We rewrite (5.1) as
+                                                                            
+                        0          ···        0      β̂k−1
+                                                       (n)
+                                                                         0
+                                                                              
+                    α̂(n)         ..
+                                      .
+                                              ..
+                                                     β̂k−2
+                                                       (n)    ..
+                                                                   .            ρ̂0,n 
+                    0                         .                               
+                                                                              
+                                                                         (n)  
+                    α̂(n)         ..                   ..    ..                      .. 
+                    1                .       0          .         .   β̂k−1         . 
+                    .                                                          ρ̂
+                                                                                          
+                                                                                          
+(6.5)      q̂n+k = 
+                    ..
+                                   ..
+                                      .     α̂0(n)   β̂0(n)              (n)  
+                                                                       β̂k−2
+                                                                                     n,n
+                                                                                 ρn,n 
+                                                                                         
+                    (n)                                      ..           ..      .. 
+                                                                                          
+                    α̂k−1                  α̂1(n)     0           .        .          .
+                                                                              
+                                  ..          ..      ..     ..                ρ0,n
+                                       .       .       .       .       β̂0(n) 
+                        0                   α̂k−1
+                                              (n)
+                                                       0      ···         0
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 202 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                     203
+
+
+and an analogous relation for qn+k . The matrix is of size (n + k + 1) × 2(n + 1). For
+the Euclidean norm of q̂n+k we obtain the estimate
+                                                 n
+                                                 X                         n
+                                                                           X
+                       ||q̂n+k ||   ≤   ||â||         |ρ̂i,n | + ||b̂||         |ρi,n |
+                                                 i=0                       i=0
+                                        √                                                  
+(6.6)                               ≤    n + 1 ||â|| ||q̂n || + ||b̂|| ||qn ||
+                                        √
+                                    <    n + 1 Tol(n)Tol(n; k),
+and an analogous one is found for ||qn+k ||. Consequently, (6.3) implies that ||q̂n+k || ≤
+            √ ||qn+k || ≤ Tol(n + k), which is in accordance with (5.4).
+Tol(n + k) and
+    Due to n + 1 nn/2 ≤ (n + 1)(n+1)/2 ≤ (n + k)(n+k)/2 , the inequality (6.4) holds
+for Tol(n) = nn/2 .
+    Unfortunately, the tolerance function Tol(n) = nn/2 grows far too fast to be useful
+in practice. The problem here is that the estimate based on the√Frobenius norm of the
+Toeplitz matrices in (6.5), which is responsible for the factor n + 1 in (6.6), is very
+weak. Although it could be sharpened, it seems hard to obtain in this way practical
+compatible tolerance functions Tol(n) and Tol(n; k). Nevertheless, in practice one
+can still heuristically choose tolerance functions and use (6.1)–(6.2) as look-ahead
+strategy. The submatrices Tn that will be considered as well conditioned according to
+this strategy can then become rather ill conditioned, but there still exists a (possibly
+very large) a priori upper bound for their condition number, and chances that the
+actual condition number is anywhere close to the bound may be very small.
+    A third look-ahead strategy consists in requiring that (6.2) holds and, if k > 1,
+the smallest singular value of S   k−1,n be larger than a certain bound tolσ , which may
+also depend on n and k − 1. First, note that (2.2)–(2.4) imply that εn,n = ε̂n,n is the
+Schur complement of Tn in Tn+1 . This statement only requires that Tn is nonsingular.
+Therefore, if Tn+k is nonsingular, then (6.2) guarantees that Tn+k+1 is nonsingular.
+One can also argue as in Chan and Hansen [9] that |εn+k,n+k | is an estimate of
+σmin (Tn+k+1 ) if Tn+k is well conditioned and |εn+k,n+k | is small. More exactly, from
+Lemma 4.2 we see that a well-conditioned Tn+k implies that ||q̂n+k || and ||qn+k || are
+bounded and that therefore, if (6.2) holds, ||T−1              −1
+                                                   n+k+1 || = σmin (Tn+k+1 ) is also bounded.
+    If k = 1, we know from the previous step that Tn+k is well conditioned, and thus
+it suffices to check (6.2). If k > 1, we must make sure that Tn+k is well conditioned.
+If n is well-column-regular and if the smallest singular value of S     k−1,n is larger than
+tolσ , one can show that the right-hand sides of (5.20) and (5.21) are bounded. The
+vectors â, b̂, a, and b of the recurrence coefficients are at most by a factor 1/tolσ
+larger. From (6.6) and Lemma 4.2 it follows finally that Tn+k is well conditioned.
+    At first sight, it seems surprising that the aforementioned check contains only
+the smallest singular value of S    k−1,n but not the condition number of this matrix.
+However, since the elements of S      k−1,n are just products of the matrix Tn+k (whose
+norm is bounded by ||T||) and the well-column-regular pair q̂n , qn , these elements
+cannot be very large. Therefore, roundoff will not be a serious problem when we are
+solving (5.20)-(5.21).
+    Unfortunately, the exact quantitative connections between ||q̂n ||, ||qn ||, εn,n ,
+σmin (Sk−1,n ), ||q̂n+k ||, and ||qn+k || seem to be very complicated. So, again, it is
+impossible to specify really useful tolerance functions tol(n), Tol(n), and tolσ (n; k)
+for which an analogue of Lemma 6.1 holds. Nevertheless, in practice this strategy
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 203 of Numer. Math. 70: 181–227 (1995)
+204                                                               M.H. Gutknecht and M. Hochbruck
+
+
+has proven to be very successful. It is the one chosen for our numerical examples in
+Sect. 12. Regarding the discrepancy between actual condition number and guaranteed
+condition number the same remark as for the second strategy applies. As we know
+from Gaussian elimination with partial pivoting, a strategy may be very good in nearly
+all cases, although the theoretical bounds suggest that it is far too weak.
+    Note that, as in (4.6), we can conclude from (5.2) and (5.16) that
+
+(6.7)                        |ε̂n+k,n+k | = |εn+k,n+k | ≥ σmin (S
+                                                                 k,n ).
+
+
+Hence, there is at least one simple relation between σmin (S  k,n ) and the condition (6.2)
+(which is the same as (5.5)).
+    When k = 1, the condition estimator used by Chan and Hansen [9] is comparable
+to our estimate of Lemma 4.2 based on the Gohberg-Semencul formula. They use the
+infinity-norm of the vectors q̂n and qn , which is rather expensive to compute, while
+we use the Euclidean norm, but have an additional factor 2n in the estimate. When
+k > 1, Chan and Hansen need the 2k solution vectors of the “block Yule-Walker
+equations” for their condition estimate. This seems unnecessarily complicated since
+the Gohberg-Semencul formula shows that the inverse only depends on one pair of
+vectors. The look-ahead strategy of Freund and Zha [14] involves the computation of
+the condition number of matrices of order k that are the products of the corresponding
+three diagonal blocks of the factors of the block LDU decomposition of T. When k = 1
+this is just a check of εn+1,n+1 6≈ 0. Additionally, the size of the recurrence coefficient
+vectors is checked: their 1-norm must be below a certain bound that is enlarged when
+k exceeds a specified value. Hence, the Freund and Zha look-ahead strategy has some
+similarity with our second strategy, which is based on well-column-regular index pairs
+(n; k).
+
+
+7. Look-ahead Levinson and Schur algorithms: summary
+
+Summarizing our derivation from the previous sections, we obtain the following look-
+ahead versions of the Levinson and the Schur algorithm, respectively. We have chosen
+here the look-ahead strategy that checks the condition (5.5) and, for look-ahead step
+size k > 1, the smallest singular value of S
+                                            k−1,n .
+
+Algorithm 3. (Nonsymmetric Levinson algorithm with look-ahead)
+1. (Initialization)
+   Set n := 0, n0 := −1;
+   while not (Tn and Tn+1 are well conditioned):
+       set ρ̂n,n := ρn,n := 1, ρ̂j,n := ρj,n := 0 (j = 0, . . . , n − 1);
+       n := n + 1
+   end while;
+   solve (2.2) (e.g. with Gauss elimination with pivoting) and obtain a well-column-
+   regular pair q̂n , qn , as well as ε̂n,n = εn,n ;
+   set l := 1; nl := n;
+   optional: set D0 := Tn , D1 := [εn,n ].
+2. (Compute inner products and Schur parameters)
+   Compute
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 204 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                        205
+
+
+       π̂0,n := [µ−1 · · · µ−n−1 ]q̂n , π0,n := [µn+1 · · · µ1 ]qn ;
+       β̂0(n) := γ̂0(n) := −π̂0,n /εn,n , β0(n) := γ0(n) := −π0,n /ε̂n,n ;
+       ε̂n+1,n+1 := εn+1,n+1 := εn,n − π̂0,n β0(n) .
+3. (Check well-column-regularity of q̂n+1 , qn+1 )
+   Set k := 1, column regular := (|εn+1,n+1 | ≥ tol(n + 1)).
+4. (Look-ahead step)
+   While not column regular:
+   if k > 1, compute γ̂k−1   (n)
+                                  and γk−1(n)
+                                              according to (5.29);
+   compute ρ̂n,n+k , ρn,n+k , ρ̂n+1,n+k , ρn+1,n+k according to (5.30);
+   optional: compute the full inner vectors q̂n+k , qn+k according to (5.30);
+   optional: update Dl according to (7.4)–(7.6) below;
+   compute π̂k,n := [µ−k−1 · · · µ−n−k−1 ]q̂n , πk,n := [µn+k+1 · · · µk+1 ]qn ;
+   compute ε̂n+k,n and εn+k,n according to (7.9) and (7.10) below;
+   set k := k + 1, fill in S   k−1,n ;
+   if σmin (Sk−1,n   ) ≥  tolσ (n; k − 1):
+       solve (5.20) to obtain α̂0(n) , . . . , α̂k−2
+                                                 (n)
+                                                     , β̂1(n) , . . . , β̂k−1
+                                                                          (n)
+                                                                              , set α̂k−1
+                                                                                      (n)
+                                                                                          := 1;
+       solve (5.21) to obtain β1 , . . . , βk−1 , α0 , . . . , αk−2 , set αk−1 := 1;
+                                      (n)        (n)     (n)              (n)         (n)
+
+       compute ε̂n+k,n+k := εn+k,n+k from (5.18) or (5.19);
+       column regular := (|εn+k,n+k | ≥ tol(n + k)
+   else
+       column regular := f alse
+   end if
+   end while.
+5. (Compute a well-column-regular pair)
+   Compute q̂n+k and qn+k from (5.1);
+   optional: set Dl := [εn,n ].
+6. Set l := l + 1, nl := n := n + k; goto 2.
+
+    The look-ahead Schur algorithm differs from the look-ahead Levinson algorithm
+mainly by the replacement of the inner products by the saxpys of (5.17), which yield
+directly the elements of S
+                          k−1,n for all k ≤ N − n. The computation of the pairs q̂n
+and qn is optional.
+Algorithm 4. (Nonsymmetric Schur algorithm with look-ahead)
+1. (Initialization)
+   Set n := 0, n0 := −1;
+   while not (Tn and Tn+1 are well conditioned):
+       for j = 0, . . . , n − 1:
+       set ε̂j,n := µj−n , εj,n := µ−j+n (j = 0, . . . , N );
+       set π̂j,n := µ−n−j−1 , πj,n := µn+j+1 (j = 0, . . . , N − n − 1);
+       n := n + 1
+   end while;
+   solve (2.2) (e.g. with Gauss elimination with pivoting) and obtain a well-column-
+   regular pair q̂n , qn ;
+   compute ε̂j,n , εj,n (j = n, . . . , N ) and π̂j,n , πj,n (j = 0, . . . , N − n − 1) from
+   (3.4);
+   set l := 1; nl := n;
+   optional: set D0 := Tn , D1 := [εn,n ].
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 205 of Numer. Math. 70: 181–227 (1995)
+206                                                                   M.H. Gutknecht and M. Hochbruck
+
+
+2. (Compute Schur parameters and check well-column-regularity of qn+1 , q̂n+1 )
+   Compute
+       β0(n) := γ0(n) := −π0,n /ε̂n,n , β̂0(n) := γ̂0(n) := −π̂0,n /εn,n ;
+       ε̂n+1,n+1 := εn+1,n+1 := εn,n − π̂0,n β0(n) ;
+   set k := 1, column regular := (|εn+1,n+1 | ≥ tol(n + 1)).
+3. (Look-ahead step)
+   While not column regular:
+   optional: if k > 1: compute γ̂k−1 (n)
+                                          and γk−1(n)
+                                                        from (5.29) and
+
+                             
+                               γ̂k−1
+                                  (n)
+                                      π0,n                             (j = n + 1),
+              ε̂j,n+k   :=
+                               ε̂           + γ̂k−1
+                                                (n)
+                                                    πj−n−1,n           (j = n + 2, . . . , N ),
+      (7.1)                   j−1,n+k−1
+                               γk−1
+                                  (n)
+                                      π̂0,n                            (j = n + 1),
+              εj,n+k    :=
+                               εj−1,n+k−1 + γk−1(n)
+                                                    π̂j−n−1,n          (j = n + 2, . . . , N )
+
+      else
+                   ε̂j,n+1   :=   ε̂j−1,n + γ̂0(n) πj−n−1,n
+      (7.2)                                                           (j = n + 1, . . . , N )
+                   εj,n+1    :=   εj−1,n + γ0(n) π̂j−n−1,n
+
+      end if;
+      optional: compute inner vectors q̂n+k , qn+k according to (5.30);
+      optional: update Dl according to (7.4)–(7.7), where ρn,n+k is computed via (7.9);
+      set k := k + 1, fill in S
+                               k−1,n ;
+                
+      if σmin (Sk−1,n ) ≥ tolσ (n; k − 1):
+       solve (5.20) to obtain α̂0(n) , . . . , α̂k−2
+                                                 (n)
+                                                     , β̂1(n) , . . . , β̂k−1
+                                                                          (n)
+                                                                              , set α̂k−1
+                                                                                      (n)
+                                                                                          := 1;
+       solve (5.21) to obtain β1 , . . . , βk−1 , α0 , . . . , αk−2 , set αk−1
+                                  (n)            (n)     (n)              (n)         (n)
+                                                                                          := 1;
+       compute ε̂n+k,n+k = εn+k,n+k from (5.18) or (5.19);
+       column regular := (|εn+k,n+k | ≥ tol(n + 1))
+   else
+       column regular := f alse
+   end if
+   end while.
+4. (Compute regular vectors)
+   Compute ε̂j,n+k , εj,n+k (j = n + k + 1, . . . , N ) and
+              π̂j,n+k , πj,n+k (j = 0, . . . , N − n − k − 1) from (5.17);
+   optional: compute q̂n+k and qn+k from (5.1);
+   optional: set Dl := [εn,n ].
+5. Set l := l + 1, nl := n := n + k; goto 2.
+
+    It remains to show how to update D, which is defined in (2.17), and how to
+compute ε̂n+k,n , εn+k,n in Step 4 of the look-ahead Levinson algorithm.
+    First we consider the update of D. Since RT Ê is block lower triangular and ET R̂
+is block upper triangular, the matrix D is block diagonal. We can easily compute
+its blocks from (2.17) if R̂ and R are available. We let D =: (δi,j )i,j=0,...,N =:
+diag (D0 , . . . , DJ ). If n = nl is the last well-column-regular index and k is such
+that nl < n + k < nl+1 , then, for j = 1, . . . , k,
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 206 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                             207
+
+                                      j
+                                      X                                  j
+                                                                         X
+             δn+j,n+k       =               ρn+i,n+j ε̂n+i,n+k     =           ρn,n+j−i ε̂n+i,n+k ,
+                                      i=1                                i=1
+(7.3)                                  j                                  j
+                                      X                                  X
+             δn+k,n+j       =               ρ̂n+i,n+j εn+i,n+k     =           ρ̂n,n+j−i εn+i,n+k .
+                                      i=1                                i=1
+
+For the first pair of vectors in each block we have, using (2.17) and (5.24),
+
+(7.4)                 δn,n = ε̂n,n = εn,n ,                  δn,j = δj,n = 0,       j 6= n,
+
+i.e., the block Dl is itself block diagonal with a 1 × 1 block in its upper left corner.
+To update Dl efficiently we define, for j = 1, . . . , k,
+                            j
+                            X                                            j
+                                                                         X
+(7.5)             ψ̂j,n =             ρ̂n,n+j−i π̂i,n ,         ψj,n =         ρn,n+j−i πi,n .
+                                i=0                                      i=0
+
+Then the following recurrences for the elements of Dl hold:
+                                  
+                                   γ̂k−1
+                                     (n)
+                                         π0,n                                    (j = 1),
+             δn+j,n+k       =
+                                   γ̂k−1
+                                     (n)
+                                         ψ       + δn+j−1,n+k−1                  (j = 2, . . . , k),
+(7.6)                              (n) j−1,n
+                                   γk−1 π̂0,n                                    (j = 1),
+             δn+k,n+j       =
+                                   γk−1
+                                     (n)
+                                         ψ̂j−1,n + δn+k−1,n+j−1                  (j = 2, . . . , k).
+
+They are derived from (7.3) using (5.30) and (7.1):
+                                            j
+                                            X                          j
+                                                                       X
+           δn+j,n+k     =       γ̂k−1
+                                  (n)
+                                                  ρn,n+j−i πi−1,n +          ρn,n+j−i ε̂n+i−1,n+k−1
+                                            i=1                        i=2
+                                                       j−1
+                                                       X
+                        =       γ̂k−1
+                                  (n)
+                                      ψj−1,n +               ρn,n+j−i ε̂n+i,n+k
+                                                       i=1
+
+                        =       γ̂k−1
+                                  (n)
+                                      ψj−1,n + δn+j−1,n+k−1 .
+
+The proof for δn+k,n+j is analogous.
+     Since (7.6) provides us with two different formulas for the diagonal elements of
+Dl , we can eliminate either ψj,n or ψ̂j,n . To be more precise,
+
+(7.7)                                       γ̂k−1
+                                              (n)
+                                                  ψk−1,n = γk−1
+                                                            (n)
+                                                                ψ̂k−1,n .
+
+    Next we show that one can implement our look-ahead Levinson algorithm with
+the same number of inner products as the classical algorithm without look-ahead:
+inner products occur only in Step 4 of the algorithm, when we compute π̂k,n and
+πk,n , whereas ε̂n+k,n and εn+k,n are found without forming inner products of length
+O(n). We start from (2.19) and consider rows n + 1, . . . , n + k and column n of the
+matrix equation RT Ê = D, where R is unit upper triangular and Ê is block lower
+triangular. Recall from (5.30) that our special choice of inner vectors implies that the
+diagonal blocks of R inherit the Toeplitz structure. Hence, using (7.4), we are left
+with the following n × (n + 1) system:
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 207 of Numer. Math. 70: 181–227 (1995)
+208                                                                 M.H. Gutknecht and M. Hochbruck
+
+                                                       ε̂n,n         
+                 ρn,n+1        ρn,n               0                     0
+                                                       ε̂n+1,n   . 
+                                                                 =  . .
+                    ..           ..        ..
+                    .            .          .               ..       .
+                                                               .
+                   ρn,n+k    ρn,n+k−1      ···   ρn,n                   0
+                                                          ε̂n+k,n
+Since ε̂n,n is known from the previous step, we can move the first column to the
+right-hand side to obtain the triangular Toeplitz system
+                                                                  
+                 ρn,n             0        ε̂n+1,n              ρn,n+1
+                  ..      ..               ..                 ..  
+(7.8)              .         .              .    = −ε̂n,n      .  .
+                 ρn,n+k−1     ···   ρn,n         ε̂n+k,n                    ρn,n+k
+
+From this relation, we can compute ε̂n+j,n (j = 1, . . . , k) recursively; in particular,
+                                                      k−1
+                                                      X
+(7.9)                   ε̂n+k,n = −ρn,n+k ε̂n,n −           ρn,n+k−l ε̂n+l,n .
+                                                      l=1
+
+Similarly, εn+k,n is obtained from
+                                                      k−1
+                                                      X
+(7.10)                  εn+k,n = −ρ̂n,n+k εn,n −            ρ̂n,n+k−l εn+l,n .
+                                                      l=1
+
+In particular, for k = 1, we can compute ε̂n+1,n and εn+1,n from ε̂n,n = εn,n , ρn,n+1 ,
+and ρ̂n,n+1 . Recall that the last two quantities are found from the Schur parame-
+ters and (5.1) or (5.30) as when n + 1 is a column-regular index. Once, ε̂n+1,n and
+εn+1,n are known, we get γ1(n) and γ1(n) from (5.27) and (5.28); see (5.29). Then,
+{ρ̂j,n+2 , ρj,n+2 }n+1
+                   j=0 follow from (5.30). Note that for the next step, where k = 2, we
+only need the four numbers {ρ̂j,n+2 , ρj,n+2 }n+1
+                                               j=n . In view of the Toeplitz structure in
+(7.8), also in the kth step only the four new numbers {ρ̂j,n+k , ρj,n+k }n+1
+                                                                         j=n need to be
+calculated from (5.30). Hence, there is no need to compute the full inner vectors and
+to allocate additional memory space of order n.
+     In our look-ahead Schur algorithm, the situation is just the opposite to the above.
+We have ε̂n+k,n and εn+k,n available and need the diagonal blocks of R̂ and R to
+compute D. However, solving the equations (7.9) and (7.10) for ρ̂n+k,n and ρn+k,n ,
+respectively, provides us with a recursion for the elements in the diagonal blocks of
+R̂ and R. With these parameters, we can update Dl according to (7.4)–(7.6) without
+computing the full regular vectors q̂nl and qnl .
+     We postpone the discussion of how to solve the Toeplitz system to Sect. 10 and
+the specification of the costs and of the look-ahead overhead to Sect. 11.
+
+
+8. Superfast Toeplitz solvers
+
+In the previous sections we have been concerned with fast, i.e. O(N 2 ), variants of
+Toeplitz solvers. Now, we want to present a superfast, i.e. O(N log2 N ), variant with
+look-ahead. The main idea of superfast Toeplitz solvers is recursive doubling. It can be
+applied only to Schur type algorithms, so in the course of the computation elements of
+Ê, E, and S
+            nj (j = 1, . . . , J −1) are constructed. Recall that the latter matrices contain
+
+
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 208 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                               209
+
+
+elements from the matrices P̂ and P defined in (3.1) and (3.2). Instead of computing
+all the columns of E with well-column-regular index nj and all the corresponding
+matrices S nj , we now want to roughly double the index in each step. If no look-
+ahead is necessary, this means that we compute only the columns with index 2j − 1
+for j = 0, 1, . . .. To show how this can be done efficiently, we start with (5.17) and a
+solution of (5.16). The aim is to compute the solution of (5.16) for k + k 0 instead of
+k from a solution for k. Normally, k 0 = k, so the length of the step is doubled.
+                                                                                          
+                       0         ···      0             β0(n)                    0
+                                           ..            ..                               
+                α̂(n) . . .                                             ..
+                                                                             .             
+                0                           .             .                               
+                .                                         ..                              
+                ..              ..                                              (n) 
+                                   .     0                 .                  β0 
+                .                                                               .. 
+                ..
+                                      α̂0(n) βk−1       (n)
+                                                                                  .       
+               
+                (n)                      ..                             ..        ..     
+                α̂k−1                     .              0                  .      . 
+                                                                                          
+                                ..           ..            ..           ..     (n) 
+                                   .          .             .               . βk−1        
+                                                                                          
+                     0              α̂ (n)
+                                                          0              · · ·   0         
+    Sk+k0 ,n                           k−1                                               
+                0               ···      0             αk−1
+                                                         (n)
+                                                                                 0        
+                                            ..              ..                            
+                β̂ (n)          ..                                      ..                
+                k−1                .         .               .              .             
+                .                                                                         
+                .               ..                           ..                (n) 
+                .                  .     0                    .               αk−1 
+                .
+                .                                                                ..      
+                .                    β̂k−1
+                                         (n)
+                                                        α0(n)                      . 
+                                                                                          
+                (n)                       ..                            ..         .. 
+                β̂0                        .             0                  .       .     
+                                                                                          
+                                ..            ..              ..        ..                
+                                   .           .               .            . α0(n) 
+                       0               β̂0(n)             0              ···     0
+                                                                                                          
+                           π̂0,n+k                · · · π̂k0 −1,n+k εn+k,n+k · · · εn+k+k0 −1,n+k
+                                                 ..                  ..                     ..       ..   
+                                                     .                .                        .      .   
+                                                                                                          
+                             O                                   π̂0,n+k               O         εn+k,n+k 
+                                                                                                          
+(8.1)        =              02k                  ···               02k                02k   ···    02k    .
+                        ε̂n+k,n+k                                               π0,n+k                    
+                                                                    O                               O     
+                              ..                                                       ..                 
+                               .
+                                                  ..
+                                                      .                                  .
+                                                                                             ..
+                                                                                                .          
+                     ε̂n+k+k0 −1,n+k · · · ε̂n+k,n+k πk0 −1,n+k · · ·                              π0,n+k
+
+The matrices on the left have sizes (2k + 2k 0 ) × (2k + 2k 0 ) and (2k + 2k 0 ) × 2k 0 ,
+respectively. The nonzero rows of the matrix on the right-hand side just form the
+matrix Sk0 ,n+k . Post-multilying (8.1) by new coefficient vectors
+
+                                [α̂0(n;k) · · · α̂k(n;k)
+                                                    0 −1 | β̂k 0 −1 · · · β̂0
+                                                             (n;k)
+                                                                                 ] ,
+                                                                            (n;k) T
+
+
+(8.2)                           [β0(n;k) · · · βk(n;k)
+                                                  0 −1 | αk 0 −1 · · · α0
+                                                          (n;k)
+                                                                             ] ,
+                                                                        (n;k) T
+
+
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 209 of Numer. Math. 70: 181–227 (1995)
+210                                                               M.H. Gutknecht and M. Hochbruck
+
+
+we see that a solution of (5.16) for k + k 0 can computed by solving a linear system
+with the matrix S   k0 ,n+k . Again, we want to fulfill the normalization (5.2), so we need
+to solve two linear systems with the coefficient matrix S                           0
+                                                                k0 −1,n+k of size 2(k − 1) ×
+      0
+2(k − 1), similar to (5.20) and (5.21).
+      The construction of a superfast solver becomes now clear. Instead of computing
+the (n + k + k 0 )th column of P (partially) and E by solving two linear systems with
+coefficient matrix S                              0                   0
+                          k+k0 −1,n of size 2(k + k − 1) × 2(k + k − 1), we solve four
+smaller linear systems, two of size 2(k − 1) × 2(k − 1) and the other two of size
+2(k 0 − 1) × 2(k 0 − 1). If this procedure is applied recursively to perform bigger and
+bigger steps, we obtain an algorithm of complexity O(N log2 N ), as can be seen by
+a standard argument; see the discussion of the similar superfast look-ahead Toeplitz
+solvers in [19].
+      The implementation of the superfast solver can be done with two recursive pro-
+cedure, coldac and coldac2, outlined below, of which the first makes usually one
+call to itself and one call to coldac2, while the second makes two calls to itself. In
+these calls the order of the problem is roughly halved. The superfast algorithm for
+TN is started by a call to coldac(true, N , N , TN ).
+      The procedures coldac and coldac2 are variations of the procedures sawdac
+and sawdac2 from [19]. The aim of coldac is to find the minimum well-column-
+regular index N in the range N ≤ N ≤ N . If it does not succeed, the flag is set
+true. In this case it may still have found a well-column-regular pair, but only one
+with index N < N . The Boolean variable dac indicates when the divide and conquer
+option should be shut off since it is known already that there is no well-column-
+regular index in the target range. In an analogous way, the aim of coldac2 is to find
+a (0; N ) well-column-regular index pair. (Note the change of notation from (n; k) to
+(0; N ).) flag and dac have the same meaning as in coldac. The integer ntot indicates
+how far we have at this point computed information for evaluating q̂N and qN . In
+particular, after coldac2 has been called from coldac, ntot = n + k. The evaluation
+of âN , b̂N , aN , bN in step C5 is done by multiplying the second matrix on the left in
+                                                                        (n)
+(8.1) by the vectors (8.2), which in coldac2 appear as â(n)     k , b̂k , bk , ak .
+                                                                            (n) (n)
+
+      Another variant of a superfast solver is to apply coldac2 alone. Then, the
+procedure provides us with a (0; N ) well-column-regular index pair and vectors
+        (0)
+  N , b̂N , bN , aN . From these vectors, q̂N and qN can be computed by means of
+â(0)        (0) (0)
+
+(5.1) (with n = 0 and k = N ). In the generic case, i.e., in absence of true look-
+ahead steps, this variant is equivalent to the superfast algorithm proposed by de
+Hoog [11]. It is known that de Hoog’s algorithm can be implemented with only
+5N log2 N + O(N log N ) multiplications and 10N log2 N + O(N log N ) additions.
+Our superfast algorithm can be expected to have roughly the same complexity. We
+will investigate this topic further in a forthcoming paper.
+
+Procedure coldac:
+[N, q̂N , qN , p̂N , pN , êN , eN , flag] = coldac(dac, N , N , TN );
+if (dac and N ≥ 1)
+  A1) [n, q̂n , qn , p̂n , pn , ên , en , flag] = coldac(true, bN /2c, N − 1, TN −1 )
+  A2) if flag and n = −1
+                [N, q̂N , qN , p̂N , pN , êN , eN , flag] = coldac(false, N , N , TN );
+                return
+      end if;
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 210 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                         211
+
+                    (n)
+            k , b̂k , ak , bk , ntot , flag]
+  A3) [k, â(n)        (n)    (n)
+
+            = coldac2(true, N − n, N − n, p̂n , pn , ên , en , n);
+      N = ntot (= n + k);
+      if flag and k = 0
+                return
+      end if;
+  A4) update q̂n , qn , p̂n , pn , ên , en to get q̂N , qN , p̂N , pN , êN , eN ;
+      return
+else
+   B1) n = N ;
+       while not (Tn and Tn+1 are well conditioned) and n < N
+               n=n+1
+       end while;
+       if column regular (i.e., Tn and Tn+1 are well conditioned)
+               N = n, flag = false;
+               solve (2.2) to obtain a well-column-regular pair q̂N , qN ;
+               compute p̂N , êN , pN , eN from (3.4)
+       else
+               N = −1, flag = true;
+       end if;
+       return
+end if
+
+Procedure coldac2:
+[N, âN , b̂N , aN , bN , ntot , flag] = coldac2(dac, N , N , p̂, ê, p, e, ntot );
+if dac and N ≥ 2
+   C1) [n, ân , b̂n , an , bn , ntot , flag] = coldac2(true, bN /2c, N − 1, p̂, ê, p, e, ntot );
+   C2) if flag and n = 0
+                  [N, âN , b̂N , aN , bN , ntot , flag] = coldac2(false, N , N , p̂, ê, p, e, ntot );
+                  return
+        end if;
+   C3) evaluate right-hand side of (8.1) [for k ← n, k 0 ← N − n, n ← 0, n + k ← n]
+        to get p̂(n) , p(n) , ê(n) , e(n) ;
+                     (n) (n)
+               k , b̂k , ak , bk , ntot , flag]
+   C4) [k, â(n)                   (n)
+
+              = coldac2(true, N − n, N − n, p̂(n) , ê(n) , p(n) , e(n) , ntot );
+        if flag and k = 0
+                  N = ntot ;
+                  return
+        end if;
+   C5) N = n + k, flag = false;
+        evaluate âN , b̂N , aN , bN ;
+        return
+else
+
+
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 211 of Numer. Math. 70: 181–227 (1995)
+212                                                               M.H. Gutknecht and M. Hochbruck
+
+
+  D1) k = N ;
+      while not column regular and k < N
+              k =k+1
+      end while;
+      if column regular
+               flag = false, N = k, ntot = ntot + k;
+               solve (5.17) to obtain âN , b̂N , aN , bN
+      else
+               N = 0, flag = true
+      end if;
+      return
+end if
+
+
+
+
+9. The Bareiss-Delosme-Ipsen formulation of the Schur algorithm,
+and its look-ahead extension
+
+Bareiss [4] rediscovered the Schur algorithm, but presented it in different form. Start-
+ing from two copies of the Toeplitz matrix T = TN +1 he applied a series of two-
+dimensional transformations which bring one copy of the matrix in upper triangular
+form and the other in lower triangular form. Delosme and Ipsen [13, 25] analyzed the
+Bareiss algorithm further and generalized it to arbitrary matrices with the property
+that all their contiguous principal submatrices are nonsingular. They showed in par-
+ticular that the resulting triangular matrices are the second factors in the LU and the
+UL decomposition of T, and that the first factors can be retrieved from the mentioned
+two-dimensional transformations. Here, we extend this result to the look-ahead case.
+In contrast to [4, 13, 25] we work with columns instead of rows. In fact, in its origi-
+nal form, the Bareiss algorithm for T is the same as the Schur algorithm for TT . We
+discuss here the Bareiss-Delosme-Ipsen formulation of the Schur algorithm presented
+in Sect. 3 and extend it to the look-ahead case. This formulation of our look-ahead
+Schur algorithm is obtained readily, by just recycling formulas of the foregoing sec-
+tions. It also provides us with a new matrix formulation of our look-ahead Levinson
+algorithm.
+    Let Ên , En , R̂n and Rn be the (N + 1) × (n + 1) matrices consisting of the first
+n + 1 columns of the respective matrices Ê, E, R̂ and R defined by (2.16). Clearly,
+(2.15) holds for these submatrices also:
+
+(9.1)                           TR̂n = Ên and RTn T = ETn ,
+
+Additionally, we introduce the notation
+
+(9.2)                    EJn := JN +1 En Jn+1 ,    RJn := JN +1 Rn Jn+1 ,
+
+where Jn still denotes the antidiagonal unit matrix or reflection matrix of order n.
+One obtains EJn by rotating En by 180◦ . Hence, EJn is upper triangular, and RJn is
+lower triangular. The upper index J should not be confused with the index bound J.
+   Consider (5.9) in the case N = n + k, where Tn+k+1 = TN +1 = T and where the
+(N + 1) × (2N − 2n) matrix on the right-hand side is
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 212 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                                       213
+
+                                                                                                        
+                                 π̂0,n        ···      π̂N −n−1,n       εn,n           ···       εN −1,n
+                                             ..            ..                         ..           ..   
+                                                .           .                            .          .   
+                                                                                                        
+                                 0n                     π̂0,n           0n                       εn,n 
+                                                                                                        
+(9.3) Sn := SN −n,n := 
+       ◦     ◦
+                       
+                                              ..
+                                                   .
+                                                                                       ..
+                                                                                            .            .
+                                                                                                         
+                                                                                                        
+                                ε̂n,n                    0n            π0,n                       0n 
+                                   ..                                   ..                              
+                                             ..
+                                                .
+                                                                                       ..
+                                                                                         .               
+                                     .                                    .
+                                ε̂N −1,n      ···        ε̂n,n       πN −n−1,n         ···            π0,n
+Equation (5.9) becomes
+                                                                                 
+(9.4)        T S q̂n,e          ···      S k q̂n,e     qn,e    ···   S k−1 qn,e       = S◦n .
+This can be combined with (9.1):
+(9.5)T [ R̂n   S q̂n,e · · · S k q̂n,e     qn,e · · · S k−1 qn,e       RJn ] = [ Ên            S◦n     EJn ].
+Note that on the left-hand side T is multiplied by a matrix whose left half is a square
+upper triangular block and whose right half is a square lower triangular block. On the
+right-hand side, the left half of the matrix is a square block with n zero codiagonals
+above its main diagonal, while the right half is a square block with n zero codiagonals
+below its main diagonal. If I = IN +1 denotes the unit matrix of order N + 1, then for
+n = 0 this equation reduces to
+(9.6)                                 T [ I I ] = [ T T ],
+while for n = N and J := JN +1 we get again
+(9.7)                             T [ R̂ RJ ] = [ Ê EJ ].
+Recall that by applying two-dimensional transformations (from the right) the Schur
+algorithm transforms the right-hand side of (9.6) into the one of (9.7). In contrast, the
+Levinson algorithm applies the same transformations to the matrices on the left-hand
+side. The two-dimensional transformations that are applied at the nth step may be
+bundled in the (2N + 2) × (2N + 2) matrix
+                                                                
+                            In+1       O            O        O
+                          O         IN −n     γ0(n) IN −n   O 
+(9.8)             Cn :=  O γ̂ (n) IN −n
+                                                                 ,
+                                    0             IN −n      O 
+                             O         O            O       In+1
+
+with the Schur parameters γ̂0(n) and γ0(n) defined in (2.7). In the case of look-ahead,
+this matrix becomes more complicated. From (5.1), (5.2), and (5.25) we can conclude
+that the step from n = nj to nj+1 = nj + hj is represented by
+
+
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 213 of Numer. Math. 70: 181–227 (1995)
+214                                                                                                                    M.H. Gutknecht and M. Hochbruck
+
+
+
+
+(9.9)      Cnj :=
+
+ In+1                                 O                                                                                     O                            O     
+           1                         α̂(n)                                            γ0(n)
+                                      0                                                                                                                    
+               ..                      .       ..                                              ..                                                          
+                    .                  .
+                                        .            .                                β1(n)          .                                                      
+                                                                                                                                                           
+                                                        ..                              .      ..       ..                                                 
+                          1       α̂(n)                      .                          .
+                                                                                         .           .        .                                             
+                                    h −2
+                                       j                                                                                                                    
+                                                                                                                                                           
+ O                                             ..                ..
+                                                                                      (n)
+                                                                                     βh
+                                                                                                         ..       ..
+                                                                                                                                                          O 
+                                      1             .                 .
+                                                                                         −1
+                                                                                                              .        .
+                                                                                                                                                            
+                                                                                      j
+                                                                                                                                                            
+                                               ..       ..                                     ..                ..                                        
+                                                    .        .             α̂(n)                    .                 .    γ0(n)                           
+                                                                             0
+                                                                                                                                                            
+                                                        ..       ..           .
+                                                                               .                         ..                                                 
+                                                             .        .       .                              .             β1(n)   γ0(n)                   
+                                                                                                                                                           
+                                                                 ..                                              ..           .
+                                                                                                                               .
+                                                                                                                                       .
+                                                                                                                                       .    ..              
+                                                                      . α̂(n)                                         .       .       .         .          
+                                                                           hj −2
+                                                                                                                                                            
+                                                                             1                                             (n)
+                                                                                                                           βh       (n)
+                                                                                                                                   γh     · · · γ0(n)       
+                                                                                                                             j −1   j −2                   .
+         γ̂0(n) · · · γ̂h
+                         (n)     (n)
+                               β̂h                                                                                                                          
+                          j−2      −1 j
+                                                                                       1
+                                                                                                                                                            
+                                                                                                                                                           
+               ..         .
+                           .
+                                       .
+                                       .        ..
+                                                                                     α(n)
+                                                                                                ..                                                          
+                    .     .           .             .
+                                                                                      h −2
+                                                                                                     .                                                      
+                                                                                      j
+                                                                                                                                                            
+                                                        ..                             .       ..       ..                                                 
+                        γ̂0(n)      β̂1(n)                   .                         .
+                                                                                        .            .        .                                             
+                                                                                                                                                           
+                                               ..                ..                                     ..       ..                                        
+                                    γ̂0(n)          .                 .              α(n)                    .        .                                    
+                                                                                      0                                                                    
+                                               ..       ..                                     ..                ..                                        
+ O                                                  .        .              (n)
+                                                                           β̂h                       .                 .      1                           O 
+                                                                             j −1                                                                          
+                                                                             .                                                                             
+                                                        ..       ..          .                          ..
+                                                                                                                           α(n)                             
+                                                             .        .      .                               .
+                                                                                                                            h −2
+                                                                                                                                      1                     
+                                                                                                                             j
+                                                                                                                                                            
+                                                                 ..                                              ..          .
+                                                                                                                              .             ..              
+                                                                      .    β̂1(n)                                     .      .                  .          
+                                                                            γ̂0(n)                                          α(n)
+                                                                                                                             0
+                                                                                                                                                     1
+      O                               O                                                                                      O                           In+1
+
+     This is also correct for n = n1 = 0 if 0 is a well-column-regular index. Recall that
+for n = 0 the matrices R̂n1 and Rn1 just contain the first unit vector, and Ên1 and EJn1
+consist of the first and last column of T, respectively, so that (9.5) reduces to (9.6).
+In contrast, if n1 > 0, the first n1 columns of R̂n1 and Rn1 are the the first n1 unit
+vector, since these are the inner vectors of the 0th block, see (4.2). The last columns
+contain the first well-column-regular pair. The matrices Ên1 and EJn1 coincide in their
+first and last n1 columns, respectively, with T.
+     Therefore, when n1 > 0 we still need a transformation matrix C−1 such that
+
+(9.10)                                  [ T              T ] C−1 = [ Ên1                       S◦n1              EJn1 ].
+It follows that C−1 is of the form (9.9) with j = 0, n = n0 := −1, h0 := n1 + 1, and
+
+(9.11)                            α̂i(−1) = ρ̂i,n1 ,                       αi(−1) = ρi,n1 ,              i = 0, . . . , n1 ,
+
+(9.12)                                        β̂i(−1) = βi(−1) = 0,                         i = 0, . . . , n1 .
+If n1 = 0, we may set n0 := −1, C−1 := I2N +2 .
+    With this notation the transformations implemented in the look-ahead Schur algo-
+rithm can be summarized in matrix form as
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 214 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                       215
+
+                                                    J−1
+                                                    Y
+(9.13)                            [ T T ]                  Cnj = [ Ê EJ ].
+                                                     j=0
+
+Likewise, the look-ahead Levinson algorithm becomes
+                                                    J−1
+                                                    Y
+(9.14)                             [ I       I ]           Cnj = [ R̂ RJ ].
+                                                    j=0
+
+At the intermediate stages we have, with n = nl ,
+                                         l−1
+                                         Y                  h                          i
+(9.15)                     [ T     T ]             Cnj =         Ên    S◦n      EJn
+                                                                |{z}   |{z}     |{z}
+                                             j=0                n+1    2N −2n   n+1
+
+and
+                                 l−1
+                                 Y
+                 [ I       I ]         Cnj
+                                 j=0
+                       h                                                                 i
+(9.16)             =        R̂n S q̂n,e · · · S N −n q̂n,e qn,e · · · S N −n−1 qn,e RJn .
+                           |{z} |            {z          } |          {z          } |{z}
+                           n+1                     N −n                         N −n       n+1
+
+
+While in normal steps Ê, E, R̂, and R grow by one column and thus S◦n and
+[S q̂n,e · · · S N −n q̂n,e | qn,e · · · S N −n−1 qn,e ] shrink by two columns, in the look-
+ahead steps several columns areQadded to Ê, E, R̂, and R at once.
+     Let us consider the product Cnj more closely. According to (9.9) the nontrivial
+“inner part” of each factor consists of two upper triangular blocks on the left and two
+lower triangular blocks on the right. Each of these blocks can be divided into a unit
+matrix or square triangular matrix of order (hj − 1), an (N − nj − hj + 1) × (hj − 1)
+zero matrix, and an (N − nj ) × (N − nj − hj + 1) Toeplitz matrix. In the generic
+case, where hj = 1, the first two subblocks are vacuous and the Toeplitz subblocks
+become diagonal matrices of order N − nj , see (9.8). Hence, the unit or triangular
+subblock is solely due to the existence of inner vectors. By choosing a particular set
+of these not uniquely defined inner vectors, namely a set generated by recurrences
+satisfying (5.25), we obtained the unit subblocks. Using another set of inner vectors
+would amount to multiplying Cnj from the right by a block diagonal matrix with
+unit diagonal, whose only nontrivial blocks are a unit upper triangular one of order
+hj − 1 and a unit lower triangular block of the same order. These two blocks are
+positioned so that they react with the unit subblocks and the triangular subblocks
+of this order in Cnj . The unit subblocks then also become triangular. By this block
+diagonal “scaling”, the diagonal blocks in Cnj become also triangular.
+     Multiplying several successive matrices Cnj together creates a matrix of the same
+type, but with hj equal to the sum of the individual ones and with the unit subblocks of
+size hj −1 again replaced by triangular subblocks. This could be verified algebraically,
+but it follows directly from the fact that we did not assume in our theory that the step
+size hj is chosen as small as possible: we can leave out several column-regular pairs,
+and indeed we eventually do that when searching for a well-column-regular pair.
+Hence, it is no surprise that the structure of a product of matrices Cnj is essentially
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 215 of Numer. Math. 70: 181–227 (1995)
+216                                                                   M.H. Gutknecht and M. Hochbruck
+
+                                                                                  Q
+the same as the one of Cnj with large hj . Moreover, the full product                 Cnj appearing
+in (9.13)-(9.16) has the form
+                                    J−1
+                                    Y                        
+                                                      Â BJ
+(9.17)                                    Cnj =                   ,
+                                                      B̂ AJ
+                                    j=0
+
+
+where Â and A are unit upper triangular, and B̂ and B are upper triangular, respec-
+tively, with diagonal elements γ̂0(n) and γ0(n) . (For the generic case, the form of such
+a matrix product was also investigated by Delosme and Ipsen [13], but in their treat-
+ment the factors come in reverse order and the two blocks In+1 in (9.8) appear in the
+center of the matrix.) If n1 = 0, one can show that the first column and row of (9.17)
+contain just the first unit vector and its transposed, while the last column and row
+contain the last unit vector and its transposed.
+    The columns of the matrices Â, B̂, A, and B can be seen to contain the coefficients
+of what Ammar and Gragg [1] call Schur polynomials, here generalized to the non-
+Hermitian case, where there are four sequences of these polynomials instead of two.
+From (9.14) and (9.17) we see that these four sets of Schur polynomials are closely
+related to the two sets of Szegö polynomials, whose coefficients are stored in the
+columns of R̂ and R. Essentially, the addition of two Schur polynomials yields a
+Szegö polynomial. More exactly, one of the two polynomials must be divided by its
+variable ζ before adding, and the complex conjugate of the sum is then the Szegö
+polynomial.                                                       Q
+    There is also an obvious equivalence between the product Cnj and the product
+of 2 × 2 matrices with polynomial entries which appears in the treatment of Padé
+recurrences given in [22].
+    The superfast look-ahead Schur algorithm that we discussed in Sect. 8 can be
+                                 QJ−1
+understood as an evaluation of j=0 Cnj by building up a binary tree.
+    We can inhance our understanding of the Schur-Bareiss algorithm and its relation-
+ship to the nonsymmetric generalization of the original Schur algorithm involving the
+Schur polynomials [31, 1] by making a minor modification in the derivation given
+above The right-hand side of (9.5) can be written as
+                                                                      
+                                                       O          EJn1
+(9.18)           [ Ên1 S◦n1 EJn1 ] = [ I I ]               S◦◦
+                                                             n1          ,
+                                                      Ên1         O
+
+where, more generally,
+                                                                                        
+                     π̂0,n         ···    π̂N −n−1,n       εn,n           ···    εN −1,n
+                                  ..          ..                         ..        ..   
+                                     .         .                            .       .   
+                                                                                        
+                      O                    π̂0,n            O                    εn,n 
+          ◦◦                                                                            
+(9.19)   Sn :=  02n+2             ···      02n+2          02n+2          ···     02n+2 
+                 ε̂                                       π0,n                          
+                      n,n                    O                                     O    
+                       ..                                   ..                          
+                        .
+                                   ..
+                                     .                        .
+                                                                          ..
+                                                                            .            
+                   ε̂N −1,n        ···      ε̂n,n       πN −n−1,n         ···     π0,n
+
+contains the same elements as S N −n,n , but has an additional (2n + 2) × (2N − 2n)
+zero block in the middle. If n1 = 0, the new matrix on the right-hand side of (9.18)
+just contains the elements of T, except that the upper and the lower triangular parts
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 216 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                               217
+
+
+are separated, the diagonal being included in the lower triangular part at left and in
+the upper triangular part at right:
+                                                                                                   
+                                       0 µ−1 · · · µ−N µ0                         · · · µ−N +1 µ−N
+                                     ..       ..      ..                         ..      ..     .. 
+                                     .            .    .                             .    .      . 
+                                                                                                   
+                                   
+                                     0  O          µ −1 O                              µ0    µ−1 
+                                                                                                    
+             0N +1 ◦◦        EJ0     0   0    ··· 0      0                       ···     0     µ0 
+(9.20)             S0              =                                                               .
+              Ê0           0N +1    µ0  0    ··· 0      0                       ···     0     0 
+                                     µ                                                         0 
+                                     1 µ0            O µ1                                O         
+                                     .    ..  ..         ..                      ..       ..       
+                                     ..    .      .       .                          .     .       
+                                      µN µN −1 · · · µ0 µN                        · · · µ1      0
+
+ It is easy to see from our derivation that we may understand our look-ahead Schur
+algorithm as successive multiplication of this matrix by Cn1 · · · CnJ−1 . The step from
+index nj to nj+1 is given by
+                                                                                            
+                      O              EJnj                      O                   EJnj+1
+(9.21)                        S◦◦
+                               nj               C nj =                    S◦◦
+                                                                           nj+1                    ,
+                     Ênj             O                      Ênj+1                  O
+
+and the whole process can be summarized as
+
+                                                   J−1
+                                                     Y                                
+                              O             EJn1                          O       Ê
+(9.22)                              S◦◦
+                                     n1                      Cnj =                         .
+                             Ên1            O                            EJ      O
+                                                     j=1
+
+
+Recall that Ê and EJ are lower triangular and nonsingular. Therefore, the matrix on
+the right-hand side is nonsingular, and hence, all matrices on the left-hand side too.
+For stability, they all need to be well conditioned.
+    If n1 = 0, we can return from (9.22) to (9.13) by multiplying (9.22) from the
+left by [ I I ]. If n1 > 0, we have additionally to insert (9.10) into the resulting
+relation.
+
+
+10. Options for solving Toeplitz systems
+
+We have seen that our look-ahead Levinson and Schur algorithms yield a block LDU
+decomposition of T−1 and T, respectively, at least if we compute additionally the
+respective inner vectors and the block diagonal matrix D and its inverse. Clearly,
+when one of these LDU decomposition is known, it is easy to solve a Toeplitz system
+
+(10.1)                                             Tx = c
+
+in roughly N 2 additions and multiplications. However, this is just one way of applying
+the outcome of our algorithms to this task. There are several other options, which we
+want to compare here with these two.
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 217 of Numer. Math. 70: 181–227 (1995)
+218                                                               M.H. Gutknecht and M. Hochbruck
+
+
+10.1. Inverse block LDU decomposition
+
+The well-column-regular columns q̂nj and qnj of R̂ and R in the LDU decomposition
+
+(10.2)                                  T−1 = R̂D−1 RT
+of T−1 are directly generated by our look-ahead Levinson algorithm. They can also
+be generated as a byproduct of the look-ahead Schur algorithm, but, unless these
+columns are used anyway to control the look-ahead step size, this increases the costs
+by about 50%, namely for applying the Levinson recursion (without computation of
+the inner products), which is equivalent to applying (9.14). In any case, for the full
+decomposition we need the inner vectors (i.e., the columns of R̂ and R whose index
+is not well-column-regular) and the block diagonal matrix D, whose computation
+has been discussed in Sect. 7. The multiplication T−1 c = R̂D−1 RT c finally requires
+N 2 + O(N ) additions and multiplications each. (Again, we neglect work of order
+O(k 2 ) or O(k 3 ).) Note that it is not necessary to store the whole matrices R̂ and R,
+since it is possible to update the solutions from step to step. This requires storage for
+the vectors of one block only. As a byproduct of this updating procedure, we obtain
+the solutions of all the subsystems
+(10.3)     Tn xn = cn ∈ Cn ,       n = nj     or   n = nj + 1     (j = 1, . . . , J − 1),
+where cn contains the first n components of c; see [14] for details.
+
+
+10.2. Block LDU decomposition
+
+The well-column-regular columns of Ê and E in the LDU decomposition
+(10.4)                                    T = ÊD−1 ET
+of T are the primary output of our O(N 2 ) look-ahead Schur algorithm. Again, the full
+decomposition requires to compute any inner columns and the block diagonal matrix
+D. The inverse of the latter is not needed for solving (10.1).
+    When using the LDU decomposition (10.4) for computing the solution of the
+linear system (10.1) one can perform the forward elimination Êy = c with O(N )
+storage, see Sect. 10.5 below. But one still has to store the complete triangular part
+of E for the backsubstitution. However, for solving (10.1) with the Schur algorithm
+there are also more efficient ways that we will discuss next.
+
+
+10.3. Gohberg-Semencul formulas
+
+Here we just need the last well-column-regular pair, i.e., q̂N , qN , and εN,N if TN −1
+and TN are well conditioned, and q̂N +1 , qN +1 , εN +1,N +1 if TN and TN +1 are well
+conditioned, so that we can apply the second Gohberg-Semencul formula. The look-
+ahead Levinson algorithm produces this last pair directly, while, as mentioned above,
+in the look-ahead Schur algorithm some extra work is required. However, in the
+superfast version we only need to make at most dlog2 (N + 1)e updates (5.1) of well-
+column-regular pairs, and the FFT can be used to do them. (In the generic case with
+N = 2L − 1, one computes only q̂2` −1 , q2` −1 , ` = 1, . . . , L; in general, at most as
+many pairs are computed.) Hence, the extra cost to produce these pairs is very small.
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 218 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                    219
+
+
+    In the notation of Sect. 9 the computation of the last columns q̂N and qN of R̂
+and R, respectively, can be expressed as 5pt3pt
+                                                             
+                                                    eN 0
+               [ q̂N JN +1 qN ] = [ R̂ RJ ]
+                                                     0 e0
+                                                J−1
+                                                Y                  
+                                                            eN 0
+(10.5)                              = [ I I ]       Cnj               .
+                                                             0 e0
+                                                         j=1
+
+At the end of the superfast Schur algorithm, the product is available in the form of a
+similar product with only at most dlog2 (N + 1)e terms.
+    Alternatively, one could produce the last columns of the upper triangular matrices
+Â, A, B̂, and B that appear in (9.17) (i.e., the last Schur polynomials) as in [1], but
+since these are four (N + 1)-vectors instead of two, this costs twice as much.
+
+
+10.4. Transformation of the right-hand side according to Bareiss
+
+We pointed out in Sect. 9 that the original Bareiss algorithm is equivalent to the
+Schur algorithm (without look-ahead) applied to TT . If we apply our look-ahead
+Schur algorithm to TT , both sides of (9.13) have to be transposed, so that the product
+in (9.13) is on the left of the two Toeplitz matrices T that are then stacked on top of
+each other. Therefore, as observed by Bareiss already, this product can also be applied
+to a vector consisting of two copies of the right-hand side c of (10.1) stacked on top
+of each other. This is analogous to transforming the right-hand side in the Gauss
+algorithm, but costs (without look-ahead) N 2 + O(N ) multiplications and additions
+(each), while Gauss eliminations costs only N/2 + O(N ). Here, however, since one
+copy of c gets implicitly multiplied by the inverse of the L factor and the other by
+the inverse of the U factor, the backsubstitution can be applied to two systems of size
+1
+2 (N +1) instead of one system of size (N +1); this reduces the costs of backsubstitution
+by a factor of 4; see [4, 13, 25]. We could capitalize upon this idea by applying our
+look-ahead algorithm to TT and simultaneously transforming the right-hand side of
+
+(10.6)                           xT [ TT      TT ] = [ cT      cT ]
+
+by post-multiplication with the factors Cnj .
+    To reduce storage to O(N ), Brent and Luk [6] replaced the backsubstitution by a
+“reverse Bareiss algorithm” applied to the right-hand side. It is based on the fact that
+the inverses of the matrices Cn of (9.8) are known and have the same structure. But
+this applies only to the case of a strongly regular Toeplitz matrix, not to look-ahead.
+
+
+10.5. Another approach complementing the Schur algorithm
+                −1
+Since T = ÊR̂       , we can write Tx = c as
+
+(10.7)                             Êy = c,     where x = R̂y.
+
+Using saxpys, the first, lower triangular system for y can be solved by forward
+substitution without storing Ê. Moreover, it is sufficient to compute the inner vectors
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 219 of Numer. Math. 70: 181–227 (1995)
+220                                                                      M.H. Gutknecht and M. Hochbruck
+
+
+of Ê; there is no need for computing the inner vectors of E. We assume that R̂ has
+not been computed. Then, using (9.14), we find x according to
+                                                                J−1
+                                                                  Y                  
+                                             y                                    y
+(10.8)              x = [ R̂ R ]   J
+                                                     =[ I I ]           Cnj               .
+                                             0                                    0
+                                                                  j=1
+
+    Note the similarity between (10.8) and (10.5). There, however, the vectors eN
+and e0 simplify the multiplication: only the Toeplitz parts of the matrices Cnj come
+into action, even if some of these matrices are multiplied together, as is the case in
+the superfast Schur algorithm. Therefore fast convolutions can be applied, which, for
+large N , make the evaluation of (10.5) much cheaper than the one of (10.8).
+    Recall that here we work with the Schur recursions applied to T, not TT . For
+the Bareiss algorithm applied to a symmetric positive definite T, Delosme and Ipsen
+[12, 25] derived a formula that is similar to (10.8). They made use of the fact that
+in this case the matrices Cn are hyperbolic rotations, and thus the inverse of their
+product is equal to a diagonally scaled transposed of the product. Thus, both the
+forward elimination and the backsubstitution can be performed by applying a product
+of hyperbolic rotations.
+
+
+11. Operation counts
+
+Before we give a detailed analysis of the work and overhead of our fast look-ahead
+algorithms, recall that in step n, the classical Levinson algorithm requires two inner
+products and two saxpys of length n, while the classical Schur algorithm requires
+four saxpys of length N − n. For the solution of the linear system, further work is
+necessary. Since we have several options for solving the linear system, we will not
+include the operation count for the solution step in our tables.
+    Compared to the classical algorithms, the look-ahead algorithms involve some
+overhead if blocks of size k > 1 occur. However, in the following, we assume
+k to be bounded (independent of N ) and k  N , which justifies to neglect any
+contributions of at most O(k 3 ) operations.
+    In Table 1 we summarize the operation counts for performing a block step of size
+k ≥ 1 of our fast look-ahead algorithms (Algorithms 3 and 4). Note that inner pairs
+do not occur if k = 1, and that in this case the algorithms reduce to the classical
+versions, except for the tests of well-column-regularity (i.e., N comparisons). In the
+presence of look-ahead steps, the computation of inner pairs is optional.
+      Table 1. Operation counts for our look-ahead Levinson and our look-ahead Schur algorithm
+
+
+               Operations in a           look-ahead Levinson            look-ahead Schur
+               block of size k         regular pair  inner pair     regular pair   inner pair
+             inner products/step           2k            –                –            –
+                saxpys/step             2(2k − 1)        2           4(2k − 1)         2
+
+
+    Next, in Table 2, we list the overhead of our look-ahead algorithms and compare it
+to that of the look-ahead Levinson algorithms proposed by Chan and Hansen [9] and
+by Freund and Zha [14]. The overhead of the Chan-Hansen algorithm was extracted
+from (37) and (38) (for p > 1) in [9] by subtracting the work for the solution step, and
+the overhead of the Freund-Zha algorithm was taken from Table 1 in [14]. Recall that
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 220 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                     221
+
+                        Table 2. Overhead of different look-ahead algorithms
+
+
+           Overhead in a      Chan/Hansen     Freund/Zha    Gutkn./Hochb.      Gutkn./Hochb.
+        block of size k ≥ 2    (Levinson)     (Levinson)     (Levinson)           (Schur)
+             Block size             k              k            k+1                k+1
+           inner products       2
+                                  k
+                                1 2
+                                    + 12 k         –              –                  –
+              saxpys            4(k − 1)          4k             2k                 4k
+
+
+
+our algorithms are based on column-regular pairs, and therefore, a step of size k + 1
+in our algorithms corresponds normally to a step of size one and a step of size k ≥ 1
+of the other two algorithms. To give a fair comparison, we took this into account
+by inserting k + 1 as the step size of our algorithms. Nevertheless, the overhead of
+our look-ahead Levinson algorithm is only half of the overhead in the Freund-Zha
+algorithm if we choose not to compute inner vectors, in which case the only option to
+obtain the solution of the Toeplitz system is to apply the Gohberg-Semencul formula.
+In contrast, the Freund-Zha algorithm requires to compute the inner vectors too, the
+benefit being that it always yields an inverse block LDU decomposition. If we compute
+this decomposition too, then the overhead of both algorithms is the same, while the
+overhead of the algorithm proposed by Chan and Hansen is considerably bigger. The
+overhead of the latter algorithm reduces to N 2 comparisons if no look-ahead steps
+are needed, the overhead of the other algorithms amounts to only N comparisons.
+     For Levinson’s algorithm, the two options for solving the linear system are apply-
+ing an inversion formula or using the inverse block LDU decomposition as outlined
+in Sect. 10.1. The total work adds up to 2N 2 + O(N log N ) + O(N ) additions and mul-
+tiplications with the Gohberg-Semencul formula and to 3N 2 + O(N ) with the inverse
+block LDU decomposition. In both cases, iterative refinement can be used to improve
+the accuracy.
+     For Schur’s algorithm, we have several options for solving the linear system, and
+they have an influence on what needs to be computed before. We will briefly discuss
+the amount of work necessary for the different choices. First, a look-ahead step to
+proceed from a well-column-regular index n to a well-column-regular index n + k,
+costs
+
+A) 4(2k − 1) saxpys of length N − n to compute the (n + k)th column of Ê, E, P̂, P;
+B) 2(2k − 1) saxpys of length n to compute the column-regular pair q̂n+k , qn+k ;
+C) 2(k − 1) saxpys of length N − n to compute the inner columns of this block in
+   Ê and E;
+D) k − 1 saxpys of length N − n to compute the inner columns of this block in Ê
+   or E;
+E) k−1 saxpys of length n to compute the inner vectors q̂n+j or qn+j , j = 1, . . . , k−
+   1.
+
+In the classical Schur algorithm, only A) is needed to find the LDU decomposition
+of T. Then, k steps starting from step n require the computation of 4k saxpys of
+length N − n. One may choose to add B), and then k steps require additional 2k
+saxpys of length n + k. From these figures the overhead for the different options is
+easily calculated.
+    For solving the linear system, the following are the most efficient choices com-
+plementing the Schur algorithm:
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 221 of Numer. Math. 70: 181–227 (1995)
+222                                                               M.H. Gutknecht and M. Hochbruck
+
+
+A)+B) Apply the Gohberg-Semencul inversion formula. Then the solution step costs
+      O(N log N ) operations and O(N ) storage. The total work for the system is
+      therefore 3N 2 + O(N log N ) + O(N ) additions and multiplications.
+A)+C) Use the LDU factorization as described in Sect. 10.2. This requires N 2 +O(N )
+      additions and multiplications, but O(N 2 ) storage. In total, the whole solver
+      costs 3N 2 + O(N ) additions and multiplications.
+A)+D) Apply the procedure proposed in Sect. 10.5. For this procedure, in D), it is
+      sufficient to compute only inner columns of Ê. Here, the solution step costs
+      3/2N 2 +O(N ) additions and multiplications and O(N ) storage. The total work
+      is 7/2N 2 + O(N ) additions and multiplications.
+    To summarize, if O(N 2 ) storage is available, it is cheapest (in terms of com-
+putational work) to perform A)+C). The advantages of A)+B) are that only O(N )
+storage is required and that one can apply iterative refinement (at the cost of only
+O(N log N ) operations) to improve the accuracy of the solution. This combination is
+particularly recommended if we have to solve several linear systems with the same
+Toeplitz matrix but different right-hand sides. In case we wish to solve only a single
+system, A)+D) usually gives the best accuracy, but since the last regular pair q̂N , qN
+is not available, further improvement of the solution is expensive (see Sect. 10.3 for
+a possibility to compute the last pair).
+
+
+12. Numerical examples
+
+In all our examples we chose the right-hand side of the Toeplitz systems such that
+xexact = [1 · · · 1]T is the exact solution. We compared the various Toeplitz solvers on
+the basis of relative errors
+                                     kxexact − xcomputed k
+                                                           .
+                                           kxexact k
+Recall that the size of a look-ahead step depends on the two inequalities (5.4) and
+(5.5). For the latter, we chose the constant tolerance function tol(n) = 10−5 . The first
+condition was checked implicitly by keeping the smallest singular value of the matrices
+Sk−1,n under control. To be more precise, after running a large number of examples,
+it turned out that checking the condition σmin (S      k−1,n ) ≥ 0.1 or 0.01 (= tolσ ) was
+sufficient for obtaining at the same time small look-ahead steps and good accuracy. In
+all our examples, we used 0.1. However, since in practice one must normally provide
+storage before starting the algorithm, one has to choose a maximum look-ahead steps
+size kmax , which was equal to 4 in our examples. Then, it may happen that one of the
+conditions is not fulfilled for all k = 1, . . . , kmax . In most of these cases, this is not
+caused by all the corresponding principal submatrices being severely ill conditioned,
+but instead means that the tolerance is too big. Therefore, we implemented an adaptive
+procedure that generates a monotonically decreasing sequence of lower bounds for
+the smallest singular value of S   k−1,n . A similar strategy was originally proposed in
+[9] and also used in [14].
+    All our examples have been computed with Matlab, with a machine precision of
+order 10−16 . In particular, Matlab allowed us to implement the recursive procedures
+coldac and coldac2 of Sect. 8. Both sets of examples have also been used by Chan
+and Hansen [9] and by Freund and Zha [14].
+    For the first test, we constructed a set of 100 non-Hermitian matrices of size
+64 × 64 with random off-diagonal entries in [−1, 1]. The diagonal was computed
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 222 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                            223
+
+
+           20
+
+           18
+
+           16
+
+           14
+
+           12
+
+           10
+
+            8
+
+            6
+
+            4
+
+            2
+
+            0
+            -16       -14      -12       -10       -8       -6        -4        -2        0
+
+Fig. 1. Histogram of relative errors for the classical (dashed line) and our look-ahead Levinson algorithm
+
+
+
+
+such that at least one principal submatrix was ill conditioned. In Fig. 1 we present the
+relative errors of the classical (dashed line) and the look-ahead Levinson algorithm
+(solid line) in the form of a histogram. For both variants, we computed the solution
+by using the LDU decomposition of T−1 , as described in Sect. 10.1. The performance
+of the classical algorithm is very poor, while the look-ahead variant gives nearly full
+accuracy. Thus, look-ahead is essential in the presence of ill-conditioned submatrices.
+    Next, we compare different options for solving these Toeplitz systems with the
+Levinson, the Schur, and the superfast algorithm with look-ahead. Figure 2 shows
+the relative error of our look-ahead Levinson algorithm for each of the 100 test
+matrices. The dotted line represents the relative errors of the solutions computed with
+a Gohberg-Semencul formula, and the solid line shows the errors when the solutions
+are updated from step to step using the inverse LDU decomposition (10.2). The figure
+indicates that the latter yields better accuracy. To obtain the dashed line, we applied
+one step of iterative refinement with a Gohberg-Semencul formula to the solutions
+represented by the solid line.
+     Figure 3 shows the results for our look-ahead Schur algorithm. Again, the dotted
+line represents the relative errors obtained when applying a Gohberg-Semencul for-
+mula. Recall that this requires the computation of the column-regular pairs q̂nj , qnj ,
+see the discussion in Sect. 10.1. For the solid line we computed the solutions with the
+approach described in Sect. 10.5. Again, this leads to slightly more accurate solutions
+than the application of the inversion formula. However, when using this approach we
+cannot apply iterative refinement, since the last column-regular pair is not available.
+Therefore, here, the dashed line shows the relative errors when one step of iterative
+refinement was applied to the solution computed with a Gohberg-Semencul formula,
+and not to the one obtained according to Sect. 10.5. Note that from (10.5), we could
+still compute the last column-regular pair at extra cost.
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 223 of Numer. Math. 70: 181–227 (1995)
+224                                                                   M.H. Gutknecht and M. Hochbruck
+
+
+
+        10 -9
+
+
+
+        10 -10
+
+
+
+        10 -11
+
+
+
+        10 -12
+
+
+
+        10 -13
+
+
+
+        10 -14
+
+
+
+        10 -15
+                 0   10      20       30      40       50      60       70      80       90      100
+
+Fig. 2. Relative errors obtained for 100 test matrices with the look-ahead Levinson algorithm and by
+updating the solution (solid), or by applying a Gohberg-Semencul formula (dotted), or by updating the
+solution and applying one step of iterative refinement (dashed)
+
+
+
+
+        10 -9
+
+
+
+        10 -10
+
+
+
+        10 -11
+
+
+
+        10 -12
+
+
+
+        10 -13
+
+
+
+        10 -14
+
+
+
+        10 -15
+                 0   10      20       30      40       50      60      70       80      90      100
+
+Fig. 3. Relative errors obtained for 100 test matrices with the look-ahead Schur algorithm and the formula
+of Sect. 10.5 (solid) or a Gohberg-Semencul formula with (dashed) or without (dotted) one step of iterative
+refinement
+
+
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 224 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                               225
+
+
+        10 -8
+
+
+        10 -9
+
+
+        10 -10
+
+
+        10 -11
+
+
+        10 -12
+
+
+        10 -13
+
+
+        10 -14
+
+
+        10 -15
+                 0     10      20       30      40      50       60      70      80        90     100
+
+Fig. 4. Relative errors obtained for 100 test matrices with the superfast look-ahead algorithm and a Gohberg-
+Semencul formula with (dashed) or without (dotted) one step of iterative refinement
+
+                       Table 3. Relative errors for KMS test matrices of order N + 1
+
+                      N     superfast       Schur      Schur      Levinson      Levinson
+                            with G-S      (updated    with G-S     (updated     with G-S
+                             formula     solutions)   formula     solutions)    formula
+                      15    2.59e-15      7.75e-16    1.71e-15     8.99e-16     2.28e-15
+                      30    6.61e-15      1.46e-15    4.06e-15     1.49e-15     1.20e-14
+                      60    1.43e-14      4.13e-15    9.87e-15     4.45e-15     1.57e-14
+                     120    1.76e-13      6.95e-15    2.69e-14     4.30e-15     3.39e-14
+                     240    7.78e-13      1.81e-14    8.14e-14     6.72e-15     9.29e-15
+                     480    1.46e-12      2.24e-14    1.41e-13     1.10e-14     2.31e-13
+                     960    2.94e-12      7.02e-14    4.42e-13     3.17e-14     4.99e-13
+
+
+
+    Finally, Fig. 4 shows the relative errors for the superfast solver. Here, we neither
+have an LDU nor an inverse LDU decomposition. Therefore, in the nonsymmetric
+case, the only option left is to apply a Gohberg-Semencul formula (dotted line). The
+dashed line again represents the relative errors after one step of iterative refinement.
+    As a second set of test matrices, we used a special case of the Kac-Murdock-Szegö
+(KMS) matrices [26] with ρ = 1/2, i.e. symmetric matrices with moments
+
+                            µ0 = δ,     µj = µ−j = (1/2)j ,       j = 1, . . . , N.
+
+Recall that all our algorithm can exploit symmetry, which means that work and storage
+requirements are only half as big as those necessary for the non-Hermitian case. For
+δ = 0, every third principal submatrix, i.e. T3m+1 , m = 0, 1, . . ., is singular while the
+remaining submatrices are well conditioned. If δ is a small number different from
+zero, the matrices T3m+1 are ill conditioned. We set δ = 10−14 , as in [9] and [14]. All
+the three different types of look-ahead algorithms discovered the structure correctly: in
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 225 of Numer. Math. 70: 181–227 (1995)
+226                                                                    M.H. Gutknecht and M. Hochbruck
+
+  Table 4. Relative errors for KMS test matrices of order N + 1 after one step of iterative refinement
+
+
+                           N     superfast     Schur      Levinson     Levinson
+                                                           (updated    with G-S
+                                                          solutions)   formula
+                          15     1.29e-15    5.02e-16      9.57e-16    4.29e-16
+                          30     1.38e-15    1.25e-15      1.12e-15    7.49e-16
+                          60     1.74e-15    2.08e-15      2.87e-15    1.65e-15
+                         120     6.97e-15    2.84e-15      2.57e-15    2.08e-15
+                         240     4.85e-15    3.60e-15      3.08e-15    4.81e-15
+                         480     2.58e-14    8.45e-15      9.68e-15    1.37e-15
+                         960     1.12e-14    1.93e-14      6.43e-15    1.16e-14
+
+
+
+all our algorithms, the look-ahead step sizes were minimal. Table 3 shows the results
+for N = 15, 30, 60, 120, 240, 480, 960 and the different variants that we described for
+the previous set of examples. For comparison, the errors of the classical Levinson
+algorithm are of order 10−2 , for all values of N . Table 4 gives the results improved
+by one step of iterative refinement with a Gohberg-Semencul formula.
+    Further numerical examples with non-Hermitian matrices will be presented in [21]
+and compared with the results obtained with two variations of our approach.
+
+Acknowledgements. Most of this work was done while the second author was visiting the Interdisciplinary
+Project Center for Supercomputing (IPS) at ETH Zurich. She would like to thank the first author for his
+warm hospitality and for introducing her into the topic.
+     Both authors would like to thank the referee for his detailed report. His suggestions of comparing the
+operation overhead of the different look-ahead Levinson algorithms made us add Sect. 11. While working
+out the details, we found a considerable reduction of the overhead of our look-ahead Levinson algorithm.
+
+
+
+References
+
+ 1. Ammar G.S., Gragg W.B. (1987): The generalized Schur algorithm for the superfast solution of
+    Toeplitz systems. In: J. Gilewicz, M. Pindor, W. Siemaszko, eds., Rational Approximation and its
+    Applications in Mathematics and Physics, Lecture Notes in Mathematics 1237, Springer, Berlin Hei-
+    delberg New York, pp. 315–330
+ 2. Ammar G.S., Gragg W.B. (1986): The implementation and use of the generalized Schur algorithm. In:
+    C. Byrnes, A. Lindquist, eds., Computational and Combinatorial Methods in System Theory, Elsevier
+    Science Publishers B.V., 1986, pp. 265–279
+ 3. Ammar G.S., Gragg W.B. (1988): Superfast solution of real positive definite Toeplitz systems, SIAM
+    J. Matrix Anal. Appl., 9, pp. 61–76
+ 4. Bareiss E.H. (1969): Numerical solution of linear equations with Toeplitz and vector Toeplitz matrices,
+    Numer. Math. 13, pp. 404–424
+ 5. Bitmead R.R., Anderson B.D.O. (1980): Asymptotically fast solution of Toeplitz and related systems
+    of linear equations, Linear Algebra Appl. 34, pp. 103–116
+ 6. Brent R.P., Luk F.T. (1983): A systolic array for the linear-time solution of Toeplitz systems of
+    equations, J. VLSI Computer Systems 1, pp. 1–22
+ 7. Bultheel A. (1987): Laurent Series and their Padé Approximations, Birkhäuser, Basel/Boston.
+ 8. Cabay S., Meleshko R. (1993): A weakly stable algorithm for Padé approximants and the inversion
+    of Hankel matrices, SIAM J. Matrix Anal. Appl. 14, pp. 735–765
+ 9. Chan T.F., Hansen P.C. (1992): A look-ahead Levinson algorithm for general Toeplitz systems, IEEE
+    Trans. Signal Processing 40, pp. 1079–1090
+10. Chan T.F., Hansen P.C. (1993): Erratum: a look-ahead Levinson algorithm for indefinite Toeplitz
+    systems, SIAM J. Matrix Anal. Appl. 14, p. 1191.
+
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 226 of Numer. Math. 70: 181–227 (1995)
+Look-ahead algorithms for Toeplitz systems                                                             227
+
+
+11. de Hoog F. (1987): A new algorithm for solving Toeplitz systems of equations, Linear Algebra Appl.
+    88/89, pp. 123–138
+12. Delosme J., Ipsen I.C.F. (1986): Parallel solution of symmetric positive definite systems with hyper-
+    bolic rotations, Linear Algebra Appl. 77, pp. 75–111
+13. Delosme J., Ipsen I.C.F. (1989): From Bareiss’ algorithm to the stable computation of partial correla-
+    tions, J. Comput. Appl. Math. 27, pp. 53–91
+14. Freund R., Zha H. (1993): Formally biorthogonal polynomials and a look-ahead Levinson algorithm
+    for general Toeplitz systems, Linear Algebra Appl. 188/189, pp. 255–304
+15. Freund R., Zha H. (1993): A look-ahead algorithm for the solution of general Hankel systems, Numer.
+    Math. 64, pp. 295–321
+16. Gohberg I., Semencul A. (1972): On the inversion of finite Toeplitz matrices and their continuous
+    analogs (in Russian), Mat. Issled. 2, pp. 201–233
+17. Gragg W.B. (1972): The Padé table and its relation to certain algorithms of numerical analysis, SIAM
+    Rev. 14, pp. 1–62
+18. Gutknecht M.H. (1992): A completed theory of the unsymmetric Lanczos process and related algo-
+    rithms, Part I, SIAM J. Matrix Anal. Appl. 13, pp. 594–639
+19. Gutknecht M.H. (1993): Stable row recurrences in the Padé table and generically superfast lookahead
+    solvers for non-Hermitian Toeplitz systems, Linear Algebra Appl. 188/189, pp. 351–421
+20. Gutknecht M.H. (1994): A completed theory of the unsymmetric Lanczos process and related algo-
+    rithms, Part II, SIAM J. Matrix Anal. Appl. 15, pp. 15–58
+21. Gutknecht M.H., Hochbruck M.: Optimized look-ahead row recurrences in the Padé table. In prepa-
+    ration
+22. Gutknecht M.H., Hochbruck M. (1994): Look-ahead Levinson- and Schur-type recurrences in the Padé
+    table. Electronic Trans. Numer. Anal. 2, 104–129
+23. Hansen P.C., Chan T.F. (1992): FORTRAN subroutines for general Toeplitz systems, ACM Trans.
+    Math. Softw. 18, pp. 256–273
+24. Heinig G., Rost K. (1984): Algebraic Methods for Toeplitz-like Matrices and Operators, Akademie-
+    Verlag, Berlin, DDR, and Birkhäuser, Basel/Stuttgart.
+25. Ipsen I. (1990): Some remarks on the generalised Bareiss and Levinson algorithms. In: G. H. Golub,
+    P. van Dooren, eds., Numerical Linear Algebra, Digital Signal Processing and Parallel Algorithms,
+    Springer, Berlin, pp. 189–214
+26. Kac M., Murdock W.L., Szegö G. (1953): On the eigen-values of certain Hermitian forms, J. Rat.
+    Mech. Anal. 2, pp. 767–800
+27. Levinson N. (1947): The Wiener rms (root-mean-square) error criterion in filter design and prediction,
+    J. Math. Phys. 25 pp. 261–278
+28. Meleshko R.J. (1990): A stable algorithm for the computation of Padé approximants, PhD thesis,
+    Department of Computing Science, University of Alberta (Canada).
+29. Morf M. (1980): Doubling algorithms for Toeplitz and related equations, in Proc. IEEE Internat. Conf.
+    on Acoustics, Speech and Signal Processing, Denver, CO, pp. 954–959
+30. Musicus B.R. (1984): Levinson and fast Choleski algorithms for Toeplitz and almost Toeplitz matrices,
+    tech. report, Res. Lab. of Electronics, M.I.T.
+31. Schur I. (1917): Ueber Potenzreihen, die im Innern des Einheitskreises beschränkt sind, I, Crelle’s J.
+    (J. Reine Angew. Math.) 147, pp. 205–232
+32. Sweet D.R. (1986): The use of pivoting to improve the numerical performance of Toeplitz solvers.
+    In: J. M. Speiser, ed., Advanced Algorithms and Architectures for Signal Processing, of Proc. SPIE
+    696, pp. 8–18
+33. Sweet D.R. (1993): The use of pivoting to improve the numerical performance of algorithms for
+    Toeplitz matrices, SIAM J. Matrix Anal. Appl. 14, pp. 468–493
+34. van der Waerden B.L. (1966): Algebra I, Springer, Berlin.
+
+
+
+This article was processed by the author using the LaTEX style file pljour1 from Springer-Verlag.
+
+
+
+
+Numerische Mathematik Electronic Edition – page numbers may differ from the printed version
+page 227 of Numer. Math. 70: 181–227 (1995)
+

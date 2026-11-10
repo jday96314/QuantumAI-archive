@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "scope": "completion-padded full quantum compact-state sequence versus independent algebra on all weights; arbitrary gap-input composition restores inputs, flags, scratch and phase; no Wronskian or decoder phase",
+  "N": 22,
+  "block": 4,
+  "shots": 512,
+  "skipped_degree_gaps": 0,
+  "circuits": [
+    {
+      "which": "forward",
+      "Q": 406,
+      "T": 65605
+    },
+    {
+      "which": "inverse",
+      "Q": 406,
+      "T": 65605
+    },
+    {
+      "which": "both",
+      "Q": 406,
+      "T": 131210
+    }
+  ],
+  "seconds": 28.569157361984253
+}

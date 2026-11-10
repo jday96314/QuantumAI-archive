@@ -1,0 +1,62 @@
+{
+  "scope": "full forward compact transform resource counts; excludes Wronskian, unpadding, phase scan and repetition",
+  "rows": [
+    {
+      "N": 70,
+      "block": 2,
+      "padding": false,
+      "Q": 956,
+      "T": 391609
+    },
+    {
+      "N": 70,
+      "block": 2,
+      "padding": true,
+      "Q": 958,
+      "T": 667729
+    },
+    {
+      "N": 70,
+      "block": 4,
+      "padding": false,
+      "Q": 1004,
+      "T": 332017
+    },
+    {
+      "N": 70,
+      "block": 4,
+      "padding": true,
+      "Q": 1006,
+      "T": 608137
+    },
+    {
+      "N": 70,
+      "block": 6,
+      "padding": false,
+      "Q": 1052,
+      "T": 343291
+    },
+    {
+      "N": 70,
+      "block": 6,
+      "padding": true,
+      "Q": 1054,
+      "T": 619411
+    },
+    {
+      "N": 70,
+      "block": 8,
+      "padding": false,
+      "Q": 1100,
+      "T": 369505
+    },
+    {
+      "N": 70,
+      "block": 8,
+      "padding": true,
+      "Q": 1102,
+      "T": 645625
+    }
+  ],
+  "seconds": 51.00132966041565
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "path": "initial_experiments/3/candidates/residual719_lbfgs2_onebody.npz",
+    "shape": [
+      1,
+      719,
+      350
+    ],
+    "brot": 8,
+    "mixing": 81.08234732308824,
+    "l1_squared": 603.0295266433466,
+    "trace_squared": 521.9471793202583,
+    "error_2": 0.019998917910618936,
+    "gap": 3.91515008884312,
+    "Lambda": 307.49670400816933,
+    "lambda_eff_model": 48.91281116246472,
+    "h1_norm": 12.896795441767532,
+    "h2_norm": 294.5999085664018,
+    "U_sha256": "8b6cfc241604929016438985dcc606e3bd0fbedf34a3c16badb26ce18224de9d",
+    "tree_sha256": "aebe8c9214f8da2733f06c17a571d26f4cdb892f04d7a8951edc1e044590349c",
+    "angle_words_sha256": "e638ca6519fe12aabf180321012eee461d4a644eb8ad499616c7e22906829f91"
+  },
+  {
+    "path": "initial_experiments/3/candidates/mixing_rotation_control.npz",
+    "shape": [
+      1,
+      719,
+      350
+    ],
+    "brot": 8,
+    "mixing": 80.61608912323709,
+    "l1_squared": 602.5632684434954,
+    "trace_squared": 521.9471793202583,
+    "error_2": 0.019998917910618946,
+    "gap": 3.915150088843234,
+    "Lambda": 307.37887113297313,
+    "lambda_eff_model": 48.903378503242664,
+    "h1_norm": 12.896795441767551,
+    "h2_norm": 294.4820756912056,
+    "U_sha256": "8b6cfc241604929016438985dcc606e3bd0fbedf34a3c16badb26ce18224de9d",
+    "tree_sha256": "aebe8c9214f8da2733f06c17a571d26f4cdb892f04d7a8951edc1e044590349c",
+    "angle_words_sha256": "e638ca6519fe12aabf180321012eee461d4a644eb8ad499616c7e22906829f91"
+  },
+  {
+    "path": "initial_experiments/3/candidates/mixing_rotation_mu1e6.npz",
+    "shape": [
+      1,
+      719,
+      350
+    ],
+    "brot": 8,
+    "mixing": 80.10584892118027,
+    "l1_squared": 602.0530282414386,
+    "trace_squared": 521.9471793202583,
+    "error_2": 0.01999891791061893,
+    "gap": 3.9151500888433475,
+    "Lambda": 307.4878800979489,
+    "lambda_eff_model": 48.91210486116197,
+    "h1_norm": 12.896795441767562,
+    "h2_norm": 294.59108465618135,
+    "U_sha256": "8b6cfc241604929016438985dcc606e3bd0fbedf34a3c16badb26ce18224de9d",
+    "tree_sha256": "aebe8c9214f8da2733f06c17a571d26f4cdb892f04d7a8951edc1e044590349c",
+    "angle_words_sha256": "e638ca6519fe12aabf180321012eee461d4a644eb8ad499616c7e22906829f91"
+  }
+]

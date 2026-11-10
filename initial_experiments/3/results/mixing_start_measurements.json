@@ -1,0 +1,28 @@
+[
+  {
+    "name": "baseline",
+    "shape": [
+      719,
+      350
+    ],
+    "mixing": 81.08234732308824,
+    "l1_squared": 603.0295266433466,
+    "trace_squared": 521.9471793202583,
+    "mixing_lower_bound_for_fixed_K": 17.496450663000587,
+    "h2_norm": 294.5999085664018,
+    "h2_lower_bound_for_fixed_gram": 275.04531257719
+  },
+  {
+    "name": "claude_lowmix511",
+    "shape": [
+      511,
+      375
+    ],
+    "mixing": 41.67815847391864,
+    "l1_squared": 563.6362244093982,
+    "trace_squared": 521.9580659354796,
+    "mixing_lower_bound_for_fixed_K": 7.834322473710699,
+    "h2_norm": 284.91674324726097,
+    "h2_lower_bound_for_fixed_gram": 272.42310028964556
+  }
+]

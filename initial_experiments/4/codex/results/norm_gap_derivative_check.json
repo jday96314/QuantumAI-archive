@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "scope": "analytic SOS gap offset derivative against central differences",
+  "directions": 12,
+  "max_absolute_error": 5.068782997844079e-08,
+  "initial_gap": 3.9151382399896875
+}

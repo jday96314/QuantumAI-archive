@@ -1,0 +1,150 @@
+[
+  {
+    "weight": 1,
+    "sigma_degree": 1,
+    "bank_degree": 32,
+    "d": 67,
+    "rotated_degree": 2,
+    "bank_constant": 0,
+    "powers": [
+      [
+        -140,
+        1561
+      ],
+      [
+        -139,
+        1690
+      ],
+      [
+        -138,
+        3496
+      ],
+      [
+        -137,
+        708
+      ],
+      [
+        -136,
+        2573
+      ],
+      [
+        -135,
+        3580
+      ],
+      [
+        -134,
+        3240
+      ],
+      [
+        -133,
+        1273
+      ],
+      [
+        -132,
+        2731
+      ],
+      [
+        -131,
+        197
+      ]
+    ],
+    "root_errors": 0,
+    "identity_pass": true
+  },
+  {
+    "weight": 2,
+    "sigma_degree": 2,
+    "bank_degree": 31,
+    "d": 65,
+    "rotated_degree": 3,
+    "bank_constant": 0,
+    "powers": [
+      [
+        4,
+        1
+      ]
+    ],
+    "root_errors": 0,
+    "identity_pass": true
+  },
+  {
+    "weight": 15,
+    "sigma_degree": 15,
+    "bank_degree": 18,
+    "d": 39,
+    "rotated_degree": 16,
+    "bank_constant": 0,
+    "powers": [
+      [
+        30,
+        1
+      ]
+    ],
+    "root_errors": 0,
+    "identity_pass": true
+  },
+  {
+    "weight": 30,
+    "sigma_degree": 30,
+    "bank_degree": 36,
+    "d": 9,
+    "rotated_degree": 31,
+    "bank_constant": 0,
+    "powers": [
+      [
+        60,
+        1
+      ]
+    ],
+    "root_errors": 0,
+    "identity_pass": true
+  },
+  {
+    "weight": 31,
+    "sigma_degree": 31,
+    "bank_degree": 36,
+    "d": 7,
+    "rotated_degree": 32,
+    "bank_constant": 0,
+    "powers": [
+      [
+        62,
+        1
+      ]
+    ],
+    "root_errors": 0,
+    "identity_pass": true
+  },
+  {
+    "weight": 34,
+    "sigma_degree": 34,
+    "bank_degree": 36,
+    "d": 1,
+    "rotated_degree": 35,
+    "bank_constant": 0,
+    "powers": [
+      [
+        68,
+        1
+      ]
+    ],
+    "root_errors": 0,
+    "identity_pass": true
+  },
+  {
+    "weight": 35,
+    "sigma_degree": 35,
+    "bank_degree": 35,
+    "d": 0,
+    "rotated_degree": 36,
+    "bank_constant": 0,
+    "powers": [
+      [
+        70,
+        1
+      ]
+    ],
+    "root_errors": 0,
+    "identity_pass": true
+  }
+]

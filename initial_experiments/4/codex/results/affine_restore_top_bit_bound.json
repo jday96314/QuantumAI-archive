@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "all-x selected integer-model normalized phase mantissa has unchanged bit26 equal to1, enabling restoration modulo2^26",
+  "tested_x": 3133452,
+  "minimum": 67108897,
+  "maximum": 134217726,
+  "bad_top_bits": 0
+}

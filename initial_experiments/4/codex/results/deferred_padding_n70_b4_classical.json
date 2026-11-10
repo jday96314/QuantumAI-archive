@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scope": "classical core monomial completion padding, final squarefree common-factor padding, exact H division and root magnitudes; generic paths only",
+  "N": 70,
+  "block": 4,
+  "trials_per_weight": 100,
+  "cases": 3486,
+  "roots": 62665,
+  "skipped_degree_gaps": 14,
+  "seconds": 16.08093810081482
+}

@@ -1,0 +1,119 @@
+[
+  {
+    "weight": 1,
+    "sigma_degree": 1,
+    "bank_degree": 32,
+    "d": 67,
+    "powers": [
+      [
+        -140,
+        3936
+      ],
+      [
+        -139,
+        2477
+      ],
+      [
+        -138,
+        2608
+      ],
+      [
+        -137,
+        2367
+      ],
+      [
+        -136,
+        581
+      ],
+      [
+        -135,
+        337
+      ],
+      [
+        -134,
+        2234
+      ],
+      [
+        -133,
+        4088
+      ],
+      [
+        -132,
+        14
+      ],
+      [
+        -131,
+        266
+      ]
+    ],
+    "root_errors": 0
+  },
+  {
+    "weight": 2,
+    "sigma_degree": 2,
+    "bank_degree": 31,
+    "d": 65,
+    "powers": [
+      [
+        32,
+        1
+      ]
+    ],
+    "root_errors": 0
+  },
+  {
+    "weight": 15,
+    "sigma_degree": 15,
+    "bank_degree": 18,
+    "d": 39,
+    "powers": [
+      [
+        32,
+        1
+      ]
+    ],
+    "root_errors": 0
+  },
+  {
+    "weight": 30,
+    "sigma_degree": 30,
+    "bank_degree": 36,
+    "d": 9,
+    "powers": [],
+    "root_errors": 0
+  },
+  {
+    "weight": 31,
+    "sigma_degree": 31,
+    "bank_degree": 36,
+    "d": 7,
+    "powers": [],
+    "root_errors": 0
+  },
+  {
+    "weight": 34,
+    "sigma_degree": 34,
+    "bank_degree": 36,
+    "d": 1,
+    "powers": [
+      [
+        69,
+        1
+      ]
+    ],
+    "root_errors": 0
+  },
+  {
+    "weight": 35,
+    "sigma_degree": 35,
+    "bank_degree": 35,
+    "d": 0,
+    "powers": [
+      [
+        69,
+        1
+      ]
+    ],
+    "root_errors": 0
+  }
+]

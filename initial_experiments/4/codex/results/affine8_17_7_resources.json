@@ -1,0 +1,91 @@
+{
+  "widths": [
+    27,
+    17,
+    7
+  ],
+  "bounds": {
+    "minimum": 278464,
+    "maximum": 8388606,
+    "max_relative_error": 5.543395475982038e-08
+  },
+  "rows": [
+    {
+      "Q": 88,
+      "T": 1969,
+      "estimate": 194392,
+      "limit": 88,
+      "keep": 3
+    },
+    {
+      "Q": 86,
+      "T": 2026,
+      "estimate": 194876,
+      "limit": 86,
+      "keep": 2
+    },
+    {
+      "Q": 90,
+      "T": 1941,
+      "estimate": 196290,
+      "limit": 90,
+      "keep": 3
+    },
+    {
+      "Q": 88,
+      "T": 1998,
+      "estimate": 196944,
+      "limit": 88,
+      "keep": 2
+    },
+    {
+      "Q": 86,
+      "T": 2066,
+      "estimate": 198316,
+      "limit": 86,
+      "keep": 1
+    },
+    {
+      "Q": 90,
+      "T": 1970,
+      "estimate": 198900,
+      "limit": 90,
+      "keep": 2
+    },
+    {
+      "Q": 88,
+      "T": 2038,
+      "estimate": 200464,
+      "limit": 88,
+      "keep": 1
+    },
+    {
+      "Q": 90,
+      "T": 2010,
+      "estimate": 202500,
+      "limit": 90,
+      "keep": 1
+    },
+    {
+      "Q": 86,
+      "T": 2138,
+      "estimate": 204508,
+      "limit": 86,
+      "keep": 0
+    },
+    {
+      "Q": 88,
+      "T": 2110,
+      "estimate": 206800,
+      "limit": 88,
+      "keep": 0
+    },
+    {
+      "Q": 90,
+      "T": 2084,
+      "estimate": 209160,
+      "limit": 90,
+      "keep": 0
+    }
+  ]
+}

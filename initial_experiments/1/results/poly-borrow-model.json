@@ -1,0 +1,17 @@
+{
+  "parameters": {
+    "frac": 6,
+    "widths": [
+      29,
+      23,
+      17
+    ],
+    "bias": 3
+  },
+  "qubits": 157,
+  "toffolis": 3126,
+  "max_relative_error": 5.402397418308169e-08,
+  "min_signed_error": -3.7504720440395545e-08,
+  "max_signed_error": 5.402397418308169e-08,
+  "worst_x": 1052635
+}

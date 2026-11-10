@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "scope": "all4096 native field elements, cubic norm/subtrace inverse identity; all16 GF16 inverses; four-AND cube decomposition",
+  "kappa": 2,
+  "GF16_inverse_ANDs": 5,
+  "GF16_cube_ANDs": 4,
+  "data": {
+    "kappa": 2,
+    "columns": [
+      1,
+      1970,
+      2036,
+      3273,
+      884,
+      1792,
+      703,
+      1544,
+      1248,
+      1130,
+      956,
+      1392
+    ],
+    "inverse_columns": [
+      1,
+      2919,
+      1814,
+      3974,
+      455,
+      3427,
+      3191,
+      2017,
+      3878,
+      2291,
+      2037,
+      1004
+    ],
+    "dual_columns": [
+      2089,
+      1044,
+      522,
+      261,
+      130,
+      65,
+      32,
+      16,
+      8,
+      4,
+      2,
+      1
+    ],
+    "trace4_columns": [
+      8,
+      4,
+      2,
+      9
+    ]
+  }
+}

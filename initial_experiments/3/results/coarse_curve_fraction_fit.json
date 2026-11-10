@@ -1,0 +1,530 @@
+[
+  {
+    "tag": "coarse_g16_w27_15_7_e1",
+    "widths": [
+      27,
+      15,
+      7
+    ],
+    "group": 16,
+    "extra": 1,
+    "error": 8.020465069868976e-08
+  },
+  {
+    "tag": "coarse_g8_w27_15_7_e1",
+    "widths": [
+      27,
+      15,
+      7
+    ],
+    "group": 8,
+    "extra": 1,
+    "error": 7.690379022484706e-08
+  },
+  {
+    "tag": "coarse_g4_w27_15_7_e1",
+    "widths": [
+      27,
+      15,
+      7
+    ],
+    "group": 4,
+    "extra": 1,
+    "error": 7.690379022484706e-08
+  },
+  {
+    "tag": "coarse_g2_w27_15_7_e1",
+    "widths": [
+      27,
+      15,
+      7
+    ],
+    "group": 2,
+    "extra": 1,
+    "error": 7.715338157243679e-08
+  },
+  {
+    "tag": "coarse_g16_w27_15_8_e1",
+    "widths": [
+      27,
+      15,
+      8
+    ],
+    "group": 16,
+    "extra": 1,
+    "error": 8.020465069868976e-08
+  },
+  {
+    "tag": "coarse_g8_w27_15_8_e1",
+    "widths": [
+      27,
+      15,
+      8
+    ],
+    "group": 8,
+    "extra": 1,
+    "error": 8.876412715963511e-08
+  },
+  {
+    "tag": "coarse_g4_w27_15_8_e1",
+    "widths": [
+      27,
+      15,
+      8
+    ],
+    "group": 4,
+    "extra": 1,
+    "error": 7.690379022484706e-08
+  },
+  {
+    "tag": "coarse_g2_w27_15_8_e1",
+    "widths": [
+      27,
+      15,
+      8
+    ],
+    "group": 2,
+    "extra": 1,
+    "error": 7.715338157243679e-08
+  },
+  {
+    "tag": "coarse_g16_w27_15_9_e1",
+    "widths": [
+      27,
+      15,
+      9
+    ],
+    "group": 16,
+    "extra": 1,
+    "error": 8.020465069868976e-08
+  },
+  {
+    "tag": "coarse_g8_w27_15_9_e1",
+    "widths": [
+      27,
+      15,
+      9
+    ],
+    "group": 8,
+    "extra": 1,
+    "error": 8.876412715963511e-08
+  },
+  {
+    "tag": "coarse_g4_w27_15_9_e1",
+    "widths": [
+      27,
+      15,
+      9
+    ],
+    "group": 4,
+    "extra": 1,
+    "error": 7.768894838555696e-08
+  },
+  {
+    "tag": "coarse_g2_w27_15_9_e1",
+    "widths": [
+      27,
+      15,
+      9
+    ],
+    "group": 2,
+    "extra": 1,
+    "error": 7.690379022484706e-08
+  },
+  {
+    "tag": "coarse_g16_w27_16_7_e1",
+    "widths": [
+      27,
+      16,
+      7
+    ],
+    "group": 16,
+    "extra": 1,
+    "error": 7.05895106811738e-08
+  },
+  {
+    "tag": "coarse_g8_w27_16_7_e1",
+    "widths": [
+      27,
+      16,
+      7
+    ],
+    "group": 8,
+    "extra": 1,
+    "error": 5.98505458526688e-08
+  },
+  {
+    "tag": "coarse_g4_w27_16_7_e1",
+    "widths": [
+      27,
+      16,
+      7
+    ],
+    "group": 4,
+    "extra": 1,
+    "error": 5.98505458526688e-08
+  },
+  {
+    "tag": "coarse_g2_w27_16_7_e1",
+    "widths": [
+      27,
+      16,
+      7
+    ],
+    "group": 2,
+    "extra": 1,
+    "error": 6.194628543454428e-08
+  },
+  {
+    "tag": "coarse_g16_w27_16_8_e1",
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "group": 16,
+    "extra": 1,
+    "error": 6.318701961660622e-08
+  },
+  {
+    "tag": "coarse_g8_w27_16_8_e1",
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "group": 8,
+    "extra": 1,
+    "error": 6.732572743750609e-08
+  },
+  {
+    "tag": "coarse_g4_w27_16_8_e1",
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "group": 4,
+    "extra": 1,
+    "error": 5.9612939029563e-08
+  },
+  {
+    "tag": "coarse_g2_w27_16_8_e1",
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "group": 2,
+    "extra": 1,
+    "error": 6.194628543454428e-08
+  },
+  {
+    "tag": "coarse_g16_w27_16_9_e1",
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "group": 16,
+    "extra": 1,
+    "error": 6.318701961660622e-08
+  },
+  {
+    "tag": "coarse_g8_w27_16_9_e1",
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "group": 8,
+    "extra": 1,
+    "error": 5.98505458526688e-08
+  },
+  {
+    "tag": "coarse_g4_w27_16_9_e1",
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "group": 4,
+    "extra": 1,
+    "error": 6.194628543454428e-08
+  },
+  {
+    "tag": "coarse_g2_w27_16_9_e1",
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "group": 2,
+    "extra": 1,
+    "error": 6.194628543454428e-08
+  },
+  {
+    "tag": "coarse_g16_w27_15_7_e2",
+    "widths": [
+      27,
+      15,
+      7
+    ],
+    "group": 16,
+    "extra": 2,
+    "error": 8.020465069868976e-08
+  },
+  {
+    "tag": "coarse_g8_w27_15_7_e2",
+    "widths": [
+      27,
+      15,
+      7
+    ],
+    "group": 8,
+    "extra": 2,
+    "error": 7.57520171035253e-08
+  },
+  {
+    "tag": "coarse_g4_w27_15_7_e2",
+    "widths": [
+      27,
+      15,
+      7
+    ],
+    "group": 4,
+    "extra": 2,
+    "error": 7.729051021421185e-08
+  },
+  {
+    "tag": "coarse_g2_w27_15_7_e2",
+    "widths": [
+      27,
+      15,
+      7
+    ],
+    "group": 2,
+    "extra": 2,
+    "error": 7.715338157243679e-08
+  },
+  {
+    "tag": "coarse_g16_w27_15_8_e2",
+    "widths": [
+      27,
+      15,
+      8
+    ],
+    "group": 16,
+    "extra": 2,
+    "error": 8.020465069868976e-08
+  },
+  {
+    "tag": "coarse_g8_w27_15_8_e2",
+    "widths": [
+      27,
+      15,
+      8
+    ],
+    "group": 8,
+    "extra": 2,
+    "error": 8.876412715963511e-08
+  },
+  {
+    "tag": "coarse_g4_w27_15_8_e2",
+    "widths": [
+      27,
+      15,
+      8
+    ],
+    "group": 4,
+    "extra": 2,
+    "error": 7.57520171035253e-08
+  },
+  {
+    "tag": "coarse_g2_w27_15_8_e2",
+    "widths": [
+      27,
+      15,
+      8
+    ],
+    "group": 2,
+    "extra": 2,
+    "error": 7.715338157243679e-08
+  },
+  {
+    "tag": "coarse_g16_w27_15_9_e2",
+    "widths": [
+      27,
+      15,
+      9
+    ],
+    "group": 16,
+    "extra": 2,
+    "error": 8.020465069868976e-08
+  },
+  {
+    "tag": "coarse_g8_w27_15_9_e2",
+    "widths": [
+      27,
+      15,
+      9
+    ],
+    "group": 8,
+    "extra": 2,
+    "error": 8.876412715963511e-08
+  },
+  {
+    "tag": "coarse_g4_w27_15_9_e2",
+    "widths": [
+      27,
+      15,
+      9
+    ],
+    "group": 4,
+    "extra": 2,
+    "error": 7.729051021421185e-08
+  },
+  {
+    "tag": "coarse_g2_w27_15_9_e2",
+    "widths": [
+      27,
+      15,
+      9
+    ],
+    "group": 2,
+    "extra": 2,
+    "error": 7.57520171035253e-08
+  },
+  {
+    "tag": "coarse_g16_w27_16_7_e2",
+    "widths": [
+      27,
+      16,
+      7
+    ],
+    "group": 16,
+    "extra": 2,
+    "error": 7.05895106811738e-08
+  },
+  {
+    "tag": "coarse_g8_w27_16_7_e2",
+    "widths": [
+      27,
+      16,
+      7
+    ],
+    "group": 8,
+    "extra": 2,
+    "error": 6.159756693602247e-08
+  },
+  {
+    "tag": "coarse_g4_w27_16_7_e2",
+    "widths": [
+      27,
+      16,
+      7
+    ],
+    "group": 4,
+    "extra": 2,
+    "error": 5.966397198520212e-08
+  },
+  {
+    "tag": "coarse_g2_w27_16_7_e2",
+    "widths": [
+      27,
+      16,
+      7
+    ],
+    "group": 2,
+    "extra": 2,
+    "error": 5.966397198520212e-08
+  },
+  {
+    "tag": "coarse_g16_w27_16_8_e2",
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "group": 16,
+    "extra": 2,
+    "error": 6.318701961660622e-08
+  },
+  {
+    "tag": "coarse_g8_w27_16_8_e2",
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "group": 8,
+    "extra": 2,
+    "error": 6.624973258873013e-08
+  },
+  {
+    "tag": "coarse_g4_w27_16_8_e2",
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "group": 4,
+    "extra": 2,
+    "error": 5.966397198520212e-08
+  },
+  {
+    "tag": "coarse_g2_w27_16_8_e2",
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "group": 2,
+    "extra": 2,
+    "error": 5.966397198520212e-08
+  },
+  {
+    "tag": "coarse_g16_w27_16_9_e2",
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "group": 16,
+    "extra": 2,
+    "error": 6.318701961660622e-08
+  },
+  {
+    "tag": "coarse_g8_w27_16_9_e2",
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "group": 8,
+    "extra": 2,
+    "error": 6.023676468736028e-08
+  },
+  {
+    "tag": "coarse_g4_w27_16_9_e2",
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "group": 4,
+    "extra": 2,
+    "error": 5.966397198520212e-08
+  },
+  {
+    "tag": "coarse_g2_w27_16_9_e2",
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "group": 2,
+    "extra": 2,
+    "error": 5.966397198520212e-08
+  }
+]

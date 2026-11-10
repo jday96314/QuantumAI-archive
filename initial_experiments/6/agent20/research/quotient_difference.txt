@@ -1,0 +1,2980 @@
+                                               Accurate quotient-difference algorithm: error analysis,
+                                                          improvements and applications
+                                                    Peibing Dua,1 , Roberto Barriob,2 , Hao Jiangc,3,∗, Lizhi Chenga,d,4
+arXiv:1606.08960v2 [math.NA] 17 Feb 2017
+
+
+
+
+                                           a
+                                               School of Science, National University of Defense Technology, Changsha, 410073, China
+                                                b
+                                                  Dpto. Matemática Aplicada and IUMA, University of Zaragoza, E-50009 Zaragoza,
+                                                                                        Spain
+                                               c
+                                                 College of Computer, National University of Defense Technology, Changsha, 410073,
+                                                                                        China
+                                               d
+                                                 The State Key Laboratory of High Performance Computation, National University of
+                                                                   Defense Technology, Changsha, 410073, China
+
+
+
+
+                                           Abstract
+                                           The compensated quotient-difference (Compqd) algorithm is proposed along
+                                           with some applications. The main motivation is based on the fact that
+                                           the standard quotient-difference (qd) algorithm can be numerically unstable.
+                                           The Compqd algorithm is obtained by applying error-free transformations to
+                                           improve the traditional qd algorithm. We study in detail the error analysis
+                                           of the qd and Compqd algorithms and we introduce new condition numbers so
+                                           that the relative forward rounding error bounds can be derived directly. Our
+                                           numerical experiments illustrate that the Compqd algorithm is much more
+                                           accurate than the qd algorithm, relegating the influence of the condition
+                                           numbers up to second order in the rounding unit of the computer. Three
+
+                                                ∗
+                                                Corresponding author
+                                                Email addresses: dupeibing10@nudt.edu.cn (Peibing Du), rbarrio@unizar.es
+                                           (Roberto Barrio), haojiang@nudt.edu.cn (Hao Jiang), clzcheng@nudt.edu.cn (Lizhi
+                                           Cheng)
+                                              1
+                                                Partially supported by National Natural Science Foundation of China (No. 61571008,
+                                           No. 61401515).
+                                              2
+                                                Partially supported by the Spanish Research project MTM2015-64095-P and by the
+                                           European Social Fund and Diputación General de Aragón (Grant E48).
+                                              3
+                                                Partially supported by National Natural Science Foundation of China (No. 61402495,
+                                           No. 61602166, No. 61303189, No. 61402496).
+                                              4
+                                                Partially supported by Science Project of National University of Defense Technol-
+                                           ogy (JC120201) and National Natural Science Foundation of Hunan Province in China
+                                           (13JJ2001).
+
+
+                                           Preprint submitted to Elsevier                                         February 20, 2017
+applications of the new algorithm in the obtention of continued fractions and
+in pole and zero detection are shown.
+Keywords: qd algorithm, compensated qd algorithm, error-free
+transformation, rounding error, continued fractions, pole detection
+
+
+1. Introduction
+    The quotient-difference (qd) algorithm was proposed by Rutishauser from
+previous works of Hadamard [1], Aitken [2, 3], and Lanczos [4] (for details
+see [5]). This algorithm is highly related to the Padé approximation [6, 7, 8]
+techniques. The qd algorithm, and its variants, have numerous applications.
+For instance, it can be used to obtain the continuous fraction representation
+of meromorphic functions given by its power series development [7, 8, 9].
+It is also related with complex analysis, as it provides a direct method to
+locate poles of complex functions [9, 10] and zeros of polynomials [10, 11].
+Besides, in eigenvalue computation, the progressive qd algorithm [10] has
+a relevant role as it can be interpreted as the LR transform for a tridiagonal
+matrix [12, 13, 14].
+    Unfortunately, in finite precision arithmetic, the quotient-difference algo-
+rithm has been shown in experiments to be numerically unstable. It is overly
+sensitive to rounding errors. As a consequence, high-precision arithmetic or
+exact arithmetic are recommended to overcome such a problem [15]. In order
+to increase the accuracy and stability of algorithms for ill-conditioned prob-
+lems, several researchers studied their corresponding accurate compensated
+algorithms by applying error-free transformations [16, 17, 18] which can yield,
+in most circumstances, a full precision accuracy in standard precision. For
+instance, to evaluate ill-conditioned polynomials with floating-point coeffi-
+cients, Graillat et al. [19, 20, 21] proposed a compensated Horner algorithm
+to evaluate polynomials in monomial basis; Jiang et al. [22, 23, 24] presented
+compensated de-Casteljau and Clenshaw algorithms to evaluate polynomials
+in Bernstein, Chebyshev and Legendre basis, respectively.
+    In this paper, we first perform a complete analysis of the stability of the
+quotient-difference algorithm by providing forward rounding error bounds
+and we introduce condition numbers adapted to the problem that permit to
+give a simple error bound that helps to locate the instability problems. The
+bounds shown in this paper provide a theoretical statement of the numerical
+simulations in literature. To overcome, or at least, to delay the appear-
+
+                                       2
+ance of instability problems in standard precision, we introduce a new more
+accurate algorithm, the compensated quotient-difference algorithm. The pro-
+posed algorithm is based on error-free transformations. To obtain the com-
+pensated quotient-difference algorithm we consider, especially, the division
+operation in each inner loop which has never been used in previous works
+of compensated algorithms. Again, we perform a complete analysis of the
+stability and now, from the forward rounding error bounds, we observe that
+the condition numbers are multiplied by the square of the rounding unit,
+instead of the rounding unit. This result states that the proposed compen-
+sated quotient-difference algorithm is much more stable than the standard
+quotient-difference algorithm in working precision.
+    The paper is organized as follows. In Section 2, we introduce the classical
+qd algorithm, some basic notations about floating-point arithmetic and error-
+free transformations. Section 3 presents the error analysis of the qd algorithm
+and its condition numbers. In Section 4, the proposed new compensated qd
+algorithm, Compqd, is provided. Section 5 presents the forward rounding
+error bounds of the Compqd algorithm. Finally, in Section 6, we give several
+numerical experiments together with three practical applications to illustrate
+the efficiency, accuracy and stability of the new Compqd algorithm. In the
+Appendices all the algorithms are detailed, and besides, a new compensated
+version of the progressive form of the qd scheme (Compproqd algorithm) is
+given.
+
+2. Preliminaries
+   In this section we review the classical qd algorithm (Subsection 2.1). In
+order to perform the detailed error analysis of the algorithms, we give some
+basic notations (Subsection 2.2) and we present the error-free transformations
+(Subsection 2.3).
+
+2.1. The quotient-difference algorithm
+    Along this paper, quotient-difference is called qd for short and we assume
+that the conditions for the existence of the qd scheme (also known as the qd
+table [25]) are satisfied.
+    Considering the formal power series
+                                                        ∞
+                                                        X
+                                            2
+                   f (z) = c0 + c1 z + c2 z + · · · ≡         ck z k ,     (1)
+                                                        k=0
+
+
+                                        3
+where ci ∈ R, we define its double sequence of Hankel determinants by
+
+                      cn    cn+1       ···    cn+m
+            (n)
+                     cn+1   cn+2       ···    cn+m+1
+           Hm   =    ..                       .      ,      n, m ∈ N.
+                      .     ···        · · · ..
+                     cn+m   cn+m+1     · · · cn+2m
+A remarkable connection among Hankel determinants [7] is given by
+                      (n) 2    (n−1)   (n+1)
+                                          (n−1) (n+1)
+                    (Hm  ) + Hm+1 Hm−1 = Hm    Hm .                        (2)
+
+If we define
+                        (n+1) (n)                  (n)   (n+1)
+                   (n) Hm Hm−1                (n) Hm+1 Hm−1
+                  qm =   (n) (n+1)
+                                   ,         em =   (n) (n+1)
+                                                               ,           (3)
+                       Hm Hm−1                    Hm Hm
+then the previous relationship (2) can be interpreted as the following addition
+rhombus rule
+                          (n)                    (n+1)
+                         qm   + e(n)
+                                 m = qm
+                                        (n+1)
+                                              + em−1 ,                      (4)
+                                        (n)         (n)
+and, considering the definition (3), qm and em give the product rhombus
+rule
+                            (n+1) (n+1)    (n)
+                          qm     em     = qm+1 e(n)
+                                                m .                 (5)
+Hence, both rhombus relations, (4) and (5), give rise to the classical qd
+algorithm:
+
+Algorithm 1. qd
+               (n)                   (n)
+    input : e0 = 0, n = 1, 2, ...; q1 = cn+1
+                                           cn
+                                              , n = 0, 1, ...
+    output : qd scheme
+    for m = 1, 2, ...
+       for n = 0, 1, ...
+             (n)   (n+1)    (n)    (n+1)
+           e m = qm      − qm + em−1
+             (n)      (n+1) (n)      (n+1)
+           qm+1 = (em /em ) × qm
+       end
+    end
+
+   The way of computing in Algorithm 1 is explained in the following qd
+table showing the data connection via the above two rhombus rules from the
+
+
+
+                                        4
+first q-column moving right.
+                               (0)
+                              q1
+                                         (0)
+                          0             e1
+                               (1)                  (0)
+                              q1                q2
+                                         (1)               (0)
+                          0             e1                e2
+                               (2)                  (1)           (0)         (6)
+                              q1                q2               q3
+                                         (2)               (1)
+                          0             e1                e2
+                               ..                   (2)           ..
+                                .               q2                 .
+                                         ..                ..
+                                          .                 .
+2.2. Basic notations
+    In this paper we assume to work with floating-point arithmetics adher-
+ing to IEEE-754 floating-point standard rounding to nearest. In our anal-
+ysis we assume that there is no computational overflow or underflow. Let
+op ∈ {⊕, , ⊗, } represents a floating-point computation, and the evalua-
+tion of an expression in floating-point arithmetic is denoted f l(·), then its
+computation obeys the model
+            a op b = f l(a ◦ b) = (a ◦ b)(1 + ε1 ) = (a ◦ b)/(1 + ε2 ),       (7)
+where a, b ∈ F (the set of floating-point numbers), ◦ ∈ {+, −, ×, ÷} and
+|ε1 |, |ε2 | ≤ u (u is the rounding unit of the computer).
+     For the following error analysis, let v, x, y, z ∈ R and
+                                    v = x ◦ y ◦ z,
+                                             x ◦ yb ◦ zb),
+                                    vb = f l(b
+                                         b ◦ yb ◦ zb.
+                                    ve = x
+Here, x                                         b, yb, zb ∈ F. The second equation
+      b = f l(x), yb = f l(y), zb = f l(z), and x
+can be rewritten as vb = xb op yb op zb. We list some notations in Table 1 which
+will be helpful to understand this paper.
+    The following definition and properties will also be used in error analysis
+(see more details in [26]).
+Definition 1. We define
+                                               n
+                                               Y
+                              1 + θn =           (1 + δi )ρi ,
+                                               i=1
+
+
+                                                5
+                       Table 1: Some notations for error analysis
+ Notations                              Description                             Equation
+         (n)
+       em                            the exact value                        (11)
+         (n)
+       eem       the result with the perturbed inputs in real arithmetic (9), (11)
+         (n)
+       ebm          the result computed in floating-point arithmetic     (13), (10)
+         (n)
+       ēm                   the proposed condition number                  (28)
+          (n)                                               (n)
+      em                      the compensated term of ebm                (9), (46)
+                                                        (n)
+       e (n)
+      e  m                      the perturbation for eem                   (10)
+                                                                     (n)
+       b (n)
+      e  m            the approximate compensated term for ebm          (47), (52)
+         (n)∗                                                    (n)
+      e
+      em                  the approximate perturbation for eem              (54)
+           (n)                                               (n)
+      em                    the compensated term of e  bm                (52)
+
+                                                                    nu
+where |δi | ≤ u, ρi = ±1 for i = 1, 2, . . . , n, |θn | ≤ γn :=          = nu + O(u2 )
+                                                                  1 − nu
+and nu < 1.
+      Other basic properties which will also be used in error analysis are given
+by:
+      • u + γk ≤ γk+1 ,
+      • iγk < γik ,
+      • γk + γj + γk γj ≤ γk+j .
+
+2.3. Error-free transformations
+    The development of some families of more stable algorithms, which are
+called compensated algorithms [27], is based on the paper [16] about Error-
+Free Transformations (EFT). For a pair of floating-point numbers a, b ∈ F,
+when no underflow occurs, there exists a floating-point number y satisfying
+a ◦ b = x + y, where x = fl(a ◦ b) and ◦∈{+, −, ×}. Then the transformation
+(a, b) −→ (x, y) is regarded as an EFT. For division, the corresponding EFT
+is constructed using the reminder, so its definition is slightly different (see
+below). The EFT algorithms of the addition, product and division of two
+floating-point numbers used later in this paper are the TwoSum algorithm [28],
+the TwoProd algorithm [29] and the DivRem algorithm [30, 31], respectively
+(see Appendix A). The following two theorems exhibit the main properties
+of those algorithms.
+
+                                           6
+Theorem 1. [16] For a, b ∈ F and x, y ∈ F, when no underflow occurs,
+FastTwoSum, TwoSum and TwoProd algorithms verify
+
+[x, y] = FastTwoSum(a, b), x = fl(a + b), x + y = a + b, |y| ≤ u|x|, |y| ≤ u|a + b|,
+[x, y] = TwoSum(a, b), x = fl(a + b), x + y = a + b, |y| ≤ u|x|, |y| ≤ u|a + b|,
+[x, y] = TwoProd(a, b), x = fl(a × b), x + y = a × b, |y| ≤ u|x|, |y| ≤ u|a × b|.
+
+Theorem 2. [30] For a, b ∈ F and q, r ∈ F, when no underflow occurs,
+DivRem algorithm verifies
+
+[q, r] = DivRem(a, b),   a = b×q +r,        q = a b,       |r| ≤ u|b×q|,   |r| ≤ u|a|.
+
+3. Error analysis of the qd algorithm
+    In order to perform the error analysis of the complete qd algorithm, we
+split the process in two parts.
+    We begin with the error analysis for the following inner loop of the qd
+algorithm in floating-point arithmetic, where bold characters mean the ‘out-
+puts’ and the rest mean the ‘inputs’:
+                                     (n)
+                                    qm
+                          (n+1)                  (n)
+                         em−1                   em
+                                    (n+1)                (n)                      (8)
+                                   qm                   qm+1
+                                                (n+1)
+                                                em
+                                                                                  (n)
+There are two steps in the inner loop. The output of the first step is em ,
+                     (n+1)  (n)      (n+1)                                (n+1)
+and its inputs are em−1 , qm and qm . In next step, the inputs are qm ,
+  (n)      (n+1)                     (n)
+em and em , and the output is qm+1 .
+     Based on the error analysis of Subsection 3.1 of the inner loop, we obtain
+the rounding error bounds of the complete qd algorithm by using mathemat-
+ical induction in Subsection 3.2.
+
+3.1. Error analysis for the inner loop of the qd algorithm
+    In the proof of the stability analysis, we first consider the perturbations
+of the floating-point inputs
+                                  (n)
+                                ebm   = e(n)   (n)
+                                         m + em ,
+                                  (n)    (n)     (n)
+                                                                                  (9)
+                                qbm   = qm   + qm   ,
+
+                                            7
+in the inner loop of the qd algorithm. Let
+
+                               ee(n)  (n)
+                                          e (n)
+                                 m = em + em ,
+                                                                         (10)
+                                 (n)
+                               qem      (n)
+                                     = qm     e (n)
+                                            + q m .
+
+Here,
+                                                          (n+1)
+                         e(n)  (n+1)
+                          m = qm
+                                        (n)
+                                     − qm   + em−1 ,
+                                                          (n+1)
+                                                                         (11)
+                         ee(n)
+                           m = q
+                               bm(n+1)     (n)
+                                       − qbm   + ebm−1 ,
+
+and
+                                            (n+1)
+                             (n)        em    (n+1)
+                            qm+1 =     (n)
+                                           × qm     ,
+                                     em
+                                     (n+1)
+                                                                         (12)
+                              (n)  ebm        (n+1)
+                            qem+1 = (n) × qbm       .
+                                     ebm
+In Equations (11) and (12), all the computations are performed using real
+arithmetic without rounding error. However, if all the computations are
+performed in floating-point arithmetic, we have
+                                                             (n+1)
+                     e(n)
+                 f l(e      b(n)
+                      m ) = e m = q
+                                  bm(n+1)              (n)
+                                                     qbm   ⊕ ebm−1 ,
+                   (n)       (n)
+                                                                         (13)
+              f l(e                        e(n+1)
+                  qm+1 ) = qbm+1 = f l(f l(bm     /b(n)
+                                                   em         (n+1)
+                                                        ) × qbm     ).
+
+    The following Lemma 1 gives the absolute perturbation bounds of the
+floating-point inputs (9) for the inner loop of the qd algorithm.
+Lemma 1. The absolute perturbation bounds in the inner loop of the qd
+algorithm, considering floating-point inputs in real arithmetic, are given by
+                                                              (n+1)
+                     e (n)
+                    |e         (n+1)
+                       m | ≤ |qm
+                                             (n)
+                                      | + |qm   | + |em−1 |,           (14)
+
+and
+                                      (n)           (n)
+                                   |q
+                                    e m+1 | ≤ ᾱm+1 ,                    (15)
+where
+               (n+1)     (n+1)   (n+1) (n+1)     (n)   (n)      (n+1) (n+1)
+  (n)    (n) |qm     ||em | + |em ||qm | + |qm+1 ||em | + |qm ||em |
+ᾱm+1 = bm ×                                 (n)
+                                                                            ,
+                                          |em |
+                                                                         (16)
+
+                                              8
+with
+                                                                     (n)
+                                                                     em
+                                                 b(n)
+                                                  m =          (n)          (n)
+                                                                                   ,                                    (17)
+                                                           em + em
+                                           (n)
+                    (n)
+assuming em 6= 0 and e(n)
+                        m
+                           6= −1.
+                                          em
+
+Proof. From (9) and (10), we obtain that
+                                                                                        (n+1)
+                                         e (n)
+                                         e      (n+1)
+                                           m = qm
+                                                           (n)
+                                                       − qm   + em−1 ,                                                (18)
+which gives us the first bound (14).
+   Similarly, we have
+                          (n+1)    (n+1)         (n+1)     (n+1)            (n)         (n)     (n+1)    (n+1)
+        (n)           qm          em      + em          qm         − qm+1 em + qm                   em
+       e m+1 =
+       q                                                  (n)             (n)
+                                                                                                                    .   (19)
+                                                          em + em
+                                           (n)
+                    (n)
+Finally, if em 6= 0 and e(n)
+                           m
+                              6= −1, we obtain (15).
+                                          em
+
+                                                                                         (n)                  (n)
+   Assuming there exist the uniform bounds |em | ≤ abs , |qm | ≤ abs ,
+∀ m, n ∈ N, from Lemma 1 we will have
+                                                  e(n)
+                                                 |e     (n)
+                                                   m − em | ≤ 3abs ,                                                   (20)
+and
+                               (n+1)   (n+1)   (n)
+         (n)    (n)      (n) |qm | + |em | + |qm+1 |
+        qm+1 − qm+1 | ≤ bm ×
+       |e                               (n)
+                                                     abs + O(2abs ),                                                  (21)
+                                      |em |
+                               (n)                                         (n)
+              (n)            em                   (n)
+where bm =                 (n)     (n)   with em 6= 0 and e(n)
+                                                             m
+                                                                6= −1. It is obvious to see that
+                          em +em                                      em
+                      (n)
+       lim           bm → ∞.
+ (n)    (n)
+em /em −→−1
+    Consider that, under certain restrictions, the qd scheme is constructed
+with the q-columns tending to the reciprocal value of the simple pole of
+isolated modulus, while the corresponding e-columns tending to zero (see
+Theorem 7). That is, for some m we have that
+                                                        lim e(n)
+                                                             m = 0.
+                                                   n−→∞
+
+Then,
+                                               (n+1)        (n+1)                 (n)
+                                           |qm         | + |em        | + |qm+1 |
+                                   lim                         (n)
+                                                                                           → ∞.
+                                  n−→∞                     |em |
+
+                                                                9
+This suggests that small absolute perturbations can cause large absolute
+                               (n)                    (n)
+errors in the computation of qm+1 in (21), that is, qm+1 may be large. Hence,
+abs may not be small enough. Then, even in the case the computation of
+  (n)
+em+1 is well conditioned, which is similar to that of the absolute error bound
+in (20), the absolute perturbation bound (21) can be arbitrary large. So, the
+qd algorithm, as described in Subsection 2.1, can be highly unstable. Thus,
+our main question in this paper is oriented to improving its accuracy in order
+to use the algorithm in a wider range of situations (see Sections 4 and 5).
+      We have performed the perturbation analysis of the qd algorithm. How-
+ever, in practical numerical computations, the perturbation of the numerical
+results not only comes from the perturbation of inputs but also the accumula-
+tion of rounding errors generated in the algorithm itself. Now we focus on the
+                                                            (n)
+obtention of the rounding error bounds for computing eem in floating-point
+                                                        (n) (n+1)      (n+1)
+arithmetic, assuming that the floating-point inputs qbm , ebm−1 and qbm      are
+                                                                         (n)
+known exactly. Similarly, the rounding error bounds for computing qem+1 in
+                                                                      (n) (n+1)
+floating-point arithmetic, assuming that the floating-point inputs ebm , qbm
+       (n+1)
+and ebm      are known exactly.
+                     (n)       (n)           (n)       (n)
+Lemma 2. Let f l(e  em ) = ebm and f l(e   qm+1 ) = qbm+1 are computed in floating-
+point arithmetic in the inner loop, then
+                                                                  (n+1) 
+                   e(n)
+              |f l(em   ) − e
+                            e(n)
+                             m   | ≤ γ2 |b
+                                         q (n+1)
+                                           m     | + |b
+                                                      q (n)
+                                                        m   | + |b
+                                                                 em−1 | ,      (22)
+and
+                                (n)       (n)           (n)
+                                                       qm+1 |.
+                                qm+1 ) − qem+1 | ≤ γ2 |e
+                           |f l(e                                              (23)
+Proof. It can be directly obtained from (7) and (13).
+    From Lemma 1 and Lemma 2, we can derive the rounding error bounds
+for the inner loop of the qd algorithm in floating-point arithmetic.
+Lemma 3. The rounding error bounds in the inner loop of the qd algorithm,
+considering perturbed floating-point inputs, are given by
+                                          (n+1)                                 (n+1) 
+     e(n)
+|f l(e     (n)
+      m )−em | ≤ γ2 |qm
+                       (n+1)
+                             |+|qm(n)
+                                      |+|em−1 | +(1+γ2 ) |qm(n+1)      (n)
+                                                                   |+|qm   |+|em−1 | ,
+                                                                                (24)
+and
+                     (n)       (n)           (n)              (n)
+               |f l(e
+                    qm+1 ) − qm+1 | ≤ γ2 |qm+1 | + (1 + γ2 )ᾱm+1 ,             (25)
+        (n)                                     (n)      (n)
+where ᾱm+1 are defined in (16), and em and qm are the perturbations of
+             (n)     (n)
+the inputs ebm and qbm , respectively.
+
+                                           10
+Proof. First, we have
+
+                      e(n)
+                 |f l(e       (n)
+                                         e(n)
+                       m ) − em | ≤ |f l(em )−e
+                                               (n)
+                                              em   | + |e(n)
+                                                        em      (n)
+                                                             − em   |.                         (26)
+
+Then by (14) in Lemma 1, (22) in Lemma 2, and (9), we obtain
+
+                                              (n+1)                              (n+1) 
+     e(n)
+|f l(e       (n)
+      m ) − em | ≤ γ2 |b
+                        (n+1)
+                       qm     | + |b(n)
+                                   qm   | + |b
+                                             em−1 | + |qm(n+1)        (n)
+                                                                | + |qm   | + |em−1 |
+                        (n+1)       (n)       (n+1)                (n+1)        (n)        (n+1) 
+                 ≤ γ2 |qm     | + |qm   | + |em−1 | + (1 + γ2 ) |qm      | + |qm   | + |em−1 | .
+
+Finally, taking into account (15) in Lemma 1 and (23) in Lemma 2, we have
+                   (n)         (n)            (n)              (n)           (n)         (n)
+              |f l(e
+                   qm+1 ) − qm+1 | ≤ |f l(e
+                                          qm+1 ) − qem+1 | + |e
+                                                              qm+1 − qm+1 |
+                                             (n)                         (n)
+                                     ≤ γ2 |qm+1 | + (1 + γ2 )ᾱm+1 .
+
+
+
+3.2. Rounding error bounds of qd algorithm
+    The previous results give us technical lemmas that allow us to give the
+global rounding error bounds of the qd algorithm by using mathematical
+induction.
+
+Theorem 3. The absolute forward rounding error bounds for the qd algo-
+rithm, in the real coefficients case (ci ∈ R), are given by
+                                               m−1
+                                                Y              
+                              e(n)
+                         |f l(e       (n)
+                               m ) − em | ≤               Bi       × γ4m |ē(n)
+                                                                            m |,
+                                                    i=0
+
+and                                            m
+                                              Y               
+                         (n)      (n)                                              (n)
+                   |f l(e
+                        qm+1 ) − qm+1 | ≤                 Bi       × γ4m+2 |q̄m+1 |,
+                                                   i=0
+
+where
+                    Bm = max{b(n)∗
+                              m },                  b(n)∗
+                                                     m    = max{b(n)
+                                                                 m , 1},                       (27)
+                               n
+        (n)
+with bm defined in (17), and
+                                                                     (n+1)
+                             ē(n)    (n+1)
+                               m = |q̄m
+                                                   (n)
+                                            | + |q̄m   | + |ēm−1 |,                           (28)
+
+
+                                               11
+                                           (n+1)                (n+1)             (n) 
+                        (n)               |ēm         |       |q̄m      |       |ēm |       (n)
+                      q̄m+1 =               (n+1)
+                                                           +     (n+1)
+                                                                             +     (n)
+                                                                                           |qm+1 |,               (29)
+                                          |em |                |qm |             |em |
+               m
+               Q                1                                                                            (n)
+supposing           Bi         u
+                                  ,   and where the initial values are given by b0                                  =
+           i=1
+     (n)  (n)   (n)
+1, q̄1 = q1 , ē0 = 0.
+                                                                             (n)        (n)           (n)   (n)
+Proof. It is easy to see that Bm ≥ 1, Bm ≥ bm , |em | ≤ |ēm | and |qm+1 | ≤
+   (n)
+|q̄m+1 | for ∀m, n ∈ N in (28) and (29).
+      Step 1: When m = 0, there is just one floating-point division step, i.e.
+  (n)                                                       (n)
+q1 = cn+1 /cn . As ci ∈ R for i = 0, 1, 2, . . ., then f l(e
+                                                           q1 ) = f l(f l(cn+1 )/f l(cn )) =
+  (n)
+q1 (1 + θ3 ). Hence we have
+                                                 (n)            (n)               (n)
+                                      |f l(e
+                                           q1 ) − q1 | ≤ γ3 |q̄1 |.                                               (30)
+              (n)         (n)                                                                       (n)     (n)
+Here, f l(e
+          q1 ) = qb1 will be the input for computing f l(e e1 ) and f l(e
+                                                                        q2 ).
+                                                                            (n)
+   Step 2: For m = 1, we consider the rounding error bounds of f l(e       e1 )
+         (n)        (n)
+and f l(e
+        q2 ). As e0 = 0, we have
+                   (n)    (n)                     (n)           (n)
+             |f l(e
+                  e1 ) − e1 | ≤ γ1 + γ3 (1 + γ1 ) |ē1 | ≤ γ4 |ē1 |,      (31)
+        (n)          (n+1)            (n)                                        (n)                         (n)
+where ē1 = |q̄1       | + |q̄1 |. The output f l(e   e1 ) will be the input eb1 for
+                 (n)             (n)
+computing f l(e q2 ) and f l(e  e2 ).
+                                            (n+1)               (n) 
+                   (n)                (n)     |ē1     |      |ē1 |   (n)
+     Considering b1 ≤ B1 and q̄2 =               (n+1)
+                                                         + 1 + (n) |q2 |, from (5),
+                                              |e1      |      |e1 |
+(9), (16), (30) and (31), we have
+                       (n+1)                            (n)              (n+1)       
+   (n)    (n)        |ē1     | (n)       (n)        |ē1 | (n)        |ē1     | (n)
+|ᾱ2 | ≤ b1 × γ4 (n+1) |q2 | + γ3 |q2 | + γ4 (n) |q2 | + γ3 γ4 (n+1) |q2 |
+                     |e1      |                      |e1 |             |e1      |
+                    (n)
+      ≤ B1 γ4 |q̄2 |.
+                                                                                                                  (32)
+Hence, from (25) in Lemma 3 and (32), we derive
+                                          (n+1)               (n) 
+        (n)    (n)                           |ē1     |      |ē1 |     (n)
+  |f l(e
+       q2 ) − q2 | ≤ γ2 + (1 + γ2 )B1 γ4        (n+1)
+                                                        + 1 + (n)     |q2 |
+                                             |e1      |      |e1 |
+                                          (n)                                                                    (33)
+                   ≤ γ2 + B1 γ4 (1 + γ2 ) |q̄2 |
+                                           (n)
+                          ≤ B1 γ6 |q̄2 |.
+
+                                                               12
+                   (n)                                         (n)              (n)
+The output f l(e  q2 ) will also be the input qb2 for computing f l(e       e2 ) and
+     (n)
+f l(e
+    q3 ).
+                                                                                  (n)
+    Step 3: For m = 2, we consider the rounding error bounds of f l(e           e2 )
+           (n)
+and f l(eq3 ). According to (24) in Lemma 3, using (28), (31), and (33), we
+have
+         (n)    (n)         (n+1)       (n)     (n+1)                     (n)
+   |f l(e
+        e2 ) − e2 | ≤ γ2 |q2      | + |q2 | + |e1    | + (1 + γ2 )B1 γ6 |ē2 |
+                                             (n)
+                    ≤ γ2 + (1 + γ2 )B1 γ6 |ē2 |                                 (34)
+                                   (n)
+                     ≤ B1 γ8 |ē2 |,
+        (n)     (n+1)        (n)          (n+1)                           (n)
+where ē2 = |q̄2      | + |q̄2 | + |ē1   |. The output f l(e
+                                                            e2 ) will be the input
+  (n)                     (n)            (n)
+eb2 for computing f l(e  q3 ) and f l(e e3 ).
+      Using (5), (16), (29), (33) and (34), and considering B1  u1 and B2 ≥
+  (n)
+b2 , we have
+                               (n+1)                    (n+1)            (n)
+      (n)    (n)             |ē        | (n)        |q̄       | (n)   |ē | (n)
+   |ᾱ3 | ≤ b2 ×      B1 γ8 2(n+1) |q3 | + B1 γ6 2(n+1) |q3 | + B1 γ8 2(n) |q3 |
+                             |e2        |            |q2       |       |e2 |
+                           (n+1)       (n+1)       
+                       |q̄       | |ē       | (n)                 (n)
+         + (B1 )2 γ6 γ8 2(n+1) 1(n+1) |q3 | ≤ B1 B2 γ8 |q̄3 |,
+                       |q2       | |e1       |
+                                                                               (35)
+
+Hence, from (25) in Lemma 3 and (35), we derive
+                                           (n+1)          (n+1)      (n) 
+      (n)    (n)                              |ē2     | |q̄2     | |ē2 |     (n)
+|f l(e
+     q3 ) − q3 | ≤  γ2 + (1 + γ2 )B1 B2 γ8       (n+1)
+                                                        + (n+1) + (n)        |q3 |
+                                              |e2      | |q2      | |e2 |
+                                           (n)
+                 ≤ γ2 + B1 B2 γ8 (1 + γ2 ) |q̄3 |
+                                    (n)
+                 ≤ B1 B2 γ10 |q̄3 |.
+
+Then, we have found the regular pattern of the rounding error bounds.
+   Step 4: Now, for a generic k ∈ N, we assume that when m = k the
+absolute forward rounding error bounds of qd algorithm are satisfied
+                                                   k−1
+                                                    Y          
+                               (n)    (n)                              (n)
+                         |f l(e
+                              ek ) − ek | ≤                  Bi γ4k |ēk |,           (36)
+                                                       i=0
+
+
+
+
+                                                  13
+and
+                                               k
+                                              Y          
+                           (n)      (n)                             (n)
+                     |f l(e
+                          qk+1 ) − qk+1 | ≤             Bi γ4k+2 |q̄k+1 |.                 (37)
+                                                  i=0
+
+    In a similar way, for m = k + 1, considering the rounding error bound
+        (n)                    (n)          (n)
+of f l(e
+       ek+1 ) with inputs f l(e
+                              ek ) and f l(e
+                                           qk+1 ) in (36) and (37), from (28) and
+(24) in Lemma 3, we can derive that
+                                                                              k
+                                                                             Y      
+      (n)      (n)            (n+1)     (n)       (n+1)                                       (n)
+|f l(e
+     ek+1 ) − ek+1 | ≤ γ2   |qk+1 | + |qk+1 | + |ek    | + (1 + γ2 )               Bi γ4k+2 |ēk+1 |
+                                                                             i=0
+                                    k
+                                    Y        
+                                                   (n)
+                    ≤ γ2 + (1 + γ2 )   Bi γ4k+2 |ēk+1 |
+                                            i=0
+                          k
+                         Y      
+                                             (n)
+                    ≤          Bi γ4(k+1) |ēk+1 |.
+                         i=0
+                                                                                           (38)
+                   (n)                            (n)                         (n)
+The output f l(e   ek+1 ) will be the input ebk+1 for computing f l(e     qk+2 ).
+                                                                (n)                     (n)
+     Next, considering the rounding error bound of f l(e      qk+2 ) with inputs f l(e qk+1 )
+           (n)                                                           (n)
+and f l(e ek+1 ) in (37) and (38), from (5), (16) and (29), with bk+1 ≤ Bk+1 , we
+have
+                         k                  (n+1)             k                 (n+1)
+                                         |ēk+1 | (n)                        |q̄k+1 | (n)
+                    Y                                    Y      
+   (n)       (n)
+|ᾱk+2 | ≤ bk+1 ×           Bi γ4(k+1) (n+1) |qk+2 | +           Bi γ4k+2 (n+1) |qk+2 |
+                        i=0              |e k+1   |          i=0             |qk+1 |
+               k                 (n)                k                      (n+1)
+                                                                        |q̄k+1 | |ē(n+1)
+                                                         2
+                              |ēk+1 | (n)
+           Y                                  Y                                              
+                                                                                     k    | (n)
+         +        Bi γ4(k+1) (n) |qk+2 | +             Bi γ4k+2 γ4(k+1) (n+1) (n+1) |qk+2 |
+              i=0             |e k+1 |             i=0                  |qk+1 | |ek       |
+            k+1
+              Y      
+                                 (n)
+         ≤        Bi γ4(k+1) |q̄k+2 |.
+            i=0
+                                                                                           (39)
+
+
+
+
+                                             14
+Hence, from (25) in Lemma 3 and (39), with 1 ≤ Bi , we derive
+                                                   k+1
+                                                      (n+1)       (n+1)    (n) 
+                                                       |ēk+1 | |q̄k+1 | |ēk+1 |
+                                                  Y
+      (n)      (n)                                                                  (n)
+|f l(e
+     qk+2 ) − qk+2 | ≤γ2 + (1 + γ2 )      Bi γ4(k+1)      (n+1)
+                                                                + (n+1) + (n)     |qk+2 |
+                                      i=0              |ek+1 | |qk+1 | |ek+1 |
+                          k+1
+                             Y                      
+                                                          (n)
+                   ≤ γ2 +       Bi γ4(k+1) (1 + γ2 ) |q̄k+2 |
+                                       i=0
+                         k+1
+                          Y          
+                                                   (n)
+                   ≤               Bi γ4(k+1)+2 |q̄k+2 |.
+                             i=0
+
+And therefore, by induction we obtain the result.
+   In order to simplify all the analysis, we define new condition numbers for
+                 (n)       (n)
+evaluating each em and qm+1 using the qd algorithm.
+                                                                                  (n)
+Definition 2. The condition numbers for evaluating the terms enm and qm+1
+using the qd algorithm are defined by
+                                                                (n)
+                                                               ēm
+                                        cond e(n)
+                                              m =               (n)
+                                                                          ,
+                                                               |em |
+and
+                                                                (n)
+                                            (n)                q̄m+1
+                                      cond qm+1 =               (n)
+                                                                              ,
+                                                            |qm+1 |
+         (n)       (n)
+where ēm and q̄m+1 are defined in (28) and (29), respectively, and where
+  (n)   (n)  (n)  (n)
+q̄1 = q1 , ē0 = e0 = 0.
+
+    Therefore, each element in one qd table in floating-point arithmetic has
+its own condition number. The relationship between two different elements
+is shown in Figure 1. By Definition 2, from (29) we have
+                                             (n)           (n+1)
+                                         q̄m+1            q̄m
+                                             (n)
+                                                    ≥      (n+1)
+                                                                          .
+                                        |qm+1 |           |qm         |
+                                                        (n )
+Hence, it is easy to see that cond qm11 is larger than any element (e.g.
+      (n )
+cond qm22 ) on its left part of the triangle, which corresponds to the terms of
+                                           (n )
+the qd table’s triangle that generates qm11 . It should be noticed that even
+
+                                                     15
+            Figure 1: Organization of the condition numbers in the qd table.
+
+                   (n )              (n )                 (n )                (n )
+though cond qm11 ≥ cond qm44 and cond qm33 ≥ cond qm44 , we can not say
+                                  (n )          (n )
+which one is larger between cond qm11 and cond qm33 . Next, we consider the
+                         (n)
+condition number cond em . From (29), we have
+                            (n+1)        (n+1)            (n)         (n+1)
+                           q̄m      ēm−1                q̄m     ē
+                            (n+1)
+                                  ≥ (n+1)  ,               (n)
+                                                               ≥ m−1
+                                                                   (n+1)
+                                                                         .
+                          |qm |    |em−1 |               |qm |  |em−1 |
+
+Then, by (28), we have
+ (n)       (n+1)          (n)    (n+1)        (n+1)       (n+1)        (n)           (n+1)        (n+1)
+ēm       q̄m      + q̄m + ēm−1             ēm−1       |qm      | + |qm | + |em−1 |            ēm−1
+  (n)
+      =                   (n)
+                                         =     (n+1)
+                                                     ×                 (n)
+                                                                                             ≥    (n+1)
+                                                                                                           .
+|em |                |em |                   |em−1 |                 |em |                       |em−1 |
+                                                  (n)
+That is, the condition number cond em has the same relationship as that of
+       (n)
+cond qm+1 .
+   Using Theorem 3 and the condition numbers given in Definition 2, we can
+write the relative forward rounding error bounds of the qd algorithm with
+perturbed inputs in a direct way:
+
+
+                                                 16
+Corollary 1. The relative forward rounding error bounds for the qd algo-
+rithm, in the real coefficients case (ci ∈ R), are given by
+             (n)         (n)
+        |f l(e
+             em ) − em |
+               (n)
+                               ≤ Φm−1 γ4m cond e(n)                 (n)
+                                                m ≡ Φm−1 O(u) cond em ,
+             |em |
+and
+            (n)          (n)
+      |f l(e
+           qm+1 ) − qm+1 |                                (n)                     (n)
+               (n)
+                                 ≤ Φm γ4m+2 cond qm+1 ≡ Φm O(u) cond qm+1 ,
+             |qm+1 |
+                   m
+                         Bi  u1 and where Bi is defined in (27).
+                   Q
+supposing Φm =
+                   i=0
+
+   From Corollary 1, we can observe that Φm−1 ≤ Φm . Corollary 1 gives
+the theoretical analysis of the classic qd algorithm. Now, our objective is to
+improve the error bounds by giving a new more stable algorithm.
+
+4. Compensated qd algorithm
+    In this section, we deduce the new compensated qd algorithm.
+    Firstly, in order to consider the perturbations of the approximate inputs
+                     (n)
+of the exact value q1 = cn+1cn
+                               in the qd algorithm, we split each coefficient in
+the formal power series (1), which is a real number, into three parts:
+
+                                   cn = c(h)  (l)  (m)
+                                         n + cn + cn ,                                  (40)
+           (m)             (h)    (l)              (l)                (h)   (m)
+where cn , cn ∈ R, cn , cn ∈ F and |cn | ≤ u|cn |, cn is the remaining
+mantissa. Referring to Table 1, we deem that using a double-double [33]
+           (n)       (n)                 (n)
+number (bq1 , −q  b 1 ) to approximate q1 , we can obtain more accurate initial
+               (n)
+values than qb1 = f l(cn+1 /cn ). Based on
+                                                   (h)          (l)
+                                  (n)   (n)    cn+1 + cn+1
+                                 qb1 − q
+                                       b1 ≈         (h)         (l)
+                                                                      ,
+                                                   cn + cn
+we utilize the double-double division arithmetic (Algorithm 12 in Appendix
+              (n)     (n)
+A) to get (b       b 1 ). Then, by using u2 instead of u (the approximate
+             q1 , −q
+                                                                       3u2
+rounding unit in double-double arithmetic [33]) in Definition 1, from 1−3u 2 ≤
+ 2
+γ2 , we have
+                            (n)    (n) (n)         (n)
+                          |b    b 1 − q1 | ≤ γ22 |q1 |,
+                           q1 − q                                        (41)
+
+                                              17
+in double-double arithmetic.
+    Secondly, we deduce the compensated terms of outputs in each inner
+loop (8) of the qd algorithm. In the inner loop of the qd algorithm, the
+computations in floating-point arithmetic are present in (13). By using EFTs,
+we can take into account the rounding errors generated on each operation
+and compensate them back to the original computed results to improve their
+accuracy:
+                         (n+1)     (n)                                      (n+1)
+      [s, µ1 ] = TwoSum(b
+                        qm     , −b
+                                  qm   ),        e(n)
+                                                [bm , µ2 ] = TwoSum(s, e
+                                                                       bm−1 ),       (42)
+
+and
+                                                (n)
+                        e(n+1)
+      [t, µ3 ] = DivRem(bm
+                                   (n)
+                               , ebm   ),     [b                          (n+1)
+                                               qm+1 , µ4 ] = TwoProd(t, qbm     ).   (43)
+
+By Theorem 1 and Theorem 2, we have
+                                              (n+1)     (n)
+                                   s + µ1 = qbm     − qbm   ,
+                                                      (n+1)
+                                                                                     (44)
+                                eb(n)
+                                  m + µ2 = s + e
+                                               bm−1 ,
+and
+                               t × eb(n)      b(n+1)
+                                     m + µ3 = e m    ,
+                                    (n)              (n+1)
+                                                                                     (45)
+                                  qbm+1 + µ4 = t × qbm     .
+                (n)
+Computing ebm with the perturbed inputs, from (4), (9) and (44), we can
+                                        (n)
+easily obtain the compensated term of ebm , given by
+                                                      (n+1)
+                      e(n)   (n+1)
+                        m = qm
+                                        (n)
+                                    − qm   + em−1 − µ1 − µ2 .                      (46)
+                                                                              (n)
+Therefore, we can obtain the approximate compensated term of ebm in floating-
+point arithmetic as
+                                                      (n+1)
+                      b (n)
+                      e    b (n+1)
+                        m ≈ q m            b (n)
+                                            q m ⊕ e
+                                                   b m−1        µ1   µ2 .            (47)
+                        (n)
+When computing qbm+1 with perturbed inputs, from (45) we obtain that
+                       (n)
+                      qbm+1 eb(n)
+                              m + µ3 q
+                                     bm(n+1)
+                                             + µ4 eb(n)
+                                                    m = q
+                                                        bm(n+1) (n+1)
+                                                               ebm ,
+
+then by (5) and (9), we have
+          (n)            (n)
+  e(n)         (n)
+   m qm+1 + em q
+                               (n+1)
+                   bm+1 + µ3 qbm     + µ4 eb(n)   (n+1) (n+1)
+                                            m = qm    em     + e(n+1)
+                                                                  m
+                                                                          (n+1)
+                                                                        qbm     .
+
+                                              18
+                                                          (n)
+Therefore, we obtain the compensated term of qbm+1 , that is
+    (n)        (n+1) (n+1)       (n+1) (n+1)           (n)
+                                              − e(n)             (n+1)
+                                                                        − µ4 eb(n)
+                                                                                     (n)
+ qm+1 = qm         em    + em      qbm         m q bm+1 − µ3 qbm              m /em .
+                                                                                       (48)
+                                                           (n)
+Hence, the approximate compensated term of qbm+1 in floating-point arith-
+metic can be obtained from
+   (n)                                                     (n)
+            b (n+1)   e(n+1)   b (n+1)     (n+1)
+                                                 b (n)                (n+1)
+                                                                                     e(n)
+                                                                                           (n)
+ b m+1 ≈ q
+q            m     ⊗b  m    ⊕e m     ⊗bqm      em ⊗b  qm+1 µ3 ⊗b  qm         µ4 ⊗b m     ebm .
+                                                                                       (49)
+                               (n)        (n)                               (n)        (n)
+           b (n)
+     Since em − e b (n)
+                      m and q bm+1 − q b m+1 are more accurate than ebm and qbm+1 ,
+respectively, we use FastTwoSum (see Algorithm 4 in Appendix A) to update
+                          (n)       (n)
+the computed values ebm and qbm+1 in each inner loop (8) of the qd algorithm
+in floating-point arithmetic with the compensated terms e            b (n)
+                                                                        m in (47) and
+   (n)
+q
+ b m+1 in (49). The updated results, the floating-point numbers rounding
+to working precision, are expected to be more accurate than the original
+results. Based on the discussion above, we propose the new compensated
+qd algorithm, Compqd (Algorithm 2), which improves the accuracy of the
+classical qd algorithm with a reasonable increment in the CPU time.
+
+Algorithm 2. Compqd
+                 (n)           (n)
+      input: eb0 = 0, e0 = 0, n = 1, 2, ...
+                 (n)       (n)                   (h)     (l)     (h) (l)
+               q1 , −q
+              [b        b 1 ] = Div dd dd(cn+1 , cn+1 , cn , cn ), n = 0, 1, ...
+      output: qd scheme
+      for m = 1, 2, ...
+         for n = 0, 1, ...
+                                    (n+1)      (n)
+             [s, µ1 ] = TwoSum(b   qm , −b    qm )
+               (n)                        (n+1)
+             [b
+              em , µ2 ] = TwoSum(s, ebm−1 )
+                                               (n+1)
+              b (n)
+             e m = q b (n+1)
+                           m       q
+                                    bm(n)
+                                          ⊕ e
+                                             b m−1        µ1 µ2
+               (n)        (n)                      (n)
+              em , −e
+             [b        b m ] = FastTwoSum(b      em , −e   b (n)
+                                                              m )
+                                    (n+1) (n)
+             [t, µ3 ] = DivRem(b   em , ebm )
+                (n)                          (n+1)
+             [b
+              qm+1 , µ4 ] = TwoProd(t, qbm )
+                (n)                    (n+1)                    (n+1)            (n)
+             q
+             b m+1 = q    b (n+1)
+                              m    ⊗ ebm ⊕ e    b (n+1)
+                                                   m       ⊗ qbm         b (n)
+                                                                         e m ⊗q
+                                                                               bm+1 µ3 ⊗
+  (n+1)          (n)      (n)
+qbm      µ4 ⊗ ebm        ebm
+                (n)         (n)                        (n)         (n)
+              qm+1 , −q
+             [b         b m+1 ] = FastTwoSum(b       qm+1 , −q  b m+1 )
+         end
+      end
+
+                                            19
+The Compqd algorithm requires 69 flops in the inner loop.
+                                                                (n)      (n)
+   We remark that if ci ∈ F for i = 0, 1, 2 . . ., the inputs qb1 and q
+                                                                      b 1 of
+Compqd can be obtained with
+                    (n)                                                 (n)
+                  [b
+                   q1 , r] = DivRem(cn+1 , cn ),                 −q
+                                                                  b1 = r            cn .               (50)
+                                                         (n)        (n)
+    Moreover, it must be noticed that ebm and qbm+1 in the Compqd algorithm
+are different from those in qd algorithm in floating-point arithmetic, because
+here we use FastTwoSum to update the computed values in each inner loop.
+
+5. Error analysis of Compqd algorithm
+    In a similar way as the error analysis of qd algorithm, we first present
+the error analysis for the following inner loop of the Compqd algorithm in
+floating-point arithmetic in Subsection 5.1, in which bold characters mean
+the ‘outputs’ and the rest mean the ‘inputs’:
+                                 (n)
+                                   b (n)
+                             qbm , q m
+          (n+1)    (n+1)                                  (n)
+        ebm−1 , e
+                b m−1                                         b (n)
+                                                         em , e m
+                                                                                                       (51)
+                                                         b
+                            (n+1)
+                           qbm           b (n+1)
+                                       , q m                                 b(n)
+                                                                              q        b (n)
+                                                                                m+1 , q m+1
+                                                     (n+1)         (n+1)
+                                                   ebm         , e
+                                                                 bm
+                                                                                               (n+1)    (n)
+For details, the inputs of the first step in the inner loop (51) are ebm−1 , qbm ,
+  (n+1)     (n+1)                                                    (n)
+qbm , e  b m−1 , qb (n)
+                      m and q   b (n+1)
+                                   m     , while the outputs are b  em and e  b (n)
+                                                                                 m . The
+                                          (n)        (n)                              (n+1)
+outputs of the second step are q       bm+1 and q b m+1 , while the inputs are qbm         ,
+  (n)   (n+1)     (n+1)     (n)           (n+1)
+em , ebm , q
+b              b m , e   b m , and e bm .
+                                                                (n)                  (n)
+     In Subsection 5.2, the rounding error bounds of ebm − e           b (n)
+                                                                          m and q  bm+1 −
+   (n)
+q
+ b m+1 from Compqd are obtained by using mathematical induction. Then, we
+                                                               (n)         (n)
+finally give the rounding error bounds of the terms ebm and qbm+1 of Compqd
+updated by FastTwoSum.
+     In this section, we denote the perturbations of the approximate compen-
+                             (n)                           (n)         (n)
+sated terms e b (n)
+                  m and q b m+1 in (47) and (49) by em and qm+1 , respectively,
+which satisfy
+                                     (n)
+                                   e
+                                   bm    = e(n)    (n)
+                                             m + em ,
+                                       (n)         (n)            (n)
+                                                                                                       (52)
+                                 q
+                                 b m+1 = qm+1 + qm+1 ,
+
+                                                   20
+          (n)             (n)                                                                     (n)   (n)
+where em and qm+1 are defined in (46) and (48). Just like em and qm+1
+                               (n)     (n)      (n)       (n)
+are the compensated terms of ebm and qbm+1 , em and qm+1 are the com-
+                             (n)
+                  b (n)
+pensated terms of em and q
+                           b m+1 . Then, from (9) and (52), we have
+
+                                       e(n)    (n)
+                                        m − em = e
+                                                    (n)
+                                                   bm     b (n)
+                                                        − em ,
+                                      (n)            (n)          (n)               (n)
+                                                                                                        (53)
+                                  qm+1 − qm+1 = qbm+1 − q
+                                                          b m+1 .
+                (n)             (n)
+Note that ebm and qbm+1 in Compqd are different from those in qd algorithm
+                                                  (n)           (n)     (n)
+                                                      b (n)
+in floating-point arithmetic, but the values of ebm − e      bm+1 − q
+                                                        m and q      b m+1
+have not been changed when we use FastTwoSum in each inner loop due to
+Theorem 1.
+
+5.1. Error analysis for the inner loop of the Compqd algorithm
+    Before giving the error analysis, we note that the inputs of Compqd al-
+gorithm have been updated by using FastTwoSum, but the outputs in this
+subsection are not updated.
+    We first consider the perturbations of the floating-point inputs for the
+inner loop of Compqd in real arithmetic. Let
+                                                                         (n+1)
+                        e (n)∗
+                        em    = q
+                                 bm (n+1)
+                                            b (n)
+                                          − q     b m−1 − µ1 − µ2 ,
+                                               m + e                                                   (54)
+  (n)∗                                                                  (n)
+e m+1 = (q
+q         b (n+1)
+             m     eb(n+1)
+                     m      b (n+1)
+                           +em
+                                      (n+1)
+                                    qbm     −eb (n)
+                                                 m q bm+1 −qb (n+1)
+                                                               m     b (n+1)
+                                                                     em
+                                                                                   (n+1)
+                                                                             −µ3 qbm           (n)
+                                                                                         −µ4 ebm      e(n)
+                                                                                                   )/(b    b (n)
+                                                                                                       m −e m ),
+                                                                                          (55)
+                                          (n)∗          (n)∗                          (n)
+where it should be noticed that e      e m and q    e m+1 are different from e   e m and
+   (n)
+q
+e m+1 in (18) and (19), respectively.
+     In the following Lemma 4, we evaluate the distance between e                 e (n)∗
+                                                                                     m    and
+   (n)                            (n)∗           (n)
+em and the one between q      e m+1 and q m+1 .
+                         (n)∗                                    (n)∗
+Lemma 4. The bounds of e
+                       em     and q
+                                  e m+1 are given by
+                                                                                          (n+1)
+                       e (n)∗
+                      |e      (n)       (n+1)
+                         m − em | ≤ |qm
+                                                       (n)
+                                               | + |qm   | + |em−1 |,                               (56)
+and
+                                              (n)∗         (n)                (n)
+                                            |q
+                                             e m+1 − qm+1 | ≤ β̄m+1 ,                                  (57)
+where
+               (n+1)      (n+1)   (n+1)  (n+1)     (n)    (n)       (n+1)  (n+1)
+  (n)    (n) |qm     ||em | + |em ||qm | + |qm+1 ||em | + |qm ||em |
+β̄m+1 = dm ×                                   (n)
+                                                                                 ,
+                                             |em |
+                                                                                                        (58)
+
+                                                           21
+with
+                                                 (n)
+                                 (n)            em
+                                dm   =    (n)            (n)
+                                                               ,                    (59)
+                                         em − em
+                  (n)            (n)       (n)
+and supposing em 6= 0 and em 6= em .
+Proof. Taking into account the Compqd algorithm in real arithmetic, consid-
+ering (46), the first half of (52) and (54), we obtain that
+                                                                   (n+1)
+                    e (n)∗
+                    e      (n)    (n+1)
+                      m − em = qm
+                                              (n)
+                                         − qm   + em−1 ,                        (60)
+
+which can directly give us the first bound (56).
+   Similarly, from (48), the second half of (52) and (55), we have
+                (n+1) (n+1)    (n+1) (n+1)    (n)    (n)    (n+1) (n+1)
+   (n)∗  (n)   qm em      + em qm      − qm+1 em − qm em
+e m+1 −qm+1 =
+q                                    (n)     (n)
+                                                                        ,
+                                     em − em
+that gives us the second bound (57).
+                                            (n)∗
+   Then, we focus on the distance between e
+                                          em         b (n)
+                                                 and em and the one
+           (n)∗      (n)
+between q
+        e m+1 and q
+                  b m+1 .
+                                                                                    (n)∗
+Lemma 5. The distance between e         e (n)∗
+                                           m    and e b (n)
+                                                         m and the one between q   e m+1
+        (n)
+and qb m+1 are given by
+                                                                        (n+1)     (n+1) 
+ b (n)
+|em − e e (n)∗
+             m | ≤ γ3 γ4 |qm
+                             (n+1)      (n+1)
+                                   − qm           (n)
+                                              | + |qm         (n)
+                                                         − qm   | + |em−1 − em−1 | ,
+                                                                                     (61)
+and
+                                        (n+1)        (n+1)   (n+1)        (n+1)
+                (n)     (n)∗          |qm      − qm ||em          − em |
+            |q
+             b m+1 − q
+                     e m+1 | ≤ γ7 γ8                  (n)      (n)
+                                                                                ,    (62)
+                                                   |em − em |
+                        (n)∗
+      e (n)∗
+where em    and q
+                 e m+1 are defined in (54) and (55), respectively.
+Proof. We consider the rounding error of the approximate compensated term
+                    (n)
+b (n)
+em for computing ebm . From (7) and (47), we obtain
+                                                 (n+1)
+b (n)
+e    b (n+1)
+  m = q m                b (n)
+              (1 + θ4 ) − q               b m−1 (1 + θ3 ) − µ1 (1 + θ2 ) − µ2 (1 + θ1 ).
+                             m (1 + θ4 ) + e
+
+Then, from (54), we derive that
+                                                    (n+1)
+        b (n) e (n)∗         (n+1)
+                                        b (n)
+                                                                         
+       |em − em | ≤ γ4 |q
+                          bm       | + |q m | + |e
+                                                  b m−1 | + |µ1 | + |µ2 | .         (63)
+
+                                           22
+According to Theorem 1 and (42), we have
+              (n+1)     (n)         (n+1)       (n)
+   |µ1 | ≤ u|b
+             qm     − qbm   | ≤ u(|b
+                                   qm     | + |b
+                                               qm   |),
+               (n+1)     (n)                   (n+1)    (n+1)       (n)                 (n+1)
+   |µ2 | ≤ u|(b
+              qm     − qbm   )(1 + θ) + ebm−1 | ≤ γ1 (|b
+                                                       qm     | + |b
+                                                                   qm   | + |b
+                                                                             em−1 |).
+                                                                                   (64)
+In each inner loop of Compqd, all inputs have been updated by FastTwoSum.
+                                                                       (n+1)
+For instance, by Theorem 1, there is |q           b (n+1)
+                                                     m      | ≤ u|b   qm      − q bm (n+1)
+                                                                                            |, where
+   (n+1)                                                                          (n)           (n+1)
+q
+ bm      is the value updated. The same results come for q                    b m and e     b m−1 .
+Hence, from (53) and (64), taking into account (63) and u + 2γ1 ≤ γ3 , we
+obtain
+                                                                             (n+1)         (n+1) 
+ b (n)    e (n)∗            (n+1)       (n+1)          (n)
+                                                                b (n)
+                     
+|e m − e  m | ≤γ4 u |b  qm      − q
+                                     bm        | + |bqm     − q  m | + |b  em−1 − e   b m−1 | +
+                        (n+1)
+                                  b (n+1)          (n)
+                                                            b (n)               (n+1)
+                                                                                           b (n+1)
+                                                                   
+                  γ1 |bqm      − q m      | + |b qm   − q   m | + γ1 |b     qm       − q  m     |+
+                                       (n+1)          (n+1)
+                    (n)
+                           b (n)
+                                                              
+                  |b
+                   qm   − q  m | + |bem−1 − e    b m−1 |
+                                                                            (n+1)         (n+1) 
+                 ≤γ3 γ4 |b
+                         qm(n+1)
+                                     b (n+1)
+                                  − q m      | + |bqm(n)
+                                                           − qb (n)
+                                                                 m | + |b  em−1 − e    b m−1 |
+                           (n+1)         (n+1)          (n)         (n)        (n+1)          (n+1) 
+                 ≤γ3 γ4 |qm       − qm        | + |qm     − qm      | + |em−1 − em−1 | .
+                                                             (n)∗           (n)
+   Next, we consider the distance between q
+                                          e m+1 and qb m+1 . As just com-
+mented above, all inputs have been updated by FastTwoSum in each inner
+                        (n)   (n)          (n)
+loop of Compqd. Thus, ebm = ebm    b (n)
+                                   em = (b     b (n)
+                                          em − e m )(1 + θ1 ). Therefore,
+from (49), we have
+    (n)                                                                           (n)
+ q       b (n+1)
+ b m+1 = {q m    eb(n+1)
+                    m                 b (n+1)
+                          (1 + θ7 ) + em
+                                                (n+1)
+                                              qbm     (1 + θ7 ) − e
+                                                                  bm(n)
+                                                                        qbm+1 (1 + θ6 )−
+               (n+1)                                       (n)
+          µ3 qbm     (1 + θ5 ) − µ4 eb(n)           e(n)
+                                      m (1 + θ4 )}/(bm − e
+                                                         bm    ).
+Then, from (55), we derive that
+                       (n+1) (n+1)                       (n+1)            (n)
+    (n)     (n)∗       |q
+                        b m ||b   em | + |e b (n+1)
+                                                m     ||b
+                                                        qm | + |e b (n)
+                                                                     m ||bqm+1 |
+|q
+ b m+1 − q
+          e m+1 | ≤γ7                         (n)        (n)
+                                            |b
+                                             em − e  bm     |
+                                   (n+1)                (n)
+                                                                    b (n+1)      (n+1)
+                                                               
+                            |µ3 ||b
+                                  qm |                em |
+                                                |µ4 ||b            |em     ||q
+                                                                              bm       |
+                        + (n)          (n)
+                                           +    (n)        (n)
+                                                                 +     (n)       (n)
+                                                                                         .
+                           |b
+                            em − e  b m | |b  em − e  bm |         |b
+                                                                      em − e  bm |
+                                                                                     (65)
+                                              (n)
+Here, we consider that the output qbm+1 is not updated by using FastTwoSum.
+Hence, we have
+ (n)
+qbm+1 = eb(n+1)
+          m     eb(n)
+                  m ⊗b
+                       (n+1)
+                      qm     = eb(n+1)
+                                 m      e(n)
+                                       /bm ×b
+                                              (n+1)
+                                             qm     (1+θ2 ) ≤ eb(n+1)
+                                                                m      e(n)
+                                                                      /bm ×b
+                                                                             (n+1)
+                                                                            qm     (1+γ2 ).
+                                                                                (66)
+
+                                                23
+Then, by Theorems 1, 2 and (43), we have
+                                               (n+1)
+                                     |µ3 | ≤u|b
+                                              em     |,
+                                                    (n)
+                                                                                             (67)
+                                     |µ4 | ≤u|b
+                                              qm+1 |.
+                                                               (n+1)
+                                    b (n+1)
+Similarly, from Theorem 1, we have |q m    | ≤ u|b
+                                                  qm    b (n+1)
+                                                     − q m     |, |e
+                                                                    bm(n+1)
+                                                                            |≤
+   (n+1)      (n+1)  (n+1)   1   (n+1)      (n+1)     (n+1)       1    (n+1)
+u|b
+  em        b m |, |b
+         − e       qm | ≤ 1−u |b
+                                qm       b m | and |b
+                                       − q          em | ≤ 1−u |b    em     −
+                                        (n)       (n)                  (n+1)   (n+1)
+b (n+1)
+em      |. By (66), we also have |b
+                                   qm+1 ||b
+                                          em | ≤ (1 + γ2 )|b
+                                                           qm ||b em |.
+    Finally, from(53) and (67), taking into account (65), with γ6 γ7 + γ12 ≤
+γ7 γ8 , we obtain
+                                      (n+1)       (n+1) (n+1)      (n+1) 
+            (n)      (n)∗            |qm     − qm ||em       − em |
+        |q
+          b m+1 − q
+                  e m+1 | ≤γ7 γ6 ×                  (n)    (n)
+                                                 |em − em |
+                                              (n+1)       (n+1)     (n+1)        (n+1)
+                                            |qm       − qm      ||em      − em       |
+                                    + γ12              (n)      (n)
+                                                     |em − em |
+                                    (n+1)       (n+1)   (n+1)       (n+1)
+                                  |qm     − qm ||em          − em |
+                           ≤γ7 γ8                (n)       (n)
+                                                                          .
+                                              |em − em |
+
+
+   Now, we present the rounding error bounds from perturbed inputs in the
+inner loop (51) of Compqd.
+Lemma 6. The rounding error bounds for the inner loop (51) of the Compqd
+algorithm, considering perturbed inputs, are given by
+                                                (n+1)                                           (n+1) 
+ b (n)
+|em   −e(n)
+          m   | ≤  γ 3 γ4 |q (n+1)
+                             m     |+|q (n)
+                                        m   |+|em−1  |  +(1+γ 3 γ4 ) |q (n+1)
+                                                                          m     |+|q (n)
+                                                                                       m   |+|em−1 | ,
+                                                                                           (68)
+and
+                    (n)        (n)                  (n)                    (n)
+                 b m+1 − qm+1 | ≤ γ7 γ8 d(n)
+                |q                            m |qm+1 | + (1 + γ7 γ8 )β̄m+1 ,             (69)
+         (n)
+where β̄m+1 is defined in (58).
+Proof. From (52), we have
+
+                   b (n)
+                  |e      (n)
+                     m − em | ≤ |e
+                                  bm(n)
+                                          e (n)∗
+                                        − em | + |e
+                                                   em(n)∗    (n)
+                                                          − em   |.
+
+Hence, using (56) in Lemma 4 and (61) in Lemma 5, we can derive the first
+rounding error bound (68).
+
+                                               24
+   Next, we obtain that
+                  (n)    (n)      (n)            (n)∗           (n)∗     (n)
+            |q
+             b m+1 − qm+1 | ≤ |q
+                                b m+1 − q
+                                        e m+1 | + |q
+                                                   e m+1 − qm+1 |.
+From (5) and (62) in Lemma 5, we have that
+                                       (n+1)   (n+1)  (n+1)       (n+1)      (n+1) (n+1) 
+    (n)    (n)∗      (n)       (n)    |qm ||em | + |em ||qm | + |qm ||em |
+|q      e m+1 | ≤ dm ×γ7 γ8 |qm+1 |+
+ b m+1 −q                                                     (n)
+                                                                                           ,
+                                                             |em |
+                                                                         (70)
+                     (n)                         (n)
+        (n)         em           (n)          em
+where dm = (n) (n) with em 6= 0 and (n) 6= 1. Then, taking into
+                 em −em                      em
+account (57) in Lemma 4 and (70), we derive the second rounding error
+bound (69).
+
+5.2. Rounding error bounds of the Compqd algorithm
+    With the previous results, we proceed in a similar way as in Subsection
+                                              (n)             (n)    (n)
+3.2, obtaining the rounding error bounds of ebm −e b (n)   bm+1 −q
+                                                      m and q      b m+1 by the
+Compqd algorithm from the perturbed inputs using mathematical induction
+                                 (n)
+in Theorem 4. Here, we see ebm − e     b (n)
+                                           m as a number with high accuracy,
+                             (n)       (n)
+the same case comes with qbm+1 − q  b m+1 . After that, we study the rounding
+                  (n)      (n)
+error bounds of ebm and qbm+1 updated by FastTwoSum which will be shown
+in Theorem 5.
+                                                                   (n)           (n)
+Theorem 4. The forward rounding error bounds of ebm − e    b (n)
+                                                              m and qbm+1 −
+   (n)
+b m+1 from the Compqd algorithm, in the real coefficients case (ci ∈ R), are
+q
+given by
+                                m−1
+                                 Y 
+            (n)    (n)   (n)
+          |b
+           em − e
+                 b m − em | ≤        Di × γ11m−5 γ11m−4 |ē(n)
+                                                             m |,       (71)
+                                      i=0
+
+and                                          m
+                                            Y          
+              (n)      (n)   (n)                               2         (n)
+            |b
+             qm+1 − q
+                    b m+1 − qm+1 | ≤               Di       × γ11m+2 |q̄m+1 |,     (72)
+                                             i=0
+with
+                   Dm = max d(n)∗             (n)∗
+                                                   = max d(n)
+                                                       
+                             m    ,          dm           m ,1 ,                   (73)
+                         n
+            (n)                       (n)           (n)
+and where dm is defined in (59), ēm and q̄m+1 are defined in Definition 2,
+              m                        (n)
+                           (n)
+                Di  u1 , em 6= 0, e(n)
+              Q
+and supposing                          m
+                                           6= 1. The initial values are given
+               i=1                          em
+    (n)      (n)   (n)  (n)
+by d0 = 1, q̄1 = q1 , ē0 = 0.
+
+                                        25
+                                                                              (n)         (n)     (n)         (n)
+Proof. It is easy to see that Dm ≥ 1, Dm ≥ dm , |em | ≤ |ēm | and |qm+1 | ≤
+   (n)
+|q̄m+1 |, ∀m, n ∈ N.
+                                                                       (n)
+     Step 1: When m = 0, we consider the perturbations of the inputs qb1 −
+   (n)
+q
+ b 1 . From (41) and (53), we obtain
+                        (n)         (n)         (n)          (n)                    (n)           (n)
+                 |q1 | = |b    b 1 − q1 | ≤ γ22 |q1 | ≤ γ22 |q̄1 |.
+                            q1 − q                                                                                 (74)
+                                          (n)
+   Step 2: For m = 1, as e0 = 0, according to (68) in Lemma 6 and (74),
+from (52) we have
+                 (n)                            (n)              (n)
+             |e1 | ≤ γ3 γ4 + γ22 (1 + γ3 γ4 ) |ē1 | ≤ γ5 γ6 |ē1 |,
+       (n)        (n+1)             (n)
+where ē1 = |q1   | + |q1 |.
+                         (n)
+  Besides, considering β̄2 in Lemma 6 which is defined in (58), we obtain
+                          (n+1)                          (n)                  (n+1)      (n+1)       
+   (n)    (n)           |ē1     | (n)  2 (n)          |ē1 | (n)    2      |q̄1     | |ē1     | (n)
+|β̄2 | ≤ d1 ×      γ5 γ6 (n+1) |q2 | + γ2 |q2 | + γ5 γ6 (n) |q2 | + γ2 γ5 γ6 (n+1) (n+1) |q2 |
+                        |e1      |                     |e1 |                |q1      | |e1      |
+                        (n)
+     ≤ D1 γ5 γ6 |q̄2 |,
+                                                                                                                    (75)
+                  (n+1)                    (n) 
+       (n)       |ē1         |           |ē1 |       (n)
+with q̄2 =         (n+1)
+                                  +1+       (n)
+                                                      |q2 |. Hence, from (52), (69) in Lemma 6
+                 |e1     |                |e1 |
+and (75), we derive
+                                                                       (n+1)                    (n) 
+     (n)          (n)                                                  |ē1         |           |ē1 |      (n)
+ |q2 | ≤       d1 γ7 γ8 + D1 γ5 γ6 (1 + γ7 γ8 )                       (n+1)
+                                                                                        +1+       (n)
+                                                                                                           |q2 |
+                                                                      |e1     |                 |e1 |
+                                                                     (n)                                           (76)
+         ≤ D1 × γ7 γ8 + γ5 γ6 (1 + γ7 γ8 )                         |q̄2 |
+               2          (n)
+         ≤ D1 γ13 |q̄2 |.
+
+   Step 3: For m = 2, due to D1 ≥ 1, we obtain in a similar way
+                   (n)              2                  (n)
+               |e2 | ≤ γ3 γ4 + D1 γ13 (1 + γ3 γ4 ) |ē2 |
+                                        2                  (n)
+                       ≤ D1 × γ3 γ4 + γ13  (1 + γ3 γ4 ) |ē2 |                                                      (77)
+                                                        (n)
+                                   ≤ D1 γ16 γ17 |ē2 |,
+       (n)        (n+1)             (n)         (n+1)
+where ē2 = |q̄2              | + |q̄2 | + |ē1         |.
+
+                                                        26
+   Again, for the next step, as D1  u1 , from (69) in Lemma 6, (76) and
+(77), we have
+                                  (n+1)                (n+1)
+      (n)    (n)                |ē2     | (n)     2 |q̄2      | (n)
+   |β̄3 | ≤ d2 × D1 γ16 γ17 (n+1) |q3 | + D1 γ13 (n+1) |q3 |
+                                |e2      |           |q2       |
+                             (n)                             (n+1)      (n+1)       
+                          |ē2 | (n)           2 2        |q̄2     | |ē2     | (n)
+              + D1 γ16 γ17 (n) |q3 | + (D1 ) γ13 γ16 γ17 (n+1) (n+1) |q3 |
+                          |e2 |                           |q2      | |e2      |
+                                    (n)
+            ≤ D1 D2 γ16 γ17 |q̄3 |,
+                                                                                                                             (78)
+                                                                       (n+1)                (n+1)                  (n) 
+                                      (n)                 (n)         |ē2         |       |q̄2         |         |ē2 |     (n)
+where D2 ≥ 1, D2 ≥                   d2      and        q̄3 =           (n+1)
+                                                                                       +     (n+1)
+                                                                                                            +       (n)
+                                                                                                                            |q3 |.
+                                                                      |e2     |            |q2     |              |e2 |
+Hence, from (52), (69) in Lemma 6 and (78), we derive
+                      (n)          (n)        (n)                                                           (n)
+                  |q3 | ≤ d2 γ7 γ8 |q3 | + D1 D2 γ16 γ17 (1 + γ7 γ8 )|q̄3 |
+                                                                 (n)
+                          ≤ D1 D2 γ7 γ8 + γ16 γ17 (1 + γ7 γ8 ) |q̄3 |
+                                     2            (n)
+                            ≤ D1 D2 γ24 |q̄3 |.
+       Step 4: In the general case, for k ∈ N, and when m = k, we assume that
+                                             k−1
+                                              Y 
+             (n)     (n)   (n)        (n)                             (n)
+           |b
+            ek − eb k − ek | = |ek | ≤         Di γ11k−5 γ11k−4 |ēk |,
+                                                                  i=0
+
+and
+                                                                       k
+                                                                      Y             
+               (n)      (n)   (n)         (n)                                          2        (n)
+             |b
+              qk+1 − q
+                     b k+1 − qk+1 | = |qk+1 | ≤                                  Di γ11k+2 |q̄k+1 |,
+                                                                             i=0
+                                                        (n)
+           (n)∗             (n)∗                      ei                        (n)∗     (n)
+where d0          = 1, di          = max            (n)     (n)   , 1 , Di = max di    , ēk and
+                                                   ei −ei                                   n
+ (n)
+q̄k+1 are defined in (28) and (29), respectively.
+    Then, in a similar way, for m = k + 1, according to (53), (68) in Lemma
+6, (71), (72) and (28), we have
+                                     Y k                      
+      (n)      (n)    (n)                         2                  (n)
+    |b
+     ek+1 − e
+             b k+1 − ek+1 | ≤ γ3 γ4 +      Di γ11k+2 (1 + γ3 γ4 ) |ēk+1 |
+                                                            i=0
+                                          k
+                                         Y                                                                                 (79)
+                                                                                                  (n)
+                                    ≤             Di γ11(k+1)−5 γ11(k+1)−4 |ēk+1 |.
+                                            i=0
+
+
+                                                            27
+                             k
+                                 Di  u1 , from (69) in Lemma 6, (72), (79) and (29),
+                             Q
+Next, by considering
+                         i=0
+we derive
+                   k                                      (n+1)     (n+1)
+                                                         |ēk+1 ||q̄k+1 | (n)
+                  Y             
+   (n)      (n)                                    (n)     2
+|β̄k+2 | ≤ dk+1     Di × γ11k+5 γ11k+6 (n+1) |qk+2 | + γ11k+2 (n+1) |qk+2 |
+                i=0                       |ek+1 |                |qk+1 |
+                             (n)             k                              (n+1)    (n+1)
+                          |ēk+1 | (n)                                   |q̄k+1 | |ēk+1 | (n)
+                                          Y                                                  
+                                                     2
+           + γ11k+5 γ11k+6 (n) |qk+2 | +        Di γ11k+2 γ11k+5 γ11k+6 (n+1) (n+1) |qk+2 |
+                          |ek+1 |           i=0                          |qk+1 | |ek+1 |
+          k+1
+           Y      
+                                   (n)
+       ≤       Di γ11k+5 γ11k+6 |q̄k+2 |,
+           i=0
+                                                                                                (80)
+
+Hence, from (53), (69) in Lemma 6 and (80), we finally obtain
+                                                          k+1
+                                                           Y        
+  (n)      (n)   (n)      (n)         (n)                                                         (n)
+|b
+ qk+2 − q
+        b k+2 − qk+2 | ≤ dk+1 γ7 γ8 |qk+2 | +                     Di γ11k+5 γ11k+6 (1 + γ7 γ8 )|q̄k+2 |
+                                                            i=0
+                              k+1
+                               Y             
+                                                                                         (n)
+                         ≤              Di        γ7 γ8 + γ11k+5 γ11k+6 (1 + γ7 γ8 ) |q̄k+2 |
+                                  i=0
+                              k+1
+                               Y          
+                                            2            (n)
+                         ≤              Di γ11(k+1)+2 |q̄k+2 |.
+                                  i=0
+
+And therefore, by induction we obtain the result.
+    We remark that if ci ∈ F for i = 0, 1, 2 . . . in Algorithm 2, as described
+                                                      (n)      (n)
+in (50) in Section 4, the perturbations of inputs qb1 and q b 1 in Compqd are
+slightly different. From Theorem 2, we have
+                                    (n)      cn+1     (n)  r
+                                  q1 =            = qb1 + ,
+                                              cn          cn
+and
+                                    r    cn+1      (n)
+                                      ≤u      = u|q1 |.
+                                   cn     cn
+Thus, we obtain that
+
+             (n)       (n)        (n)         r                         r         (n)
+            |b
+             q1 − q
+                  b 1 − q1 | =                  −r         cn ≤ γ1        ≤ uγ1 |q1 |.          (81)
+                                             cn                        cn
+
+                                                    28
+In a similar way as the proof of Theorem 5, using (81) instead of (74), we can
+                                               (n)             (n)      (n)
+obtain the forward rounding error bounds of ebm − eb (n)
+                                                      m and q bm+1 − q
+                                                                      b m+1 in
+Compqd as
+                                   m−1
+                                    Y 
+              (n)     (n)  (n)
+            |b
+             em − eb m − em | ≤        Di × γ11m−5 γ11m−6 |ē(n)
+                                                              m |,
+                                       i=0
+
+and                                       m
+                                         Y                
+              (n)      (n)   (n)                                  2        (n)
+            |b
+             qm+1 − q
+                    b m+1 − qm+1 | ≤                  Di       × γ11m+1 |q̄m+1 |.
+                                              i=0
+                                                                                    (n)   (n)
+   Finally, we will give the forward rounding error bounds of ebm and qbm+1
+updated in Compqd in Theorem 5.
+Theorem 5. The forward rounding error bounds for the Compqd algorithm,
+in the real coefficients case (ci ∈ R), are given by
+                                         m−1
+                                          Y 
+                 (n)    (n)       (n)                2
+               |b
+                em − em | ≤ u|em | +          Di × γ11m−4 |ē(n)
+                                                             m |,
+                                             i=0
+
+and                                    m
+                                      Y              
+          (n)    (n)        (n)                                                  (n)
+        |b
+         qm+1 − qm+1 | ≤ u|qm+1 | +              Di       × γ11m+2 γ11m+3 |q̄m+1 |,
+                                         i=0
+                                           m
+                                                                                    (n)   (n)
+                                                   Di  u1 , and where ēm and q̄m+1
+                                           Q
+with Di defined in (73) and supposing
+                                             i=1
+are defined in Definition 2.
+Proof. In Compqd algorithm, by using FastTwoSum to update the result, from
+Theorem 1, and (53), we have
+
+       b (n)
+      |e        e(n)
+         m | ≤ u|b    b (n)
+                  m − e
+                                  (n)    (n)       (n)       (n)
+                         m | ≤ u|em − em | ≤ u(|em | + |em |).                        (82)
+Thus, by (71) in Theorem 4 and (82), we obtain
+
+         e(n)
+        |b     (n)
+                     e(n)
+          m − em | ≤|bm − eb (n)  (n)
+                                          b (n)
+                              m − em | + |em |
+                                     m−1
+                                       Y 
+                        (n)                                     (n)
+                   ≤u|em | + (1 + u)      Di × γ11m−5 γ11m−4 |ēm   |
+                                             i=0
+                                m−1
+                                 Y           
+                    ≤u|e(n)
+                        m |+           Di           2
+                                                 × γ11m−4 |ē(n)
+                                                             m |.
+                                 i=0
+
+
+                                        29
+   Similarly, by (72) in Theorem 4, we obtain
+                (n)       (n)        (n)        (n)      (n)             (n)
+             |b
+              qm+1 − qm+1 | ≤|b
+                              qm+1 − q
+                                      b m+1 − qm+1 | + |q
+                                                        b m+1 |
+                                               Ym     
+                                (n)                          2      (n)
+                            ≤u|qm+1 | + (1 + u)      Di × γ11m+2 |q̄m+1 |
+                                                             i=0
+                                                 m
+                                                Y           
+                                      (n)                                           (n)
+                                  ≤u|qm+1 | +           Di       × γ11m+2 γ11m+3 |q̄m+1 |.
+                                                  i=0
+
+
+
+
+    Therefore, from the condition numbers given in Definition 2, we obtain
+directly the relative forward rounding error bounds of the Compqd algorithm
+considering the perturbed inputs:
+
+Corollary 2. The relative forward rounding error bounds for the Compqd
+algorithm, in the real coefficients case (ci ∈ R), are given by
+       (n)       (n)
+   |b
+    em − em |                      2
+          (n)
+                       ≤ u + Ψm−1 γ11m−4 cond e(n)             2        (n)
+                                               m ≡ u + Ψm−1 O(u ) cond em ,
+        |em |
+
+and
+ (n)         (n)
+ qm+1 − qm+1 |
+|b                                                               (n)                         (n)
+        (n)
+                       ≤ u + Ψm γ11m+2 γ11m+3 cond qm+1 ≡ u + Ψm O(u2 ) cond qm+1 ,
+      |qm+1 |
+                         m
+                               Di  u1 and where Di is defined in (73).
+                         Q
+supposing Ψm =
+                         i=0
+
+    In Corollary 2, it should be noticed that Ψm−1 ≤ Ψm . Comparing with
+Corollary 1, we remark that Corollary 2 states that the Compqd algorithm is
+more accurate than the qd. In fact, the effect of the compensated algorithm
+is to multiply the condition numbers by u2 instead by u as in Corollary 1.
+This fact permits, using Compqd, to continue with the qd table for more
+rows than using the standard algorithm as the instabilities given by the
+condition numbers will appear later. Note that, in opposite to the case of
+using double-double arithmetic, the rounding unit is always u (u2 in double-
+double approximately) but the stability is similar.
+
+
+
+                                                  30
+6. Numerical experiments
+    In this section we study the accuracy, performance and application of
+the proposed algorithm. In Subsection 6.1, we compare the accuracy of qd,
+compqd and DDqd algorithms (qd algorithm in double-double format based
+on the QD library [32, 33, 34]). Meanwhile, we also present the error bounds
+of the qd and Compqd algorithms. In Subsection 6.2, the computational
+complexity of the above algorithms is given. We also show the performance
+of qd, Compqd and DDqd in terms of running time. In Subsection 6.3, we
+give three simple applications to show the effectiveness of Compqd, including
+the obtention of the coefficients of continued fractions from power series, the
+search of the poles of meromorphic functions and the zeros of polynomials.
+Note that the working precision of our experiments is the standard IEEE-754
+double precision. We use the Symbolic Toolbox in Matlab to obtain the
+‘exact’ results for comparisons.
+
+6.1. Accuracy
+    Firstly, we consider, as test problems, several polynomials of degree N-1
+(with N = 10 : 7 : 500) whose coefficients are random floating-point numbers
+uniformly distributed in the interval (−1, 1).
+                                                                    (n)
+    In Figure 2 we consider the relative errors of all the terms qm for each
+polynomial of degree N . On the vertical axis we plot the maximum relative
+                                       (n)    (n)   (n)
+errors on the q columns max max{|qm − qbm |/|qm |} for m = 1 : [(N + 1)/2]
+                           m     n
+and n = 0 : N − 2m + 1 for N = 10 : 7 : 500 using the qd and Compqd
+algorithms. As we can see, in some cases the results of qd algorithm have no
+significant digit, and the relative errors of qd increase with N . However, the
+                                  (n)
+maximum relative errors of all qm for each polynomial of degree N computed
+by the Compqd algorithm are in all cases smaller than 10−15 . Hence, Compqd
+is much more stable than qd with floating-point inputs.
+    Next, we consider the forward relative errors of qd tables computed by
+using the qd, Compqd and DDqd (Algorithm 13 in Appendix A) algorithms. In
+                            (n)
+order to get the inputs of q1 , we consider the Taylor polynomial of degree 35
+obtained by using the code Taylor(f(x),N) in Matlab from the function
+                                     ex
+                                                     .                    (83)
+                        (x − 1)(x − 2)(x + 2)(x − 3)
+For accuracy, we approximate the real coefficients ci of the test polynomial
+                                  (h) (l)
+by using double-double numbers (ci , ci ) from (40). We use double(ci )
+
+                                      31
+                                                      qd
+Maximum relative errors of qd and compqd
+
+
+                                                      Compqd
+                                                0
+                                           10
+
+
+
+
+                                                −5
+                                           10
+
+
+
+
+                                                −10
+                                           10
+
+
+
+
+                                            −15
+                                     10
+
+
+                                                      50       100   150   200    250     300         350         400     450   500
+                                                                                      N
+
+
+                                                                                                            (n)     (n)   (n)
+Figure 2: Maximum relative errors on the q columns (max max{|qm − qbm |/|qm |}) using
+                                                     m   n
+the qd and Compqd algorithms.
+
+                                                                                                (h)           (l)
+and double(ci -sym(double(ci ))) to represent ci and ci in Matlab, re-
+                                                         (n)     (n)
+spectively. The condition numbers of computing em and qm introduced in
+Definition 2 verify the relationship shown in Figure 1. Including the corre-
+sponding relative error bounds of qd and Compqd described in Corollary 1
+and Corollary 2, the forward relative errors of qd, Compqd and DDqd are re-
+                                               (n)          (n)
+ported in Figure 3 for computing the terms em and qm+1 , respectively. Here,
+Φ17 ≈ 273.26 is the largest Φi for i = 0, 1, 2 · · · , 17, and the same case hap-
+pens to Ψ17 ≈ 63.13 in our numerical test, which means the terms Φm and
+Ψm , in Corollary 1 and Corollary 2, respectively, are reasonable in size.
+    In Figure 3, we can observe that the qd algorithm is unstable, and its
+relative error increases linearly (in logarithmic scale) when the condition
+number is smaller than 1/u ≈ 1016 . As expected, Compqd is more stable, and
+its relative errors are equal to or smaller than the working precision u when
+the condition number is smaller than 1/u, and its relative error increases
+linearly when the condition numbers are between 1/u and 1/u2 . Obviously,
+when N is extremely large, Compqd will not obtain accurate results, but it
+permits to compute accurately qd tables of reasonable size. Moreover, DDqd
+has almost the same accuracy as Compqd. We remark the good agreement
+
+                                                                                 32
+                                      qd
+                                      Compqd
+                                      DDqd
+                                0
+                               10
+                                                                  (n)
+                                                              _e m
+Relative forward errors of e
+
+
+
+
+                                                           nd
+                                                         co                                                         ( n)
+                                                  γ 4m                                                             e m
+                                −5
+                                             Φ m−
+                                                 1                                                             d_
+                               10                                                                        c   on
+                                                                                                2       −4
+                                                                                                γ 1 1m
+                                                                                              1
+                                                                                         Ψ m−
+                                                                                       u+
+                                −10
+                               10
+
+
+
+                                −15
+                               10
+
+
+
+                                      10 5                 10 10              10 15                  10 20                  10 25   10 30   10 35
+                                                                                Condition numbers of e
+
+
+                                      qd
+                                      Compqd
+                                      DDqd
+                                0
+                               10
+                                                              (n) 1
+Relative forward errors of q
+
+
+
+
+                                                             q m+
+                                                           d_                                                       (n) 1
+                                                     c   on                                                        q m+
+                                                                                                               _
+                                −5                  2                                                       nd
+                               10             γ 4m+                                                      co
+                                             Φm                                                      +3
+                                                                                                γ 11m
+                                                                                              2
+                                                                                     γ 11   m+
+                                                                                    Ψm
+                                −10                                               u+
+                               10
+
+
+
+                                −15
+                               10
+
+
+
+                                      10 5                 10 10              10 15                  10 20                  10 25   10 30   10 35
+                                                                                  Condition numbers of q
+
+
+                                                                        (n)           (n)
+Figure 3: Accuracy of terms em and qm+1 computed with the qd, Compqd and DDqd algo-
+rithms with respect to the condition numbers: real errors (dotted points) and theoretical
+bounds (continuous lines).
+
+
+of the numerical tests and the theoretical bounds obtained in the previous
+sections (Corollary 1 and Corollary 2).
+
+
+
+                                                                                            33
+6.2. Computational complexity and running time performance
+      Another important point is related with the CPU time. In this subsec-
+tion, we show the computational complexity of the qd, Compqd and DDqd
+algorithms, together with their practical performance in terms of running
+time.
+                                                                 (n)
+      Firstly, we assume that the initialization of the column q1 requires Finput
+                           (n)       (n)
+flops, and computing em and qm+1 by qd scheme (6) requires Fe and Fq
+flops in the inner loop (8), respectively. It is easy to see that Fe = Fq = 2
+and Finput = 1 flops in qd. From Algorithms 2, 3, 4, 6, 7 and 12 (see
+Appendix A), we obtain that Fe = 19, Fq = 50 and Finput = 100 flops in
+Compqd. Similarly, from Algorithms 9, 11, 12 and 13 (see Appendix A),
+we have Fe = 40, Fq = 124 and Finput = 100 flops in DDqd. Then, the
+                                                                         (n)
+computational complexity of all the algorithms needed for computing em and
+  (n)
+qm+1 is m2 Fe +m(m−1)Fq +2mFinput and m2 Fq +m(m+1)Fe +(2m+1)Finput
+flops, respectively. Hence, we can derive the total computational complexity
+                                                             (n)
+of the qd, Compqd and DDqd algorithms for computing em :
+
+   • qd: 4m2 flops,
+
+   • Compqd: 69m2 + 150m flops,
+
+   • DDqd: 164m2 + 76m flops,
+                      (n)
+and for computing qm+1 :
+
+   • qd: 4m2 + 4m + 1 flops,
+
+   • Compqd: 69m2 + 219m + 100 flops,
+
+   • DDqd: 164m2 + 240m + 100 flops.
+
+    We have measured the average ratios of the required flops of Compqd and
+                                       (n)       (n)
+DDqd over that of qd for computing em and qm+1 for m = 50 : 5 : 1000
+                                          (n)      (n)
+in Table 2. The ratios for computing em and qm+1 are almost the same.
+We can observe that Compqd has only 17 times the theoretical complexity
+of qd, while DDqd has 41 times. Therefore, although Compqd algorithm has
+nearly the same accuracy as the DDqd one, it requires on the average about
+42.11% of flop counts of DDqd, and moreover, it is not required to use any
+different or extended arithmetic in the algorithm. This fact gives one of the
+
+
+                                       34
+Table 2: Theoretical flop count ratios and measured running time ratios for computing
+ (n)     (n)
+em and qm+1 .
+                          Compqd/qd           DDqd/qd Compqd/DDqd
+              Theoretical   17.24              40.95     42.11%
+               Measured      3.33              12.11     27.53%
+
+
+greatest advantages of using the Compqd algorithm, it has almost double-
+double precision without using extended arithmetic and it is much faster.
+    Besides, we compare qd, Compqd and DDqd in terms of measured comput-
+ing time. The tests are performed on a PC with a Intel(R) Core(TM) i7-4790
+processor, with four cores each at 3.60Ghz and 4GB of main memory. The
+testing environment is under the gcc compiler, version 4.6.3, with the com-
+piler option -o2 on Linux Ubuntu 12.04. We generate the test polynomials
+with random coefficients in the interval [−1, 1], whose degrees vary from 50
+to 1000 by the step of 5. The average time ratios of Compqd/qd and DDqd/qd
+                 (n)     (n)
+for computing em or qm+1 are reported in Table 2. Compared with the the-
+oretical flop ratios, the measured running time ratios are obviously smaller
+than the theoretical flop count ones. This phenomenon is reasonable because
+the tested algorithms take benefit from the instruction level parallelism (ILP)
+[30, 35] and the Fused-Multiply-and-Add instruction (FMA) [36, 37]. It is
+reasonable that Compqd runs faster than DDqd since compensated algorithms
+present more ILP than the algorithms computed in double-double arithmetic.
+In fact, now the increment in the measured time is just around 3.3 times,
+meaning that the Compqd algorithm provides a reasonable accurate version
+of the qd algorithm.
+
+6.3. Applications
+    To illustrate the effectiveness and accuracy of Compqd in more complex
+algorithms, we present its use in three simple but important applications.
+
+6.3.1. Computation of continued fractions
+    In literature [7] there are several algorithms developed to construct differ-
+ent continued fraction representations or approximations of functions. The
+qd algorithm constructs C-fractions from formal power series at x = 0. Note
+that a C-fraction is intimately connected with Padé approximants, since its
+successive approximants equal Padé approximants on a staircase in the Padé
+table.
+
+                                         35
+   Given a formal power series (1), there exists precisely one corresponding
+continued fraction of the form (a regular C-fraction)
+                               a1 z                 ∞
+                                                        a z 
+                                                           m
+            f (z) = a0 +
+                         1+
+                                  a2 z
+                                          ≡ a0 +    m=1     1
+                                                                ,       (84)                       K
+                                     a3 z
+                             1+
+                                  1 + ···
+                                                                                             (1)               (2)
+if and only if the Hankel determinants Hm 6= 0 and Hm 6= 0 for m ∈ N
+(see more details in [7, 8]). One algorithm shown in Theorem 6 to obtain the
+coefficients of the regular C-fraction (84) is based directly on the qd scheme.
+Theorem 6. [8] Let (1) be the Taylor series at z = 0 of a meromorphic
+                    (n)       (n)
+function f (z). If qk and ek are the elements of the qd scheme associated
+with f (z), then the coefficients of the continued fraction (84) corresponding
+to f (z) are given by
+                                                                                     (0)                 (0)
+                                             a0 = c 0 ,       a1 = c1 ,    a2k = −qk ,        a2k+1 = −ek ,               k ≥ 1.
+
+                                         5
+                                        10
+                                                     qd
+                                                     Compqd
+                                         0
+                                        10
+      Relative errors of coefficients
+
+
+
+
+                                         −5
+                                        10
+
+
+
+                                         −10
+                                        10
+
+
+
+                                         −15
+                                        10
+
+
+
+                                         −20
+                                        10
+                                              0           5           10       15            20     25               30            35
+                                                                                         i
+
+
+
+
+Figure 4: Relative errors of the coefficients ai of the regular C-fraction computed using
+the qd and Compqd algorithms for the Taylor series of degrees 35 of the function (83).
+
+   We continue the second experiment of Subsection 6.1 by using again the
+Taylor polynomial of degree 35 with floating-point coefficients of the function
+
+                                                                                    36
+(83). Applying qd and Compqd algorithms to Theorem 6, we present the rela-
+tive errors of the coefficients of the regular C-fraction in Figure 4. As we can
+see, the relative errors of the coefficients ai computed using qd increase with
+i. However, the coefficients computed by Compqd are much more accurate,
+and their maximum relative error is near to the rounding unit.
+
+6.3.2. Poles of meromorphic functions
+    The qd algorithm can be used for the determination of poles of a mero-
+morphic function f (z) [10, 25]. Considering the formal power series (1) ex-
+pansion of the function f (z) with z ∈ C, given the Hankel determinants (2.1)
+associated with this series we say that the power series (1) is “k-normal” if
+  (n)
+Hm 6= 0 for m = 0, 1, . . . , k and n ≥ 0. It is called “ultimately k-normal” if
+                                                           (n)
+for every 0 ≤ m ≤ k there exists an n(m) such that Hm 6= 0 for n > n(m).
+Classical results from complex analysis give basic algorithms for the location
+of poles in meromorphic functions:
+
+Theorem 7. [9, 15] Let (1) be the Taylor series at z = 0 of a meromorphic
+function f (z) in the disk B(0, R) = {z : |z| < R} and let the poles zi of
+f ∈ B(0, R) be ordered such that
+
+                        z0 = 0 < |z1 | ≤ |z2 | ≤ . . . < R,
+
+each pole occurring as many times in the sequence {zi }i∈N as indicated by
+its order. If f is ultimately k-normal for some integer k > 0, then the qd
+scheme associated with f has the following properties:
+
+ (a) For each m with 0 < m ≤ k and |zm−1 | < |zm | < |zm+1 | where z0 = 0
+                                                       (n)    −1
+     and zm+1 = ∞ if f has only m poles, we have lim qm = zm     ;
+                                                          n→∞
+
+                                                                       (n)
+ (b) For each m with 0 < m ≤ k and |zm | < |zm+1 |, we have lim em = 0.
+                                                                 n→∞
+
+   Therefore, there are three steps for locating poles by using Theorem 7:
+
+   • Step 1: Expand the function in Taylor series;
+
+   • Step 2: Obtain the complete qd table from the coefficients of the Taylor
+     series;
+
+   • Step 3: Use Theorem 7 to locate poles.
+
+
+                                        37
+   As test example, we consider the function
+                                        ex
+                                                        .                               (85)
+                           (x − 1)(x − 2)(x − 3)(x − 4)
+
+Firstly, we compute the Taylor series development (around x = 0) of degree N
+of the the function (85). In this test, we consider four degrees N = 24, 34, 44
+and 54, and note that function (85) is obviously ultimately 4-normal. Then,
+we use qd and Compqd to obtain the complete qd table. From Theorem 7, the
+first pole computed by qd in all the four cases are the same as those of Compqd
+since they can be obtained by only one division operation. The other three
+poles are reported in Table 3. The qd algorithm using exact arithmetic in
+the Matlab symbolic toolbox, Symqd, based on Theorem 7 gives the results
+without any rounding error. We can observe that Compqd is more accurate
+than qd, and its results are almost the same as those computed by Symqd.
+We find that in the cases N = 34, 44, 54 the last two poles obtained using
+qd have no significant digit, that means qd can not deal accurately with the
+pole location. However, Compqd can still get the poles.
+    We remark that when N = 54 Compqd can not find the last pole. To
+improve the performance of the algorithms in locating poles, we use the
+alternative method proposed in [15], and we combine it with Compqd to find
+poles. Defining that any index m such that the strict inequality |zm | < |zm+1 |
+holds is called a critical index, the qd scheme can determine the poles of a
+meromorphic function f directly from its Taylor series using the methodology
+described in Theorem 8.
+
+Theorem 8. [15] Let m and m + j with j > 1 be two consecutive critical
+                                                      (n)
+indices and let f be (m + j)-normal. Let polynomials pk be defined by
+     (n)
+    p0 (z) =1
+    (n)         (n+1)          (n)        (n)
+   pk+1 (z) =zpk        (z) − qm+k+1 pk (z),         n ≥ 0,      k = 0, 1, · · · , j − 1.
+
+Then there exits a subsequence {n(`)}`∈N such that
+                            n(`)               −1                −1
+                   lim pj          (z) = (z − zm+1 ) · · · (z − zm+j ).
+                   `−→∞
+
+   There are four steps for locating poles by Theorem 8:
+
+   • Step 1: Expand the function in Taylor series;
+
+                                                38
+Table 3: The poles of Taylor polynomials of degree N expanded from Eq. (85) obtained
+from Theorem 7 and using the qd, Compqd and Symqd algorithms.
+           Methods          Second pole              Third pole               Fourth pole
+             qd         1.999360212952655        2.993928981359646        4.000508014082992
+ N=24      Compqd       1.999360213958358        2.993916792495087        4.019757154976143
+            Symqd       1.999360213958358        2.993916792495087        4.019757154976143
+             qd         1.999988303398561                -                         -
+ N=34      Compqd       1.999988805384870        2.999576789137349        4.001093405615016
+            Symqd       1.999988805384870        2.999576789137349        4.001093405610383
+             qd         2.000958313366616                -                         -
+ N=44      Compqd       1.999999805766010        2.999974706425002        4.000063369400147
+            Symqd       1.999999805766010        2.999974706426370        4.000061511186811
+             qd         1.999999999999998                -                         -
+ N=54      Compqd       1.999999996631584        2.999998762542696                 -
+            Symqd       1.999999996631584        2.999998550118171        4.000003463711180
+
+
+    • Step 2: Obtain the incomplete qd table (columns q) from the coeffi-
+      cients of Taylor series;
+
+    • Step 3: Use Theorem 8 to generate a polynomial;
+                                                                   (n)
+    • Step 4: Solve the generated polynomial equation pj (z) = 0.
+    Now, we consider again the Taylor polynomials of degree N = 24, 34, 44
+and 54 expanded from function (85), and we apply qd and Compqd algorithms
+to obtain the incomplete qd table. From Theorem 8, we derive that the first
+                  (N −1)
+pole is z1 ' 1/q1        . We consider the location of the other three poles and
+so j = 3, m = 1. It is obvious that function (85) is 4-normal. Then, from
+Theorem 8, we can generate a polynomial
+ (N −9)               (N −7)      (N −8)     (N −9)  2     (N −8) (N −8)    (N −8) (N −9)
+p3      (z) =z 3 − q2        + q3        + q4        z + q2       q3      + q2     q4      +
+              (N −9) (N −9)         (N −9) (N −9) (N −9)
+             q3     q4         z − q2      q3     q4      ,
+
+such that the reciprocals of the zeros of this polynomial are the three poles
+of (85). Here, we use the code solve(f) in Matlab to find the zeros of
+ (N −9)
+p3      (z). The first pole computed by qd and Compqd is the same, the other
+three poles are presented in Table 4. As we can see, the results in Table 4 are
+more accurate than in Table 3. Moreover, the three poles computed by using
+
+                                           39
+Table 4: The poles of Taylor polynomials of degree N expanded from Eq. (85) obtained
+from Theorem 8 and using the qd, Compqd and Symqd algorithms.
+          Methods         Second pole            Third pole              Fourth pole
+            qd        1.999999109742843      2.999437417806726       4.002118134645123
+ N=24     Compqd      1.999999129884058      2.999452305326862       4.001220145895098
+           Symqd      1.999999129884058      2.999452305326858       4.001220145895103
+            qd        2.000000275935389      2.993218480452075                -
+ N=34     Compqd      1.999999999984543      2.999999453378646       4.000001214856552
+           Symqd      1.999999999984540      2.999999453378657       4.000001214856524
+            qd        1.999964072650627              -                        -
+ N=44     Compqd      2.000000000000001      2.999999999461029       4.000000079545716
+           Symqd      2.000000000000000      2.999999999465995       4.000000001186681
+            qd                 -                     -                        -
+ N=54     Compqd      2.000000000000006      3.000000042940265       3.989674221270899
+           Symqd      2.000000000000000      2.999999999999479       4.000000000001159
+
+
+Compqd are similar to the poles obtained by Symqd. In the case N = 54, the
+results by using qd have no significant digit, but Compqd can still keep some
+accuracy.
+
+6.3.3. Zeros of polynomials
+     The qd algorithm can be used to find simultaneously all the zeros of a
+polynomial with real coefficients [38]. We consider the formal power series
+(1) of degree k. Its zeros zm (m = 1, 2, . . . , k) can be found as the poles of the
+rational function r(z) = f (z)−1 . From Theorem 7, if the moduli of the zeros
+                                                                           −1
+of f (z) are all different, then the m-th q-column of r(z) tends to zm        when
+                                               ∗         k    −1
+the m-th e-column tends to zero. Let f (z) = z f (z ), then considering
+r∗ (z) = f ∗ (z)−1 , q-columns of r∗ (z) tend to the reciprocals of the zeros of
+f ∗ (z), which are the zeros of f (z).
+     The progressive form of qd scheme [25], which is more suitable for this
+problem, can be used to find zeros. For a current detailed analysis of this
+algorithm and several modifications see [10]. The progressive qd algorithm
+(proqd) and its compensated algorithm (Compproqd), are presented in Ap-
+
+
+
+
+                                        40
+pendix B. The qd table of proqd is built as follows.
+                                       (0)                (−1)                  (−2)
+                                      q1                 q2                   q3                ···
+                                              (0)                   (−1)
+                                 0           e1                    e2                     ···         0
+                                       (1)                (0)                  (−1)
+                                      q1                 q2                   q3                ···
+                                              (1)                    (0)
+                                 0           e1                     e2                    ···         0
+                                       ..                     ..
+                                        .                      .    ···
+                                 ..            ..
+                                  .             .        ···
+
+    In the numerical test, we consider the Laguerre orthogonal polynomial
+(see [39]) of degree 35 defined by the three-term recurrence relation
+
+
+
+  L0 (x) = 1,
+
+   L1 (x) = 1 − x,                
+                    1      2k + 1              k
+Lk+1 (x) = −           x+           Lk (x) −      Lk−1 (x) (k = 1, 2, 3 · · · ).
+
+
+                    k+1      k+1              k+1
+
+                       0
+                  10
+
+                       −2
+                  10
+
+                       −4
+                  10
+
+                       −6
+                  10
+Relative errors
+
+
+
+
+                       −8
+                  10
+
+                       −10
+                  10
+
+                       −12
+                  10
+
+                       −14
+                  10
+                                                                   proqd( TOL = 10−16 )
+                       −16
+                  10                                               Compproqd( TOL = 10 −16 )
+
+                       −18
+                                                                   Compproqd( TOL = 10 −7 )
+                  10
+                             0   20                 40                60                  80          100   120
+                                             xi - Exact zeros of Laguerre polynomial of degree 35
+
+
+
+Figure 5: Relative errors of the zeros of the Laguerre polynomial of degree 35 computed
+by using proqd (TOL = 10−16 ) and Compproqd (TOL = 10−7 and TOL = 10−16 ). On the
+horizontal axis we show the position xi of the zeros.
+
+
+
+                                                                    41
+    We apply proqd and Compproqd with TOL = 10−16 to locate the zeros
+(TOL is the error tolerance to stop the iterative process of the algorithm).
+For comparison, in the symbolic method, we use TOL = 10−33 . The relative
+errors of zeros computed by proqd and Compproqd are reported in Figure
+5. We observe that the relative errors of zeros computed by using proqd
+are larger than those computed by using Compproqd. That is to say, the
+Compproqd algorithm is more stable and its relative error results are close
+to the rounding unit. Besides, we test Compproqd with TOL = 10−7 , which
+requires a much smaller number of iterations than Compproqd and proqd with
+TOL = 10−16 . Moreover, Compproqd with TOL = 10−7 even runs faster than
+proqd with TOL = 10−16 . Note that we can also obtain the zeros with the
+required accuracy (e.g. half of the working precision) faster, just by fixing a
+smaller error tolerance TOL. We remark that this method can be combined
+with a Newton method to refine the approximate zeros, once we have a good
+initial data for the Newton process obtained from the Compproqd algorithm.
+
+7. Conclusions
+    In this paper, we have studied in detail the quotient-difference (qd) al-
+gorithm, giving a complete analysis of its stability by providing forward
+rounding error bounds. In the error analysis we have introduced new con-
+dition numbers adapted to the problem. Although it is well-known that the
+quotient-difference algorithm can be unstable, the theoretical bounds shown
+in this paper provide with a rigorous theoretical statement. Instead of us-
+ing high-precision arithmetic or exact (symbolic) arithmetic to overcome this
+problem, as recommended in numerous papers, we introduce a new more ac-
+curate algorithm, the compensated quotient-difference (Compqd) algorithm
+based on error-free transformations. This new algorithm can yield, in most
+cases, a full precision accuracy in working precision. The stability of the
+new method is studied and the forward rounding error bounds show that
+the effect of the compensated algorithm is to multiply the condition numbers
+by the square of the rounding unit, delaying significantly the appearance
+of instability problems in standard precision. The advantages of the com-
+pensated quotient-difference algorithm are shown in several examples and in
+three practical applications: in the obtention of continued fractions and in
+pole and zero detection.
+
+
+
+
+                                      42
+Appendix A
+    The QD (quad-double) package [33, 34] is based on the following algo-
+rithms:
+
+Algorithm 3. [28] Error-free transformation of the sum of two floating-point
+numbers
+     function [x, y] = TwoSum(a, b)
+        x=a⊕b
+        z=x a
+        y = (a (x z)) ⊕ (b z)
+
+   Algorithm 3 requires 6 flops.
+
+Algorithm 4. [29] Error-free transformation of the sum of two floating-point
+numbers (|a| ≥ |b|)
+     function [x, y] = FastTwoSum(a, b)
+        x=a⊕b
+        y = (a x) ⊕ b
+
+   Algorithm 4 requires 3 flops.
+
+Algorithm 5. [29] Error-free split of a floating-point numbers into two parts
+     function [x, y] = Split(a)
+        c = factor ⊗ a (in double precision factor = 227 + 1)
+        x = c (c a)
+        y=a x
+
+   Algorithm 5 requires 4 flops.
+
+Algorithm 6. [29] Error-free transformation of the product of two floating-
+point numbers
+      function [x, y] = TwoProd(a, b)
+         x=a⊗b
+         [a1, a2] = Split(a)
+         [b1, b2] = Split(b)
+         y = a2 ⊗ b2 (((x a1 ⊗ b1) a2 ⊗ b1) a1 ⊗ b2)
+
+   Algorithm 6 requires 17 flops.
+
+
+
+                                     43
+Algorithm 7. [30, 31] Error-free transformation of the division of two floating-
+point numbers
+      function [q, r] = DivRem(a, b)
+         q=a b
+         [x, y] = TwoProd(q, b)
+         r = (a x) y
+
+   Algorithm 7 requires 20 flops.
+
+Algorithm 8. [34, 30] Addition of a double-double number and a double
+number
+     function [rh, rl] = add dd d(ah, al, b)
+        [th, tl] = TwoSum(ah, b)
+        tl = al ⊕ tl
+        [rh, rl] = FastTwoSum(th, tl)
+
+   Algorithm 8 requires 10 flops.
+
+Algorithm 9. [34, 32] Addition of a double-double number and double-
+double number
+      function [rh, rl] = add dd dd(ah, al, bh, bl)
+         [sh, sl] = TwoSum(ah, bh)
+         [th, tl] = TwoSum(al, bl)
+         sl = sl ⊕ th
+         th = sh ⊕ sl
+         sl = sl (th sh)
+         tl = tl ⊕ sl
+         [rh, rl] = FastTwoSum(th, tl)
+
+   Algorithm 9 requires 20 flops.
+
+Algorithm 10. [34, 30] Multiplication of a double-double number by a dou-
+ble number
+      function [rh, rl] = prod dd d(ah, al, b)
+         [th, tl] = TwoProd(ah, b)
+         tl = al ⊗ b ⊕ tl
+         [rh, rl] = FastTwoSum(th, tl)
+
+   Algorithm 10 requires 22 flops.
+
+
+                                      44
+Algorithm 11. [34, 19] Multiplication of two double-double numbers
+     function [rh, rl] = prod dd dd(ah, al, bh, bl)
+        [th, tl] = TwoProd(ah, bh)
+        tl = (ah ⊗ bl) ⊕ (al ⊗ bh) ⊕ tl
+        [rh, rl] = FastTwoSum(th, tl)
+
+   Algorithm 11 requires 24 flops.
+
+Algorithm 12. [33] Division of two double-double numbers
+     function [rh, rl] = Div dd dd(ah, al, bh, bl)
+        q1 = ah/bh
+        [th, tl] = prod dd d(bh, bl, q1 )
+        [rh, rl] = add dd dd(ah, al, −th, −tl)
+        q2 = rh/bh
+        [th, tl] = prod dd d(bh, bl, q2 )
+        [rh, rl] = add dd dd(rh, rl, −th, −tl)
+        q3 = rh/bh
+        [q1 , q2 ] = FastTwoSum(q1 , q2 )
+        [rh, rl] = add dd d(q1 , q2 , q3 )
+
+   Algorithm 12 requires 100 flops.
+The double-double arithmetic version of the qd algorithm, is the DDqd algo-
+rithm, and it is given by
+
+Algorithm 13. DDqd algorithm (qd algorithm in double-double arithmetic)
+               (n)         (n)
+    input: eh0 = 0, el0 = 0, n = 1, 2, ...
+                (n)   (n)                (h)    (l)    (h) (l)
+            [qh1 , ql1 ] = Div dd dd(cn+1 , cn+1 , cn , cn ), n = 0, 1, ...
+    output: qd scheme
+    for m = 1, 2, ...
+       for n = 0, 1, ...
+                                    (n+1)     (n+1)        (n)      (n)
+           [rh, rl] = add dd dd(qhm , qlm , −qhm , −qlm )
+              (n)    (n)                           (n+1)     (n+1)
+           [ehm , elm ] = add dd dd(rh, rl, ehm−1 , elm−1 )
+                                   (n+1)     (n+1)     (n)     (n)
+           [th, tl] = Div dd dd(ehm , elm , ehm , elm )
+              (n)      (n)                            (n+1)      (n+1)
+           [qhm+1 , qlm+1 ] = prod dd dd(th, tl, qhm , qlm )
+       end
+    end
+
+   Algorithm 13 requires 164 flops in the inner loop.
+
+
+                                      45
+Appendix B
+    The progressive form of the qd scheme [25] is given by:
+
+
+Algorithm 14. proqd algorithm (The progressive form of qd algorithm)
+              (−m+1)                       (0)    b1
+    input: qm        = 0, m = 2, 3, ...; q1 = − ,
+                                                  b0
+             (−m+1)                 (m)        (m−k)
+            em       = bm+1 /bm , e0 = 0, ek         = 0, m = 1, 2, ...
+            TOL (error tolerance)
+    output: qd scheme
+    for m + n = 1, 2, ...
+       for m = 1, 2, ...
+            (n+1)     (n)   (n+1)      (n)
+           qm     = em − em−1 + qm
+            (n+1)      (n)   (n+1)
+           em     = (qm+1 /qm      ) × e(n)
+                                         m
+       end
+       if
+                  (n+1)
+           max{em } ≤ TOL, break
+               m+n
+         end
+      end
+
+   The new compensated version of the progressive form of the qd scheme is
+given by:
+
+
+Algorithm 15. Compproqd algorithm (The compensated proqd algorithm)
+                (−m+1)            (−m+1)             (m−1)           (m−1)
+      input: qbm        = 0, q  bm        = 0, eb0         = 0, e
+                                                                  b0        = 0, m = 2, 3, ...;
+                 (0)      (0)                         (h)    (l) (h) (l)
+               q1 , −q
+              [b       b 1 ] = Div dd dd(−b1 , −b1 , b0 , b0 )
+                 (−m+1)                                      (h)     (l)   (h) (l)  (m−k)
+              [b
+               em       , −e b (−m+1)
+                                m      ] = Div dd dd(bm+1 , bm+1 , bm , bm ), ebk           =
+     (m−k)
+0, e
+   bk      = 0, m = 1, 2, ...
+              TOL (error tolerance)
+      output: qd scheme
+      for m + n = 1, 2, ...
+         for m = 1, 2, ...
+                                    (n)       (n+1)
+             [s, µ1 ] = TwoSum(b   em , −b  em−1 )
+               (n+1)                           (n)
+             [b
+              qm , µ2 ] = TwoSum(s, qbm )
+                                                      (n+1)
+              b (n+1)
+             q m     = µ1 ⊕ µ2 ⊕ e    b (n)
+                                          m        b m−1 ⊕ q
+                                                   e          b (n)
+                                                                 m
+               (n+1)        (n+1)                          (n+1)
+              qm , −q
+             [b          b m ] = FastTwoSum(b             qm , −q   b (n+1)
+                                                                        m    )
+
+                                              46
+                                  (n)    (n+1)
+              [t, µ3 ] = DivRem(b   qm+1 , qbm )
+                (n+1)                         (n)
+              [b
+               em , µ4 ] = TwoProd(t, ebm )
+                                   (n)           (n+1)            (n)      (n)     (n)
+              b (n+1)
+              e m      = (µ3 ⊗ ebm ⊕ µ4 ⊗ qbm            b (n)
+                                                       ⊕ e m ⊗q bm+1 ⊕ q
+                                                                         b m+1 ⊗ ebm
+            (n+1)       (n+1)
+b (n+1)
+q m    ⊗ ebm ) qbm
+                (n+1)                                   (n+1)
+               em , −e
+              [b          b (n+1)
+                             m    ] = FastTwoSum(b     em , −e  (n+1)
+                                                                bm     )
+         end
+         if
+                       (n+1)
+              max{b   em } ≤ TOL, break
+              m+n
+        end
+     end
+
+References
+References
+ [1] J. Hadamard, Essai sur l’étude des fonctions donnée par leurs
+     dénveloppement de Taylor, J. Math. Pures Appl. 8 (1992) 101–186.
+
+ [2] A. C. Aitken, On Bernoulli’s numerical solution of algebraic equations,
+     Proc. R. Soc. Edinb. 46 (1926) 289–305.
+
+ [3] A. C. Aitken, Further numerical studies in algebraic equations and ma-
+     trices, Proc. R. Soc. Edinb. 51 (1931) 80–90.
+
+ [4] C. Lanczos, An iteration method for the solution of the eigenvalue prob-
+     lem of linear differential and integral operators, J.Res. Natl. Bur. Stand.
+     45 (1950) 255–281.
+
+ [5] M. H. Gutknecht, From qd to LR, or, how were the qd and LR algorithms
+     discovered, IMA J. Numer. Anal. 31 (2011) 741–754.
+
+ [6] L. Lorentzen, Padé approximation and continued fractions, Appl. Nu-
+     mer. Math. 60 (2010) 1364–1370.
+
+ [7] A. Cuyt, V. B. Petersen, B. Verdonk, H. Waadeland, W. B. Jones,
+     Handbook of continued fractions for special functions, Springer, 2008.
+
+ [8] W. B. Jones, W. J. Thron, Continued fractions: analytic theory and
+     applications, Addison-Wesley, London, 1980.
+
+
+                                           47
+ [9] P. Henrici, Applied and computational complex analysis, Vol. 1, John
+     Wiley, New York, 1974.
+[10] H. Allouche, A. Cuyt, Reliable root detection with the qd-algorithm:
+     When Bernoulli, Hadamard and Rutishauser cooperate, Appl. Numer.
+     Math. 60 (2010) 1188–1208.
+[11] H. Rutishauser, Anwendungen des Quotienten-Differenzen-Algorithmus,
+     Z. Angel. Math. Phys. 5 (1954) 496–508.
+[12] H. Rutishauser, Solution of eigenvalue problems with the LR-
+     transformation, Nat. Bur. Standards Appl. Math. Ser. 49 (1958) 47–81.
+[13] B. N. Parlett, What Hadamard missed, Tech. Rep., Center for Pure and
+     Applied Mathematics, University of California at Berkeley (1996).
+[14] K. V. Fernando, B. N. Parlett, Accurate singular values and differential
+     qd algorithms, Numer. Math. 67 (1994) 191–229.
+[15] A. Cuyt, Floating-point versus symbolic computations in the qd-
+     algorithm, J. Symbolic Comput. 24 (6) (1997) 695 – 703.
+[16] T. Ogita, S. M. Rump, S. Oishi, Accurate sum and dot product, SIAM
+     J. Sci. Comput. 26 (2005) 1955–1988.
+[17] S. M. Rump, T. Ogita, S. Oishi, Accurate floating-point summation part
+     I: faithful rounding, SIAM J. Sci. Comput. 31 (2008) 189–224.
+[18] S. M. Rump, T. Ogita, S. Oishi, Accurate floating-point summation part
+     II: sign, K-fold faithful and rounding to nearest, SIAM J. Sci. Comput.
+     31 (2008) 1269–1302.
+[19] S. Graillat, P. Langlois, N. Louvet, Algorithms for accurate validated
+     and fast polynomial evaluation, Japan J. Indust. Appl. Math. 26 (2-3)
+     (2009) 191–214.
+[20] S. Graillat, P. Langlois, N. Louvet, Compensated Horner scheme, Tech.
+     Rep. RR2005-04, LP2A, University of Perpignan, France (2005).
+[21] P. Langlois, N. Louvet, How to ensure a faithful polynomial evaluation
+     with the compensated Horner algorithm, in: P. Kornerup, J. M. Muller
+     (Eds.), 18th IEEE International Symposium on Computer Arithmetic,
+     IEEE Computer Society, 2007, pp. 141–149.
+
+                                     48
+[22] H. Jiang, S. G. Li, L. Z. Cheng, F. Su, Accurate evaluation of a poly-
+     nomial and its derivative in Bernstein form, Comput. Math. Appl. 60
+     (2010) 744–755.
+
+[23] H. Jiang, R. Barrio, H. S. Li, X. K. Liao, L. Z. Cheng, F. Su, Accurate
+     evaluation of a polynomial in Chebyshev form, Appl. Math. Comput.
+     217 (2011) 9702–9716.
+
+[24] P. B. Du, H. Jiang, L. Z. Cheng, Accurate evaluation of polynomials in
+     Legendre basis, J. Appl. Math. (2014) Art. ID 742538, 13 pp.
+
+[25] H. Rutishauser, Der Quotienten-Differenzen-Algorithmus, Z. Angew.
+     Math. Phys. 5 (1954) 233–251.
+
+[26] N. J. Higham, Accuracy and stability of numerical algorithm, 2nd Edi-
+     tion, SIAM, Philadelphia, 2002.
+
+[27] S. M. Rump, Verification methods: Rigorous results using floating-point
+     arithmetic, Acta Numer. 19 (2010) 287–449.
+
+[28] D. E. Knuth, The art of computer programming: seminumerical algo-
+     rithms, 3rd Edition, Addison-Wesley, 1998.
+
+[29] T. J. Dekker, A floating-point technique for extending the available pre-
+     cision, Numer. Math. 18 (1971) 224–242.
+
+[30] N. Louvet, Compensated algorithms in floating-point arithmetic: accu-
+     racy, validation, performances, Ph.D. thesis, University of Perpignan,
+     France (2007).
+
+[31] M. Pichat, J. Vignes, Ingénierie du contrôle de la préision des calculs
+     sur ordinateur, Tech. Rep., Editions Technip (1993).
+
+[32] X. S. Li, J. W. Demmel, D. H. Bailey, G. Henry, Y. Hida, J. Iskandar,
+     W. Kahan, S. Y. Kang, A. Kapur, M. C. Martin, B. J. Thompson,
+     T. Tung, D. J. Yoo, Design, implementation and testing of extended
+     and mixed precision BLAS, ACM Trans. Math. Software. 28 (2) (2002)
+     152–205.
+
+[33] D. H. Bailey. QD library in high-precision software directory, http://crd-
+     legacy.lbl.gov/∼dhbailey/mpdist/ [online].
+
+
+                                      49
+[34] Y. Hida, X. Y. Li, D. H. Bailey, Algorithms for quad-double preci-
+     sion floating point arithmetic, in: 15th IEEE Symposium on Computer
+     Arithmetic, IEEE Computer Society, 2001, pp. 155–162.
+
+[35] P. Langlois, N. Louvet, More instruction level parallelism explains the
+     actual efficiency of compensated algorithm, Tech. Rep. hal-00165020,
+     DALI Research Team, University of Perpignan, France (2007).
+
+[36] P. Markstein, IA-64 and elementary functions: speed and precision,
+     Prentice-Hall, Englewood Cliffs, USA, 2000.
+
+[37] Y. Nievergelt, Scalar fused multiply-add instructions produce floating-
+     point matrix arithmetic provably accurate to the penultimate digit,
+     ACM Trans. Math. Software. 29 (1) (2003) 27–48.
+
+[38] P. Henrici, B. O. Watkins, Finding zeros of a polynomial by the qd
+     algorithm, Comm. ACM 8 (9) (1965) 570–574.
+
+[39] G. Szegő, Orthogonal Polynomials, American Mathematical Society Col-
+     loquium Publications, v. 23. American Mathematical Society, New York,
+     1939.
+
+
+
+
+                                    50
+

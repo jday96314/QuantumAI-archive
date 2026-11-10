@@ -1,0 +1,236 @@
+[
+  {
+    "tag": "affine8_17_7",
+    "Q": 88,
+    "T": 1962,
+    "estimate": 193776,
+    "limit": 88,
+    "keep": 4,
+    "product": 17
+  },
+  {
+    "tag": "affine8_17_7",
+    "Q": 88,
+    "T": 1962,
+    "estimate": 193776,
+    "limit": 88,
+    "keep": 4,
+    "product": null
+  },
+  {
+    "tag": "affine8_17_7",
+    "Q": 88,
+    "T": 1969,
+    "estimate": 194392,
+    "limit": 88,
+    "keep": 3,
+    "product": 17
+  },
+  {
+    "tag": "affine8_17_7",
+    "Q": 88,
+    "T": 1969,
+    "estimate": 194392,
+    "limit": 88,
+    "keep": 3,
+    "product": null
+  },
+  {
+    "tag": "affine8_18_6",
+    "Q": 88,
+    "T": 1977,
+    "estimate": 195096,
+    "limit": 88,
+    "keep": 3,
+    "product": 17
+  },
+  {
+    "tag": "affine8_18_6",
+    "Q": 88,
+    "T": 1977,
+    "estimate": 195096,
+    "limit": 88,
+    "keep": 3,
+    "product": null
+  },
+  {
+    "tag": "affine8_17_7",
+    "Q": 90,
+    "T": 1929,
+    "estimate": 195210,
+    "limit": 90,
+    "keep": 5,
+    "product": 17
+  },
+  {
+    "tag": "affine8_17_7",
+    "Q": 90,
+    "T": 1929,
+    "estimate": 195210,
+    "limit": 90,
+    "keep": 5,
+    "product": null
+  },
+  {
+    "tag": "affine8_17_7",
+    "Q": 90,
+    "T": 1934,
+    "estimate": 195660,
+    "limit": 90,
+    "keep": 4,
+    "product": 17
+  },
+  {
+    "tag": "affine8_17_7",
+    "Q": 90,
+    "T": 1934,
+    "estimate": 195660,
+    "limit": 90,
+    "keep": 4,
+    "product": null
+  },
+  {
+    "tag": "affine8_17_7",
+    "Q": 90,
+    "T": 1941,
+    "estimate": 196290,
+    "limit": 90,
+    "keep": 3,
+    "product": 17
+  },
+  {
+    "tag": "affine8_17_7",
+    "Q": 90,
+    "T": 1941,
+    "estimate": 196290,
+    "limit": 90,
+    "keep": 3,
+    "product": null
+  },
+  {
+    "tag": "affine8_17_7",
+    "Q": 92,
+    "T": 1901,
+    "estimate": 196972,
+    "limit": 92,
+    "keep": 5,
+    "product": 17
+  },
+  {
+    "tag": "affine8_17_7",
+    "Q": 92,
+    "T": 1901,
+    "estimate": 196972,
+    "limit": 92,
+    "keep": 5,
+    "product": null
+  },
+  {
+    "tag": "affine8_18_6",
+    "Q": 90,
+    "T": 1949,
+    "estimate": 197010,
+    "limit": 90,
+    "keep": 3,
+    "product": 17
+  },
+  {
+    "tag": "affine8_18_6",
+    "Q": 90,
+    "T": 1949,
+    "estimate": 197010,
+    "limit": 90,
+    "keep": 3,
+    "product": null
+  },
+  {
+    "tag": "affine8_18_6",
+    "Q": 90,
+    "T": 1949,
+    "estimate": 197010,
+    "limit": 90,
+    "keep": 4,
+    "product": 17
+  },
+  {
+    "tag": "affine8_18_6",
+    "Q": 90,
+    "T": 1949,
+    "estimate": 197010,
+    "limit": 90,
+    "keep": 4,
+    "product": null
+  },
+  {
+    "tag": "affine8_17_7",
+    "Q": 92,
+    "T": 1906,
+    "estimate": 197432,
+    "limit": 92,
+    "keep": 4,
+    "product": 17
+  },
+  {
+    "tag": "affine8_17_7",
+    "Q": 92,
+    "T": 1906,
+    "estimate": 197432,
+    "limit": 92,
+    "keep": 4,
+    "product": null
+  },
+  {
+    "tag": "affine8_17_7",
+    "Q": 92,
+    "T": 1913,
+    "estimate": 198076,
+    "limit": 92,
+    "keep": 3,
+    "product": 17
+  },
+  {
+    "tag": "affine8_17_7",
+    "Q": 92,
+    "T": 1913,
+    "estimate": 198076,
+    "limit": 92,
+    "keep": 3,
+    "product": null
+  },
+  {
+    "tag": "affine8_18_6",
+    "Q": 92,
+    "T": 1921,
+    "estimate": 198812,
+    "limit": 92,
+    "keep": 3,
+    "product": 17
+  },
+  {
+    "tag": "affine8_18_6",
+    "Q": 92,
+    "T": 1921,
+    "estimate": 198812,
+    "limit": 92,
+    "keep": 3,
+    "product": null
+  },
+  {
+    "tag": "affine8_18_6",
+    "Q": 92,
+    "T": 1921,
+    "estimate": 198812,
+    "limit": 92,
+    "keep": 4,
+    "product": 17
+  },
+  {
+    "tag": "affine8_18_6",
+    "Q": 92,
+    "T": 1921,
+    "estimate": 198812,
+    "limit": 92,
+    "keep": 4,
+    "product": null
+  }
+]

@@ -1,0 +1,115 @@
+{
+  "status": "PASS",
+  "scope": "random invertible affine maps, quantum controls, arbitrary data, inverse/composition and phase",
+  "shots": 512,
+  "rows": [
+    {
+      "n": 2,
+      "which": "forward",
+      "Q": 3,
+      "T": 1
+    },
+    {
+      "n": 2,
+      "which": "inverse",
+      "Q": 3,
+      "T": 1
+    },
+    {
+      "n": 2,
+      "which": "both",
+      "Q": 3,
+      "T": 2
+    },
+    {
+      "n": 3,
+      "which": "forward",
+      "Q": 4,
+      "T": 3
+    },
+    {
+      "n": 3,
+      "which": "inverse",
+      "Q": 4,
+      "T": 3
+    },
+    {
+      "n": 3,
+      "which": "both",
+      "Q": 4,
+      "T": 6
+    },
+    {
+      "n": 7,
+      "which": "forward",
+      "Q": 8,
+      "T": 7
+    },
+    {
+      "n": 7,
+      "which": "inverse",
+      "Q": 8,
+      "T": 7
+    },
+    {
+      "n": 7,
+      "which": "both",
+      "Q": 8,
+      "T": 14
+    },
+    {
+      "n": 15,
+      "which": "forward",
+      "Q": 16,
+      "T": 15
+    },
+    {
+      "n": 15,
+      "which": "inverse",
+      "Q": 16,
+      "T": 15
+    },
+    {
+      "n": 15,
+      "which": "both",
+      "Q": 16,
+      "T": 30
+    },
+    {
+      "n": 31,
+      "which": "forward",
+      "Q": 32,
+      "T": 31
+    },
+    {
+      "n": 31,
+      "which": "inverse",
+      "Q": 32,
+      "T": 31
+    },
+    {
+      "n": 31,
+      "which": "both",
+      "Q": 32,
+      "T": 62
+    },
+    {
+      "n": 64,
+      "which": "forward",
+      "Q": 65,
+      "T": 63
+    },
+    {
+      "n": 64,
+      "which": "inverse",
+      "Q": 65,
+      "T": 63
+    },
+    {
+      "n": 64,
+      "which": "both",
+      "Q": 65,
+      "T": 126
+    }
+  ]
+}

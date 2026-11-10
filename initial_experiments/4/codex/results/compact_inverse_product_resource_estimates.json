@@ -1,0 +1,44 @@
+[
+  {
+    "Q": 985,
+    "core_T": 477379,
+    "total_T_estimate": 1344266,
+    "score_at_baseline_repetition": 1595104363083.4285,
+    "scope": "resource estimate only, excludes unforeseen layout and degree-gap phase pricing"
+  },
+  {
+    "Q": 985,
+    "core_T": 379489,
+    "total_T_estimate": 1148486,
+    "score_at_baseline_repetition": 1362792058670.1104,
+    "scope": "resource estimate only, excludes unforeseen layout and degree-gap phase pricing"
+  },
+  {
+    "Q": 985,
+    "core_T": 334711,
+    "total_T_estimate": 1058930,
+    "score_at_baseline_repetition": 1256525020494.4072,
+    "scope": "resource estimate only, excludes unforeseen layout and degree-gap phase pricing"
+  },
+  {
+    "Q": 1004,
+    "core_T": 317191,
+    "total_T_estimate": 1023890,
+    "score_at_baseline_repetition": 1262269692119.8713,
+    "scope": "resource estimate only, excludes unforeseen layout and degree-gap phase pricing"
+  },
+  {
+    "Q": 1028,
+    "core_T": 311611,
+    "total_T_estimate": 1012730,
+    "score_at_baseline_repetition": 1308914660910.9075,
+    "scope": "resource estimate only, excludes unforeseen layout and degree-gap phase pricing"
+  },
+  {
+    "Q": 1052,
+    "core_T": 310453,
+    "total_T_estimate": 1010414,
+    "score_at_baseline_repetition": 1367609983019.6704,
+    "scope": "resource estimate only, excludes unforeseen layout and degree-gap phase pricing"
+  }
+]

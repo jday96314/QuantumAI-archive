@@ -1,0 +1,126 @@
+{
+  "N": 70,
+  "block": 4,
+  "Q": 1004,
+  "T": 451699,
+  "parts": {
+    "first_step": 3011,
+    "head_mobius": 43416,
+    "head_continued_fraction": 30578,
+    "cofactor_three_passes": 157488,
+    "tail_triangular": 97524,
+    "final_common_padding": 56034,
+    "core_padding_and_other": 63648
+  },
+  "rows": [
+    {
+      "k": 1,
+      "block": 4,
+      "T": 24086,
+      "parts": {
+        "head_mobius": 1968,
+        "head_continued_fraction": 3716,
+        "cofactor_three_passes": 3408,
+        "tail_triangular": 13986,
+        "core_padding_and_other": 1008
+      }
+    },
+    {
+      "k": 5,
+      "block": 4,
+      "T": 40262,
+      "parts": {
+        "head_mobius": 5664,
+        "head_continued_fraction": 3716,
+        "cofactor_three_passes": 7440,
+        "tail_triangular": 20706,
+        "core_padding_and_other": 2736
+      }
+    },
+    {
+      "k": 9,
+      "block": 4,
+      "T": 44930,
+      "parts": {
+        "head_mobius": 5664,
+        "head_continued_fraction": 3716,
+        "cofactor_three_passes": 11472,
+        "tail_triangular": 19614,
+        "core_padding_and_other": 4464
+      }
+    },
+    {
+      "k": 13,
+      "block": 4,
+      "T": 46658,
+      "parts": {
+        "head_mobius": 5664,
+        "head_continued_fraction": 3716,
+        "cofactor_three_passes": 15504,
+        "tail_triangular": 15582,
+        "core_padding_and_other": 6192
+      }
+    },
+    {
+      "k": 17,
+      "block": 4,
+      "T": 48554,
+      "parts": {
+        "head_mobius": 5664,
+        "head_continued_fraction": 3716,
+        "cofactor_three_passes": 19536,
+        "tail_triangular": 11718,
+        "core_padding_and_other": 7920
+      }
+    },
+    {
+      "k": 21,
+      "block": 4,
+      "T": 50786,
+      "parts": {
+        "head_mobius": 5664,
+        "head_continued_fraction": 3716,
+        "cofactor_three_passes": 23568,
+        "tail_triangular": 8190,
+        "core_padding_and_other": 9648
+      }
+    },
+    {
+      "k": 25,
+      "block": 4,
+      "T": 53354,
+      "parts": {
+        "head_mobius": 5664,
+        "head_continued_fraction": 3716,
+        "cofactor_three_passes": 27600,
+        "tail_triangular": 4998,
+        "core_padding_and_other": 11376
+      }
+    },
+    {
+      "k": 29,
+      "block": 4,
+      "T": 56426,
+      "parts": {
+        "head_mobius": 5664,
+        "head_continued_fraction": 3716,
+        "cofactor_three_passes": 31632,
+        "tail_triangular": 2310,
+        "core_padding_and_other": 13104
+      }
+    },
+    {
+      "k": 33,
+      "block": 2,
+      "T": 27598,
+      "parts": {
+        "head_mobius": 1800,
+        "head_continued_fraction": 850,
+        "cofactor_three_passes": 17328,
+        "tail_triangular": 420,
+        "core_padding_and_other": 7200
+      }
+    }
+  ],
+  "scope": "exact forward component count; excludes Wronskian, H division, scan and repetition"
+}

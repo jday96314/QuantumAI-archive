@@ -1,0 +1,70 @@
+{
+  "shots": 100000,
+  "scope": "classical stream model, degree-trimmed template",
+  "stops": {
+    "done": 94063,
+    "secondpark": 379,
+    "None": 5553,
+    "stack": 4,
+    "bank": 1
+  },
+  "failures": [
+    {
+      "shot": 2339,
+      "L": 35,
+      "reason": null,
+      "sigma_correct": false,
+      "constant": 0
+    },
+    {
+      "shot": 37381,
+      "L": 13,
+      "reason": [
+        "stack",
+        25
+      ],
+      "sigma_correct": false,
+      "constant": 0
+    },
+    {
+      "shot": 40556,
+      "L": 20,
+      "reason": [
+        "stack",
+        28
+      ],
+      "sigma_correct": false,
+      "constant": 2394
+    },
+    {
+      "shot": 44014,
+      "L": 22,
+      "reason": [
+        "stack",
+        30
+      ],
+      "sigma_correct": false,
+      "constant": 924
+    },
+    {
+      "shot": 52481,
+      "L": 29,
+      "reason": [
+        "stack",
+        37
+      ],
+      "sigma_correct": false,
+      "constant": 1752
+    },
+    {
+      "shot": 65914,
+      "L": 34,
+      "reason": [
+        "bank",
+        67
+      ],
+      "sigma_correct": false,
+      "constant": 2369
+    }
+  ]
+}

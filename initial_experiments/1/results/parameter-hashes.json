@@ -1,0 +1,14 @@
+{
+  "chemistry.npz": {
+    "bytes": 4505716,
+    "sha256": "c13a5a24794cf20b737d7c7088fbeb6f35896a08b40ed26e19f97e6e001f99cf"
+  },
+  "invsqrt_table.npy": {
+    "bytes": 12416,
+    "sha256": "f042b3056a320a3e7fb03d4d3a6755eb76608f4f731d5d4e7d746bddc1f9cb09"
+  },
+  "solution.json": {
+    "bytes": 454,
+    "sha256": "3f6a65546ad6421b8ebd3730b7d34e7e6198b332e35a210a17b42019224b9398"
+  }
+}

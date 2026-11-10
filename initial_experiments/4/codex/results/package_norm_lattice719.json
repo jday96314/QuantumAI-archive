@@ -1,0 +1,22 @@
+{
+  "overall_score": 9.287049724889583,
+  "target_score": 14.0,
+  "target_reached": false,
+  "task_scores": {
+    "invsqrt": 185026.55749858925,
+    "dqi": 1612737419463.0198,
+    "dfthcsos": 712557711.9823189
+  },
+  "improvements": {
+    "invsqrt": 11.224195390063585,
+    "dqi": 15.15402525465698,
+    "dfthcsos": 4.709232012913505
+  },
+  "sources": {
+    "invsqrt": "results/affine_verify.json",
+    "dqi": "baseline/dqi_verify.json",
+    "dfthcsos": "results/norm_lattice719_signed_verify.json"
+  },
+  "archive": "submission.zip",
+  "sha256": "d9409bfab8dc74725bf9963de29d127626c3490732601a815b00af06faae3709"
+}

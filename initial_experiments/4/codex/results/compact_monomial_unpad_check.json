@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "cofactor coefficient rotations with unary completion flags; all degrees, arbitrary polynomial values, composition and phase",
+  "degree": 35,
+  "shots": 512,
+  "Q": 893,
+  "T": 4812
+}

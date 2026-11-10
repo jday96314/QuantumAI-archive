@@ -1,0 +1,22 @@
+{
+  "overall_score": 9.367722153134604,
+  "target_score": 14.0,
+  "target_reached": false,
+  "task_scores": {
+    "invsqrt": 182956.5271606425,
+    "dqi": 1598204229384.9265,
+    "dfthcsos": 708547388.9553173
+  },
+  "improvements": {
+    "invsqrt": 11.351189629280166,
+    "dqi": 15.291827623981778,
+    "dfthcsos": 4.735885899266434
+  },
+  "sources": {
+    "invsqrt": "results/zero_head_affine_verify.json",
+    "dqi": "results/cubic_trace_product_n70_m4095_verify.json",
+    "dfthcsos": "results/norm_cycle2_signed_verify.json"
+  },
+  "archive": "submission.zip",
+  "sha256": "9168da25a9ac35f661885edad3e208db215bf67fa6525cca0ccc5d8831318b68"
+}

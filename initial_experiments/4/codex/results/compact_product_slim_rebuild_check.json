@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "scope": "independent full builder reexecution, exact KMB byte hash",
+  "files": [
+    "candidates/compact_product_slim_n70_m4095.kmb",
+    "candidates/compact_product_slim_n70_m4095_rebuilt.kmb"
+  ],
+  "sha256": [
+    "781e1c04fe1bca206adbf9f105ef537b31329dfbe53225c6bcbc4a07e3c2b2b4",
+    "781e1c04fe1bca206adbf9f105ef537b31329dfbe53225c6bcbc4a07e3c2b2b4"
+  ]
+}

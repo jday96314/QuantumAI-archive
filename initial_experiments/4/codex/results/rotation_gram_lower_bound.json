@@ -1,0 +1,6 @@
+{
+  "scope": "fixed combined Gram matrix; all orthogonal column rotations and all exact real Gram factorizations",
+  "lambda_h2_current": 294.4025805889514,
+  "lambda_h2_lower_bound": 275.14137959044,
+  "maximum_fractional_h2_improvement": 0.06542470164486824
+}

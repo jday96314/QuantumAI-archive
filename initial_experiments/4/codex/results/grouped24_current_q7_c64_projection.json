@@ -1,0 +1,10 @@
+{
+  "status": "FINISHED",
+  "scope": "fixed-dictionary PSD block fit; no native acceptance",
+  "R": 24,
+  "B": 64,
+  "C": 64,
+  "starting_error_2": 1.302953932920843,
+  "best_error_2": 0.27905787793498693,
+  "seconds": 11.612179040908813
+}

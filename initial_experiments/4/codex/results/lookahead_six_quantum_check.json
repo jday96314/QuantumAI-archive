@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "scope": "six-moment in-place transform, total singular extension, independent Pade reference on nonsingular D2,p, forward/inverse/composition, scratch and phase; no full decoder",
+  "shots": 16384,
+  "pade_checks": 7015,
+  "circuits": [
+    {
+      "which": "forward",
+      "status": "PASS",
+      "Q": 126,
+      "T": 2094,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "inverse",
+      "status": "PASS",
+      "Q": 126,
+      "T": 2094,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "both",
+      "status": "PASS",
+      "Q": 126,
+      "T": 4188,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    }
+  ],
+  "seconds": 2.563234806060791
+}

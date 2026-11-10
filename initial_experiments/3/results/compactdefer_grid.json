@@ -1,0 +1,83 @@
+[
+  {
+    "estimate": 190711.90282000002,
+    "keep": 4,
+    "cap": 94,
+    "Q": 94,
+    "T": 1789,
+    "tag": "compactdefer_k4_q94",
+    "compactor": "qubits 94 peak_live 94 lines 31887"
+  },
+  {
+    "estimate": 191220.75285000002,
+    "keep": 4,
+    "cap": 95,
+    "Q": 95,
+    "T": 1773,
+    "tag": "compactdefer_k4_q95",
+    "compactor": "qubits 95 peak_live 95 lines 32111"
+  },
+  {
+    "estimate": 191410.75285000002,
+    "keep": 5,
+    "cap": 95,
+    "Q": 95,
+    "T": 1775,
+    "tag": "compactdefer_k5_q95",
+    "compactor": "qubits 95 peak_live 95 lines 31776"
+  },
+  {
+    "estimate": 191473.05279000002,
+    "keep": 3,
+    "cap": 93,
+    "Q": 93,
+    "T": 1819,
+    "tag": "compactdefer_k3_q93",
+    "compactor": "qubits 93 peak_live 93 lines 32112"
+  },
+  {
+    "estimate": 191651.90282000002,
+    "keep": 3,
+    "cap": 94,
+    "Q": 94,
+    "T": 1799,
+    "tag": "compactdefer_k3_q94",
+    "compactor": "qubits 94 peak_live 94 lines 32366"
+  },
+  {
+    "estimate": 191889.60288000002,
+    "keep": 4,
+    "cap": 96,
+    "Q": 96,
+    "T": 1759,
+    "tag": "compactdefer_k4_q96",
+    "compactor": "qubits 96 peak_live 96 lines 32307"
+  },
+  {
+    "estimate": 192081.60288000002,
+    "keep": 5,
+    "cap": 96,
+    "Q": 96,
+    "T": 1761,
+    "tag": "compactdefer_k5_q96",
+    "compactor": "qubits 96 peak_live 96 lines 31972"
+  },
+  {
+    "estimate": 192170.75285000002,
+    "keep": 3,
+    "cap": 95,
+    "Q": 95,
+    "T": 1783,
+    "tag": "compactdefer_k3_q95",
+    "compactor": "qubits 95 peak_live 95 lines 32590"
+  },
+  {
+    "estimate": 192849.60288000002,
+    "keep": 3,
+    "cap": 96,
+    "Q": 96,
+    "T": 1769,
+    "tag": "compactdefer_k3_q96",
+    "compactor": "qubits 96 peak_live 96 lines 32786"
+  }
+]

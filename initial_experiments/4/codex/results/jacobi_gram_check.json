@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "gram_max_error": 7.105427357601002e-13,
+  "lambda_h2_before": 294.4025805889514,
+  "lambda_h2_after": 294.39650157216454,
+  "seconds": 23.62181282043457
+}

@@ -1,0 +1,47 @@
+# Large generated circuits, optimizer checkpoints, and decoder tapes.
+# Ignore directories before Git descends into tens of gigabytes of outputs.
+/candidates/*
+/parameters/*
+*.kmx
+*.kmb
+*.bin
+*.zip
+__pycache__/
+
+# Small frozen inputs needed to rebuild the final inverse and chemistry circuits.
+!/candidates/margin_curve8_t5.9e-08.npy
+!/candidates/mixing_mu1e7_onebody.npz
+!/candidates/chem35c45_rot.npz
+
+# Preserve compact measurements and manifests despite the root *.json rule.
+!*.summary.json
+!/parameters/*.json
+!/results/*.json
+!/results/**/*.json
+!/milestones/*/*.json
+!/revisions/**/*.json
+
+# Scratch traces and arrays; reports and result JSON remain eligible for Git.
+/results/*.log
+/results/*.npy
+/results/*.npz
+/results/*.txt
+
+# Downloaded upstream checkout (including its nested .git) and chemistry data.
+# The upstream URL/revision are recorded in README.md and import_published.py.
+/vendor/uncompute/
+/vendor/published_thc/*
+!/vendor/published_thc/README.md
+!/vendor/published_thc/SOURCE.md
+!/vendor/published_thc/LICENSE*
+!/vendor/published_thc/*.json
+
+# Locally compiled C++ tools. Keep their source files.
+/fit_coefficients*
+/fit_adaptive*
+/rotate_columns
+/rotate_exact
+/compact_wires
+/translate_published
+!/*.cpp
+!/*.py

@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "scope": "M\u00f6bius series map, inverse and composition, including zero T constant; monic A/D and nonzero p",
+  "n": 16,
+  "k": 8,
+  "shots": 512,
+  "circuits": [
+    {
+      "which": "forward",
+      "Q": 441,
+      "public_qubits": 408,
+      "extra_qubits": 33,
+      "T": 9048
+    },
+    {
+      "which": "inverse",
+      "Q": 441,
+      "public_qubits": 408,
+      "extra_qubits": 33,
+      "T": 9048
+    },
+    {
+      "which": "both",
+      "Q": 441,
+      "public_qubits": 408,
+      "extra_qubits": 33,
+      "T": 18096
+    }
+  ],
+  "seconds": 17.657675743103027
+}

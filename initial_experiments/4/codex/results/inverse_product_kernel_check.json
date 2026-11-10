@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "scope": "all a field elements, random b and masks, root/non-root paths, source restoration, scratch and phase",
+  "shots": 4096,
+  "Q": 80,
+  "T": 92
+}

@@ -1,0 +1,923 @@
+                                                  Fast In-place Algorithms for Polynomial Operations:
+                                                           Division, Evaluation, Interpolation
+                                                Pascal Giorgi                  Bruno Grenet                                            Daniel S. Roche
+                                        LIRMM, Univ. Montpellier, CNRS LIRMM, Univ. Montpellier, CNRS                            United States Naval Academy
+                                             Montpellier, France            Montpellier, France                                  Annapolis, Maryland, U.S.A.
+                                         pascal.giorgi@lirmm.fr                      bruno.grenet@lirmm.fr                               roche@usna.edu
+                                                                                          June 11, 2020
+arXiv:2002.10304v3 [cs.SC] 9 Jun 2020
+
+
+
+
+                                                                                                Abstract
+                                                       We consider space-saving versions of several important operations on univariate polynomials,
+                                                   namely power series inversion and division, division with remainder, multi-point evaluation, and
+                                                   interpolation. Now-classical results show that such problems can be solved in (nearly) the same
+                                                   asymptotic time as fast polynomial multiplication. However, these reductions, even when applied
+                                                   to an in-place variant of fast polynomial multiplication, yield algorithms which require at least a
+                                                   linear amount of extra space for intermediate results. We demonstrate new in-place algorithms for
+                                                   the aforementioned polynomial computations which require only constant extra space and achieve
+                                                   the same asymptotic running time as their out-of-place counterparts. We also provide a precise
+                                                   complexity analysis so that all constants are made explicit, parameterized by the space usage of
+                                                   the underlying multiplication algorithms.
+
+
+                                             1    Introduction
+                                             Computations with dense univariate polynomials or truncated power series over a finite ring are
+                                             of central importance in computer algebra and symbolic computation. Since the discovery of sub-
+                                             quadratic (“fast”) multiplication algorithms [12, 4, 19, 10, 3], a major research task was to reduce
+                                             many other polynomial computations to the cost of polynomial multiplication.
+                                                 This project has been largely successful, starting with symbolic Newton iteration for fast inversion
+                                             and division with remainder [14], product tree algorithms for multi-point evaluation and interpola-
+                                             tion [15], the “half-GCD” fast Euclidean algorithm [18], and many more related important problems
+                                             [2, 6]. Not only are these problems important in their own right, but they also form the basis for many
+                                             more, such as polynomial factorization, multivariate and/or sparse polynomial arithmetic, structured
+                                             matrix computations, and further applications in areas such as coding theory and public-key cryptog-
+                                             raphy.
+                                                 But the use of fast arithmetic frequently comes at the expense of requiring extra temporary space
+                                             to perform the computation. This can make a difference in practice, from the small scale where em-
+                                             bedded systems engineers seek to minimize hardware circuitry, to the medium scale where a space-
+                                             inefficient algorithm can exceed the boundaries of (some level of) cache and cause expensive cache
+                                             misses, to the large scale where main memory may simply not be sufficient to hold the intermedi-
+                                             ate values. In a streaming model, where the output must be written only once, in order, explicit
+                                             time-space tradeoffs prove that fast multiplication algorithms will always require up to linear extra
+
+
+
+                                                                                                   1
+          space. And indeed, all sub-quadratic polynomial multiplication algorithms we are aware of — in their
+          original formulation — require linear extra space [12, 4, 19, 10, 3].
+               However, if we treat the output space as pre-allocated random-access memory, allowing values in
+          output registers to be both read and written multiple times, then improvements are possible. In-place
+          quadratic-time algorithms for polynomial arithmetic are described in [16]. A series of recent results
+          provide explicit algorithms and reductions from arbitrary fast multiplication routines which have the
+          same asymptotic running time, but use only constant extra space [17, 11, 8]. That is, these algorithms
+          trade a constant increase in the running time for a linear reduction in the amount of extra space. So
+          far, these results are limited to multiplication routines and related computations such as middle and
+          short product. Applying in-place multiplication algorithms directly to other problems, such as those
+          considered in this paper, does not immediately yield an in-place algorithm for the desired application
+          problem.
+
+
+          1.1    Our work
+
+                                            Time                                Space                Reference
+                                                                          1
+  Power series inversion                (λm + λs )M (n)                   2 max(cm , cs + 1)n        [9, Alg. MP-inv]
+      at precision n                   λm M(n) log cm +2 (n)                     O(1)                Theorem 2.3
+                                                    cm +1
+                                                                                 cm +1
+                                        (λm + 23 λs )M(n)                          2 n               [9, Alg. MP-div-KM]
+   Power series division               λm M(n) log cm +3 (n)                     O(1)                Theorem 2.5
+                                                    cm +2
+       at precision n                        O(M(n))                      αn, for any α > 0          Remark 2.7
+                                 λm ( 2 + c ) + λs (1 + 1c ) M(n)
+                                     c+1    1
+                                                             
+                                                                                 O(1)‡               Corollary 2.6
+                                                                              cm +1
+     Euclidean division           (λm + 23 λs )M(m) + λs M(n)           max( 2 m − n, cs n)          standard algorithm
+                                                                                   c  c +1
+                                                                                                     m
+       of polynomials             2λs M(m) + (λm + λs )M      (n)     (1 + max( 2m , s 2 , cs ))n     n balanced div. (precomp)
+                                     c+1    1              1
+    in sizes (m + n − 1, n)      λm ( 2 + c ) + λs (2 + c ) M(m)                 O(1)                Theorem 2.8
+   multipoint evaluation                 3/2M(n) log(n)                        n log(n)              [2]
+size-n polynomial on n points            7/2M(n) log(n)                             n                [7], Lemma 3.1
+                                                c +3
+                                (4 + 2λs / log( css +2 ))M(n) log(n)             O(1)                Theorem 3.4
+        interpolation                    5/2M(n) log(n)                        n log(n)              [2]
+size-n polynomial on n points             5M(n) log(n)                             2n                [6, 7], Lemma 3.3
+                                       ' 105M(n) log(n)                          O(1)                Theorem 3.6
+
+          Table 1: Summary of complexity analyses, omitting non-dominant terms and assuming c f ≤ cs ≤ cm .
+          We use c = cm +3. For O(1)‡ space, the memory model is changed such that the input dividend can be
+          overwritten. Here, and throughout the paper, the base of the logarithms is 2 if not otherwise stated.
+
+              In this paper, we present new in-place algorithms for power series inversion and division, poly-
+          nomial division with remainder, multi-point evaluation, and interpolation. These algorithms are fast
+          because their running time is only a constant time larger than the fastest known out-of-place algo-
+          rithms, parameterized by the cost of dense polynomial multiplication.
+              Our space complexity model is the one of [17, 11, 8] where input space is read only while output
+          space is pre-allocated and can be used to store intermediate results. In that model, the space com-
+          plexity is measured by only counting the auxiliary space required during the computation, excluding
+          input and output spaces. We shall mention that a single memory location or register may contain
+          either an element of the coefficient ring, or a pointer to the input or output space. It follows that
+          in-place algorithms are those that require only a constant number of extra memory locations.
+
+
+
+                                                               2
+    For all five problems, we present in-place variants which have nearly the same asymptotic running
+time as their fastest out-of-place counterparts. The power series inversion and division algorithms in-
+cur an extra log(n) overhead when quasi-linear multiplication is used, while the polynomial division,
+evaluation, and interpolation algorithms keep the same asymptotic runtime as the fastest known al-
+gorithm. Our reductions essentially trade a small amount of extra runtime for a significant decrease
+in space usage.
+    Our motivation in this work is mainly theoretical. We address the existence of such fast in-place
+algorithms as we already did for polynomial multiplications [8]. To further extend our result, we com-
+pare precisely the number of arithmetic operations in our algorithms with the best known theoretical
+bounds. These results are summarized in Table 1.
+    Of course further work is needed to determine the practicability of our approach. In particular
+cache misses play a predominant role when dealing with memory management. Studying the cache
+complexity of all these algorithms, for instance in the idealized cache model [5], would give more
+precise insights. However, the practicability will heavily depend on the underlying multiplication
+algorithms. Due to their diversity and the need for fine-tuned implementations, we leave this task to
+future work.
+
+
+1.2    Notation
+By a size-n polynomial, we mean a polynomial of degree ≤ n − 1. As usual, we denote by M(n) a
+bound on the number of operations in K to multiply two size-n polynomials, and we assume that
+αM(n) ≤ M(αn) for any constant α ≥ 1. All known multiplication algorithms have at most a linear
+space complexity. Nevertheless, several results reduce this space complexity at the expense of a slight
+increase in the time complexity [20, 17, 11, 8]. To provide tight analyses, we consider multiplication
+algorithms with time complexity λ f M(n) and space complexity c f n for some constants λ f ≥ 1 and
+c f ≥ 0.
+     Let us recall that the middle product of a size-(m + n − 1) polynomial F ∈ K[X ] and a size-n
+polynomial G ∈ K[X ] is the size-m polynomial defined as MP(F, G) = (F G div X n−1 ) mod X m . We
+denote by λm M(n) and cm n the time and space complexities of the middle product of size       (2n
+                                                                                                  − 1, n).
+Then, a middle product in size (m + n − 1, n) where m < n can be computed with mn λm M(m)
+operations in K and (cm + 1)m extra space. Similarly, the short product of two size-n polynomials
+F, G ∈ K[X ] is defined as SP(F, G) = F G mod X n and we denote by λs M(n) and cs n its time and space
+complexities.
+     On the one hand, the most time-efficient algorithms achieve λ f = λm = λs = 1 while 2 ≤ c f , cm ,
+cs ≤ 4, using the Transposition principle [9, 2] for λm = λ f . On the other hand, the authors recently
+proposed new space-efficient algorithms reaching c f = 0, cm = 1 and cs = 0 while λ f , λm and λs
+remain constants [8].
+                  Pd
+     Writing F = i=0 f i X i ∈ K[X ], we will use rev(F ) ∈ K[X ] to denote the reverse polynomial of F ,
+that is, rev(F ) = X d F (1/X ), whose computation does not involve any operations in K. Note that we
+                                                                                           P b−1
+will use abusively the notation F[a..b[ to refer to the chunk of F that is the polynomial i=a f i X i , and
+the notation F[a] for the coefficient f a . Considering our storage, the notation F[a..b[ will also serve to
+refer to some specific registers associated to F . When necessary, our algorithms indicate with WS the
+output registers used as work space.
+
+
+2     Inversion and divisions
+In this section, we present in-place algorithms for the inversion and the division of power series as
+well as the Euclidean division of polynomials. As a first step, we investigate the space complexity
+
+
+                                                     3
+from the literature for these computations.
+
+
+2.1    Space complexity of classical algorithms
+Power series inversion Power series inversion is usually computed through Newton iteration: If G
+is the inverse of F at precision k then H = G + (1 − GF )G mod X 2k is the inverse of F at precision 2k.
+This allows one to compute F −1 at precision n using O(M(n)) operations in K, see [6, Chapter 9].
+As noticed in [9, Alg. MP-inv] only the coefficients of degree k to 2k − 1 of H are needed. Thus,
+assuming that G[0..k[ = F −1 mod X k , one step of Newton iteration computes k new coefficients of F −1
+into G[k..2k] as
+                                G[k..2k[ = −SP(MP(F[1..2k[ , G[0..k[ ), G[0..k[ ).                   (1)
+The time complexity is then (λm + λs )M(n) for an inversion at precision n. For space complexity, the
+most consuming part is the last iteration of size 2n . It needs max(cm , cs + 1) 2n extra registers: One can
+compute the middle product in G[ 2n ..n[ using cm 2n extra registers, then move it to 2n extra registers and
+compute the short product using cs 2n registers.
+
+Power series division Let F, G ∈ K[[X ]], the fast approach to compute F /G mod X n is to first invert
+G at precision n and then to multiply the result by F . The complexity is given by one inversion and one
+short product at precision n. Actually, Karp and Markstein remarked in [13] that F /G can be directly
+computed during the last iteration. Applying this trick, the complexity becomes (λm + 23 λs )M(n) [9],
+see also [1]. The main difference with inversion is the storage of the short product of size 2n , yielding
+a space complexity of max(cm + 1, cs + 1) 2n .
+
+Euclidean division of polynomials Given two polynomials A, B of respective size m + n − 1 and
+n, the fast Euclidean division computes the quotient Adiv B as rev(rev(A)/ rev(B)) viewed as power
+series at precision m [6, Chapter 9]. The remainder R is retrieved with a size-n short product, yielding
+a total time complexity of (λm + 32 λs )M(m) + λs M(n). Since the remainder size is not determined
+by the input size we assume that we are given a maximal output space of size n − 1. As this space
+remains free when computing the quotient, this step requires 21 max(cm + 1, cs + 1)m − n + 1 extra
+space, while computing the remainder needs cs n.
+    As a first result, when m ≤ n, using space-efficient multiplication is enough to obtain an in-place
+O(M(n)) Euclidean division. Indeed, the output space is enough to compute the small quotient, while
+the remainder can be computed in-place [8].
+    When m > n, the space complexity  becomes O(m − n). In that case, the Euclidean division of
+A by B can also be computed by mn balanced Euclidean divisions of polynomials of size 2n − 1 by
+B. It actually corresponds to a variation of the long division algorithm, in which each step computes
+n new coefficients of the quotient. To save some time, one can precompute the inverse of rev(B) at
+precision n, which gives a time complexity (λm + λs )M(n) + mn 2λs M(n) ≤ 2λs M(m) + (λm + λs )M(n)
+                                  c   c +1
+and space complexity (1 + max( 2m , s 2 , cs ))n.
+    Finally, one may consider to only compute the quotient or the remainder. Computing quotient only
+is equivalent to power series division. For the computation of the remainder, it is not yet known how
+to compute it without the quotient. In that case, we shall consider space usage for the computation
+and the storage of the quotient. When m is large compared to n, one may notice that relying on
+balanced divisions does not require one to retain the whole quotient, but only its n latest computed
+coefficients. In that case the space complexity only increases by n. Since we can always perform a
+middle product via two short products, we obtain the following result.
+
+
+
+
+                                                     4
+Lemma 2.1. Given A ∈ K[X ] of size m and B ∈ K[X ], monic of size n, and provided n registers for the
+output, the remainder A mod B can be computed using 2λs M(m) + 3λs M(n) + O(m + n) operations in
+K and (cs + 2)n extra registers.
+
+
+2.2    In-place power series inversion
+We notice that during the first Newton iterations, only a few coefficients of the inverse have been
+already written. The output space thus contains lots of free registers, and the standard algorithm
+can use them as working space. In the last iterations, the number of free registers becomes too small
+to perform a standard iteration. Our idea is then to slow down the computation. Instead of still
+doubling the number of coefficients computed at each iteration, the algorithm computes less and less
+coefficients, in order to be able to use the free output space as working space. We denote these two
+phases as acceleration and deceleration phases.
+    The following easy lemma generalizes Newton iteration to compute only ` ≤ k new coefficients
+from an inverse at precision k.
+
+Lemma 2.2. Let F be a power series and G[0..k[ contain its inverse at precision k. Then for 0 < ` ≤ k, if
+we compute                                                               
+                         G[k..k+`[ = −SP MP F[1..k+`[ , G[0..k[ , G[0..`[                            (2)
+then G[0..k+`[ contains the inverse of F at precision k + `.
+
+   Algorithm 1 is an in-place fast inversion algorithm. Accelerating and decelerating phases corre-
+spond to ` = k and ` < k.
+
+Algorithm 1 In-Place Fast Power Series Inversion (INPLACEINV)
+Input: F ∈ K[X ] of size n, such that F[0] is invertible;
+Output: G ∈ K[X ] of size n, such that F G = 1 mod X n .
+Required: MP and SP alg. using extra space ≤ cm n and ≤ cs n.
+              −1
+ 1: G[0] ← F[0]
+ 2: k ← 1, ` ← 1
+ 3: while ` > 0 do
+ 4:     G[n−`..n[ ← MP(F[1..k+`[ , G[0..k[ )                                                . WS: G[k..n−`[
+ 5:     G[k..k+`[ ← SP(G[0..`[ , −G[n−`..n[ )                                               . WS: G[k+`..n−`[
+ 6:     k ← k+` 
+       ` ← min k, n−k
+                        
+ 7:                   c     where c = 2 + max(cm , cs )
+ 8: G[k..n[ ← SP(G[0..n−k[ , −MP(F[1..n[ , G[0..k[ ))                                             . O(1) space
+
+
+Theorem 2.3. Algorithm 1 is correct. It uses O(1) space, and either λm M(n) log cm +2 (n) + O(M(n))
+                                                                                          cm +1
+
+operations in K when M(n) is quasi-linear, or O(M(n)) operations in K when M(n) = n1+γ , 0 < γ ≤ 1.
+
+Proof. Steps 4 and 5, and Step 8, correspond to Equation (2). They compute ` new coefficients of G
+when k of them are already written in the output, whence Lemma 2.2 implies the correctness.
+    Step 4 needs (cm +2)` free registers for its computation and its storage. Then (cs +2)` free registers
+are needed to compute SP(G[0..`[ , G[n−`..n[ ) using ` registers for G[n−`..n[ and (cs + 1)` registers for the
+short product computation and its result. For this computation to be done in-place, we need c` ≤ n−k.
+Since at most k new coefficients can be computed, the maximal number of new coefficients in each
+step is ` = min k, n−k
+                        
+                      c    .
+
+
+
+                                                        5
+         Each iteration uses O(M(k)) operations in K: O(dk/`e M(`)) for the middle product at Step 4
+and O(M(`)) for the short product at Step 5. The accelerating phase stops when k > n−k                      c+1 , that is,
+                                  n
+                           Pblog c+2
+           n                         c
+k > c+2 . It costs i=0                 M(2i ) = O(M(n)). During the decelerating phase, each iteration computes
+a constant fraction of the remaining coefficients. Hence, this phase lasts for δ = log c−1              c n steps.
+
+         Let `i and ki denote the values of ` and k at the i-th iteration of the deceleration phase and
+t it =  n − ki . Then one iteration of the deceleration     t  phase costs one middle product in sizes (n − t i +
+Pc
+     i
+          − 1,  n − t i ) and one   short  product  in  size   c . The total cost of all the short products amounts to
+                                                                i
+
+
+           (t   ) =        (n))
+                                       P
+      i M     i     O(   M      since       t
+                                          i i ≤ cn.  The   cost   of the middle product at the i-th step is
+                                                       t        t 
+                                       λm (n − t i )/ ci M ci = λm M(n) + O(n).
+
+Therefore, the total cost of all the middle products is at most λm M(n) log c−1
+                                                                             c (n) + O(M(n)) and is
+
+dominant in the complexity. We can choose the in-place short products of [8] and get c = cm + 2. The
+complexity is then λm M(n) log cm +2 (n) + O(M(n)).
+                                cm +1
+                                                                       £
+                                                                   n−t   1+γ
+   If M(n) = n1+γ with 0 < γ ≤ 1, the cost of each iteration is O( `i i `i ). Since `0 ≤ n, we have
+`i < n( c−1
+         c ) + c, whence
+            i
+
+
+                           δ ¡                        δ               δ           γ
+                               n− t                                         c−1 i
+                                    ¤                                          
+                                                             γ
+                           X                          X              X
+                                         i    1+γ
+                                             `i ≤ n         `i ≤ n       n        +c .
+                            i=1
+                                    `i                i=1            i=1
+                                                                             c
+                                                                                                           Pδ     c−1 iγ
+Since 0 < γ ≤ 1, we have (α+β)γ ≤ αγ +β γ for any α, β > 0, and the complexity is n1+γ
+                                                                                                                     
+                                                                                                            i=1    c     +
+O(n log n) = O(M(n)).
+
+2.3     In-place division of power series
+Division of power series can be implemented easily as an inversion followed by a product. Yet, using
+in-place algorithms for these two steps is not enough to obtain an in-place division algorithm since
+the intermediate result must be stored. Karp and Markstein’s trick, that includes the dividend in
+the last iteration of Newton iteration [13], cannot be used directly in our case since we replace the
+very last iteration by several ones. We thus need to build our in-place algorithm on the following
+generalization of their method.
+Lemma 2.4. Let F and G be two power series, G invertible, and Q [0..k[ contain their quotient at precision
+k. Then for 0 < ` ≤ k, if we compute
+                                                                                       
+                                          −1
+                         Q [k..k+`[ = SP G[0..`[ , F[k..k+`[ − MP(G[1..k+`[ , Q [0..k[ )
+
+then Q [0..k+`[ contains their quotient at precision k + `.
+
+Proof. Let us write F /G = Q k +X k Q ` +O(X k+` ). We prove that Q ` = G −1 ×((F −GQ k ) div X k ) mod X ` .
+By definition, F ≡ G(Q k + X k Q ` ) mod X k+` . Hence (F − GQ k ) div X k = GQ ` mod X ` . Therefore,
+Q ` = (G −1 × ((F − GQ k ) div X k )) mod X ` . Finally, since only the coefficients of degree k to k + ` − 1
+of GQ k are needed, they can be computed as MP(G[1..k+`[ , Q [0..k[ ).
+
+    Algorithm 2 is an in-place power series division algorithm based on Lemma 2.4, choosing at each
+step the appropriate value of ` so that all computations can be performed in place.
+Theorem 2.5. Algorithm 2 is correct. It uses O(1) space, and either λm M(n) log cm +3 (n) + O(M(n))
+                                                                                                   cm +2
+
+operations in K when M(n) is quasi-linear or O(M(n)) operations in K when M(n) = O(n1+γ ), 0 < γ ≤
+1.
+
+
+                                                             6
+Algorithm 2 In-Place Power Series Division (INPLACEPSDIV)
+Input: F, G ∈ K[X ] of size n, such that G[0] is invertible;
+Output: Q ∈ K[X ] of size n, such that F /G = Q mod X n .
+Required: MP, SP, Inv alg. using extra space ≤ cm n, cs n, ci n.
+ 1: k ← bn/ max(ci + 1, cs + 2)c
+ 2: Q [n−k..n[ ← rev(Inv(G[0..k[ ))                                                                   . WS: Q [0..n−k[
+ 3: Q [0..k[ ← SP(F[0..k[ , rev(Q [n−k..n[ ))                                                         . WS: Q [k..n−k[
+ 4: ` ← b(n − k)/(3 + max(cm , cs ))c
+ 5: while ` > 0 do
+ 6:     Q [n−2`..n−`[ ← MP(G[1..k+`[ , Q [0..k[ )                                                     . WS: Q [k..n−2`[
+ 7:     Q [n−2`..n−`[ ← F[k..k+`[ − Q [n−2`..n−`[
+ 8:     let us define Q∗` = rev(Q [n−`..n[ )
+            Q [k..k+`[ ← SP(Q [n−2`..n−`[ , Q∗` )                                                   . WS: Q [k+`..n−2`[
+ 9:      k ← k+`
+10:     ` ← b(n − k)/(3 + max(cm , cs ))c
+11: t mp ← F[k..n[ − MP(G[1..n[ , Q [0..k[ )                                                        . constant space
+12: Q [k..n[ ← SP(t mp, rev(Q [k..n[ ))                                                             . constant space
+
+
+Proof. The correctness follows from Lemma 2.4. The inverse of G is computed once at Step 2, at
+precision bn/ max(ci + 1, cs + 2)c. Its coefficients are then progressively overwritten during the loop
+since Step 8 only requires ` coefficients of the inverse, and ` is decreasing. Since ci = 21 max(cm , cs +1),
+` is always less than the initial precision. For simplicity of the presentation, we store the inverse in
+                                                                                                          n
+reversed order in Q [n−k..n[ . Step 2 requires space ci k while the free space has size n−k: Since k ≤ ci +1 ,
+the free space is large enough. Similarly, the next step requires space cs k while the free space has size
+n − 2k, and k ≤ cs n+2 . Step 6 needs (cm + 1)` space and the free space has size n − k − 2`, and Step 8
+                                                                           n−k
+requires cs ` space while the free space has size n − k − 3`. Since ` ≤ 3+max(c m ,cs )
+                                                                                        , these computations
+can also be performed in place.
+   The time complexity analysis is very similar to the one of Algorithm 1 given in Theorem 2.3. The
+main difference is Step 7 which adds a negligible term O(n log n) in the complexity.
+
+Corollary 2.6. If it can erase  its dividend, Algorithm 2 can be modified to improve its complexity to
+            1            1
+ λm ( c+1
+                            
+       2 + c ) + λs (1 + c ) M(n) + O(n) operations in K where c = max(cm + 3, cs + 2), still using O(1)
+extra space.
+Proof. Once k coefficients of Q have been computed, F[0..k[ is not needed anymore. This means that
+at Step 7, the result can be directly written in F[k..k+`[ and that F[0..k[ can be used as working space in
+the other steps of the loop. The free space at Steps 6 and 8 becomes n− 2` instead of n − k − 2` and
+n−k−3` respectively. Therefore, ` can always be chosen as large as nc where c = max(cm +3, cs +2).
+Since ` stays positive, we also modify the algorithm to stop when all the coefficients of Q have been
+computed.
+    To simplify the complexity analysis, we further assume that k gets the same value nc at Step 1.
+                                                                                               
+                             n
+Step 2 requires (λs +λm )M( c ) operations in K. The sum of the input sizes of all the short products in
+the algorithm is n. Their total complexity  is thus λs M(n).
+                                                            At the i-th iteration of the loop, k = (i +1)`.
+Therefore Step 6 has complexity i nc . Step 7 requires nc operations in K. Altogether, the complexity
+                                     
+
+of the modified algorithm is
+                                                                c
+                                                                X
+                                                   n                        n         n 
+                         λs M(n) + (λs + λm )M      c       +         iλm M    c       +    c
+                                                                i=1
+
+
+                                                        7
+                   1             1
+which is λm ( c+1
+                                    
+               2 + c ) + λs (1 + c ) M(n) + O(n).
+
+   Using similar techniques, we get the following variant.
+
+Remark 2.7. Algorithm 2 can be easily modified to improve the complexity to O(M (n)) operations in
+K when a linear amount of extra space is available, say αn registers for some α ∈ R+ .
+
+
+2.4    In-place Euclidean division of polynomials
+If A is a size-(m+n−1) polynomial and B a size-n polynomial, one can compute their size-m quotient Q
+in place using Algorithm 2, in O((M(m) log m)) operations in K. When Q is known, the remainder R =
+A− BQ, can be computed in-place using O(M(n)) operations in K as it requires a single short product
+and some subtractions. As already mentioned, the exact size of the remainder is not determined by
+the size of the inputs. Given any tighter bound r < n on deg(R), the same algorithm can compute R
+in place, in time O(M(r)).
+     Altogether, we get in-place algorithms that compute the quotient of two polynomials in time
+O(M(m) log m), or the quotient and size-r remainder in time O(M(m) log m + M(r)). As suggested
+in Section 2.1 and in Remark 2.7, this complexity becomes O(M(m) + M(r)) whenever m = O(r).
+Indeed, in that case the remainder space can be used to speed-up the quotient computation. We shall
+mention that computing only the remainder remains a harder problem as we cannot count on the
+space of the quotient while it is required for the computation. As of today, only the classical quadratic
+long division algorithm allows such an in-place computation.
+     We now provide a new in-place algorithm for computing both the quotient and the remainder
+that achieves a complexity of O(M(m) + M(n)) operation in K when m ≥ n. Our algorithm requires
+an output space of size n − 1 for the remainder since taking any smaller size r < n − 1 would rebind
+to power series division.
+
+Algorithm 3 In-Place Euclidean Division (INPLACEEUCLDIV)
+Input: A, B ∈ K[X ] of sizes (m + n, n), m ≥ n, such that B[0] 6= 0;
+Output: Q, R ∈ K[X ] of sizes (m + 1, n − 1) such that A = BQ + R;
+Required: In-place DIVERASE(F, G, n) computing F /G mod X n while erasing F ; In-place SP;
+    For simplicity, H is a size-n polynomial such that H[0..n−1[ is R and H[n−1] is an extra register
+ 1: H ← A[m..m+n[
+ 2: k ← m + 1
+ 3: while k > n do
+ 4:     Q [k−n..k[ ← rev(DIVERASE(rev(H), rev(B), n))
+ 5:      H[0..n−1[ ← SP(Q [k−n..k−1[ , B[0..n−1[ )
+ 6:      H[1..n[ ← A[k−n..k−1[ − H[0..n−1[
+ 7:      H[0] ← A[k−n−1]
+ 8:      k←k−n
+ 9: Q [0..k[ ← rev(D IV E RASE (rev(H [n−k..n[ ), rev(B[n−k..n[ )))
+10: H [0..n−1[ ← SP(Q [0..n−1[ , B[0..n−1[ )
+11: H [0..n−1[ ← A[0..n−1[ − H [0..n−1[
+12: return (Q, H [0..n−1[ )
+
+
+
+                                                                            1             1
+Theorem 2.8. Algorithm 3 is correct. It uses O(1) extra space and λm ( c+1
+                                                                                             
+                                                                        2 + c ) + λs (2 + c ) M(m) +
+O(m log n) operations in K where c = max(cm + 3, cs + 2).
+
+
+
+
+                                                     8
+Proof. Algorithm 3 is an adaptation of the classical long division algorithm, recalled in Section 2.1,
+where chunks of the quotient are computed iteratively via Euclidean division of size (2n − 1, n). The
+main difficulty is that the update of the dividend cannot be done on the input. Since we compute
+only chunks of size n from the quotient, the update of the dividend affects only n − 1 coefficients.
+Therefore, it is possible to use the space of R for storing these new coefficients. As we need to
+consider n coefficients from the dividend to get a new chunk, we add the missing coefficient from A
+and consider the polynomial H as our new dividend.
+   By Corollary 2.6, Step 4 can be done in place while erasing H, which is not part of the original
+input. It is thus immediate that our algorithm is in-place. For the complexity, Steps 4 and 5 dominate
+the cost. Using the exact complexity for Step 4 given in Corollary 2.6, one can deduce easily that
+                                  1            1
+Algorithm 3 requires λm ( c+12 + c ) + λs (2 + c ) M(m) + O(m log n) operations in K.
+
+   Using time-efficient products with λm = λs = 1, cm = 4 and cs = 3 yields a complexity '
+6.29M(m), which is roughly 6.29/4 = 1.57 times slower than the most time-efficient out-of-place
+algorithm.
+
+
+3     Multipoint evaluation and interpolation
+In this section, we present in-place algorithms for the two related problems of multipoint evaluation
+and interpolation. We first review both classical algorithms and their space-efficient variants.
+
+
+3.1    Space complexity of classical algorithms
+Multipoint evaluation Given n elements a1 , . . . , an of K and a size-n polynomial F ∈ K[X ],
+multipoint evaluation aims to compute F (a1 ), . . . , F (an ). While the naive approach using Horner
+scheme leads to a quadratic complexity, the fast approach of [15] reaches a quasi-linear complexity
+O(M(n) log(n)) using a divide-and-conquer approach and the fact that F (ai ) = F mod (X − ai ). As
+proposed in [2] this complexity can be sharpened to (λm + 12 λ f )M(n) log(n) + O(M(n)) using the
+transposition principle.
+    The fast algorithms are based on building the so-called subproduct    Qn tree [6, Chapter 10] whose
+leaves contain the (X − ai )’s and whose root contains the polynomial i=1 (X − ai ). This tree contains
+2i degree-n/2i monic polynomials at level i, and can be stored in exactly n log n registers if n is a power
+of two. The fast algorithms then require n log(n) + O(n) registers as work space. Here, because the
+space complexity constants c f , cm , cs do not appear in the leading term n log(n) of space usage, we
+can always choose the fastest underlying multiplication routines, so the computational cost for this
+approach is simply 32 M(n) log(n) + O(M(n)).
+    As remarked in [7], one can easily derive a fast variant that uses only O(n) extra space. In
+particular, [7, Lemma 2.1] shows that the evaluation of a size-n polynomial F on k points a1 , . . . , ak
+with k ≤ n can be done at a cost O(M(k)( nk + log(k))) with O(k) extra space.
+    We provide a tight analysis of this algorithm, starting with the balanced case k = n, i.e. the number
+of evaluation points is equal to the size of F . The idea of the algorithm is to group the points in dlog(n)e
+groups of bn/ log(n)c points each, and to use standard multipoint evaluation on each group, by first
+reducing F modulo the root of the corresponding subproduct tree. The complexity analysis of this
+approach is given in the following lemma. Observe that here too, the constants λs , cs , etc., do not
+enter in since we can always use the fastest out-of-place subroutines without affecting the O(n) term
+in the space usage.
+
+Lemma 3.1. Given F ∈ K[X ] of size n and a1 , . . . , an ∈ K, one can compute F (a1 ), . . . , F (an ) using
+7                                                       n
+2 M(n) log(n) + O(M(n)) operations in K and n + O( log(n) ) extra registers.
+
+
+
+                                                     9
+Proof. Computing each subproduct tree on O(n/ log(n)) points can be done in time
+1                         1
+2 M(n/ log(n)) log(n) ≤ 2 M(n) and space n + O(n/ log(n)). The root of this tree is a polyno-
+mial of degree at most n/ log(n). Each reduction of F modulo such a polynomial takes time
+2M(n) + O(n/ log(n)) and space O(n/ log(n)) using the balanced Euclidean division algorithm from
+Section 2.1. Each multi-point evaluation of the reduced polynomial on n/ log(n) points, using the
+pre-computed subproduct tree, takes M(n/ log(n)) log(n) + O(M(n/ log(n))) operations in K and
+O(n/ log(n)) extra space [2].
+   All information except the evaluations from the last step — which are written directly to the
+output space — may be discarded before the next iteration begins. Therefore the total time and
+space complexity are as stated.
+
+   When the number of evaluation points k is large compared to the size n of the polynomial F , we
+can simply repeat the approach of Lemma 3.1 dk/ne times. The situation is more complicated when
+k ≤ n, because the output space is smaller. The idea is to compute the degree-k polynomial M at the
+root of the product tree, reduce F modulo M and perform balanced k-point evaluation of F mod M .
+
+Lemma 3.2. Given F ∈ K[X ] of size n and a1 , . . . , ak ∈ K, one can compute F (a1 ), . . . , F (ak ) using
+2λs M(n) + 4M(k) log(k) + O(n + M(k) loglog(k)) operations in K and (cs + 2)k + O(k/ log(k)) extra
+registers.
+
+Proof. Computing the root M of a product tree proceeds in two phases. For the bottom levels of the
+tree, we use the fastest out-of-place full multiplication algorithm that computes the product of two
+size-t polynomials in time M(t) and space O(t). Then, only for the top loglog(n) levels, do we switch
+to an in-place full product algorithm from [8], which has time O(M(t)) but only O(1) extra space.
+The result is that M can be computed using 12 M(k) log(k) + O(M(k) loglog(k)) operations in K and
+k + O(k/ log(k)) registers.
+    Then, we reduce F modulo M . By Lemma 2.1, this is accomplished in time 2λs M(n)+O(n+ M(k))
+and space (cs + 2)k. Adding the cost of the k-point evaluation of Lemma 3.1 completes the proof.
+
+Interpolation Interpolation is the inverse operation of multipoint evaluation, that is, to reconstruct
+a size-n polynomial F from its evaluations on n distinct points F (a1 ), . . . , F (an ). The classic ap-
+proach using Lagrange’s interpolation formula has a quadratic complexity [6, Chapter 5] while the
+fast approach of [15] has quasi-linear time complexity O(M(n) log(n)). We first briefly recall this fast
+algorithm.      Qn
+    Let M (X ) = i=1 (X − ai ) and M 0 its derivative. Noting that X M     −ai (ai ) = M (ai ) for 1 ≤ i ≤ n, we
+                                                                                        0
+
+have
+                                                    n
+                                                   X   F (ai )/M 0 (ai )
+                                   F (X ) = M (X )                       .                                    (3)
+                                                   i=1
+                                                           X − ai
+
+Hence the fast algorithm of [15] consists in computing M 0 (X ) and its evaluation on each ai through
+multipoint evaluation, and then to sum the n fractions using a divide-and-conquer strategy. The
+numerator of the result is then F by Equation (3).
+    If the subproduct tree over the ai ’s is already computed, this gives all the denominators in the
+rational fraction sum. Using the same subproduct tree for evaluating M 0 and for the rational fraction
+sum gives the fastest interpolation algorithm, combining the textbook method [6] with the multi-
+point evaluation of [2]. The total computational cost is only 25 M(n) log(n) + O(M(n)), while the
+space is dominated by the size of this subproduct tree, n log(n) + O(n).
+    A more space-efficient approach can be derived using linear-space multipoint evaluation. Since
+the subproduct must be essentially recomputed on the first and last steps, the total running time is
+(2λ f + 72 )M(n) log(n) + O(M(n)), using (2 + 12 c f )n + O(n/ log(n)) registers. This approach can be
+
+
+                                                       10
+improved in two ways: first by again grouping the interpolation points and re-using the smaller sub-
+product trees for each group, and secondly by using an in-place full multiplication algorithm from [8]
+to combine the results of each group in the rational function summation. A detailed description of
+the resulting algorithm, along with a proof of the following lemma, can be found in Appendix A.
+
+Lemma 3.3. Given a1 , . . . , an ∈ K and y1 , . . . , yn ∈ K, one can compute F ∈ K[X ] of size n such that
+F (ai ) = yi for 1 ≤ i ≤ n using 5M(n) log(n)+O(M(n) loglog(n)) operations in K and 2n+O(n/ log(n))
+extra registers.
+
+
+3.2     In-place multipoint evaluation
+In order to derive an in-place algorithm we make repeated use of the unbalanced multi-point evalua-
+tion with linear space to compute only k evaluations of the polynomial F among the n original points.
+The strategy is to set k as a fraction of n to ensure that n − k is large enough to serve as extra space.
+Applying this strategy on smaller and smaller values of k leads to Algorithm 4, which is an in-place
+algorithm with the same asymptotic time complexity O(M(n) log(n)) as out-of-place fast multipoint
+evaluation.
+
+Algorithm 4 In-Place Multipoint Evaluation (INPLACEEVAL)
+Input: F ∈ K[X ] of size n and (a1 , . . . , an ) ∈ Kn ;
+Output: R = (F (a1 ), . . . , F (an ))
+Required: EVAL of space complexity ≤ (cs + 2)k as in Lemma 3.2
+ 1: s ← 0, k ← bn/(cs + 3)c
+ 2: while k > 0 do
+ 3:    R[s..s+k[ ← EVAL(F, as , . . . , as+k )                                                     . WS: R[s+k..n[
+ 4:    s ← s+ k 
+ 5:    k ← cn−s s +3
+
+ 6: R [s..n[ ← E VAL (F, as , . . . , an )                                                      . constant space
+
+
+                                                                                 c +3
+                                                                                        
+Theorem 3.4. Algorithm 4 is correct. It uses O(1) extra space and 4 + 2λs / log( css +2 ) M(n) log(n) +
+O(M(n) loglog n) operations in K.
+
+Proof. The correctness is obvious as soon as EVAL is correct. By the choice of k and from the ex-
+tra space bound of EVAL from Lemma 3.2, Step 3 has sufficient work space, and therefore the en-
+                                                       (c +2)i−1
+tire algorithm is in-place. The sequence ki = (cs +3)i n, for i = 1, 2, . . ., gives the values of k in
+                                                      s
+each iteration. Then i ki ≤ n and the loop terminates after at most ` log(n) iterations, where
+                          P
+             c +3
+` ≤ 1/ log( css +2 ). Applying Lemma 3.2, the cost of the entire algorithm is therefore dominated by
+   1≤i≤` (2λs M(n) + 4M(ki ) log(ki )), which is at most (2λs ` + 4)M(n) log(n).
+P
+
+   Using a time-efficient short product with λs = 1 and cs = 3 yields a complexity ' 11.61M(n) log n,
+which is roughly 11.61/1.5 = 7.74 times slower than the most time-efficient out-of-place algorithm.
+
+
+3.3     In-place interpolation
+Let (a1 , y1 ), . . . , (an , yn ) be n pairs of evaluations, with the ai ’s pairwise distinct. Our goal is to com-
+pute the unique size-n polynomial F ∈ K[X ] such that F (ai ) = yi for 1 ≤ i ≤ n, with an in-place
+algorithm. Our first aim is to provide a variant of polynomial interpolation that computes F mod X k
+using O(k) extra space. Without loss of generality, we assume that k divides n. For i = 1 to n/k, let
+
+
+                                                        11
+    Qki                                            Qn
+Ti = j=1+k(i−1) (X − a j ) and Si = M /Ti where M = i=1 (X − ai ). Note that Si = j6=i T j . One can
+                                                                                 Q
+
+rewrite Equation (3) as
+                           n/k                                           n/k          n/k
+                           X       ki
+                                   X       F (a j )     1                X   Ni (X ) X
+           F (X ) = M (X )                                      = M (X )            =     Ni (X )Si (X )   (4)
+                           i=1 j=1+k(i−1)
+                                          M 0 (a j ) (X − a j )              T (X )
+                                                                         i=1 i        i=1
+
+for some size-k polynomials N1 , . . . , Nn/k . One may remark that the latter equality can also be viewed
+as an instance of the chinese remainder theorem where Ni = F /Si mod Ti (see [6, Chapter 5]). To
+get the first k terms of the polynomial F , we only need to compute
+                                                   n/k
+                                                   X
+                                  F mod X k =            Ni (Si mod X k ) mod X k .                        (5)
+                                                   i=1
+
+One can observe that M 0 (a j ) = (Si mod Ti )(a j )Ti0 (a j ) for k(i − 1) < j ≤ ki. Therefore, Equation (4)
+implies that Ni is the unique size-k polynomial satisfying Ni (a j ) = (F /Si mod Ti )(a j ) and can be
+computed using interpolation. One first computes Si mod Ti , evaluates it at the a j ’s, performs k
+divisions in K to get each Ni (a j ) and finally interpolates Ni .
+    Our second aim is to generalize the previous approach when some initial coefficients of F are
+known. Writing F = G + X s H where G is known, we want to compute H mod X k from some evalu-
+                               at most (n − s), only (n − s) evaluation points are needed. Therefore,
+ations of F . Since H has size Q
+                                  n−s
+using Equation (4) with M = i=1 (X − ai ), we can write
+                                           (n−s)/k
+                                             X           ki
+                                                         X         F (a j ) − G(a j )      1
+                          H(X ) = M (X )                                                           .       (6)
+                                             i=1      j=1+k(i−1)
+                                                                      asj M 0 (a j )    (X − a j )
+
+This implies that H mod X k can be computed using the same approach described above by replacing
+F (a j ) with H(a j ) = (F (a j ) − G(a j ))/asj . We shall remark that the H(a j )’s can be computed using
+multipoint evaluation and fast exponentation. Algorithm 5 fully describes this approach.
+Lemma 3.5. Algorithm         5 is correct.     It requires 6k + O(k/ log k) extra space and it uses
+ 1 n−s 2   23 n−s
+                                                  + O(( n−s
+                  
+ 2 ( k ) + 2 k      M (k) log(k) + (n − s) log(s)        k ) M(k) loglog k) operations in K.
+                                                            2
+
+
+Proof. The correctness follows from the above discussion. In particular, note that the polynomials Sik
+and SiT at Steps 6 and 7 equal Si mod X k and Si mod Ti respectively. Furthermore, z j = G(a j+k(i−1) )
+since G(a j+k(i−1) ) = (G mod Ti )(a j+k(i−1) ). Hence, Step 12 correctly computes the polynomial Ni and
+the result follows from Equations (5) and (6).
+    From the discussion in Section 3.1, we can compute each Ti in 1/2M(k) log(k)+O(M (k) loglog k)
+operations in K and k extra space. Step 9 requires some care as we can share some computation
+among the two equal-size evaluations. Indeed, the subproduct trees induced by this computation are
+identical and thus can be computed only once. Using Lemma 3.1, this amounts to 13           2 M(k) log(k) +
+O(M(k)) operations in K using k + O(k/ log k) extra space. Step 12 can be done in 5M(k) log(k) +
+O(M (k) loglog k) operations in K and 2k + O(k/ log k) extra space using Lemma 3.3. Taking into
+account the n − s exponentations asj , and that other steps have a complexity in O(M(k)), the cost of
+the algorithm is
+           1 n − s 2 23 n − s                                             n − s 2
+                                                                                            
+                        +            M(k) log(k) + (n − s) log(s) + O               M(k) loglog k .
+           2     k         2 k                                               k
+    We show that 6k + O(k/ log k) extra registers are enough to implement this algorithm. At Step 7,
+the polynomials Ti , T j , Sik , SiT must be stored in memory. The computation involved at this step re-
+quires only 2k extra registers as SiT × T j mod Ti can be computed with an in-place full product (stored
+
+
+                                                           12
+Algorithm 5 Partial Interpolation (PARTINTERPOL)
+Input: G ∈ K[X ] of size s and ( y1 , . . . , yn−s ), (a1 , . . . , an−s ) in Kn−s ; an integer k ≤ n − s
+Output: H mod X k where F = G + X s H ∈ K[X ] is the unique size-n polynomial s.t. F (ai ) = yi for
+    1≤ i ≤ n−s
+ 1: for i = 1 to (n − s)/k do
+ 2:     Sik ← 1, SiT ← 1
+               Qki
+ 3:     Ti ← j=1+k(i−1) (X − a j )                                                          . Fast divide-and-conquer
+ 4:     for j = 1 to (n − s)/k, j 6= i do
+                  Qk j
+ 5:         T j ← t=1+k( j−1) (X − a t )                                                    . Fast divide-and-conquer
+ 6:          Sik ← Sik × T j mod X k                                                            . Sik = Si mod X k
+ 7:          SiT ← SiT × T j mod Ti                                                             . SiT = Si mod Ti
+ 8:      G T ← G mod Ti
+ 9:      (b1 , . . . , bk ) ← EVAL(SiT , a1+k(i−1) , . . . , aki )
+         (z1 , . . . , zk ) ← EVAL(G T , a1+k(i−1) , . . . , aki )
+10:      for j = 1 to k do
+11:            b j ← ( y j+k(i−1) − z j )/(asj+k(i−1) b j )
+12:      Ni ← INTERPOL((z1 , . . . , zk ), (b1 , . . . , bk ))
+13:      H[0..k[ ← H[0..k[ + Ni Sik mod X k
+
+
+in the extra registers) followed by an in-place division with remainder using the registers of SiT and
+T j for the quotient and remainder storage. Using the same technique Step 8 requires only k extra
+space as for Steps 2 to 6. At Step 9, we need 3k registers to store G T , SiT , Sik and 2k registers to store
+(b1 , . . . , bk ) and (z1 , . . . , zk ), plus k + O(k/ log k) extra register for the computation. At Step 12 we
+re-use the space of G T , SiT for Ni and the extra space of the computation which implies the claim.
+
+      We can now provide our in-place variant for fast interpolation.
+
+Algorithm 6 In-Place Interpolation (INPLACEINTERPOL)
+Input: ( y1 , . . . , yn ) and (a1 , . . . , an ) of size n such that ai , yi ∈ K;
+Output: F ∈ K[X ] of size n, such that F (ai ) = yi for 0 ≤ i ≤ n.
+Required: PARTINTERPOL with space complexity ≤ c pi k
+ 1: s ← 0
+ 2: while s <  n do
+ 3:    k ← cn−s   pi +1
+ 4:    if k = 0 then k ← n − s
+ 5:    Y, A ← ( y1 , . . . , yn−s ), (a1 , . . . , an−s )
+ 6:    F[s..s+k[ ← PARTINTERPOL(F[0..s[ , Y, A, k)
+ 7:    s←s+k
+
+
+Theorem 3.6. Algorithm 6 is correct. It uses O(1) extra space and at most 21 (c 2 + 23c)M(n) log n +
+O(M(n) loglog n) operations in K, where c = 1 + c pi .
+
+Proof. The correctness is clear from the correctness of Algorithm PARTINTERPOL. To ensure that the
+algorithm uses O(1) extra space we notice that at Step 6, F[s+k..n[ can be used as work space. There-
+fore, as soon as c pi k ≤ n − s − k, that is, k ≤ cn−s
+                                                   pi +1
+                                                         , this free space is enough to run PARTINTERPOL.
+Note that when k = 0, n − s < c pi + 1 is a constant, which means that the final computation can be
+
+
+                                                                     13
+done with O(1) extra space. Let k1 , k2 , . . . , k t and s1 , s2 , . . . , s t be the values of k and s taken during
+                                             Pi
+the course of the algorithm. Since si = j=1 k j ≤ n with s0 = 0, we have ki ≤ λn(1 − λ)i−1 , and
+si ≥ n(1 − (1 − λ)i ) where λ = cpi1+1 . The time complexity T (n) of the algorithm satisfies
+
+                   t  2                              t
+                   X  c        23c                    X
+         T (n) ≤             +       M(ki ) log(ki ) + (n − si−1 ) log(si−1 ) + O(c 2 M(ki ) loglog ki )
+                   i=1
+                           2    2                     i=1
+
+     n−s                                                         Pt
+since kii−1 ≤ c = c pi +1 by definition of ki . Moreover, we have i=1 M(ki ) log(ki ) ≤ M( i ki ) log n ≤
+                                                                                          P
+
+M(n) log(n). By definition of si , we have n − si ≤ n(1 − λ)i which gives
+                         t
+                         X                                   t
+                                                             X
+                           (n − si−1 ) log(si−1 ) ≤ n log(n)   (1 − λ)i ≤ (c pi + 1)n log n.
+                         i=1                                  i=1
+
+This concludes the proof.
+
+    Since c pi < 6 + ε for any ε > 0, the complexity can be approximated to 105M(n) log(n), which is
+42 times slower than the fastest interpolation algorithm (see Table 1).
+
+
+Acknowledgments
+We thank Grégoire Lecerf, Alin Bostan and Michael Monagan for pointing out the references [7, 16].
+
+
+References
+ [1] Daniel J. Bernstein. Fast multiplication and its applications. In Algorithmic Number Theory,
+     volume 44 of MSRI Pub., pages 325–384. Cambridge University Press, 2008.
+
+ [2] Alin Bostan, Grégoire Lecerf, and Éric Schost. Tellegen’s principle into practice. In ISSAC’03,
+     pages 37–44. ACM, 2003. DOI: 10.1145/860854.860870.
+
+ [3] David G. Cantor and Erich Kaltofen. On fast multiplication of polynomials over arbitrary alge-
+     bras. Acta Inform., 28(7):693–701, 1991. DOI: 10.1007/BF01178683.
+
+ [4] Stephen A. Cook. On the minimum computation time of functions. PhD thesis, Harvard University,
+     1966.
+
+ [5] Matteo Frigo, Charles E. Leiserson, Harald Prokop, and Sridhar Ramachandran. Cache-oblivious
+     algorithms. In FOCS’99, pages 285–297. IEEE, 1999. DOI: 10.1109/SFFCS.1999.814600.
+
+ [6] Joachim von zur Gathen and Jürgen Gerhard. Modern Computer Algebra. Cambridge University
+     Press, 3rd edition, 2013.
+
+ [7] Joachim von zur Gathen and Victor Shoup. Computing frobenius maps and factoring polyno-
+     mials. Comput. Complex., 2(3):187–224, 1992. DOI: 10.1007/BF01272074.
+
+ [8] Pascal Giorgi, Bruno Grenet, and Daniel S. Roche. Generic reductions for in-place polynomial
+     multiplication. In ISSAC’19, pages 187–194. ACM, 2019. DOI: 10.1145/3326229.3326249.
+
+ [9] Guillaume Hanrot, Michel Quercia, and Paul Zimmermann. The middle product algorithm I.
+     Appl. Algebr. Eng. Comm., 14(6):415–438, 2004. DOI: 10.1007/s00200-003-0144-2.
+
+
+                                                         14
+[10] David Harvey and Joris van der Hoeven. Polynomial multiplication over finite fields in time
+     O(n log n). 2019. URL: https://hal.archives-ouvertes.fr/hal-02070816/.
+
+[11] David Harvey and Daniel S. Roche. An in-place truncated Fourier transform and applications to
+     polynomial multiplication. In ISSAC’10, pages 325–329. ACM, 2010. DOI: 10.1145/1837934.
+     1837996.
+[12] Anatoli Karatsuba and Yuri Ofman. Multiplication of Multidigit Numbers on Automata. Sov.
+     Phys. - Dok., 7:595–596, 1963.
+
+[13] Alan H. Karp and Peter Markstein. High-precision division and square root. ACM Trans. Math.
+     Software, 23(4):561–589, 1997. DOI: 10.1145/279232.279237.
+
+[14] Hsiang-Tsung Kung. On computing reciprocals of power series. Numer. Math., 22(5):341–348,
+     1974. DOI: 10.1007/BF01436917.
+
+[15] Robert Moenck and Allan Borodin. Fast modular transforms via division. In SWAT’72, pages
+     90–96. IEEE, 1972. DOI: 10.1109/SWAT.1972.5.
+
+[16] Michael Monagan. In-place arithmetic for polynomials over Zn. In DISCO’93, pages 22–34.
+     Springer, 1993. DOI: 10.1007/3-540-57272-4_21.
+
+[17] Daniel S. Roche. Space- and time-efficient polynomial multiplication. In ISSAC’09, pages 295–
+     302. ACM, 2009. DOI: 10.1145/1576702.1576743.
+
+[18] Arnold Schönhage. Probabilistic computation of integer polynomial gcds.        J. Algorithms,
+     9(3):365–371, 1988. DOI: 10.1016/0196-6774(88)90027-2.
+
+[19] Arnold Schönhage and Volker Strassen. Schnelle Multiplikation großer Zahlen. Computing,
+     7(3):281–292, 1971. DOI: 10.1007/BF02242355.
+
+[20] Emmanuel Thomé. Karatsuba multiplication with temporary space of size ≤ n. 2002. URL:
+     https://hal.archives-ouvertes.fr/hal-02396734.
+
+
+
+
+                                               15
+A    Interpolation with linear space
+The algorithm proceeds as:
+
+ (1) Run the subproduct tree algorithm for each group of n/ log(n) interpolation points, saving only
+     the roots of each subtree M1 , . . . , Mdlog(n)e , using fast out-of-place full multiplications.
+
+ (2) Run the subproduct tree algorithm over these Mi ’s to compute the root M , using in-place full
+     multiplications from [8], discarding other nodes in the tree.
+
+ (3) Compute the derivative M 0 in place.
+
+ (4) Compute the remainders M 0 mod Mi for 1 ≤ i ≤ dlog(n)e, using the balanced (with precompu-
+     tation) algorithm described in Section 2.1. The size-n polynomial M 0 may now be discarded.
+
+ (5) For each group i, compute the full subproduct tree over its n/ log(n) points. Use this to perform
+     multi-point evaluation of M 0 mod Mi over the n/ log(n) points of that group only, and then
+     compute the partial sum of (3) for that group’s points. Discard the subproduct tree but save
+     the rational function partial sum for each group.
+
+ (6) Combine the rational functions for the dlog(n)e groups using a divide-and-conquer strategy,
+     employing again the in-place full multiplications from [8].
+
+    The following lemma gives the complexity of this linear-space interpolation algorithm.
+
+Lemma 3.3. Given a1 , . . . , an ∈ K and y1 , . . . , yn ∈ K, one can compute F ∈ K[X ] of size n such that
+F (ai ) = yi for 1 ≤ i ≤ n using 5M(n) log(n)+O(M(n) loglog(n)) operations in K and 2n+O(n/ log(n))
+extra registers.
+
+Proof. Steps (1) and (5) collectively involve, for each group, two subproduct tree computations,
+one multi-point evaluation, and one rational function summation over each group, for a total of
+3M(n) log(n) + O(M(n)) time. Step (4) contributes another 2M(n) log(n) + O(M(n)) operations in
+K. In steps (2) and (6), the expensive in-place multiplications are used only for the top dloglog(n)e
+levels of the entire subproduct tree, so this contributes only O(M(n) loglog(n)).
+    For the space, note that the size-n output space may be used during all steps until the last to store
+intermediate results.
+
+
+
+
+                                                    16
+

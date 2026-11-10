@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "scope": "classical invertible six-moment/Pade-coordinate map, full Euclid comparison, transfer-matrix determinant, including first-pivot zero; no quantum resources or full decoding acceptance",
+  "requested_shots": 12000,
+  "checks": 8994,
+  "inverse_checks": 8994,
+  "accepted_by_kind": {
+    "random": 2999,
+    "zero_first": 2999,
+    "zero_second": 2996
+  },
+  "rejected_by_kind": {
+    "zero_first_two": 3000,
+    "random": 1,
+    "zero_second": 4,
+    "zero_first": 1
+  },
+  "euclid_quotient_degree_patterns": {
+    "1,1,1": 5992,
+    "2,1": 3002
+  },
+  "seconds": 0.28873205184936523
+}

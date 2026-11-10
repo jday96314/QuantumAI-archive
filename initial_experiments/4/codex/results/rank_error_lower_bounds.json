@@ -1,0 +1,42 @@
+[
+  {
+    "C": 150,
+    "unrestricted_psd_error_lower_bound": 0.23596605939568194
+  },
+  {
+    "C": 200,
+    "unrestricted_psd_error_lower_bound": 0.0771664404516458
+  },
+  {
+    "C": 225,
+    "unrestricted_psd_error_lower_bound": 0.05240735308187519
+  },
+  {
+    "C": 250,
+    "unrestricted_psd_error_lower_bound": 0.03685933945112275
+  },
+  {
+    "C": 275,
+    "unrestricted_psd_error_lower_bound": 0.025283388237676174
+  },
+  {
+    "C": 300,
+    "unrestricted_psd_error_lower_bound": 0.016697067900319454
+  },
+  {
+    "C": 325,
+    "unrestricted_psd_error_lower_bound": 0.010762105837780162
+  },
+  {
+    "C": 350,
+    "unrestricted_psd_error_lower_bound": 0.007551697986425993
+  },
+  {
+    "C": 375,
+    "unrestricted_psd_error_lower_bound": 0.005564035302369558
+  },
+  {
+    "C": 400,
+    "unrestricted_psd_error_lower_bound": 0.004125368507984522
+  }
+]

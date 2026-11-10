@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "scope": "all first-operand field values, random second operand and runtime masks, zero/nonzero roots, zero masks, exact phase, all input/scratch restoration",
+  "shots": 4096,
+  "Q": 78,
+  "T": 87,
+  "phase_errors": [],
+  "failures": {},
+  "scratch_errors": []
+}

@@ -1,0 +1,19 @@
+{
+  "scores": {
+    "invsqrt": 311390.2360113979,
+    "dqi": 3267751869077.3,
+    "dfthcsos": 1804421499.712409
+  },
+  "improvements": {
+    "invsqrt": 6.669362085068664,
+    "dqi": 7.478983889487848,
+    "dfthcsos": 1.8596539604800524
+  },
+  "overall_score": 4.526748271611358,
+  "sources": {
+    "invsqrt": "results/inv-flagdel.json",
+    "dqi": "results/dqi-lean2.json",
+    "dfthcsos": "results/chem35r.json"
+  },
+  "sha256": "2f682b64cd8b79c34fbd8beb646fff91834b7855035a4e4a92676297f4ef7466"
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      21,
+      13
+    ],
+    "qubits": 132,
+    "toffolis": 2562,
+    "max_relative_error": 5.240222467062239e-08,
+    "circuit": "initial_experiments/candidates/poly-integer-f6-28-21-13.kmb",
+    "table": "initial_experiments/candidates/poly-integer-f6-28-21-13.npy"
+  },
+  {
+    "frac": 6,
+    "widths": [
+      28,
+      21,
+      14
+    ],
+    "qubits": 133,
+    "toffolis": 2566,
+    "max_relative_error": 5.240222467062239e-08,
+    "circuit": "initial_experiments/candidates/poly-integer-f6-28-21-14.kmb",
+    "table": "initial_experiments/candidates/poly-integer-f6-28-21-14.npy"
+  }
+]

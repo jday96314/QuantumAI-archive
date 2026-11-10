@@ -1,0 +1,57 @@
+{
+  "scope": "normalized mantissa only, largest Walsh coefficients, floating-point approximation; no quantum resources or native acceptance",
+  "bits": 21,
+  "negative_coefficients": 0,
+  "records": [
+    {
+      "terms": 32,
+      "rotations": 31,
+      "max_relative_error": 0.0020983305289087317,
+      "worst_index": 0,
+      "omitted_coefficient_l1": 0.002098330529000373
+    },
+    {
+      "terms": 64,
+      "rotations": 63,
+      "max_relative_error": 0.0005448521079139956,
+      "worst_index": 0,
+      "omitted_coefficient_l1": 0.0005448521080055053
+    },
+    {
+      "terms": 128,
+      "rotations": 127,
+      "max_relative_error": 0.00011883953004687697,
+      "worst_index": 0,
+      "omitted_coefficient_l1": 0.0001188395301385069
+    },
+    {
+      "terms": 256,
+      "rotations": 255,
+      "max_relative_error": 2.1379302124979738e-05,
+      "worst_index": 0,
+      "omitted_coefficient_l1": 2.137930221660485e-05
+    },
+    {
+      "terms": 512,
+      "rotations": 511,
+      "max_relative_error": 3.258004710682272e-06,
+      "worst_index": 0,
+      "omitted_coefficient_l1": 3.2580048023032914e-06
+    },
+    {
+      "terms": 1024,
+      "rotations": 1023,
+      "max_relative_error": 3.9269649687589947e-07,
+      "worst_index": 0,
+      "omitted_coefficient_l1": 3.926965883432241e-07
+    },
+    {
+      "terms": 2048,
+      "rotations": 2047,
+      "max_relative_error": 3.71410814326012e-08,
+      "worst_index": 0,
+      "omitted_coefficient_l1": 3.7141173053319977e-08
+    }
+  ],
+  "seconds": 0.8505430221557617
+}

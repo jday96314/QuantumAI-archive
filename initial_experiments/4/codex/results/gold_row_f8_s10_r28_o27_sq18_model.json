@@ -1,0 +1,25 @@
+{
+  "status": "MODEL_PASS",
+  "scope": "all-x Booth-row approximation with a small square; no quantum circuit",
+  "parameters": {
+    "frac": 8,
+    "seedbits": 10,
+    "resbits": 28,
+    "outbits": 27,
+    "squarebits": 18
+  },
+  "worst_relative_error": 3.638788181881125e-08,
+  "worst_x": 2924034,
+  "residual_range": [
+    -863711,
+    839606
+  ],
+  "corrected_residual_range": [
+    -861629,
+    841576
+  ],
+  "square_input_range": [
+    -843,
+    820
+  ]
+}

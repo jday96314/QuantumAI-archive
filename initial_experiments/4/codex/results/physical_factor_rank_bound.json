@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "necessary maximum physical matrix rank B for all factor column gauges, dictionaries, R and C; no circuit-cost or overall-score bound",
+  "epsilon": 0.02,
+  "n": 76,
+  "packed_dimension": 2926,
+  "trace_G": 53.29700052069048,
+  "identity_overlap": 521.8492391407489,
+  "zero_error_rank_bound": 9.791343491049956,
+  "error_aware_rank_bound": 9.56859572434093,
+  "necessary_integer_B": 10,
+  "derivation": "sum (Tr X_c)^2 <= B sum ||X_c||_F^2; numerator changes by at most epsilon*n, denominator by epsilon*sqrt(D)"
+}

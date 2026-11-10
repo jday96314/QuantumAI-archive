@@ -1,0 +1,17 @@
+{
+  "status": "SEARCH_FINISHED_NO_IMPROVEMENT",
+  "scope": "GF4096 as a six-dimensional GF4 algebra, exact CRT seed, GF4-scaled projective tensor flips and plus moves; no lower-bound claim",
+  "initial_GF4_rank": 14,
+  "best_GF4_rank": 14,
+  "binary_AND_upper_bound": 42,
+  "proposals": 64000000,
+  "chains": 64,
+  "seed": 771415,
+  "expansion_cap": 3,
+  "restart_every": 10000,
+  "checked_GF4_basis_pairs": 36,
+  "source_sha256": {
+    "gf4_tensor_seed.py": "5b0012ff508abd5d40f91171a40abf5ad3d80b8c40298e19272e81e7ae58b2c3",
+    "gf4_tensor_flip.cpp": "7efee99ee5d8fdb221ae623ce0ba5eb73101fdc4087183677f7499c8ad2c072f"
+  }
+}

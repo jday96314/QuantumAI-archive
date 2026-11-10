@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "BM prefix quantum/classical value comparison",
+  "shots": 1024,
+  "Q": 1428,
+  "T": 159664,
+  "failures": []
+}

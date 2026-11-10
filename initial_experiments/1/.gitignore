@@ -1,0 +1,8 @@
+__pycache__/
+candidates/
+submission/
+submission.zip
+# Retain the small experiment measurements despite the repository-wide JSON rule.
+!parameters/*.json
+!results/*.json
+!results/**/*.json

@@ -1,0 +1,20 @@
+{
+  "overall_score": 9.008540688342578,
+  "task_scores": {
+    "invsqrt": 190711.9554548813,
+    "dqi": 1612737419463.0198,
+    "dfthcsos": 757436402.4877431
+  },
+  "improvements": {
+    "invsqrt": 10.889585966236522,
+    "dqi": 15.15402525465698,
+    "dfthcsos": 4.430206387353871
+  },
+  "sources": {
+    "invsqrt": "initial_experiments/3/results/compactdefer_k4_q94_verify.json",
+    "dqi": "initial_experiments/3/results/stream10_offset3_select_noscale_compact_verify.json",
+    "dfthcsos": "initial_experiments/3/results/residual719_lbfgs2_verify.json"
+  },
+  "archive": "initial_experiments/3/milestones/9/submission.zip",
+  "sha256": "ded3c54c685f583d3f6cbc9e6f76324078119117e99e7b95b5da693871d1b8eb"
+}

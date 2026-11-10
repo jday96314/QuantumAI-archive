@@ -1,0 +1,289 @@
+{
+  "scope": "field-product estimate only; excludes pivot inverses, quotient conversion, controls, and phase kernel",
+  "N": 70,
+  "rows": [
+    {
+      "k": 0,
+      "remainder_words": 70,
+      "off_diagonal_products": 67,
+      "scalings": 68,
+      "boundary_products": 1,
+      "cofactor_products": 0
+    },
+    {
+      "k": 1,
+      "remainder_words": 68,
+      "off_diagonal_products": 194,
+      "scalings": 132,
+      "boundary_products": 3,
+      "cofactor_products": 1
+    },
+    {
+      "k": 2,
+      "remainder_words": 66,
+      "off_diagonal_products": 280,
+      "scalings": 128,
+      "boundary_products": 5,
+      "cofactor_products": 3
+    },
+    {
+      "k": 3,
+      "remainder_words": 64,
+      "off_diagonal_products": 330,
+      "scalings": 124,
+      "boundary_products": 7,
+      "cofactor_products": 5
+    },
+    {
+      "k": 4,
+      "remainder_words": 62,
+      "off_diagonal_products": 360,
+      "scalings": 120,
+      "boundary_products": 9,
+      "cofactor_products": 6
+    },
+    {
+      "k": 5,
+      "remainder_words": 60,
+      "off_diagonal_products": 376,
+      "scalings": 116,
+      "boundary_products": 11,
+      "cofactor_products": 7
+    },
+    {
+      "k": 6,
+      "remainder_words": 58,
+      "off_diagonal_products": 392,
+      "scalings": 112,
+      "boundary_products": 13,
+      "cofactor_products": 8
+    },
+    {
+      "k": 7,
+      "remainder_words": 56,
+      "off_diagonal_products": 396,
+      "scalings": 108,
+      "boundary_products": 15,
+      "cofactor_products": 9
+    },
+    {
+      "k": 8,
+      "remainder_words": 54,
+      "off_diagonal_products": 392,
+      "scalings": 104,
+      "boundary_products": 17,
+      "cofactor_products": 10
+    },
+    {
+      "k": 9,
+      "remainder_words": 52,
+      "off_diagonal_products": 388,
+      "scalings": 100,
+      "boundary_products": 19,
+      "cofactor_products": 11
+    },
+    {
+      "k": 10,
+      "remainder_words": 50,
+      "off_diagonal_products": 384,
+      "scalings": 96,
+      "boundary_products": 21,
+      "cofactor_products": 12
+    },
+    {
+      "k": 11,
+      "remainder_words": 48,
+      "off_diagonal_products": 378,
+      "scalings": 92,
+      "boundary_products": 23,
+      "cofactor_products": 13
+    },
+    {
+      "k": 12,
+      "remainder_words": 46,
+      "off_diagonal_products": 364,
+      "scalings": 88,
+      "boundary_products": 25,
+      "cofactor_products": 14
+    },
+    {
+      "k": 13,
+      "remainder_words": 44,
+      "off_diagonal_products": 348,
+      "scalings": 84,
+      "boundary_products": 27,
+      "cofactor_products": 15
+    },
+    {
+      "k": 14,
+      "remainder_words": 42,
+      "off_diagonal_products": 332,
+      "scalings": 80,
+      "boundary_products": 29,
+      "cofactor_products": 16
+    },
+    {
+      "k": 15,
+      "remainder_words": 40,
+      "off_diagonal_products": 316,
+      "scalings": 76,
+      "boundary_products": 31,
+      "cofactor_products": 17
+    },
+    {
+      "k": 16,
+      "remainder_words": 38,
+      "off_diagonal_products": 300,
+      "scalings": 72,
+      "boundary_products": 33,
+      "cofactor_products": 18
+    },
+    {
+      "k": 17,
+      "remainder_words": 36,
+      "off_diagonal_products": 282,
+      "scalings": 68,
+      "boundary_products": 35,
+      "cofactor_products": 19
+    },
+    {
+      "k": 18,
+      "remainder_words": 34,
+      "off_diagonal_products": 258,
+      "scalings": 64,
+      "boundary_products": 37,
+      "cofactor_products": 20
+    },
+    {
+      "k": 19,
+      "remainder_words": 32,
+      "off_diagonal_products": 238,
+      "scalings": 60,
+      "boundary_products": 39,
+      "cofactor_products": 21
+    },
+    {
+      "k": 20,
+      "remainder_words": 30,
+      "off_diagonal_products": 218,
+      "scalings": 56,
+      "boundary_products": 41,
+      "cofactor_products": 22
+    },
+    {
+      "k": 21,
+      "remainder_words": 28,
+      "off_diagonal_products": 198,
+      "scalings": 52,
+      "boundary_products": 43,
+      "cofactor_products": 23
+    },
+    {
+      "k": 22,
+      "remainder_words": 26,
+      "off_diagonal_products": 178,
+      "scalings": 48,
+      "boundary_products": 45,
+      "cofactor_products": 24
+    },
+    {
+      "k": 23,
+      "remainder_words": 24,
+      "off_diagonal_products": 158,
+      "scalings": 44,
+      "boundary_products": 44,
+      "cofactor_products": 25
+    },
+    {
+      "k": 24,
+      "remainder_words": 22,
+      "off_diagonal_products": 138,
+      "scalings": 40,
+      "boundary_products": 40,
+      "cofactor_products": 26
+    },
+    {
+      "k": 25,
+      "remainder_words": 20,
+      "off_diagonal_products": 118,
+      "scalings": 36,
+      "boundary_products": 36,
+      "cofactor_products": 27
+    },
+    {
+      "k": 26,
+      "remainder_words": 18,
+      "off_diagonal_products": 98,
+      "scalings": 32,
+      "boundary_products": 32,
+      "cofactor_products": 28
+    },
+    {
+      "k": 27,
+      "remainder_words": 16,
+      "off_diagonal_products": 82,
+      "scalings": 28,
+      "boundary_products": 28,
+      "cofactor_products": 29
+    },
+    {
+      "k": 28,
+      "remainder_words": 14,
+      "off_diagonal_products": 66,
+      "scalings": 24,
+      "boundary_products": 24,
+      "cofactor_products": 30
+    },
+    {
+      "k": 29,
+      "remainder_words": 12,
+      "off_diagonal_products": 50,
+      "scalings": 20,
+      "boundary_products": 20,
+      "cofactor_products": 31
+    },
+    {
+      "k": 30,
+      "remainder_words": 10,
+      "off_diagonal_products": 34,
+      "scalings": 16,
+      "boundary_products": 16,
+      "cofactor_products": 32
+    },
+    {
+      "k": 31,
+      "remainder_words": 8,
+      "off_diagonal_products": 22,
+      "scalings": 12,
+      "boundary_products": 12,
+      "cofactor_products": 33
+    },
+    {
+      "k": 32,
+      "remainder_words": 6,
+      "off_diagonal_products": 10,
+      "scalings": 8,
+      "boundary_products": 8,
+      "cofactor_products": 34
+    },
+    {
+      "k": 33,
+      "remainder_words": 4,
+      "off_diagonal_products": 2,
+      "scalings": 4,
+      "boundary_products": 4,
+      "cofactor_products": 35
+    },
+    {
+      "k": 34,
+      "remainder_words": 2,
+      "off_diagonal_products": 0,
+      "scalings": 0,
+      "boundary_products": 0,
+      "cofactor_products": 36
+    }
+  ],
+  "field_products": 11512,
+  "T_field_products": 483504,
+  "storage_field_words": 71
+}

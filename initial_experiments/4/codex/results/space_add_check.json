@@ -1,0 +1,205 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "m": 4,
+      "n": 10,
+      "d": 4,
+      "carry": false,
+      "subtract": false,
+      "Q": 18,
+      "T": 15,
+      "shots": 2048
+    },
+    {
+      "m": 4,
+      "n": 10,
+      "d": 4,
+      "carry": false,
+      "subtract": true,
+      "Q": 18,
+      "T": 15,
+      "shots": 2048
+    },
+    {
+      "m": 4,
+      "n": 10,
+      "d": 4,
+      "carry": true,
+      "subtract": false,
+      "Q": 19,
+      "T": 13,
+      "shots": 2048
+    },
+    {
+      "m": 4,
+      "n": 10,
+      "d": 4,
+      "carry": true,
+      "subtract": true,
+      "Q": 19,
+      "T": 13,
+      "shots": 2048
+    },
+    {
+      "m": 8,
+      "n": 18,
+      "d": 5,
+      "carry": false,
+      "subtract": false,
+      "Q": 31,
+      "T": 33,
+      "shots": 2048
+    },
+    {
+      "m": 8,
+      "n": 18,
+      "d": 5,
+      "carry": false,
+      "subtract": true,
+      "Q": 31,
+      "T": 33,
+      "shots": 2048
+    },
+    {
+      "m": 8,
+      "n": 18,
+      "d": 5,
+      "carry": true,
+      "subtract": false,
+      "Q": 32,
+      "T": 31,
+      "shots": 2048
+    },
+    {
+      "m": 8,
+      "n": 18,
+      "d": 5,
+      "carry": true,
+      "subtract": true,
+      "Q": 32,
+      "T": 31,
+      "shots": 2048
+    },
+    {
+      "m": 14,
+      "n": 19,
+      "d": 3,
+      "carry": false,
+      "subtract": false,
+      "Q": 36,
+      "T": 34,
+      "shots": 2048
+    },
+    {
+      "m": 14,
+      "n": 19,
+      "d": 3,
+      "carry": false,
+      "subtract": true,
+      "Q": 36,
+      "T": 34,
+      "shots": 2048
+    },
+    {
+      "m": 14,
+      "n": 19,
+      "d": 3,
+      "carry": true,
+      "subtract": false,
+      "Q": 37,
+      "T": 32,
+      "shots": 2048
+    },
+    {
+      "m": 14,
+      "n": 19,
+      "d": 3,
+      "carry": true,
+      "subtract": true,
+      "Q": 37,
+      "T": 32,
+      "shots": 2048
+    },
+    {
+      "m": 18,
+      "n": 19,
+      "d": 1,
+      "carry": false,
+      "subtract": false,
+      "Q": 38,
+      "T": 35,
+      "shots": 2048
+    },
+    {
+      "m": 18,
+      "n": 19,
+      "d": 1,
+      "carry": false,
+      "subtract": true,
+      "Q": 38,
+      "T": 35,
+      "shots": 2048
+    },
+    {
+      "m": 18,
+      "n": 19,
+      "d": 1,
+      "carry": true,
+      "subtract": false,
+      "Q": 39,
+      "T": 34,
+      "shots": 2048
+    },
+    {
+      "m": 18,
+      "n": 19,
+      "d": 1,
+      "carry": true,
+      "subtract": true,
+      "Q": 39,
+      "T": 34,
+      "shots": 2048
+    },
+    {
+      "m": 9,
+      "n": 9,
+      "d": 1,
+      "carry": false,
+      "subtract": false,
+      "Q": 19,
+      "T": 15,
+      "shots": 2048
+    },
+    {
+      "m": 9,
+      "n": 9,
+      "d": 1,
+      "carry": false,
+      "subtract": true,
+      "Q": 19,
+      "T": 15,
+      "shots": 2048
+    },
+    {
+      "m": 9,
+      "n": 9,
+      "d": 1,
+      "carry": true,
+      "subtract": false,
+      "Q": 20,
+      "T": 14,
+      "shots": 2048
+    },
+    {
+      "m": 9,
+      "n": 9,
+      "d": 1,
+      "carry": true,
+      "subtract": true,
+      "Q": 20,
+      "T": 14,
+      "shots": 2048
+    }
+  ]
+}

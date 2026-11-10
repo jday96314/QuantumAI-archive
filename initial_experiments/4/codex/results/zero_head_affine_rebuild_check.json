@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "scope": "independent complete inverse source reexecution is byte-for-byte identical",
+  "circuit_sha256": "27b14e544481db8eae7bf7f7e61bef93660ada06585cb5e398d3a18af9b50af1",
+  "source_sha256": {
+    "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/zero_head_affine_invsqrt.py": "b87d78eae1a07b72ed652e58303b579e05415911df8be787d621176e4c2f95d5",
+    "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/fixed_top_affine_invsqrt.py": "68e74b6c2b1e95b8444740879651b8e1d9a2065f0b85b39a55c6f626b335a8c7",
+    "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/affine_invsqrt.py": "ed5f06b7c95bd3a9ea1fa67aa3e8d214ae3b0a6b75385c4220d430fa066283bd",
+    "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/binary_centered_invsqrt.py": "8dbdcd5e58cec42fd34711f04c9b1742a5d4c2e090b905572143064246f49c59",
+    "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/short_adder.py": "25e26298607ccc93228923163eaea303ea38dd97005a36bc2f3ae0646cc7ad8f",
+    "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/optimize_workspace.py": "909b9283da41f7ac9c094dacf0f9669ed7ee8fa94c78a68b6d5535c199a2768f",
+    "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/monomial_unlookup.py": "526cb0273f68846124dca2bacd11ce6eb3627c8bb2353cb6565020ac7f0b352d",
+    "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/booth_adder.py": "a190eda38abad489b92d6625490de132f680707f76043dcb5ca2347bbc19edb8",
+    "/media/shared/ExpansionDrive2/QuantumAI/from_host/verifiers/invsqrt/nr_reference_circuit.py": "bb90330dcf774f7b502de471293facba67f27952cc8808fe4a9970a9b1322e23",
+    "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/margin_curve8_t5.9e-08.npy": "b32b8ec7eb74dc4acd74679b791d96a44eb333c4fc060e759db606f6e7ef6cfd",
+    "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/compact_wires.cpp": "b4f13eb33b503b25e71367b495ff8384cc70c46ae599d6d3447c59db17d00711"
+  },
+  "parameters": {
+    "limit": 90,
+    "keep": 4,
+    "delay": 2,
+    "product": 17,
+    "deferred": 3
+  }
+}

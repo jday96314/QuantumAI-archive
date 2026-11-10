@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "scope": "controlled affine cofactor padding with arbitrary remainder inputs, inverse, composition and phase; not integrated with decoder",
+  "k": 17,
+  "kind": "linear",
+  "shots": 512,
+  "circuits": [
+    {
+      "which": "forward",
+      "Q": 421,
+      "T": 2385
+    },
+    {
+      "which": "inverse",
+      "Q": 421,
+      "T": 2385
+    },
+    {
+      "which": "both",
+      "Q": 421,
+      "T": 4770
+    }
+  ]
+}

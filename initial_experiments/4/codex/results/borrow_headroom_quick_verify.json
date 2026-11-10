@@ -1,0 +1,4 @@
+{
+  "status": "FAIL",
+  "error": "num_shots must be a multiple of batch_size=256, got 3133452."
+}

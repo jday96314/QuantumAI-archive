@@ -1,0 +1,532 @@
+[
+  {
+    "tag": "boothglobal_f7_w27_18_8_0",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      8
+    ],
+    "phase": -1e-13,
+    "error": 6.029412435992754e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_8_1",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      8
+    ],
+    "phase": 1e-13,
+    "error": 5.996827989740439e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_8_2",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      8
+    ],
+    "phase": -2.5e-13,
+    "error": 6.053850765130875e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_8_3",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      8
+    ],
+    "phase": 2.5e-13,
+    "error": 5.972389660602317e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_8_4",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      8
+    ],
+    "phase": -5e-13,
+    "error": 6.094581317395154e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_8_5",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      8
+    ],
+    "phase": 5e-13,
+    "error": 6.31843992682235e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_8_6",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      8
+    ],
+    "phase": -1e-12,
+    "error": 6.023187126835694e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_8_7",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      8
+    ],
+    "phase": 1e-12,
+    "error": 6.340405200866428e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_8_8",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      8
+    ],
+    "phase": -2e-12,
+    "error": 5.968421923352452e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_8_9",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      8
+    ],
+    "phase": 2e-12,
+    "error": 5.961654681030382e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_8_10",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      8
+    ],
+    "phase": -4e-12,
+    "error": 5.965628568915804e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_8_11",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      8
+    ],
+    "phase": 4e-12,
+    "error": 5.99537137713213e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_9_0",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      9
+    ],
+    "phase": -1e-13,
+    "error": 6.103001126689378e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_9_1",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      9
+    ],
+    "phase": 1e-13,
+    "error": 6.122081352977204e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_9_2",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      9
+    ],
+    "phase": -2.5e-13,
+    "error": 6.088690973626854e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_9_3",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      9
+    ],
+    "phase": 2.5e-13,
+    "error": 6.136391506039729e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_9_4",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      9
+    ],
+    "phase": -5e-13,
+    "error": 6.064840740727107e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_9_5",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      9
+    ],
+    "phase": 5e-13,
+    "error": 6.160241738939476e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_9_6",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      9
+    ],
+    "phase": -1e-12,
+    "error": 6.017140252723152e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_9_7",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      9
+    ],
+    "phase": 1e-12,
+    "error": 5.988962725744784e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_9_8",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      9
+    ],
+    "phase": -2e-12,
+    "error": 5.921739254510783e-08,
+    "pass": true
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_9_9",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      9
+    ],
+    "phase": 2e-12,
+    "error": 6.003659713815779e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_9_10",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      9
+    ],
+    "phase": -4e-12,
+    "error": 6.10560846325825e-08
+  },
+  {
+    "tag": "boothglobal_f7_w27_18_9_11",
+    "frac": 7,
+    "widths": [
+      27,
+      18,
+      9
+    ],
+    "phase": 4e-12,
+    "error": 5.9187686862749445e-08,
+    "pass": true
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_8_0",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "phase": -1e-13,
+    "error": 6.236378657931141e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_8_1",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "phase": 1e-13,
+    "error": 6.207358682619457e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_8_2",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "phase": -2.5e-13,
+    "error": 6.258143647741576e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_8_3",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "phase": 2.5e-13,
+    "error": 6.185593681706791e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_8_4",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "phase": -5e-13,
+    "error": 6.294418630758969e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_8_5",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "phase": 5e-13,
+    "error": 6.149318698689399e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_8_6",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "phase": -1e-12,
+    "error": 6.24414540073559e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_8_7",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "phase": 1e-12,
+    "error": 6.076768743756844e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_8_8",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "phase": -2e-12,
+    "error": 6.212816761053119e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_8_9",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "phase": 2e-12,
+    "error": 6.178137723633625e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_8_10",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "phase": -4e-12,
+    "error": 5.967037886023263e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_8_11",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      8
+    ],
+    "phase": 4e-12,
+    "error": 6.072262070944134e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_9_0",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "phase": -1e-13,
+    "error": 6.236378657931141e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_9_1",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "phase": 1e-13,
+    "error": 6.207358682619457e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_9_2",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "phase": -2.5e-13,
+    "error": 6.258143647741576e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_9_3",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "phase": 2.5e-13,
+    "error": 6.185593681706791e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_9_4",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "phase": -5e-13,
+    "error": 6.294418630758969e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_9_5",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "phase": 5e-13,
+    "error": 6.149318698689399e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_9_6",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "phase": -1e-12,
+    "error": 6.24414540073559e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_9_7",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "phase": 1e-12,
+    "error": 6.076768743756844e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_9_8",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "phase": -2e-12,
+    "error": 6.212816761053119e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_9_9",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "phase": 2e-12,
+    "error": 6.178137723633625e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_9_10",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "phase": -4e-12,
+    "error": 6.204572655654772e-08
+  },
+  {
+    "tag": "boothglobal_f8_w27_16_9_11",
+    "frac": 8,
+    "widths": [
+      27,
+      16,
+      9
+    ],
+    "phase": 4e-12,
+    "error": 6.072262070944134e-08
+  }
+]

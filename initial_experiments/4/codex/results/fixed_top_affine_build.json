@@ -1,0 +1,7 @@
+{
+  "status": "BUILT",
+  "scope": "restoration modulo2^26 with fixed normalized top bit; requires full native verification",
+  "Q": 90,
+  "T": 1804,
+  "output": "candidates/fixed_top_affine.kmb"
+}

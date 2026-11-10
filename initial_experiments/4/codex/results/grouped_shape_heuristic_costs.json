@@ -1,0 +1,134 @@
+[
+  {
+    "R": 1,
+    "B": 719,
+    "C": 350,
+    "brot": 7,
+    "heuristic": {
+      "outer_state_prep_toffoli": 317,
+      "inner_state_prep_toffoli": 17333,
+      "givens_rotations_toffoli": 1950,
+      "outer_state_prep_persistent_qubits": 40,
+      "outer_state_prep_temporary_qubits": 90,
+      "outer_state_prep_qubits": 130,
+      "inner_state_prep_persistent_qubits": 45,
+      "inner_state_prep_temporary_qubits": 337,
+      "inner_state_prep_qubits": 382,
+      "persistent_qubits": 85,
+      "temporary_qubits": 337,
+      "toffoli": 19600,
+      "qubits": 422
+    },
+    "angle_rows": 795
+  },
+  {
+    "R": 1,
+    "B": 719,
+    "C": 350,
+    "brot": 8,
+    "heuristic": {
+      "outer_state_prep_toffoli": 317,
+      "inner_state_prep_toffoli": 17333,
+      "givens_rotations_toffoli": 2250,
+      "outer_state_prep_persistent_qubits": 40,
+      "outer_state_prep_temporary_qubits": 90,
+      "outer_state_prep_qubits": 130,
+      "inner_state_prep_persistent_qubits": 45,
+      "inner_state_prep_temporary_qubits": 337,
+      "inner_state_prep_qubits": 382,
+      "persistent_qubits": 85,
+      "temporary_qubits": 337,
+      "toffoli": 19900,
+      "qubits": 422
+    },
+    "angle_rows": 795
+  },
+  {
+    "R": 10,
+    "B": 64,
+    "C": 35,
+    "brot": 7,
+    "heuristic": {
+      "outer_state_prep_toffoli": 317,
+      "inner_state_prep_toffoli": 2476,
+      "givens_rotations_toffoli": 1950,
+      "outer_state_prep_persistent_qubits": 40,
+      "outer_state_prep_temporary_qubits": 90,
+      "outer_state_prep_qubits": 130,
+      "inner_state_prep_persistent_qubits": 42,
+      "inner_state_prep_temporary_qubits": 271,
+      "inner_state_prep_qubits": 313,
+      "persistent_qubits": 82,
+      "temporary_qubits": 271,
+      "toffoli": 4743,
+      "qubits": 353
+    },
+    "angle_rows": 716
+  },
+  {
+    "R": 10,
+    "B": 64,
+    "C": 35,
+    "brot": 8,
+    "heuristic": {
+      "outer_state_prep_toffoli": 317,
+      "inner_state_prep_toffoli": 2048,
+      "givens_rotations_toffoli": 2250,
+      "outer_state_prep_persistent_qubits": 40,
+      "outer_state_prep_temporary_qubits": 90,
+      "outer_state_prep_qubits": 130,
+      "inner_state_prep_persistent_qubits": 42,
+      "inner_state_prep_temporary_qubits": 543,
+      "inner_state_prep_qubits": 585,
+      "persistent_qubits": 82,
+      "temporary_qubits": 543,
+      "toffoli": 4615,
+      "qubits": 625
+    },
+    "angle_rows": 716
+  },
+  {
+    "R": 16,
+    "B": 64,
+    "C": 24,
+    "brot": 7,
+    "heuristic": {
+      "outer_state_prep_toffoli": 327,
+      "inner_state_prep_toffoli": 2663,
+      "givens_rotations_toffoli": 1950,
+      "outer_state_prep_persistent_qubits": 40,
+      "outer_state_prep_temporary_qubits": 90,
+      "outer_state_prep_qubits": 130,
+      "inner_state_prep_persistent_qubits": 42,
+      "inner_state_prep_temporary_qubits": 271,
+      "inner_state_prep_qubits": 313,
+      "persistent_qubits": 82,
+      "temporary_qubits": 271,
+      "toffoli": 4940,
+      "qubits": 353
+    },
+    "angle_rows": 1100
+  },
+  {
+    "R": 16,
+    "B": 64,
+    "C": 24,
+    "brot": 8,
+    "heuristic": {
+      "outer_state_prep_toffoli": 327,
+      "inner_state_prep_toffoli": 2167,
+      "givens_rotations_toffoli": 2250,
+      "outer_state_prep_persistent_qubits": 40,
+      "outer_state_prep_temporary_qubits": 90,
+      "outer_state_prep_qubits": 130,
+      "inner_state_prep_persistent_qubits": 42,
+      "inner_state_prep_temporary_qubits": 543,
+      "inner_state_prep_qubits": 585,
+      "persistent_qubits": 82,
+      "temporary_qubits": 543,
+      "toffoli": 4744,
+      "qubits": 625
+    },
+    "angle_rows": 1100
+  }
+]

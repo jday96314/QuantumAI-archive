@@ -1,0 +1,95 @@
+{
+  "scope": "unquantized separate spectral dictionaries of existing 350 factor columns; no native verification",
+  "rows": [
+    {
+      "B": 4,
+      "error_2": 6.342689765557502,
+      "Lambda": 646.4978366932412,
+      "gap": 732.2249301926184,
+      "lambda_eff": 640.788825034574,
+      "heuristic_T": 3516,
+      "heuristic_Q": 180,
+      "angle_rows": 1476
+    },
+    {
+      "B": 8,
+      "error_2": 4.459785331097044,
+      "Lambda": 537.8946799005238,
+      "gap": 514.0865020794297,
+      "lambda_eff": 537.3675253810246,
+      "heuristic_T": 3617,
+      "heuristic_Q": 302,
+      "angle_rows": 2876
+    },
+    {
+      "B": 12,
+      "error_2": 3.522910833770357,
+      "Lambda": 479.7072114810282,
+      "gap": 397.1820507405605,
+      "lambda_eff": 472.55540055284933,
+      "heuristic_T": 3650,
+      "heuristic_Q": 318,
+      "angle_rows": 4276
+    },
+    {
+      "B": 16,
+      "error_2": 2.8274749820636047,
+      "Lambda": 438.3453160993739,
+      "gap": 314.1095709463915,
+      "lambda_eff": 420.3713783936095,
+      "heuristic_T": 3794,
+      "heuristic_Q": 321,
+      "angle_rows": 5676
+    },
+    {
+      "B": 24,
+      "error_2": 1.8157580988175492,
+      "Lambda": 380.6408412371825,
+      "gap": 198.22373822498082,
+      "lambda_eff": 334.08299948723186,
+      "heuristic_T": 3843,
+      "heuristic_Q": 592,
+      "angle_rows": 8476
+    },
+    {
+      "B": 32,
+      "error_2": 1.1273896762049438,
+      "Lambda": 341.94947082373335,
+      "gap": 120.55370395466468,
+      "lambda_eff": 260.60190906646915,
+      "heuristic_T": 4139,
+      "heuristic_Q": 595,
+      "angle_rows": 11276
+    },
+    {
+      "B": 48,
+      "error_2": 0.3837775165572606,
+      "Lambda": 301.3319818742955,
+      "gap": 38.05679984011317,
+      "lambda_eff": 146.58493041632522,
+      "heuristic_T": 4225,
+      "heuristic_Q": 627,
+      "angle_rows": 16876
+    },
+    {
+      "B": 60,
+      "error_2": 0.12354208237682993,
+      "Lambda": 289.9855553731369,
+      "gap": 13.040662535991942,
+      "lambda_eff": 85.98342082337119,
+      "heuristic_T": 4249,
+      "heuristic_Q": 627,
+      "angle_rows": 21076
+    },
+    {
+      "B": 76,
+      "error_2": 0.019995288969210982,
+      "Lambda": 286.8739056749321,
+      "gap": 3.9151382399895738,
+      "lambda_eff": 47.23318419170942,
+      "heuristic_T": 4672,
+      "heuristic_Q": 662,
+      "angle_rows": 26676
+    }
+  ]
+}

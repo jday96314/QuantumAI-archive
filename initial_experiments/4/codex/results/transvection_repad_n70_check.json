@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "scope": "N70 squarefree cofactor padding, arbitrary coefficients and arbitrary flag states, independent polynomial model, inverse and fresh compositions, scratch and phase; no full decoder acceptance",
+  "N": 70,
+  "shots": 4096,
+  "circuits": [
+    {
+      "which": "forward",
+      "status": "PASS",
+      "Q": 875,
+      "T": 7140,
+      "failures": [],
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "inverse",
+      "status": "PASS",
+      "Q": 875,
+      "T": 7140,
+      "failures": [],
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "both",
+      "status": "PASS",
+      "Q": 875,
+      "T": 14280,
+      "failures": [],
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "inverse_both",
+      "status": "PASS",
+      "Q": 875,
+      "T": 14280,
+      "failures": [],
+      "scratch_errors": [],
+      "phase_errors": []
+    }
+  ],
+  "seconds": 11.53761887550354
+}

@@ -1,0 +1,78 @@
+{
+  "widths": [
+    27,
+    18,
+    9
+  ],
+  "bounds": {
+    "minimum": 147392,
+    "maximum": 8388606,
+    "correction": 0,
+    "max_relative_error": 5.872485453473075e-08
+  },
+  "rows": [
+    {
+      "Q": 90,
+      "T": 1846,
+      "estimate": 187740,
+      "limit": 90,
+      "keep": 4,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 88,
+      "T": 1901,
+      "estimate": 188408,
+      "limit": 88,
+      "keep": 3,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 92,
+      "T": 1810,
+      "estimate": 188600,
+      "limit": 92,
+      "keep": 4,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 90,
+      "T": 1863,
+      "estimate": 189270,
+      "limit": 90,
+      "keep": 3,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 94,
+      "T": 1782,
+      "estimate": 190068,
+      "limit": 94,
+      "keep": 4,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 92,
+      "T": 1827,
+      "estimate": 190164,
+      "limit": 92,
+      "keep": 3,
+      "delay": 2,
+      "product": 17
+    },
+    {
+      "Q": 94,
+      "T": 1799,
+      "estimate": 191666,
+      "limit": 94,
+      "keep": 3,
+      "delay": 2,
+      "product": 17
+    }
+  ]
+}

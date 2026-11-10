@@ -1,0 +1,77 @@
+{
+  "status": "PASS",
+  "overall_score": 9.332656488711933,
+  "target_reached": false,
+  "archive_unchanged": true,
+  "selected_source_manifest_unchanged": true,
+  "sha256": {
+    "submission.zip": "81c3ea50eb2a3e11b80744cba015915e9db12ba324c01783817ecba153f62d20",
+    "candidates/affine_best.kmb": "89dc5547e068941b138fab5a1d68d33877ab43230a1b180043a84282852d34c1",
+    "candidates/cubic_trace_product_n70_m4095.kmb": "4989da5cb633529e8851b9aa0c8c52abeb8990423a3a9463a70f673661a909c0"
+  },
+  "new_component_checks": {
+    "results/lookahead_norm_reciprocal_check.json": "PASS",
+    "results/lookahead_six_quantum_check.json": "PASS",
+    "results/opening_lookahead_check.json": "PASS",
+    "results/physical_factor_rank_bound.json": "PASS"
+  },
+  "rejected_prefix_profile": {
+    "scope": "resource-only initial four-degree prefix; no full decoder score",
+    "N": 70,
+    "rows": [
+      {
+        "baseline": true,
+        "Q": 943,
+        "T": 20360
+      },
+      {
+        "baseline": false,
+        "Q": 970,
+        "T": 28114
+      }
+    ],
+    "seconds": 7.316478967666626
+  },
+  "next_work": "Seek a cofactor adapter or new representation that avoids the six-word Bennett copy and repeated head transforms; current opening construction is more expensive and excluded.",
+  "quadratic_cover_search": {
+    "status": "SCREENED_NONWINNING",
+    "scope": "native GF12 basis: 24-input quadratic Boolean AND-cover search allowing mixed left/right forms and free linear repair; not an optimality proof",
+    "best_ANDs": 42,
+    "initial_ANDs": 42,
+    "proposals": 64000000,
+    "chains": 64,
+    "seed": 1174819,
+    "expansion_cap": 4,
+    "restart_every": 10000,
+    "coefficient_checks": 276,
+    "random_field_checks": 8192,
+    "linear_correction": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "source_sha256": "0467dcc886f452b9ee8955839152f753a3272e0b6004f76060132f65fabcaaf4"
+  },
+  "all_own_jobs_terminal": true
+}

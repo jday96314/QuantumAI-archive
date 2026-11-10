@@ -1,0 +1,234 @@
+[
+  {
+    "limit": 90,
+    "keep": 4,
+    "delay": 2,
+    "Q": 90,
+    "T": 1816,
+    "estimate": 185026.59,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/affine_center_q90_k4_d2.kmb"
+  },
+  {
+    "limit": 87,
+    "keep": 2,
+    "delay": 2,
+    "Q": 87,
+    "T": 1899,
+    "estimate": 186080.037,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/affine_center_q87_k2_d2.kmb"
+  },
+  {
+    "limit": 92,
+    "keep": 4,
+    "delay": 0,
+    "Q": 92,
+    "T": 1785,
+    "estimate": 186286.29200000002,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/affine_center_q92_k4_d0.kmb"
+  },
+  {
+    "limit": 88,
+    "keep": 2,
+    "delay": 2,
+    "Q": 88,
+    "T": 1879,
+    "estimate": 186458.888,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/affine_center_q88_k2_d2.kmb"
+  },
+  {
+    "limit": 92,
+    "keep": 4,
+    "delay": 2,
+    "Q": 92,
+    "T": 1788,
+    "estimate": 186562.29200000002,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/affine_center_q92_k4_d2.kmb"
+  },
+  {
+    "limit": 88,
+    "keep": 4,
+    "delay": 4,
+    "Q": 88,
+    "T": 1886,
+    "estimate": 187074.888,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/affine_center_q88_k4_d4.kmb"
+  },
+  {
+    "limit": 90,
+    "keep": 2,
+    "delay": 2,
+    "Q": 90,
+    "T": 1843,
+    "estimate": 187456.59,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/affine_center_q90_k2_d2.kmb"
+  },
+  {
+    "limit": 90,
+    "keep": 2,
+    "delay": 0,
+    "Q": 90,
+    "T": 1848,
+    "estimate": 187906.59,
+    "path": "/media/shared/ExpansionDrive2/QuantumAI/initial_experiments/4/codex/candidates/affine_center_q90_k2_d0.kmb"
+  },
+  {
+    "limit": 87,
+    "keep": 2,
+    "delay": 4,
+    "Q": 87,
+    "T": 1929,
+    "estimate": 188690.037
+  },
+  {
+    "limit": 92,
+    "keep": 2,
+    "delay": 0,
+    "Q": 92,
+    "T": 1812,
+    "estimate": 188770.29200000002
+  },
+  {
+    "limit": 90,
+    "keep": 4,
+    "delay": 4,
+    "Q": 90,
+    "T": 1858,
+    "estimate": 188806.59
+  },
+  {
+    "limit": 92,
+    "keep": 2,
+    "delay": 2,
+    "Q": 92,
+    "T": 1815,
+    "estimate": 189046.29200000002
+  },
+  {
+    "limit": 88,
+    "keep": 2,
+    "delay": 4,
+    "Q": 88,
+    "T": 1913,
+    "estimate": 189450.888
+  },
+  {
+    "limit": 92,
+    "keep": 4,
+    "delay": 4,
+    "Q": 92,
+    "T": 1830,
+    "estimate": 190426.29200000002
+  },
+  {
+    "limit": 90,
+    "keep": 2,
+    "delay": 4,
+    "Q": 90,
+    "T": 1885,
+    "estimate": 191236.59
+  },
+  {
+    "limit": 87,
+    "keep": 0,
+    "delay": 2,
+    "Q": 87,
+    "T": 1969,
+    "estimate": 192170.037
+  },
+  {
+    "limit": 88,
+    "keep": 0,
+    "delay": 2,
+    "Q": 88,
+    "T": 1949,
+    "estimate": 192618.888
+  },
+  {
+    "limit": 92,
+    "keep": 2,
+    "delay": 4,
+    "Q": 92,
+    "T": 1859,
+    "estimate": 193094.29200000002
+  },
+  {
+    "limit": 87,
+    "keep": 0,
+    "delay": 0,
+    "Q": 87,
+    "T": 1980,
+    "estimate": 193127.037
+  },
+  {
+    "limit": 88,
+    "keep": 0,
+    "delay": 0,
+    "Q": 88,
+    "T": 1958,
+    "estimate": 193410.888
+  },
+  {
+    "limit": 90,
+    "keep": 0,
+    "delay": 2,
+    "Q": 90,
+    "T": 1913,
+    "estimate": 193756.59
+  },
+  {
+    "limit": 90,
+    "keep": 0,
+    "delay": 0,
+    "Q": 90,
+    "T": 1918,
+    "estimate": 194206.59
+  },
+  {
+    "limit": 87,
+    "keep": 0,
+    "delay": 4,
+    "Q": 87,
+    "T": 1999,
+    "estimate": 194780.037
+  },
+  {
+    "limit": 92,
+    "keep": 0,
+    "delay": 0,
+    "Q": 92,
+    "T": 1882,
+    "estimate": 195210.29200000002
+  },
+  {
+    "limit": 88,
+    "keep": 0,
+    "delay": 4,
+    "Q": 88,
+    "T": 1983,
+    "estimate": 195610.888
+  },
+  {
+    "limit": 92,
+    "keep": 0,
+    "delay": 2,
+    "Q": 92,
+    "T": 1887,
+    "estimate": 195670.29200000002
+  },
+  {
+    "limit": 90,
+    "keep": 0,
+    "delay": 4,
+    "Q": 90,
+    "T": 1957,
+    "estimate": 197716.59
+  },
+  {
+    "limit": 92,
+    "keep": 0,
+    "delay": 4,
+    "Q": 92,
+    "T": 1935,
+    "estimate": 200086.29200000002
+  }
+]

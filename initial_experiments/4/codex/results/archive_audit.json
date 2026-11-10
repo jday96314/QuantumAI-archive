@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "archive_sha256": "9168da25a9ac35f661885edad3e208db215bf67fa6525cca0ccc5d8831318b68",
+  "members": {
+    "dqi.kmb": "4989da5cb633529e8851b9aa0c8c52abeb8990423a3a9463a70f673661a909c0",
+    "invsqrt.kmb": "27b14e544481db8eae7bf7f7e61bef93660ada06585cb5e398d3a18af9b50af1",
+    "dfthcsos/angle_k_0.kmb": "214f1abb72409db6ef15f0f225d55525cb39b14d084d4fa84e8963863926fcad",
+    "dfthcsos/angle_k_1.kmb": "f05cf283b03d8db7f565079ec449a3f23edd5c0657eee83ae3177472b3e09248",
+    "dfthcsos/angle_k_10.kmb": "1bcf50ca7267b18fa1a35b64f1a258503bb0b99a06cf9f2c4aaee1dc43836b2c",
+    "dfthcsos/angle_k_2.kmb": "5ce53a024f5b56a131d28648ab6dd870f58c87fe202851e9edac9fcddf367359",
+    "dfthcsos/angle_k_3.kmb": "fc25ea3955fd960be25994054a39ed78bb25d6bb1dcc2a375c036a417b56f56b",
+    "dfthcsos/angle_k_4.kmb": "3d1c68e9e50c4a12a835b54ce8062b81f6c268cee978286774a7ce4dfc40f04b",
+    "dfthcsos/angle_k_5.kmb": "01b0671b1e60ab50d58d4167f5999bcd7db6343391116220c2970401eb0329f4",
+    "dfthcsos/angle_k_6.kmb": "47244956226cb0b86695a106c6f02fb9a36313632d04d72f5885319bee69be6b",
+    "dfthcsos/angle_k_7.kmb": "3b85a86f3b0886a3cfca4be9c0c8edd4bd36658ebe97bb77a590435fda61a784",
+    "dfthcsos/angle_k_8.kmb": "3cd63403df0914de76c04073c5caec3c20796adf44bfef0c8bd50d678ddeaf83",
+    "dfthcsos/angle_k_9.kmb": "0022fa4f7266accedf29c0b0927847dd78b434da175ccb438ea584f47f502971",
+    "dfthcsos/submission.npz": "6eb840206fee80682b03231d6764ec4507fcb1b83e881c6b293c2b760a8870c9"
+  },
+  "chemistry_digest": "ebf8e357a1b693fc8589d5c48a5d6fa10343dfa5944724d8f7a77b8edc2157f7",
+  "default_shots": {
+    "invsqrt": 200540928,
+    "dqi": 102400,
+    "dfthcsos": 50880
+  }
+}

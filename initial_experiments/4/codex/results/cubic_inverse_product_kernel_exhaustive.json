@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "scope": "all4096 divisors against all12 mask basis vectors; all4096 runtime masks; zero divisors and nonroot paths; source/classical-mask/scratch restoration and exact phase",
+  "shots": 61440,
+  "Q": 78,
+  "T": 88,
+  "cases": [
+    {
+      "name": "basis_mask_0",
+      "status": "PASS",
+      "shots": 4096
+    },
+    {
+      "name": "basis_mask_1",
+      "status": "PASS",
+      "shots": 4096
+    },
+    {
+      "name": "basis_mask_2",
+      "status": "PASS",
+      "shots": 4096
+    },
+    {
+      "name": "basis_mask_3",
+      "status": "PASS",
+      "shots": 4096
+    },
+    {
+      "name": "basis_mask_4",
+      "status": "PASS",
+      "shots": 4096
+    },
+    {
+      "name": "basis_mask_5",
+      "status": "PASS",
+      "shots": 4096
+    },
+    {
+      "name": "basis_mask_6",
+      "status": "PASS",
+      "shots": 4096
+    },
+    {
+      "name": "basis_mask_7",
+      "status": "PASS",
+      "shots": 4096
+    },
+    {
+      "name": "basis_mask_8",
+      "status": "PASS",
+      "shots": 4096
+    },
+    {
+      "name": "basis_mask_9",
+      "status": "PASS",
+      "shots": 4096
+    },
+    {
+      "name": "basis_mask_10",
+      "status": "PASS",
+      "shots": 4096
+    },
+    {
+      "name": "basis_mask_11",
+      "status": "PASS",
+      "shots": 4096
+    },
+    {
+      "name": "all_masks",
+      "status": "PASS",
+      "shots": 4096
+    },
+    {
+      "name": "all_zero_divisors",
+      "status": "PASS",
+      "shots": 4096
+    },
+    {
+      "name": "nonroots",
+      "status": "PASS",
+      "shots": 4096
+    }
+  ]
+}

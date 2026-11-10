@@ -1,0 +1,22 @@
+[
+  {
+    "widths": [
+      27,
+      17,
+      7
+    ],
+    "max_relative_error": 5.543395475982038e-08,
+    "worst_x": 1046373,
+    "classical_all_x_pass": true
+  },
+  {
+    "widths": [
+      27,
+      17,
+      8
+    ],
+    "max_relative_error": 5.1229309017131186e-08,
+    "worst_x": 2932827,
+    "classical_all_x_pass": true
+  }
+]

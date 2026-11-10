@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "scope": "generic degree-one Euclid path; exact forward, inverse, full-Euclid comparison",
+  "cases": [
+    {
+      "N": 4,
+      "trials": 100
+    },
+    {
+      "N": 6,
+      "trials": 100
+    },
+    {
+      "N": 10,
+      "trials": 100
+    },
+    {
+      "N": 20,
+      "trials": 30
+    },
+    {
+      "N": 36,
+      "trials": 10
+    },
+    {
+      "N": 70,
+      "trials": 10
+    }
+  ],
+  "rejected_degree_gaps": 1
+}

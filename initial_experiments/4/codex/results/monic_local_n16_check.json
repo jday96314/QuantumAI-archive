@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "scope": "generic local Euclid quotient block, complete forward/inverse/composition, no degree gaps or decoder phase",
+  "N": 16,
+  "shots": 512,
+  "skipped_degree_gaps": 3,
+  "circuits": [
+    {
+      "which": "forward",
+      "Q": 237,
+      "T": 12306,
+      "extra_qubits": 45
+    },
+    {
+      "which": "inverse",
+      "Q": 237,
+      "T": 12306,
+      "extra_qubits": 45
+    },
+    {
+      "which": "both",
+      "Q": 237,
+      "T": 24612,
+      "extra_qubits": 45
+    }
+  ],
+  "seconds": 41.35314893722534
+}

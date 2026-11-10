@@ -1,0 +1,16 @@
+{
+  "status": "BUILT",
+  "scope": "experimental complete phase decoder; requires native verification",
+  "N": 14,
+  "M": 63,
+  "width": 3,
+  "serial_after": 22,
+  "linear_padding": true,
+  "virtual_zero": true,
+  "virtual_lead": true,
+  "low_inverse": true,
+  "lazy_flags": true,
+  "Q": 274,
+  "T": 44758,
+  "seconds": 5.310675382614136
+}

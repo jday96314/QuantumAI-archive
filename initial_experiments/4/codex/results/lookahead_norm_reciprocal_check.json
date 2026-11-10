@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "scope": "quadratic norm reciprocal with nonzero p, including zero norm and zero pair; forward/inverse/composition, scratch and phase; no decoder acceptance",
+  "shots": 4096,
+  "circuits": [
+    {
+      "which": "forward",
+      "status": "PASS",
+      "Q": 101,
+      "T": 854,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "inverse",
+      "status": "PASS",
+      "Q": 101,
+      "T": 854,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    },
+    {
+      "which": "both",
+      "status": "PASS",
+      "Q": 101,
+      "T": 1708,
+      "failures": {},
+      "scratch_errors": [],
+      "phase_errors": []
+    }
+  ],
+  "seconds": 1.1600666046142578
+}

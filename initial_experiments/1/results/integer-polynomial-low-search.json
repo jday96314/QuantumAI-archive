@@ -1,0 +1,15 @@
+[
+  {
+    "frac": 7,
+    "widths": [
+      28,
+      19,
+      10
+    ],
+    "qubits": 125,
+    "toffolis": 2446,
+    "max_relative_error": 5.030113880977183e-08,
+    "circuit": "initial_experiments/candidates/poly-integer-low-28-19-10.kmb",
+    "table": "initial_experiments/candidates/poly-integer-low-28-19-10.npy"
+  }
+]

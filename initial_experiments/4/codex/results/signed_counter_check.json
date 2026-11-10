@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "width": 1,
+      "subtract": false,
+      "shots": 2048,
+      "Q": 20,
+      "T": 9
+    },
+    {
+      "width": 1,
+      "subtract": true,
+      "shots": 2048,
+      "Q": 20,
+      "T": 9
+    },
+    {
+      "width": 2,
+      "subtract": false,
+      "shots": 2048,
+      "Q": 21,
+      "T": 11
+    },
+    {
+      "width": 2,
+      "subtract": true,
+      "shots": 2048,
+      "Q": 21,
+      "T": 11
+    }
+  ]
+}

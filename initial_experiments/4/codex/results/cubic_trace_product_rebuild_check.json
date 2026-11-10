@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "independent full N70/M4095 source reexecution and canonical KMB byte hash",
+  "original": "candidates/cubic_trace_product_n70_m4095.kmb",
+  "rebuilt": "candidates/cubic_trace_product_n70_m4095_rebuilt.kmb",
+  "original_sha256": "4989da5cb633529e8851b9aa0c8c52abeb8990423a3a9463a70f673661a909c0",
+  "rebuilt_sha256": "4989da5cb633529e8851b9aa0c8c52abeb8990423a3a9463a70f673661a909c0"
+}

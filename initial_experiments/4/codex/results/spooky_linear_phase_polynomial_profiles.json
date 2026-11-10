@@ -1,0 +1,77 @@
+[
+  {
+    "status": "CAPACITY",
+    "budget": 4,
+    "reason": "computation limit 20000"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 8,
+    "reason": "computation limit 20000"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 12,
+    "reason": "computation limit 20000"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 16,
+    "reason": "computation limit 20000"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 24,
+    "reason": "computation limit 20000"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 32,
+    "reason": "computation limit 20000"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 48,
+    "reason": "computation limit 20000"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 64,
+    "reason": "computation limit 20000"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 96,
+    "reason": "computation limit 20000"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 128,
+    "reason": "computation limit 20000"
+  },
+  {
+    "status": "CAPACITY",
+    "budget": 256,
+    "reason": "computation limit 20000"
+  },
+  {
+    "status": "PLANNED",
+    "budget": 512,
+    "Q_model": 595,
+    "computes": 1808,
+    "workspace_peak": 521,
+    "ghost_events": 1025,
+    "linear_measurements": 4201,
+    "actions": 94894
+  },
+  {
+    "status": "PLANNED",
+    "budget": 800,
+    "Q_model": 858,
+    "computes": 783,
+    "workspace_peak": 784,
+    "ghost_events": 0,
+    "linear_measurements": 2550,
+    "actions": 56340
+  }
+]

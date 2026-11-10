@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "scope": "first monic Euclidean step and its inverse; includes armed zero pivots",
+  "N": 70,
+  "shots": 512,
+  "Q": 875,
+  "forward_T": 3012,
+  "inverse_T": 3012
+}

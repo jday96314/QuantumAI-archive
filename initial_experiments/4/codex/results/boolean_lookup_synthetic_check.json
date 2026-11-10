@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "shots": 512,
+  "Q": 21,
+  "T": 18,
+  "ANDs": 18,
+  "peak_AND_registers": 4,
+  "network_ANDs": 24
+}

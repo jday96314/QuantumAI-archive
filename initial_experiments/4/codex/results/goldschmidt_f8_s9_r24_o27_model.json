@@ -1,0 +1,19 @@
+{
+  "status": "MODEL_FAIL",
+  "scope": "all-x integer approximation only; no circuit",
+  "parameters": {
+    "frac": 8,
+    "seedbits": 9,
+    "resbits": 24,
+    "outbits": 27
+  },
+  "worst_relative_error": 6.17101448829871e-08,
+  "worst_x": 866314,
+  "residual_min": -78765,
+  "residual_max": 80016,
+  "table_bits": [
+    9,
+    18,
+    17
+  ]
+}

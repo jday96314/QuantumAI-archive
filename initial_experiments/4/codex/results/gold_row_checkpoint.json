@@ -1,0 +1,470 @@
+{
+  "status": "RESEARCH_CHECKPOINT",
+  "scope": "complete-domain numerical models and isolated reversible components; no new seed-residual submission or score",
+  "input_domain": [
+    1,
+    3133452
+  ],
+  "numerical_models": [
+    {
+      "status": "MODEL_FAIL",
+      "scope": "all-x Booth-row approximation with a small square; no quantum circuit",
+      "parameters": {
+        "frac": 7,
+        "seedbits": 10,
+        "resbits": 28,
+        "outbits": 27,
+        "squarebits": 18,
+        "monomial": true
+      },
+      "worst_relative_error": 6.093752835667487e-08,
+      "worst_x": 606149,
+      "residual_range": [
+        -1294433,
+        1309120
+      ],
+      "corrected_residual_range": [
+        -1289752,
+        1313906
+      ],
+      "square_input_range": [
+        -1264,
+        1278
+      ],
+      "evidence": "results/gold_row_f7_s10_r28_o27_sq18_monomial_model.json"
+    },
+    {
+      "status": "MODEL_PASS",
+      "scope": "all-x Booth-row approximation with a small square; no quantum circuit",
+      "parameters": {
+        "frac": 7,
+        "seedbits": 10,
+        "resbits": 28,
+        "outbits": 28,
+        "squarebits": 18
+      },
+      "worst_relative_error": 5.0952758123834485e-08,
+      "worst_x": 2359395,
+      "residual_range": [
+        -1294433,
+        1309120
+      ],
+      "corrected_residual_range": [
+        -1289752,
+        1313905
+      ],
+      "square_input_range": [
+        -1264,
+        1278
+      ],
+      "evidence": "results/gold_row_f7_s10_r28_o28_sq18_model.json"
+    },
+    {
+      "status": "MODEL_FAIL",
+      "scope": "all-x Booth-row approximation with a small square; no quantum circuit",
+      "parameters": {
+        "frac": 7,
+        "seedbits": 10,
+        "resbits": 29,
+        "outbits": 27,
+        "squarebits": 18,
+        "monomial": true
+      },
+      "worst_relative_error": 6.041999245365304e-08,
+      "worst_x": 2359703,
+      "residual_range": [
+        -2588866,
+        2618240
+      ],
+      "corrected_residual_range": [
+        -2579504,
+        2627811
+      ],
+      "square_input_range": [
+        -1264,
+        1278
+      ],
+      "evidence": "results/gold_row_f7_s10_r29_o27_sq18_monomial_model.json"
+    },
+    {
+      "status": "MODEL_PASS",
+      "scope": "all-x Booth-row approximation with a small square; no quantum circuit",
+      "parameters": {
+        "frac": 7,
+        "seedbits": 10,
+        "resbits": 29,
+        "outbits": 28,
+        "squarebits": 18
+      },
+      "worst_relative_error": 5.058547780656397e-08,
+      "worst_x": 2424753,
+      "residual_range": [
+        -2588866,
+        2618240
+      ],
+      "corrected_residual_range": [
+        -2579504,
+        2627810
+      ],
+      "square_input_range": [
+        -1264,
+        1278
+      ],
+      "evidence": "results/gold_row_f7_s10_r29_o28_sq18_model.json"
+    },
+    {
+      "status": "MODEL_PASS",
+      "scope": "all-x Booth-row approximation with a small square; no quantum circuit",
+      "parameters": {
+        "frac": 7,
+        "seedbits": 10,
+        "resbits": 29,
+        "outbits": 28,
+        "squarebits": 18,
+        "monomial": true,
+        "floor": true
+      },
+      "worst_relative_error": 5.742852082768479e-08,
+      "worst_x": 606194,
+      "residual_range": [
+        -2588866,
+        2618240
+      ],
+      "corrected_residual_range": [
+        -2579491,
+        2627811
+      ],
+      "square_input_range": [
+        -1265,
+        1278
+      ],
+      "evidence": "results/gold_row_f7_s10_r29_o28_sq18_monomial_floor_model.json"
+    },
+    {
+      "status": "MODEL_PASS",
+      "scope": "all-x Booth-row approximation with a small square; no quantum circuit",
+      "parameters": {
+        "frac": 7,
+        "seedbits": 10,
+        "resbits": 30,
+        "outbits": 28,
+        "squarebits": 18,
+        "monomial": true
+      },
+      "worst_relative_error": 4.964920430339248e-08,
+      "worst_x": 528306,
+      "residual_range": [
+        -5177731,
+        5236480
+      ],
+      "corrected_residual_range": [
+        -5159008,
+        5255621
+      ],
+      "square_input_range": [
+        -1264,
+        1278
+      ],
+      "evidence": "results/gold_row_f7_s10_r30_o28_sq18_monomial_model.json"
+    },
+    {
+      "status": "MODEL_PASS",
+      "scope": "all-x Booth-row approximation with a small square; no quantum circuit",
+      "parameters": {
+        "frac": 8,
+        "seedbits": 10,
+        "resbits": 27,
+        "outbits": 27,
+        "squarebits": 18,
+        "monomial": true,
+        "floor": true
+      },
+      "worst_relative_error": 4.438247414029206e-08,
+      "worst_x": 3097158,
+      "residual_range": [
+        -431857,
+        419803
+      ],
+      "corrected_residual_range": [
+        -430813,
+        420787
+      ],
+      "square_input_range": [
+        -844,
+        819
+      ],
+      "evidence": "results/gold_row_f8_s10_r27_o27_sq18_monomial_floor_model.json"
+    },
+    {
+      "status": "MODEL_PASS",
+      "scope": "all-x Booth-row approximation with a small square; no quantum circuit",
+      "parameters": {
+        "frac": 8,
+        "seedbits": 10,
+        "resbits": 27,
+        "outbits": 27,
+        "squarebits": 18,
+        "monomial": true
+      },
+      "worst_relative_error": 3.852074337284961e-08,
+      "worst_x": 1018409,
+      "residual_range": [
+        -431857,
+        419803
+      ],
+      "corrected_residual_range": [
+        -430816,
+        420788
+      ],
+      "square_input_range": [
+        -843,
+        820
+      ],
+      "evidence": "results/gold_row_f8_s10_r27_o27_sq18_monomial_model.json"
+    },
+    {
+      "status": "MODEL_PASS",
+      "scope": "all-x Booth-row approximation with a small square; no quantum circuit",
+      "parameters": {
+        "frac": 8,
+        "seedbits": 10,
+        "resbits": 28,
+        "outbits": 27,
+        "squarebits": 18
+      },
+      "worst_relative_error": 3.638788181881125e-08,
+      "worst_x": 2924034,
+      "residual_range": [
+        -863711,
+        839606
+      ],
+      "corrected_residual_range": [
+        -861629,
+        841576
+      ],
+      "square_input_range": [
+        -843,
+        820
+      ],
+      "evidence": "results/gold_row_f8_s10_r28_o27_sq18_model.json"
+    },
+    {
+      "status": "MODEL_PASS",
+      "scope": "all-x Booth-row approximation with a small square; no quantum circuit",
+      "parameters": {
+        "frac": 8,
+        "seedbits": 10,
+        "resbits": 28,
+        "outbits": 27,
+        "squarebits": 18,
+        "monomial": true,
+        "floor": true
+      },
+      "worst_relative_error": 4.377999363036622e-08,
+      "worst_x": 2392051,
+      "residual_range": [
+        -863711,
+        839606
+      ],
+      "corrected_residual_range": [
+        -861624,
+        841571
+      ],
+      "square_input_range": [
+        -844,
+        819
+      ],
+      "evidence": "results/gold_row_f8_s10_r28_o27_sq18_monomial_floor_model.json"
+    },
+    {
+      "status": "MODEL_PASS",
+      "scope": "all-x Booth-row approximation with a small square; no quantum circuit",
+      "parameters": {
+        "frac": 8,
+        "seedbits": 10,
+        "resbits": 28,
+        "outbits": 27,
+        "squarebits": 18,
+        "monomial": true
+      },
+      "worst_relative_error": 3.87925824796298e-08,
+      "worst_x": 937793,
+      "residual_range": [
+        -863711,
+        839606
+      ],
+      "corrected_residual_range": [
+        -861629,
+        841576
+      ],
+      "square_input_range": [
+        -843,
+        820
+      ],
+      "evidence": "results/gold_row_f8_s10_r28_o27_sq18_monomial_model.json"
+    },
+    {
+      "status": "MODEL_PASS",
+      "scope": "all-x Booth-row approximation with a small square; no quantum circuit",
+      "parameters": {
+        "frac": 8,
+        "seedbits": 10,
+        "resbits": 29,
+        "outbits": 28,
+        "squarebits": 18,
+        "monomial": true
+      },
+      "worst_relative_error": 2.4330438774811114e-08,
+      "worst_x": 246198,
+      "residual_range": [
+        -1727423,
+        1679212
+      ],
+      "corrected_residual_range": [
+        -1723258,
+        1683153
+      ],
+      "square_input_range": [
+        -843,
+        820
+      ],
+      "evidence": "results/gold_row_f8_s10_r29_o28_sq18_monomial_model.json"
+    },
+    {
+      "status": "MODEL_PASS",
+      "scope": "all-x Booth-row approximation with a small square; no quantum circuit",
+      "parameters": {
+        "frac": 8,
+        "seedbits": 10,
+        "resbits": 30,
+        "outbits": 28,
+        "squarebits": 18,
+        "monomial": true
+      },
+      "worst_relative_error": 2.3875163401854138e-08,
+      "worst_x": 2310118,
+      "residual_range": [
+        -3454846,
+        3358424
+      ],
+      "corrected_residual_range": [
+        -3446518,
+        3366304
+      ],
+      "square_input_range": [
+        -843,
+        820
+      ],
+      "evidence": "results/gold_row_f8_s10_r30_o28_sq18_monomial_model.json"
+    }
+  ],
+  "square_correction": {
+    "status": "PASS",
+    "scope": "split monomial square and signed carry integration, arbitrary incoming counter, inverse and fresh compositions, scratch and phase; no full inverse-square-root acceptance",
+    "parameters": {
+      "bits": 21,
+      "split": 10,
+      "shift": 10,
+      "shots": 16384,
+      "ambient": 0,
+      "limit": null
+    },
+    "correction_range": [
+      0,
+      3072
+    ],
+    "circuits": [
+      {
+        "which": "forward",
+        "status": "PASS",
+        "Q": 36,
+        "T": 501,
+        "failures": {},
+        "scratch_errors": [],
+        "phase_errors": []
+      },
+      {
+        "which": "inverse",
+        "status": "PASS",
+        "Q": 36,
+        "T": 501,
+        "failures": {},
+        "scratch_errors": [],
+        "phase_errors": []
+      },
+      {
+        "which": "both",
+        "status": "PASS",
+        "Q": 36,
+        "T": 1002,
+        "failures": {},
+        "scratch_errors": [],
+        "phase_errors": []
+      },
+      {
+        "which": "inverse_both",
+        "status": "PASS",
+        "Q": 36,
+        "T": 1002,
+        "failures": {},
+        "scratch_errors": [],
+        "phase_errors": []
+      }
+    ]
+  },
+  "square_with_ambient": {
+    "status": "PASS",
+    "scope": "split monomial square and signed carry integration, arbitrary incoming counter, inverse and fresh compositions, scratch and phase; no full inverse-square-root acceptance",
+    "parameters": {
+      "bits": 20,
+      "split": 9,
+      "shift": 11,
+      "shots": 16384,
+      "ambient": 37,
+      "limit": 90
+    },
+    "correction_range": [
+      0,
+      1536
+    ],
+    "circuits": [
+      {
+        "which": "forward",
+        "status": "PASS",
+        "Q": 71,
+        "T": 425,
+        "failures": {},
+        "scratch_errors": [],
+        "phase_errors": []
+      },
+      {
+        "which": "inverse",
+        "status": "PASS",
+        "Q": 71,
+        "T": 425,
+        "failures": {},
+        "scratch_errors": [],
+        "phase_errors": []
+      },
+      {
+        "which": "both",
+        "status": "PASS",
+        "Q": 71,
+        "T": 850,
+        "failures": {},
+        "scratch_errors": [],
+        "phase_errors": []
+      },
+      {
+        "which": "inverse_both",
+        "status": "PASS",
+        "Q": 71,
+        "T": 850,
+        "failures": {},
+        "scratch_errors": [],
+        "phase_errors": []
+      }
+    ]
+  },
+  "next_constraint": "The monomial square alone costs425T per direction in the smaller model. A complete seed-residual circuit still needs residual products, outer products, table replay and phasing; do not infer a resource win from MODEL_PASS."
+}
